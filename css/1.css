@@ -1,0 +1,190 @@
+/**
+ * CSS For Style: wtcBB Default
+ * Style ID: 1
+ */
+
+body {
+	background: #577899;
+	color: #fff;
+	font-family: verdana, sans-serif;
+	font-size: 80%;
+}
+
+	body a {
+		color: #dfdcdf;
+		font-weight: bold;
+		text-decoration: underline;
+	}
+
+	body a:visited {
+	}
+
+	body a:hover {
+		color: #fff;
+	}
+
+.page {
+	background: #fff;
+	color: #282828;
+	margin: 10px 20px;	border-style: inset !important;
+}
+
+	.page a {
+		color: #59798c;
+	}
+
+	.page a:visited {
+	}
+
+	.page a:hover {
+		color: #4f4f4f;
+	}
+
+.button {
+	background: #fff url(./../images/wtcBB-Default/buttonbg.jpg) repeat-x;
+	color: #000;
+	font-family: verdana, sans-serif;
+	font-size: 100%;
+	font-weight: bold;
+}
+
+	.button a {
+	}
+
+	.button a:visited {
+	}
+
+	.button a:hover {
+	}
+
+.cat {
+	background: #fbe286 url(./../images/wtcBB-Default/headBg.jpg) repeat-x;
+	color: #fff;
+	font-weight: bold;
+	padding: 6px;
+}
+
+	.cat a {
+		color: #fff;
+	}
+
+	.cat a:visited {
+	}
+
+	.cat a:hover {
+		color: #fbe286;
+	}
+
+.alt1 {
+	background: #f8f5f8;
+}
+
+	.alt1 a {
+	}
+
+	.alt1 a:visited {
+	}
+
+	.alt1 a:hover {
+	}
+
+.alt2 {
+	background: #fff;
+}
+
+	.alt2 a {
+	}
+
+	.alt2 a:visited {
+	}
+
+	.alt2 a:hover {
+	}
+
+th, .headFoot {
+	background: #537495 url(./../images/wtcBB-Default/navbg.jpg) repeat-x;
+	color: #fff;
+	font-weight: bold;
+	padding: 4px !important;	text-align: center;
+}
+
+	th a, .headFoot a {
+		color: #fff;
+	}
+
+	th a:visited, .headFoot a:visited {
+	}
+
+	th a:hover, .headFoot a:hover {
+		color: #fbe286;
+	}
+
+.noText {
+}
+
+	.noText a {
+	}
+
+	.noText a:visited {
+	}
+
+	.noText a:hover {
+	}
+
+select {
+	font-family: verdana, sans-serif;
+	font-size: 100%;
+	font-weight: normal;
+}
+
+	select a {
+	}
+
+	select a:visited {
+	}
+
+	select a:hover {
+	}
+
+.small {
+	font-size: 85%;
+}
+
+	.small a {
+	}
+
+	.small a:visited {
+	}
+
+	.small a:hover {
+	}
+
+input.text, textarea {
+	color: #000;
+	font-family: verdana, sans-serif;
+	font-size: 100%;
+	padding: 2px;
+}
+
+	input.text a, textarea a {
+	}
+
+	input.text a:visited, textarea a:visited {
+	}
+
+	input.text a:hover, textarea a:hover {
+	}
+
+.time {
+	color: #577899;
+	font-size: 85%;
+}
+
+	.time a {
+	}
+
+	.time a:visited {
+	}
+
+	.time a:hover {
+	}

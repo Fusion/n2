@@ -1,0 +1,559 @@
+table#mainNav {
+border: 0;
+margin: 0;
+background: transparent;
+width: 100%;
+}
+
+    table#mainNav td {
+    padding: 0;
+    }
+
+ul#memberArea, ul#personalArea {
+list-style-type: none;
+margin: 0;
+padding: 0;
+}
+
+  ul#memberArea li {
+  float: left;
+  width: 10%;
+  margin: 0 2.14%;
+  }
+
+  * html ul#memberArea li {
+  width: 9%;
+  margin: 0 2%;
+  }
+
+  ul#personalArea li {
+  float: left;
+  width: 21.25%;
+  margin: 0 1.5%;
+  }
+
+  * html ul#personalArea li {
+  width: 20.25%;
+  margin: 0 1.3%;
+  }
+
+input {
+vertical-align: bottom;
+}
+
+/* Post Bit */
+.postbit {
+margin-bottom: 5px;
+}
+
+    .postbit .pbHeader {
+    padding: 0;
+    }
+
+      .postbit .pbHeader p.floatRight {
+      margin-right: 2px;
+      }
+
+    .postbit .pbProfile {
+    width: 150px;
+    }
+
+        .postbit .pbMessage .goUp {
+        margin: -4px 0 0 0;
+        }
+
+          .postbit .pbMessage .goUp .floatLeft {
+          margin: 6px 0 0 0;
+          }
+
+        .postbit .pbMessage .expand {
+        height: auto;
+        min-height: 30px;
+        }
+
+          * html .postbit .pbMessage .expand {
+          height: 30px;
+          }
+
+          .postbit .pbMessage .attachments ul {
+          list-style-type: none;
+          margin: 3px 0 0 0;
+          padding: 0;
+          }
+
+            .postbit .pbMessage .attachments ul li {
+            background: url(./../images/wtcBB-Default/attachIcon.gif) no-repeat 0 60%;
+            padding-left: 15px;
+            margin-bottom: 7px;
+            }
+
+    .moveOver {
+    float: left;
+    width: 150px;
+    margin-left: -162px;
+    }
+
+      * html .moveOver {
+      margin-left: -81px;
+      }
+
+   hr.postSep {
+   margin: 0 0 5px 0;
+   }
+
+   * html hr.postSep {
+   margin-top: -8px;
+   }
+
+/* Ugly hack to allow floating inside floating */
+.allowClear {
+float: left;
+width: 99.9%;
+}
+
+html, body {
+margin: 0;
+padding: 0;
+}
+
+* html body {
+padding: 10px 0;
+}
+
+h1 {
+float: left;
+font-size: 130%;
+margin: 0;
+}
+
+h2 {
+margin: 0;
+float: left;
+}
+
+h3 {
+font-size: 100%;
+margin: 0;
+}
+
+.error {
+background: #d1a1a1; 
+color: #fff !important;
+}
+
+  .error a {
+  font-weight: bold;
+  }
+
+  .error a, .error .time {
+  color: #fff;
+  }
+
+  .error a:hover {
+  color: #dfdcdf;
+  }
+
+img {
+border: 0;
+}
+
+.aligned {
+vertical-align: bottom;
+}
+
+* html .aligned {
+vertical-align: middle;
+}
+
+p {
+margin: 5px 0 0 0;
+}
+
+ol li {
+margin-bottom: 7px;
+}
+
+.page {
+border: 1px solid #59798c;
+padding: 6px;
+width: 95%;
+margin: 10px auto 0 auto;
+}
+
+table.dateTime {
+border: 0;
+margin: 0;
+width: auto;
+background: transparent;
+}
+
+  table.dateTime td, table.dateTime th {
+  border: 0;
+  padding: 0 4px 1px 4px;
+  background: transparent;
+  }
+
+  table.dateTime th {
+  font-weight: normal;
+  text-align: left;
+  }
+
+    table.dateTime td input {
+    width: 35px;
+    padding: 2px;
+    }
+
+table {
+border: 1px solid #59798c;
+width: 95%;
+margin: 2.5px auto;
+background: #ccc;
+}
+
+    * html table {
+    margin: 5px auto;
+    }
+
+        table td.vertTop {
+        vertical-align: top;
+        }
+
+    table td {
+    padding: 6px;
+    }
+
+    table .forumName {
+    width: 60%;
+    }
+
+ul#topNav {
+list-style-type: none;
+margin: 2px 0 0 0;
+padding: 0;
+}
+
+    ul#topNav li {
+    float: left;
+    margin: 0 0 5px 10px;
+    }
+
+    /* IE to the rescue! <rolleyes> */
+    * html ul#topNav li {
+    float: right;
+    }
+
+.text, textarea {
+border: 1px solid #59798c;
+}
+
+    textarea {
+    width: 99%;
+    height: 300px;
+    }
+
+    textarea.quickReply {
+    height: 150px;
+    }
+
+    textarea.profile {
+    height: 100px;
+    width: 95%;
+    }
+
+    .smallText {
+    width: 30px;
+    }
+
+.button {
+border: 1px solid #59798c;
+}
+
+td.footer .button, .cat .button, th .button {
+margin: -2px 0 -1px 0;
+}
+
+  /* IE strikes again! */
+  * html td.footer .button, * html .cat .button, * html th .button {
+  margin: -5px 0 -2px 0;
+  }
+
+div.cat {
+border: 1px solid #59798c;
+}
+
+/* Login Box */
+form#login .text {
+width: 79px;
+}
+
+form {
+margin: 0;
+}
+
+div#bbcode {
+margin-top: 8px;
+}
+
+div.bbcode {
+cursor: pointer;
+height: 23px;
+text-align: center;
+padding: 3px;
+margin: 0 5px 0 0;
+font-weight: bold;
+}
+
+/* Handles clearing issues */
+.clear:after {
+content: "."; 
+display: block; 
+height: 0; 
+clear: both; 
+visibility: hidden;
+}
+
+/* Hides from IE-mac \*/
+* html .clear {height: 1%;}
+.clear {display: block;}
+/* End hide from IE-mac */
+
+.spacer {
+clear: both;
+margin: 0;
+font-size: 0;
+height: 1px;
+overflow: hidden;
+}
+
+.divider {
+clear: both;
+margin: 0;
+font-size: 0;
+height: 1px;
+overflow: hidden;
+background: #000;
+}
+
+/* Quote */
+div.quote {
+}
+
+  div.quote p {
+  margin: 0;
+  text-indent: 0;
+  }
+
+  div.quote div.quoted {
+  border: 1px solid #59798c;
+  margin: 2px 0 0 0;
+  padding: 6px;
+  }
+
+/* Extras */
+.myMarCenter {
+width: 90%;
+margin: 5px auto;
+}
+
+.marCenter {
+width: 95%;
+margin: 0 auto;
+}
+
+    .marCenter .cont {
+    border: 1px solid #59798c;
+    }
+
+    html > body .marCenter .cont {
+    margin-left: -1px;
+    }
+
+        .marCenter .cont p {
+        margin: 0;
+        }
+
+        .marCenter .cont .border {
+        padding: 6px;
+        border: 1px solid #ccc;
+        }
+
+.noPad {
+padding: 0;
+}
+
+.pad {
+padding: 6px;
+}
+
+.smallPad {
+padding: 4px !important;
+}
+
+.tinyPad {
+padding: 1px !important;
+}
+
+.pageNumbers {
+margin: 8px 0;
+}
+
+.bord2 {
+border: 1px solid #59798c;
+}
+
+.bord {
+border: 1px solid #ccc;
+}
+
+  .bordLeft {
+  border-left: 1px solid #ccc;
+  }
+
+  .bordRight {
+  border-right: 1px solid #ccc;
+  }
+
+  .bordBot {
+  border-bottom: 1px solid #ccc;
+  }
+
+  .bordTop {
+  border-top: 1px solid #ccc;
+  }
+
+.noBordTop {
+border-top: 0 !important;
+}
+
+.noBordRight {
+border-right: 0 !important;
+}
+
+.noBordLeft {
+border-left: 0 !important;
+}
+
+.noBordBot {
+border-bottom: 0 !important;
+}
+
+.noBord {
+border: 0 !important;
+}
+
+.tinyMarBot {
+margin-bottom: 2px !important;
+}
+
+.smallMarBot {
+margin-bottom: 5px !important;
+}
+
+.smallMarTop {
+margin-top: 10px !important;
+}
+
+.marBot {
+margin-bottom: 20px !important;
+}
+
+.marTop {
+margin-top: 20px !important;
+}
+
+.tinyMarTop {
+margin-top: 2px !important;
+}
+
+.marRight {
+margin-right: 5px !important;
+}
+
+.noMar {
+margin: 0;
+}
+
+.noMarTop {
+margin-top: 0;
+}
+
+.bringUp {
+margin-bottom: -2.5px;
+}
+
+.bringUpMore {
+position: relative;
+top: -5px;
+}
+
+.bringUpMoreMar {
+margin-top: -5px;
+}
+
+.bigger {
+font-size: 180%;
+}
+
+.fullFont {
+font-size: 100%;
+}
+
+.floatLeft {
+float: left;
+margin: 0;
+}
+
+.floatRight {
+float: right;
+text-align: right;
+margin: 0;
+}
+
+.fullWidth {
+width: 100%;
+}
+
+.halfWidth {
+width: 48%;
+}
+
+.halfMargin {
+margin-left: 50%;
+}
+
+.normalWeight {
+font-weight: normal;
+}
+
+.noWrap {
+white-space: nowrap;
+}
+
+.left {
+text-align: left;
+}
+
+.center {
+text-align: center;
+}
+
+.right {
+text-align: right;
+}
+
+.underline {
+text-decoration: underline;
+}
+
+.emphasize {
+font-style: italic;
+}
+
+.quoteButton, .delButton, .replyButton, .deleteButton {
+cursor: pointer;
+cursor: hand;
+}
+
+.blocker {
+display: block;
+}

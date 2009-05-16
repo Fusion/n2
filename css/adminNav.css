@@ -1,0 +1,90 @@
+html {
+border-right: 1px solid #000;
+min-height: 100%;
+height: auto;
+padding: 0;
+margin: 0;
+}
+
+* html {
+border: 0;
+height: 100%;
+}
+
+body {
+background: #dfdcdf;
+font-size: 80%;
+font-family: verdana, sans-serif;
+margin: 10px 0;
+width: 200px;
+}
+
+a {
+color: #002b43;
+font-weight: bold;
+}
+
+a:hover {
+color: #000;
+}
+
+img {
+border: 0;
+}
+
+div#links {
+margin-bottom: 15px;
+}
+
+h2 {
+width: 170px;
+margin: 15px auto 0 auto;
+border: 1px solid #000;
+padding: 4px;
+font-size: 100%;
+background: #c0c4d0 url(./../images/admin/navbg.jpg) repeat-x;
+color: #fff;
+}
+
+div.navBox {
+width: 178px;
+margin: 0 auto;
+border: 1px solid #000;
+border-top: 0;
+background: #fff;
+}
+
+	div.navBox ul {
+	list-style-type: none;
+	padding: 0;
+	margin: 0;
+	}
+	
+		/* IE likes to add a pixel below the LIs... meh... */
+		* html body div.navBox ul li {
+		margin-bottom: -1px;
+		}
+		
+			div.navBox ul li a {
+			display: block;
+			padding: 4px;
+			width: 170px;
+			text-decoration: none;
+			background: #fff;
+			color: #002b43;
+			font-size: 85%;
+			font-weight: normal;
+			}
+			
+			div.navBox ul li a:hover {
+			background: #dfdcdf;
+			}
+			
+/* miscellaneous */
+.center {
+text-align: center;
+}
+
+.small {
+font-size: 85%;
+}

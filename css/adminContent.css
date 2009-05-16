@@ -1,0 +1,448 @@
+body {
+background: #fff;
+font-family: verdana, sans-serif;
+font-size: 80%;
+margin: 0;
+}
+
+h1 {
+margin: 10px 0 20px 0;
+background: #dfdcdf;
+border: 1px solid #000;
+padding: 4px;
+background: #c0c4d0 url(./../images/admin/navbg.jpg) repeat-x;
+color: #fff;
+font-size: 100%;
+}
+
+a {
+color: #002b43;
+font-weight: bold;
+}
+
+a:hover {
+color: #000;
+}
+
+form {
+margin: 0;
+}
+
+html > body pre {
+font-size: 130%;
+}
+
+p {
+margin: 0;
+}
+
+div#container {
+width: 90%;
+margin: 0 auto;
+}
+
+	div#container div.box {
+	width: 400px;
+	margin: 30px auto 20px auto;
+	border: 1px solid #000;
+	background: #fff;
+	}
+
+		div#container div.box h2 {
+		background: #c0c4d0 url(./../images/admin/navbg.jpg) repeat-x;
+		color: #fff;
+		font-size: 100%;
+		border-bottom: 1px solid #000;
+		padding: 4px;
+		margin: 0;
+		}
+
+		div#container div.box p {
+		padding: 4px;
+		margin: 0;
+		}
+
+		div#container div.box form {
+		margin: 0;
+		padding: 8px;
+		}
+
+	div#container table#login {
+	width: 350px;
+	margin: 20px auto;
+	}
+
+	div#container table.dateTime {
+	border: 0;
+	margin: 0;
+	width: auto;
+	}
+
+		div#container table.dateTime td, div#container table.dateTime th {
+		border: 0;
+		padding: 0 4px 1px 4px;
+		}
+
+		div#container table.dateTime th {
+		background: transparent;
+		font-weight: normal;
+		text-align: left;
+		font-size: 85%;
+		}
+
+			div#container table.dateTime td input {
+			width: 35px;
+			padding: 2px;
+			}
+
+			div#container table.dateTime td input, div#container table.dateTime td select {
+			font-size: 85%;
+			}
+
+	div#container table {
+	border-right: 1px solid #000;
+	border-bottom: 1px solid #000;
+	width: 100%;
+	margin-bottom: 20px;
+	}
+
+		div#container table td, div#container table th {
+		border-top: 1px solid #000;
+		border-left: 1px solid #000;
+		padding: 4px;
+		}
+
+		div#container table th {
+		background: #d0ccd0 url(./../images/admin/headBg.jpg) repeat-x;
+		color: #000;
+		}
+
+		div#container table td.header {
+		background: #dfdcdf;
+		}
+
+			div#container table th a {
+			color: #000;
+			}
+
+			div#container table th a:hover {
+			color: #444;
+			}
+
+		div#container table td.alt1 {
+		background: #fff;
+		}
+
+		div#container table td.alt2 {
+		background: #e9e9e9;
+		}
+
+		div#container table td.top {
+		vertical-align: top;
+		}
+
+			div#container table th p, div#container table td p {
+			margin: 0;
+			}
+
+	div#container div.divit {
+	border: 1px solid #000;
+	background: #fff;
+	margin-bottom: 20px;
+	}
+
+		div#container div.divit h3 {
+		background: #c0c4d0 url(./../images/admin/navbg.jpg) repeat-x;
+		color: #fff;
+		font-size: 100%;
+		padding: 4px;
+		margin: 0;
+		}
+
+		div#container div.divit div.likeH3 {
+		background: #c0c4d0 url(./../images/admin/navbg.jpg) repeat-x;
+		color: #fff;
+		font-size: 100%;
+		padding: 4px;
+		margin: 0;
+		}
+
+			div#container div.divit div.likeH3 a, div#container div.divit h3 a {
+			color: #fff;
+			}
+
+			div#container div.divit div.likeH3 a:hover, div#container div.divit h3 a:hover {
+			color: #000;
+			}
+
+		div#container div.divit div.divitit {
+		padding: 4px;
+		border-top: 1px solid #000;
+		}
+
+	/* this is for the tabs... */
+	ul.tabs {
+	list-style-type: none;
+	padding: 0;
+	margin: 0 auto 0 auto;
+	width: 500px;
+	}
+
+	ul.tabs.fewer {
+	width: 192px;
+	}
+
+		ul.tabs li {
+		float: left;
+		}
+
+			ul.tabs li a {
+			display: block;
+			padding: 2px 4px;
+			border: 1px solid #6e6e6e;
+			border-bottom: 0;
+			margin-right: 10px;
+			color: #6e6e6e;
+			background: #dfdcdf;
+			}
+
+				ul.tabs li.selected a {
+				display: block;
+				padding: 2px 4px;
+				border: 1px solid #000;
+				border-bottom: 0;
+				margin-right: 10px;
+				color: #000;
+				background: #989697;
+				position: relative;
+				top: 1px;
+				}
+
+					/* odd... stupid IE's PNG support */
+					* html ul.tabs li.selected a {
+					background: #8e8c8d;
+					}
+
+				ul.tabs li.selected a:hover {
+				color: #000;
+				}
+
+			ul.tabs li a:hover {
+			color: #000;
+			background: #fff url(./../images/admin/buttonbg_flip.jpg) repeat-x;
+			}
+
+/* Lists */
+ul {
+margin: 0;
+padding: 0;
+list-style-position: inside;
+}
+
+	ul.noBullets {
+	list-style-type: none;
+	}
+
+/* Forms */
+.text, .button, select, textarea {
+font-family: verdana, sans-serif;
+font-size: 100%;
+}
+
+.text, textarea {
+border: 1px inset #2e5971;
+color: #000;
+background: #fff;
+padding: 4px;
+}
+
+.code {
+font-family: "courier new", courier;
+}
+
+.less {
+width: 20px;
+}
+
+/* CSS can be sexy... */
+.text:focus, textarea:focus {
+background: #f0f0f0;
+border: 1px solid #2e5971;
+}
+
+textarea.norm {
+width: 200px;
+height: 100px;
+}
+
+textarea.bigArea {
+width: 95%;
+height: 400px;
+margin: 10px 0 0 0;
+}
+
+	/* override focus for big areas... */
+	textarea.bigArea:focus {
+	background: #fff;
+	border: 1px inset #2e5971;
+	}
+
+input.button {
+background: #fff url(./../images/admin/buttonbg.jpg) repeat-x;
+color: #000;
+border: 1px outset #000;
+border-top-color: #fff;
+border-left-color: #fff;
+font-weight: normal;
+padding: 1px;
+font-weight: bold;
+}
+
+/* make buttons look better in IE */
+* html input.button {
+border: 1px solid #000;
+}
+
+/* who says we can't use firefox to its advantages? */
+input.button:hover, input.button:focus {
+background: url(./../images/admin/buttonbg_flip.jpg) repeat-x;
+}
+
+input.button:active {
+border-style: inset;
+}
+
+/**
+ * emulate IE's 'disabled="disabled"' look for
+ * buttons in firefox
+ */
+input[disabled="disabled"] {
+color: #7f7f7f;
+}
+
+input[disabled="disabled"]:hover, input[disabled="disabled"]:focus {
+background: url(./../images/admin/buttonbg.jpg) repeat-x;
+}
+
+input[disabled="disabled"]:active {
+border-style: outset;
+}
+
+select.multiple {
+height: 150px;
+}
+
+select {
+font-weight: normal;
+}
+
+label:hover, label:focus {
+color: #aa0000;
+}
+
+
+/* Miscellaneous */
+.important {
+color: #b00;
+font-weight: bold;
+}
+
+.altImportant {
+color: #00285b;
+font-weight: bold;
+}
+
+.emphasis {
+font-weight: bold;
+}
+
+.center {
+text-align: center;
+}
+
+.marCenter {
+margin-right: auto;
+margin-left: auto;
+}
+
+.left {
+text-align: left;
+}
+
+.right {
+text-align: right;
+}
+
+.noMar {
+margin: 0;
+}
+
+.noMarBot {
+margin-bottom: 0;
+}
+
+.marTop {
+margin-top: 7px !important;
+}
+
+.moreMarTop {
+margin-top: 20px !important;
+}
+
+.marBot {
+margin-bottom: 20px !important;
+}
+
+.noBorderLeft {
+border-left: 0 !important;
+}
+
+.nowrap {
+white-space: nowrap;
+}
+
+.small {
+font-size: 85%;
+}
+
+.floatLeft {
+float: left;
+}
+
+.floatRight {
+float: right;
+}
+
+.spacer {
+margin: 0;
+clear: both;
+}
+
+.default {
+color: #00285b;
+}
+
+.underline {
+text-decoration: underline;
+}
+
+.custom {
+color: #b00;
+}
+
+.inherit {
+color: #008000;
+}
+
+.default, .custom, .inherit {
+font-weight: bold;
+}
+
+.colorBox {
+font-size: 0;
+border: 1px solid #000;
+width: 50px;
+height: 24px;
+margin: 0 0 0 10px;
+float: left;
+}
