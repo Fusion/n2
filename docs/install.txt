@@ -1,0 +1,19 @@
+Online Installation Instructions
+
+http://www.wtcbb.com/installing-wtcbb
+
+The following are just a few simple steps that you need to follow:
+
+1) Unzip the .zip file you downloaded from the wtcBB web site. 
+
+2) Copy the files into a folder on your computer that you can open easily. It's always good to have a copy of the files readily available on your computer. 
+
+3) After you have extracted the files from the ZIP archive, navigate to the wtcBB2 folder, and subsequently to the uploadFiles folder. Upload all files and directories contained in this folder to your web server. Make sure to keep the same directory structure (ie: the config.php file stays inside the include folder on your web host). Remember, don't upload the "wtcBB" or "uploadFiles" folder, upload what's inside of the uploadFiles folder. 
+
+4) Once everything is uploaded, you must chmod the following directories/files to 0777 (if you are unsure of how to chmod a file or directory, contact your web host): attach, cache, css, exports, language, images, images/avatars, images/icons, images/ranks, images/smilies, and finally the includes/config.php file. If anyone of these directories/files do not have sufficient privileges, you will get an error message when you try to install your instance of wtcBB. 
+
+5) After you have made the appropriate chmod changes, point your browser to: http://www.yourdomain.com/path/to/forums/install.php (Please do not copy and paste this link, you must insert your own domain and path.) 
+
+6) You will be taken to a step-by-step installation process that will guide you as you go. 
+
+Installation is complete! Make sure to stop by our Community Support Forum - http://forums.wtcbb.com/ if you have any questions, complaints, or suggestions.
