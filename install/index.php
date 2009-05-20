@@ -27,7 +27,8 @@
 ## ************************************************** ##
 // ************************************************** \\
 
-// bad...
+// An interesting test to ensure that we are not runing this guy directly.
+// @todo Come up with better solution.
 if(strpos(preg_replace('/.+\//i', '', $_SERVER['SCRIPT_NAME']), 'install') === false) {
 	exit('Invalid Installer Script');
 }
