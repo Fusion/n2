@@ -1,34 +1,24 @@
 <?php
- /*
-
- * wtcBB Community Software (Open Source Freeware Version)
-
- * Copyright (C) 2004-2007. All Rights Reserved. wtcBB Software
-Solutions.
-
- * http://www.wtcbb.com/
-
- *
-
- * Licensed under the terms of the GNU Lesser General Public License:
-
- * http://www.wtcbb.com/wtcbb-license-general-public-license
-
- *
-
- * For support visit:
-
- * http://forums.wtcbb.com/
-
- *
-
- * Powered by wtcBB - http://www.wtcbb.com/
-
- * Protected by ChargebackFile - http://www.chargebackfile.com/
-
- *
-
-*/
+/*
+ * "n2" - Forum Software - a nBBS v0.6 + wtcBB remix.
+ * Copyright (C) 2009 Chris F. Ravenscroft
+ * 
+ * This program is free software; you can redistribute it and/or modify it under
+ * the terms of the GNU General Public License as published by the Free Software
+ * Foundation; either version 2 of the License, or (at your option) any later
+ * version.
+ * 
+ * This program is distributed in the hope that it will be useful, but WITHOUT
+ * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+ * FOR A PARTICULAR PURPOSE. See the GNU General Public License for more
+ * details.
+ * 
+ * You should have received a copy of the GNU General Public License along with
+ * this program; if not, write to the Free Software Foundation, Inc., 59 Temple
+ * Place, Suite 330, Boston, MA 02111-1307 USA
+ * 
+ * Questions? We can be reached at http://www.nextbbs.com
+ */
  
 
 $groups['4'] = new Usergroup('', Array('usergroupid' => '4', 'title' => 'Registered Users', 'description' => 'This is the default usergroup for all users. This comes with the most basic options.', 'usertitle' => '', 'htmlBegin' => '', 'htmlEnd' => '', 'global' => '0', 'admin' => '0', 'isBanned' => '0', 'showListedGroups' => '1', 'showMemberList' => '1', 'showBirthdays' => '1', 'showEditedNotice' => '1', 'canInvis' => '1', 'canEditedNotice' => '0', 'canUsertitle' => '0', 'canSig' => '1', 'canAv' => '1', 'canDownAttach' => '1', 'canUpAttach' => '1', 'canDefBBCode' => '1', 'canViewOnline' => '1', 'canViewOnlineIp' => '0', 'canViewInvis' => '0', 'canViewProfile' => '1', 'canViewBoard' => '1', 'canViewForums' => '1', 'canViewThreads' => '1', 'canPostThreads' => '1', 'canReplyOwn' => '1', 'canReplyOthers' => '1', 'canEditOwn' => '1', 'canDelOwnPosts' => '1', 'canDelOwnThreads' => '1', 'canCloseOwn' => '0', 'canViewDelNotices' => '0', 'canPermDelOwnPosts' => '0', 'canSearch' => '1', 'canEditProfile' => '1', 'canReceipts' => '1', 'canDenyReceipts' => '0', 'canFolders' => '1', 'canWarnOthers' => '0', 'canWarnImmune' => '0', 'canWarnViewOwn' => '1', 'canWarnViewOthers' => '0', 'canDisableCensor' => '0', 'canIgnoreList' => '1', 'canSwitchStyles' => '1', 'overrideFlood' => '0', 'overrideSearchMinChars' => '0', 'overrideSearchMaxChars' => '0', 'overridePostMinChars' => '0', 'overridePostMaxChars' => '0', 'overridePostMaxImages' => '0', 'attachFilesize' => '200000', 'avatarFilesize' => '20000', 'avatarWidth' => '64', 'avatarHeight' => '64', 'personalMaxMessages' => '100', 'personalSendUsers' => '5', 'personalRules' => '5', 'canCreatePolls' => '1', 'canVotePolls' => '1', 'canViewOwnThreads' => '1', 'canViewMemberList' => '1', 'canPermDelOwnThreads' => '0', 'canEditOwnThreadTitle' => '0', 'canUploadAv' => '1', 'superThreads' => '0', 'superPosts' => '0', 'canBBCode' => '1', 'canImg' => '1', 'canSmilies' => '1', 'canIcons' => '1', 'maxAttach' => '5', 'overrideMaxSig' => '0', 'showRanks' => '1'));

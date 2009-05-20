@@ -29,7 +29,7 @@
 
 // uh oh!
 if(file_exists('./install.php')) {
-	exit('Please remove the install.php file from your web server!');
+	exit('I found an existing <span style="color:red;font-weight:bold;">install.php</span> file.<br />If this is an omission, then please remove the file from your web server.<br />If you wish to perform a fresh install, <a href="install.php">run it</a>.');
 }
 
 // Require Files

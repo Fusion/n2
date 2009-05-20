@@ -132,12 +132,10 @@ class WtcDBA implements WtcDatabaseLayer {
 		return mysql_insert_id($this->conn);
 	}
 
+	// 051709: we are now getting rid of magic_quotes_gpc's evilness
+	// in includes/init.php therefore we will always escape strings...
 	public function escapeString($string, $escape = false) {
-		if($escape OR !get_magic_quotes_gpc() OR (get_magic_quotes_gpc() AND ini_get('magic_quotes_sybase'))) {
-			return $this->doEscaping($string);
-		}
-
-		return $string;
+		return $this->doEscaping($string);
 	}
 
 	public function doEscaping($string) {

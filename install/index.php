@@ -148,10 +148,12 @@ if($_GET['step'] == 1) {
 		preg_match_all('/(INSERT INTO .+?\);)/i', $SQL, $inserts, PREG_PATTERN_ORDER);
 
 		foreach($tables[0] as $query) {
+            $query = preg_replace('/CREATE TABLE `(.+?)`/is', 'CREATE TABLE `'.$conf['tblprefix'].'\\1`', $query);		
 			$wtcDB->query($query);
 		}
 
 		foreach($inserts[0] as $query) {
+            $query = preg_replace('/INSERT INTO `(.+?)`/is', 'INSERT INTO `'.$conf['tblprefix'].'\\1`', $query);		
 			$wtcDB->query($query);
 		}
 
@@ -191,7 +193,7 @@ if($_GET['step'] == 1) {
 								'desc' => $lang['install_step1_dbname_desc'],
 								'type' => 'text',
 								'name' => 'config[dbname]',
-								'value' => 'wtcbb2'
+								'value' => 'n2'
 							), true);
 
 	new AdminHTML('tableRow', Array(
@@ -207,7 +209,7 @@ if($_GET['step'] == 1) {
 								'desc' => $lang['install_step1_tblprefix_desc'],
 								'type' => 'text',
 								'name' => 'config[tblprefix]',
-								'value' => ''
+								'value' => 'n2_'
 							), true);
 
 	new AdminHTML('tableRow', Array(
@@ -215,7 +217,7 @@ if($_GET['step'] == 1) {
 								'desc' => $lang['install_step1_cookprefix_desc'],
 								'type' => 'text',
 								'name' => 'config[cookprefix]',
-								'value' => 'wtcBB_'
+								'value' => 'n2_'
 							), true);
 
 	new AdminHTML('tableEnd', '', true);
@@ -290,7 +292,7 @@ else if($_GET['step'] == 2) {
 								'desc' => $lang['install_step2_username_desc'],
 								'type' => 'text',
 								'name' => 'admin[username]',
-								'value' => 'wtcBBAdmin'
+								'value' => 'admin'
 							), true);
 
 	new AdminHTML('tableRow', Array(
@@ -426,7 +428,7 @@ else if($_GET['step'] == 3) {
 								'desc' => $lang['admin_options_information_boardName_desc'],
 								'type' => 'text',
 								'name' => 'setting[2]',
-								'value' => 'wtcBB 2'
+								'value' => 'n2'
 							), true);
 
 	new AdminHTML('tableRow', Array(
@@ -451,7 +453,11 @@ else if($_GET['step'] == 3) {
 }
 
 else if($_GET['step'] == 4) {
-	new WtcBBThanks('wtcBB 2 has successfully been installed! Please remove the <strong>install.php</strong> file from your root install for security precautions. <span style="display: block; text-align: center; margin-top: 15px;"><a href="./admin.php">Administrator Control Panel</a> - <a href="./index.php">Forum Homepage</a></span>', false, false);
+	if(@unlink('install.php'))
+		$xtra = '';
+	else
+		$xtra = ' Please remove the <strong>install.php</strong> file from your root install for security precautions.';
+	new WtcBBThanks('<em>n2</em> has successfully been installed!' . $xtra . '<span style="display: block; text-align: center; margin-top: 15px;"><a href="./admin.php">Administrator Control Panel</a> - <a href="./index.php">Forum Homepage</a></span>', false, false);
 }
 
 ?>

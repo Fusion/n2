@@ -1,17 +1,3 @@
--- phpMyAdmin SQL Dump
--- version 2.6.4-pl2
--- http://www.phpmyadmin.net
--- 
--- Host: localhost:3306
--- Generation Time: Aug 29, 2006 at 04:52 AM
--- Server version: 4.1.15
--- PHP Version: 5.1.4
--- 
--- Database: `wtcbb2_base`
--- 
-
--- --------------------------------------------------------
-
 -- 
 -- Table structure for table `admins`
 -- 
@@ -408,8 +394,8 @@ CREATE TABLE `forums` (
 -- Dumping data for table `forums`
 -- 
 
-INSERT INTO `forums` (`forumid`, `depth`, `name`, `parent`, `directSubs`, `disOrder`, `link`, `linkCount`, `forumPass`, `isCat`, `isAct`, `countPosts`, `viewAge`, `dateMade`, `last_reply_username`, `last_reply_userid`, `last_reply_date`, `last_reply_threadid`, `last_reply_threadtitle`, `posts`, `threads`, `description`) VALUES (1, 1, 'General Category', -1, 'a:1:{i:0;i:2;}', 1, '', 1, '', 1, 1, 1, 0, 1156759058, 'Alex Corral', '0', 1156759252, 1, 'Successful Installation!', 1, 1, '');
-INSERT INTO `forums` (`forumid`, `depth`, `name`, `parent`, `directSubs`, `disOrder`, `link`, `linkCount`, `forumPass`, `isCat`, `isAct`, `countPosts`, `viewAge`, `dateMade`, `last_reply_username`, `last_reply_userid`, `last_reply_date`, `last_reply_threadid`, `last_reply_threadtitle`, `posts`, `threads`, `description`) VALUES (2, 2, 'General Forum', 1, NULL, 1, '', 0, '', 0, 1, 1, 0, 1156759075, 'Alex Corral', '0', 1156759252, 1, 'Successful Installation!', 1, 1, 'This is a forum inside the "General Category".');
+INSERT INTO `forums` (`forumid`, `depth`, `name`, `parent`, `directSubs`, `disOrder`, `link`, `linkCount`, `forumPass`, `isCat`, `isAct`, `countPosts`, `viewAge`, `dateMade`, `last_reply_username`, `last_reply_userid`, `last_reply_date`, `last_reply_threadid`, `last_reply_threadtitle`, `posts`, `threads`, `description`) VALUES (1, 1, 'General Category', -1, 'a:1:{i:0;i:2;}', 1, '', 1, '', 1, 1, 1, 0, 1156759058, 'Chris Ravenscroft', '0', 1156759252, 1, 'Successful Installation!', 1, 1, '');
+INSERT INTO `forums` (`forumid`, `depth`, `name`, `parent`, `directSubs`, `disOrder`, `link`, `linkCount`, `forumPass`, `isCat`, `isAct`, `countPosts`, `viewAge`, `dateMade`, `last_reply_username`, `last_reply_userid`, `last_reply_date`, `last_reply_threadid`, `last_reply_threadtitle`, `posts`, `threads`, `description`) VALUES (2, 2, 'General Forum', 1, NULL, 1, '', 0, '', 0, 1, 1, 0, 1156759075, 'Chris Ravenscroft', '0', 1156759252, 1, 'Successful Installation!', 1, 1, 'This is a forum inside the "General Category".');
 
 -- --------------------------------------------------------
 
@@ -3266,7 +3252,7 @@ CREATE TABLE `posts` (
 -- Dumping data for table `posts`
 -- 
 
-INSERT INTO `posts` (`postid`, `threadid`, `forumid`, `postby`, `postUsername`, `message`, `title`, `ip_address`, `posts_timeline`, `posticon`, `deleted`, `edited_by`, `edited_timeline`, `edited_reason`, `sig`, `smilies`, `bbcode`, `defBBCode`, `edited_show`) VALUES (1, 1, 2, 0, 'Alex Corral', 'Hello,\r\n\r\nMy name is Alex Corral, I am the project manager on the wtcBB project..\r\n\r\nI would like to congratulate you on a successful installation of wtcBB,the most powerful community software online today.\r\n\r\nIf you need assistance or support with configuring and managing your new community, please visit us at [url=http://forums.wtcbb.com/]http://forums.wtcbb.com[/url] anytime.\r\n\r\nThank you for choosing wtcBB\r\n\r\n- Alex', 'Successful Installation!', '192.168.1.1', 1156759252, '', 0, '', 0, NULL, 1, 1, 1, 0, 1);
+INSERT INTO `posts` (`postid`, `threadid`, `forumid`, `postby`, `postUsername`, `message`, `title`, `ip_address`, `posts_timeline`, `posticon`, `deleted`, `edited_by`, `edited_timeline`, `edited_reason`, `sig`, `smilies`, `bbcode`, `defBBCode`, `edited_show`) VALUES (1, 1, 2, 0, 'Chris Ravenscroft', 'Hello,\r\n\r\nThank you for trying out [i]n2[/i].\r\n\r\nPlease report any issue at [url=http://nextbbs.com]http://nextbbs.com[/url]\r\n\r\n-Chris.', 'Successful Installation!', '192.168.1.1', 1242605371, '', 0, '', 0, NULL, 1, 1, 1, 0, 1);
 
 -- --------------------------------------------------------
 
@@ -3540,7 +3526,7 @@ CREATE TABLE `threads` (
 -- Dumping data for table `threads`
 -- 
 
-INSERT INTO `threads` (`threadid`, `forumid`, `name`, `madeby`, `threadUsername`, `views`, `replies`, `last_reply_username`, `last_reply_userid`, `last_reply_date`, `last_reply_postid`, `posticon`, `deleted`, `deleted_by`, `deleted_reason`, `deleted_timeline`, `moved`, `sticky`, `closed`, `poll`, `thread_timeline`, `descript`, `first_postid`, `deleted_replies`) VALUES (1, 2, 'Successful Installation!', 0, 'Alex Corral', 1, 0, 'Alex Corral', '0', 1156759252, 1, '', 0, NULL, NULL, NULL, 0, 0, 0, 0, 1156759252, 'Hello,', 1, NULL);
+INSERT INTO `threads` (`threadid`, `forumid`, `name`, `madeby`, `threadUsername`, `views`, `replies`, `last_reply_username`, `last_reply_userid`, `last_reply_date`, `last_reply_postid`, `posticon`, `deleted`, `deleted_by`, `deleted_reason`, `deleted_timeline`, `moved`, `sticky`, `closed`, `poll`, `thread_timeline`, `descript`, `first_postid`, `deleted_replies`) VALUES (1, 2, 'Successful Installation!', 0, 'Chris Ravenscroft', 1, 0, 'Chris Ravenscroft', '0', 1242605371, 1, '', 0, NULL, NULL, NULL, 0, 0, 0, 0, 1242605371, 'Hello,', 1, NULL);
 
 -- --------------------------------------------------------
 

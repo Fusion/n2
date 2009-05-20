@@ -38,8 +38,6 @@ $header->setStylesheet('./css/adminNav.css');
 $header->setExtra('<script type="text/javascript"> var adminNav = true; </script>');
 $header->dump(); /* Prints HTML */
 
-print("\t" . '<h1 class="center"><a href="./index.php" target="_top"><img src="./images/admin/header.jpg" alt="wtcBB - Version 2" /></a></h1>' . "\n\n");
-
 print("\t" . '<div id="links" class="small">' . "\n");
 	print("\t\t" . '<div class="center"><a href="javascript:exCol.build(\'close\');">' . $lang['admin_nav_expandAll'] . '</a> - <a href="javascript:exCol.build();">' . $lang['admin_nav_collapseAll'] . '</a></div>' . "\n");
 	print("\t\t" . '<div class="center"><a href="javascript:exCol.savePrefs();">' . $lang['admin_nav_savePrefs'] . '</a> - <a href="javascript:window.location = window.location;">' . $lang['admin_nav_restorePrefs'] . '</a></div>' . "\n");

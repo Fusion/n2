@@ -30,7 +30,7 @@ $lang['faq_support__content'] = 'If you need help, contact me.';
 $lang['faq_support__content'] = 'Contact me for support.';
 $lang['faq_support__title'] = 'Support';
 $lang['faq_support__title'] = 'Support';
-$lang['faq_top__title'] = 'wtcBB FAQ';
+$lang['faq_top__title'] = 'n2 FAQ';
 $lang['sdg'] = 'sdghgsdh';
 $lang['dates_am'] = 'AM';
 $lang['dates_ampm'] = 'AM/PM';
@@ -130,7 +130,7 @@ $lang['error_cp_maxTitle'] = 'Sorry, but you have exceeded the maximum amount of
 $lang['error_cp_minTitle'] = 'Sorry, but you are under the minimum amount of characters for a custom title:';
 $lang['error_cp_mustUploadImage'] = 'Sorry, but you must specify an image for an avatar.';
 $lang['error_cp_passMatch'] = 'The passwords you have provided do not match. Please try again.';
-$lang['error_cp_retrieval'] = 'Sorry, but wtcBB could not obtain the contents of the specified file.';
+$lang['error_cp_retrieval'] = 'Sorry, but n2 could not obtain the contents of the specified file.';
 $lang['error_cp_sigRestrict'] = 'Sorry, but the maximum allowed characters for a signature is:';
 $lang['error_cp_homepage']   = 'Sorry, but the homepage url should start with http://';
 $lang['error_flood'] = 'Sorry, but the administrator has specified that you must wait before trying to send a message, or run a search again.';
@@ -238,12 +238,12 @@ $lang['global_upload'] = 'Upload';
 $lang['global_useForumDefault'] = 'Use Forum Default';
 $lang['global_yes'] = 'Yes';
 $lang['install_error_fileperms'] = 'Sorry, but the following directories/files must be chmodded to <strong>0777</strong> before you can continue with the installation process.';
-$lang['install_error_nodatabasing'] = 'Sorry, but wtcBB could not detect a valid database extension.';
+$lang['install_error_nodatabasing'] = 'Sorry, but n2 could not detect a valid database extension.';
 $lang['install_step1'] = 'Install - Step 1 - Configuration';
 $lang['install_step1_cookprefix'] = 'Cookie Prefix:';
-$lang['install_step1_cookprefix_desc'] = 'This is the prefix that will be appened to the beginning of all cookie names set by wtcBB. This is useful if you are running more than one instance of wtcBB on a domain. Otherwise you can leave this as "wtcBB_".';
+$lang['install_step1_cookprefix_desc'] = 'This is the prefix that will be appened to the beginning of all cookie names set by n2. This is useful if you are running more than one instance of n2 on a domain. Otherwise you can leave this as "n2_".';
 $lang['install_step1_dbname'] = 'Database Name:';
-$lang['install_step1_dbname_desc'] = 'This is the name of the database you have created for wtcBB 2.';
+$lang['install_step1_dbname_desc'] = 'This is the name of the database you have created for n2.';
 $lang['install_step1_dbtype'] = 'Database Type:';
 $lang['install_step1_dbtype_desc'] = 'This is the type of database you will be using. The best option is selected for you.';
 $lang['install_step1_host'] = 'Database Host:';
@@ -251,7 +251,7 @@ $lang['install_step1_host_desc'] = 'This is the host of your database. If you ar
 $lang['install_step1_password'] = 'Database Password:';
 $lang['install_step1_password_desc'] = 'This is the password you use to access your database. If you are not sure of this, please contact your host.';
 $lang['install_step1_tblprefix'] = 'Table Prefix:';
-$lang['install_step1_tblprefix_desc'] = 'This is the prefix that will be used to create the tables in your database. This is useful if you want more than one instance of wtcBB in one database, or if you want wtcBB in the same database as another application. Otherwise, you can leave this blank.';
+$lang['install_step1_tblprefix_desc'] = 'This is the prefix that will be used to create the tables in your database. This is useful if you want more than one instance of n2 in one database, or if you want n2 in the same database as another application. Otherwise, you can leave this blank.';
 $lang['install_step1_username'] = 'Database Username:';
 $lang['install_step1_username_desc'] = 'This is the username you use to access your database. If you are not sure of this, please contact your host.';
 $lang['install_step2'] = 'Install - Step 2 - Administrator Account';
@@ -262,7 +262,7 @@ $lang['install_step2_email_desc'] = 'This is your account email address. It will
 $lang['install_step2_password'] = 'Password:';
 $lang['install_step2_password_desc'] = 'This is the password to your administrator account that you will use to login to the admin panel and your account on the message board.';
 $lang['install_step2_timezone'] = 'Timezone';
-$lang['install_step2_timezone_desc'] = 'Select the time zone that you are in. The current time in each time zone is listed next to it.';
+$lang['install_step2_timezone_desc'] = 'Select the time zone that your server is in. The current time in each time zone is listed next to it.';
 $lang['install_step2_username'] = 'Username:';
 $lang['install_step2_username_desc'] = 'This is the username of your administrator account.';
 $lang['install_step3'] = 'Install - Step 3 - Board Setup';
@@ -604,7 +604,7 @@ $lang['user_reg_tos_text'] = 'Registration is free, and you do so under your own
 
 <br /><br />
 
-The forum Administrators and Moderators try to keep this forum clean, however they cannot moderate everything. The adminstrators, owners, developers of wtcBB, and moderators of this bulletin board are not responsible for the content of any message posted here. Only the author of a respecting post is responsible for its contents. Therefore, only the author of a message can be held accountable for the content of that message. Owners, administrators, or moderators have the right to remove, edit, add, or alter anyone\'s account or messages for any reason they deem necessary.
+The forum Administrators and Moderators try to keep this forum clean, however they cannot moderate everything. The adminstrators, owners, developers of n2, and moderators of this bulletin board are not responsible for the content of any message posted here. Only the author of a respecting post is responsible for its contents. Therefore, only the author of a message can be held accountable for the content of that message. Owners, administrators, or moderators have the right to remove, edit, add, or alter anyone\'s account or messages for any reason they deem necessary.
 
 <br /><br />
 

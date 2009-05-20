@@ -269,7 +269,7 @@ class AdminHTML {
 		print('</head>' . "\n");
 		print('<body>' . "\n");
 			print('    <div id="container">' . "\n");
-			 print('<div><img src=./images/wtcBB-Default/header.gif></div>');
+			 print('<div><img src=./images/wtcBB-Default/n2_hangtag_2.png></div>');
 			if(!$_GET['windowEdit'] AND $this->tableOpts['showTitle'] AND !empty($this->title)) {
 				print("\t" . '<h1>' . $this->title . '</h1>' . "\n\n");
 			}
@@ -319,7 +319,7 @@ class AdminHTML {
 
 			if(AREA != 'ADMIN-NAVIGATION') {
                                
-				print("\t" . '<p class="center noMar"><a href="http://www.wtcbb.com/" target="_blank">Copyright 2003 - '.date('Y').', wtcBB</a></p>' . "\n");
+				print("\t" . '<p class="center noMar"><a href="http://www.wtcbb.com/" target="_blank">Copyright (C) 2009 Chris F. Ravenscroft</a></p>' . "\n");
 
 				if($wtcDB instanceof WtcDBA) {
 					print("\t" . '<p class="center noMar">Queries: ' . $wtcDB->getQueryCount() . ' | Execution Time: ' . pageLoadTime() . '</p>' . "\n");

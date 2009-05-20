@@ -243,11 +243,11 @@ $query['styles_fragments']['search'] = 'SELECT fragmentid, styleid, groupid, fra
 // ##### SESSION QUERIES ##### \\
 $query['sessions']['replace'] = 'REPLACE INTO ' . WTC_TP . 'sessions (sessionid, username, userid, lastactive, loc, details, ip, userAgent, lastaction) VALUES (\'?\', \'?\', \'?\', \'?\', \'?\', \'?\', \'?\', \'?\', \'?\')';
 
-$query['sessions']['update_usernames'] = 'UPDATE sessions SET username = \'?\' WHERE userid = \'?\'';
+$query['sessions']['update_usernames'] = 'UPDATE ' . WTC_TP . 'sessions SET username = \'?\' WHERE userid = \'?\'';
 
-$query['sessions']['update_action'] = 'UPDATE sessions SET lastaction = \'?\' WHERE sessionid = \'?\'';
+$query['sessions']['update_action'] = 'UPDATE ' . WTC_TP . 'sessions SET lastaction = \'?\' WHERE sessionid = \'?\'';
 
-$query['sessions']['get'] = 'SELECT ' . WTC_TP . 'sessions.sessionid, ' . WTC_TP . 'userinfo.* FROM ' . WTC_TP . 'sessions LEFT JOIN ' . WTC_TP . 'userinfo ON ' . WTC_TP . 'userinfo.userid = ' . WTC_TP . 'sessions.userid WHERE ' . WTC_TP . 'sessions.sessionid = \'?\' AND userinfo.userid > 0';
+$query['sessions']['get'] = 'SELECT ' . WTC_TP . 'sessions.sessionid, ' . WTC_TP . 'userinfo.* FROM ' . WTC_TP . 'sessions LEFT JOIN ' . WTC_TP . 'userinfo ON ' . WTC_TP . 'userinfo.userid = ' . WTC_TP . 'sessions.userid WHERE ' . WTC_TP . 'sessions.sessionid = \'?\' AND ' . WTC_TP . 'userinfo.userid > 0';
 
 $query['sessions']['get_noUser'] = 'SELECT * FROM ' . WTC_TP . 'sessions WHERE sessionid = \'?\'';
 
@@ -943,7 +943,7 @@ $query['avatar']['update'] = 'UPDATE ' . WTC_TP . 'avatar SET ? WHERE avatarid =
 
 $query['avatar']['get'] = 'SELECT * FROM ' . WTC_TP . 'avatar LEFT JOIN ' . WTC_TP . 'groups ON ' . WTC_TP . 'groups.groupid = ' . WTC_TP . 'avatar.groupid WHERE ' . WTC_TP . 'avatar.avatarid = \'?\'';
 
-$query['avatar']['get_all'] = 'SELECT * FROM ' . WTC_TP . 'avatar LEFT JOIN ' . WTC_TP . 'groups ON ' . WTC_TP . 'groups.groupid = ' . WTC_TP . 'avatar.groupid ORDER BY avatar.disOrder';
+$query['avatar']['get_all'] = 'SELECT * FROM ' . WTC_TP . 'avatar LEFT JOIN ' . WTC_TP . 'groups ON ' . WTC_TP . 'groups.groupid = ' . WTC_TP . 'avatar.groupid ORDER BY ' . WTC_TP . 'avatar.disOrder';
 
 $query['avatar']['get_all_inGroup'] = 'SELECT * FROM ' . WTC_TP . 'avatar LEFT JOIN ' . WTC_TP . 'groups ON ' . WTC_TP . 'groups.groupid = ' . WTC_TP . 'avatar.groupid WHERE ' . WTC_TP . 'avatar.groupid = \'?\'';
 
@@ -957,7 +957,7 @@ $query['smilies']['update'] = 'UPDATE ' . WTC_TP . 'smilies SET ? WHERE smileyid
 
 $query['smilies']['get'] = 'SELECT * FROM ' . WTC_TP . 'smilies LEFT JOIN ' . WTC_TP . 'groups ON ' . WTC_TP . 'groups.groupid = ' . WTC_TP . 'smilies.groupid WHERE ' . WTC_TP . 'smilies.smileyid = \'?\'';
 
-$query['smilies']['get_all'] = 'SELECT * FROM ' . WTC_TP . 'smilies LEFT JOIN ' . WTC_TP . 'groups ON ' . WTC_TP . 'groups.groupid = ' . WTC_TP . 'smilies.groupid ORDER BY smilies.disOrder';
+$query['smilies']['get_all'] = 'SELECT * FROM ' . WTC_TP . 'smilies LEFT JOIN ' . WTC_TP . 'groups ON ' . WTC_TP . 'groups.groupid = ' . WTC_TP . 'smilies.groupid ORDER BY ' . WTC_TP . 'smilies.disOrder';
 
 $query['smilies']['get_all_inGroup'] = 'SELECT * FROM ' . WTC_TP . 'smilies LEFT JOIN ' . WTC_TP . 'groups ON ' . WTC_TP . 'groups.groupid = ' . WTC_TP . 'smilies.groupid WHERE ' . WTC_TP . 'smilies.groupid = \'?\'';
 
@@ -1003,7 +1003,7 @@ $query['moderator']['update'] = 'UPDATE ' . WTC_TP . 'moderators SET ? WHERE mod
 
 $query['moderator']['get'] = 'SELECT * FROM ' . WTC_TP . 'moderators LEFT JOIN ' . WTC_TP . 'userinfo ON ' . WTC_TP . 'userinfo.userid = ' . WTC_TP . 'moderators.userid WHERE ' . WTC_TP . 'moderators.modid = \'?\'';
 
-$query['moderator']['get_all'] = 'SELECT moderators.*, userinfo.username, userinfo.usergroupid, userinfo.secgroupids, userinfo.htmlBegin, userinfo.htmlEnd FROM ' . WTC_TP . 'moderators LEFT JOIN ' . WTC_TP . 'userinfo ON ' . WTC_TP . 'userinfo.userid = ' . WTC_TP . 'moderators.userid';
+$query['moderator']['get_all'] = 'SELECT ' . WTC_TP . 'moderators.*, ' . WTC_TP . 'userinfo.username, ' . WTC_TP . 'userinfo.usergroupid, ' . WTC_TP . 'userinfo.secgroupids, ' . WTC_TP . 'userinfo.htmlBegin, ' . WTC_TP . 'userinfo.htmlEnd FROM ' . WTC_TP . 'moderators LEFT JOIN ' . WTC_TP . 'userinfo ON ' . WTC_TP . 'userinfo.userid = ' . WTC_TP . 'moderators.userid';
 
 
 // ##### LOG QUERIES ##### \\

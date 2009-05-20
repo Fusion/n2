@@ -34,8 +34,8 @@ define('FILE_ACTION', 'Main');
 // require files
 require_once('./includes/global_admin.php');
 
-new AdminHTML('header', 'Welcome to wtcBB 2 Admin Panel!', true);
-new AdminHTML('tableBegin', 'wtcBB 2 Admin Panel', true, Array('form' => true, 'action' => 'admin.php?file=user&amp;do=search'));
+new AdminHTML('header', 'Welcome to <em>n2</em> Admin Panel!', true);
+new AdminHTML('tableBegin', '<em>n2</em> Admin Panel', true, Array('form' => true, 'action' => 'admin.php?file=user&amp;do=search'));
 
 new AdminHTML('tableRow', Array(
 	'title' => 'Search Username:',
@@ -147,21 +147,28 @@ new AdminHTML('tableBegin', 'Credits', true, Array('form' => false));
 new AdminHTML('tableCells', '', true, Array(
 	'cells' => Array(
 		'<strong>Lead Developer:</strong>' => Array(),
-		'<a href="http://www.wtcbb.com/forums/index.php?file=profile&u=1">Andrew Gallant</a>' => Array()
+		'<a href="http://nexus.zteo.com">Chris Ravenscroft</a>' => Array()
 	)
 ));
 
 new AdminHTML('tableCells', '', true, Array(
 	'cells' => Array(
-		'<strong>Graphic and Interface Designer:</strong>' => Array(),
-		'<a href="http://www.wtcbb.com/forums/index.php?file=profile&u=740">Shelley Cunningham</a>' => Array()
+		'<strong>Original Lead Developer:</strong>' => Array(),
+		'Andrew Gallant' => Array()
 	)
 ));
 
 new AdminHTML('tableCells', '', true, Array(
 	'cells' => Array(
-		'<strong>Contributors:</strong>' => Array(),
-		'<a href="http://www.wtcbb.com/forums/index.php?file=profile&u=71">Jackson Owens</a> and <a href="http://www.wtcbb.com/forums/index.php?file=profile&u=47">Justin Shreve</a>' => Array()
+		'<strong>Original Graphic and Interface Designer:</strong>' => Array(),
+		'Shelley Cunningham' => Array()
+	)
+));
+
+new AdminHTML('tableCells', '', true, Array(
+	'cells' => Array(
+		'<strong>Original Contributors:</strong>' => Array(),
+		'Jackson Owens and Justin Shreve' => Array()
 	)
 ));
 
