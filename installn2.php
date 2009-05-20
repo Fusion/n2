@@ -24,8 +24,7 @@
  * IMPORTANT NOTE: This class contains code lifted from Vincent Blavet's excellent
  * PclLib library.
  * This code is used to uncompress zip data without calling zip_xxx php functions as
- * these are not
- * always compiled in PHP.
+ * these are not always compiled in PHP.
  * However, this code still requires your PHP library to be linked against zlib.
  *
  * For more information on PclLib, which is GNU/LGPL, go to http://www.phpconcept.net
