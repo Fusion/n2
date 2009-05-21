@@ -267,7 +267,7 @@ function pageLoadTime() {
 		$total = $startDiff + $endTotal;
 	}
 
-	return $total;
+	return number_format($total, 2);
 }
 
 ?>

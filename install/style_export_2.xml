@@ -1,22 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <root>
-<style styleid="2" parentid="1" name="n2" disOrder="2" selectable="1" enabled="1" fragmentids="N;">
+<style styleid="1" parentid="-1" name="wtcBB Default" disOrder="1" selectable="1" enabled="1" fragmentids="N;">
 <css><![CDATA[/**
- * CSS For Style: n2
- * Style ID: 2
+ * CSS For Style: wtcBB Default
+ * Style ID: 1
  */
 
 body {
-	background: #284571;
+	background: #577899;
 	color: #fff;
 	font-family: verdana, sans-serif;
-	font-size: 12px;
+	font-size: 80%;
 }
 
 	body a {
-		color: #A9D2EA;
-		text-decoration: none;
+		color: #dfdcdf;
+		font-weight: bold;
+		text-decoration: underline;
 	}
 
 	body a:hover {
@@ -25,14 +26,13 @@ body {
 
 .page {
 	background: #fff;
-	color: #000;
-	font-size: 12px;
-	margin: 10px 20px;	border-style: inset !important;
+	color: #282828;
+	margin: 10px 20px;
+	border-style: inset !important;
 }
 
 	.page a {
-		color: #A9D2EA;
-		text-decoration: none;
+		color: #59798c;
 	}
 
 	.page a:hover {
@@ -48,9 +48,8 @@ body {
 }
 
 .cat {
-	background: #28436E;
+	background: #fbe286 url(./../images/wtcBB-Default/headBg.jpg) repeat-x;
 	color: #fff;
-	font-size: 12px;
 	font-weight: bold;
 	padding: 6px;
 }
@@ -64,31 +63,19 @@ body {
 	}
 
 .alt1 {
-	background: #EBF0F7;
-	color: #000;
-	font-size: 12px;
+	background: #f8f5f8;
 }
-
-	.alt1 a {
-		color: #4C7799;
-	}
 
 .alt2 {
-	background: #F5F6F6;
-	color: #000;
-	font-size: 12px;
+	background: #fff;
 }
 
-	.alt2 a {
-		color: #4C7799;
-	}
-
 th, .headFoot {
-	background: #28436E;
+	background: #537495 url(./../images/wtcBB-Default/navbg.jpg) repeat-x;
 	color: #fff;
-	font-size: 12px;
 	font-weight: bold;
-	padding: 4px !important;	text-align: center;
+	padding: 4px !important;
+	text-align: center;
 }
 
 	th a, .headFoot a {
@@ -106,7 +93,7 @@ select {
 }
 
 .small {
-	font-size: 10px;
+	font-size: 85%;
 }
 
 input.text, textarea {
@@ -118,7 +105,7 @@ input.text, textarea {
 
 .time {
 	color: #577899;
-	font-size: 10px;
+	font-size: 85%;
 }]]></css>
 <fragment fragmentid="191" styleid="0" groupid="5454" fragmentName="aimIcon" fragmentVarName="aimIcon" fragmentType="imageName" defaultid="0" disOrder="0">
 <template><![CDATA[imAimIcon.gif]]></template>
@@ -622,7 +609,7 @@ input.text, textarea {
 </fragment>
 
 <fragment fragmentid="26" styleid="0" groupid="164" fragmentName="body" fragmentVarName="body" fragmentType="style" defaultid="0" disOrder="1">
-<template><![CDATA[a:29:{s:12:"main_bgColor";s:7:"#284571";s:14:"main_fontColor";s:4:"#fff";s:15:"main_fontFamily";s:19:"verdana, sans-serif";s:13:"main_fontSize";s:4:"12px";s:14:"main_fontStyle";s:0:"";s:15:"main_fontWeight";s:0:"";s:12:"main_textDec";s:0:"";s:15:"regLink_bgColor";s:0:"";s:17:"regLink_fontColor";s:7:"#A9D2EA";s:18:"regLink_fontFamily";s:0:"";s:16:"regLink_fontSize";s:0:"";s:17:"regLink_fontStyle";s:0:"";s:18:"regLink_fontWeight";s:0:"";s:15:"regLink_textDec";s:4:"none";s:17:"visitLink_bgColor";s:0:"";s:19:"visitLink_fontColor";s:0:"";s:20:"visitLink_fontFamily";s:0:"";s:18:"visitLink_fontSize";s:0:"";s:19:"visitLink_fontStyle";s:0:"";s:20:"visitLink_fontWeight";s:0:"";s:17:"visitLink_textDec";s:0:"";s:17:"hoverLink_bgColor";s:0:"";s:19:"hoverLink_fontColor";s:4:"#fff";s:20:"hoverLink_fontFamily";s:0:"";s:18:"hoverLink_fontSize";s:0:"";s:19:"hoverLink_fontStyle";s:0:"";s:20:"hoverLink_fontWeight";s:0:"";s:17:"hoverLink_textDec";s:0:"";s:5:"extra";s:0:"";}]]></template>
+<template><![CDATA[a:29:{s:12:"main_bgColor";s:7:"#577899";s:14:"main_fontColor";s:4:"#fff";s:15:"main_fontFamily";s:19:"verdana, sans-serif";s:13:"main_fontSize";s:3:"80%";s:14:"main_fontStyle";s:0:"";s:15:"main_fontWeight";s:0:"";s:12:"main_textDec";s:0:"";s:15:"regLink_bgColor";s:0:"";s:17:"regLink_fontColor";s:7:"#dfdcdf";s:18:"regLink_fontFamily";s:0:"";s:16:"regLink_fontSize";s:0:"";s:17:"regLink_fontStyle";s:0:"";s:18:"regLink_fontWeight";s:4:"bold";s:15:"regLink_textDec";s:9:"underline";s:17:"visitLink_bgColor";s:0:"";s:19:"visitLink_fontColor";s:0:"";s:20:"visitLink_fontFamily";s:0:"";s:18:"visitLink_fontSize";s:0:"";s:19:"visitLink_fontStyle";s:0:"";s:20:"visitLink_fontWeight";s:0:"";s:17:"visitLink_textDec";s:0:"";s:17:"hoverLink_bgColor";s:0:"";s:19:"hoverLink_fontColor";s:4:"#fff";s:20:"hoverLink_fontFamily";s:0:"";s:18:"hoverLink_fontSize";s:0:"";s:19:"hoverLink_fontStyle";s:0:"";s:20:"hoverLink_fontWeight";s:0:"";s:17:"hoverLink_textDec";s:0:"";s:5:"extra";s:0:"";}]]></template>
 <templatephp><![CDATA[]]></templatephp>
 </fragment>
 
@@ -632,23 +619,23 @@ input.text, textarea {
 </fragment>
 
 <fragment fragmentid="30" styleid="0" groupid="164" fragmentName=".cat" fragmentVarName="category" fragmentType="style" defaultid="0" disOrder="4">
-<template><![CDATA[a:29:{s:12:"main_bgColor";s:7:"#28436E";s:14:"main_fontColor";s:4:"#fff";s:15:"main_fontFamily";s:0:"";s:13:"main_fontSize";s:4:"12px";s:14:"main_fontStyle";s:0:"";s:15:"main_fontWeight";s:4:"bold";s:12:"main_textDec";s:0:"";s:15:"regLink_bgColor";s:0:"";s:17:"regLink_fontColor";s:4:"#fff";s:18:"regLink_fontFamily";s:0:"";s:16:"regLink_fontSize";s:0:"";s:17:"regLink_fontStyle";s:0:"";s:18:"regLink_fontWeight";s:0:"";s:15:"regLink_textDec";s:0:"";s:17:"visitLink_bgColor";s:0:"";s:19:"visitLink_fontColor";s:0:"";s:20:"visitLink_fontFamily";s:0:"";s:18:"visitLink_fontSize";s:0:"";s:19:"visitLink_fontStyle";s:0:"";s:20:"visitLink_fontWeight";s:0:"";s:17:"visitLink_textDec";s:0:"";s:17:"hoverLink_bgColor";s:0:"";s:19:"hoverLink_fontColor";s:7:"#fbe286";s:20:"hoverLink_fontFamily";s:0:"";s:18:"hoverLink_fontSize";s:0:"";s:19:"hoverLink_fontStyle";s:0:"";s:20:"hoverLink_fontWeight";s:0:"";s:17:"hoverLink_textDec";s:0:"";s:5:"extra";s:13:"padding: 6px;";}]]></template>
+<template><![CDATA[a:29:{s:12:"main_bgColor";s:58:"#fbe286 url(./../images/wtcBB-Default/headBg.jpg) repeat-x";s:14:"main_fontColor";s:4:"#fff";s:15:"main_fontFamily";s:0:"";s:13:"main_fontSize";s:0:"";s:14:"main_fontStyle";s:0:"";s:15:"main_fontWeight";s:4:"bold";s:12:"main_textDec";s:0:"";s:15:"regLink_bgColor";s:0:"";s:17:"regLink_fontColor";s:4:"#fff";s:18:"regLink_fontFamily";s:0:"";s:16:"regLink_fontSize";s:0:"";s:17:"regLink_fontStyle";s:0:"";s:18:"regLink_fontWeight";s:0:"";s:15:"regLink_textDec";s:0:"";s:17:"visitLink_bgColor";s:0:"";s:19:"visitLink_fontColor";s:0:"";s:20:"visitLink_fontFamily";s:0:"";s:18:"visitLink_fontSize";s:0:"";s:19:"visitLink_fontStyle";s:0:"";s:20:"visitLink_fontWeight";s:0:"";s:17:"visitLink_textDec";s:0:"";s:17:"hoverLink_bgColor";s:0:"";s:19:"hoverLink_fontColor";s:7:"#fbe286";s:20:"hoverLink_fontFamily";s:0:"";s:18:"hoverLink_fontSize";s:0:"";s:19:"hoverLink_fontStyle";s:0:"";s:20:"hoverLink_fontWeight";s:0:"";s:17:"hoverLink_textDec";s:0:"";s:5:"extra";s:13:"padding: 6px;";}]]></template>
 <templatephp><![CDATA[]]></templatephp>
 </fragment>
 
 <fragment fragmentid="31" styleid="0" groupid="164" fragmentName=".alt1" fragmentVarName="firstAlteration" fragmentType="style" defaultid="0" disOrder="5">
-<template><![CDATA[a:29:{s:12:"main_bgColor";s:7:"#EBF0F7";s:14:"main_fontColor";s:4:"#000";s:15:"main_fontFamily";s:0:"";s:13:"main_fontSize";s:4:"12px";s:14:"main_fontStyle";s:0:"";s:15:"main_fontWeight";s:0:"";s:12:"main_textDec";s:0:"";s:15:"regLink_bgColor";s:0:"";s:17:"regLink_fontColor";s:7:"#4C7799";s:18:"regLink_fontFamily";s:0:"";s:16:"regLink_fontSize";s:0:"";s:17:"regLink_fontStyle";s:0:"";s:18:"regLink_fontWeight";s:0:"";s:15:"regLink_textDec";s:0:"";s:17:"visitLink_bgColor";s:0:"";s:19:"visitLink_fontColor";s:0:"";s:20:"visitLink_fontFamily";s:0:"";s:18:"visitLink_fontSize";s:0:"";s:19:"visitLink_fontStyle";s:0:"";s:20:"visitLink_fontWeight";s:0:"";s:17:"visitLink_textDec";s:0:"";s:17:"hoverLink_bgColor";s:0:"";s:19:"hoverLink_fontColor";s:0:"";s:20:"hoverLink_fontFamily";s:0:"";s:18:"hoverLink_fontSize";s:0:"";s:19:"hoverLink_fontStyle";s:0:"";s:20:"hoverLink_fontWeight";s:0:"";s:17:"hoverLink_textDec";s:0:"";s:5:"extra";s:0:"";}]]></template>
+<template><![CDATA[a:29:{s:12:"main_bgColor";s:7:"#f8f5f8";s:14:"main_fontColor";s:0:"";s:15:"main_fontFamily";s:0:"";s:13:"main_fontSize";s:0:"";s:14:"main_fontStyle";s:0:"";s:15:"main_fontWeight";s:0:"";s:12:"main_textDec";s:0:"";s:15:"regLink_bgColor";s:0:"";s:17:"regLink_fontColor";s:0:"";s:18:"regLink_fontFamily";s:0:"";s:16:"regLink_fontSize";s:0:"";s:17:"regLink_fontStyle";s:0:"";s:18:"regLink_fontWeight";s:0:"";s:15:"regLink_textDec";s:0:"";s:17:"visitLink_bgColor";s:0:"";s:19:"visitLink_fontColor";s:0:"";s:20:"visitLink_fontFamily";s:0:"";s:18:"visitLink_fontSize";s:0:"";s:19:"visitLink_fontStyle";s:0:"";s:20:"visitLink_fontWeight";s:0:"";s:17:"visitLink_textDec";s:0:"";s:17:"hoverLink_bgColor";s:0:"";s:19:"hoverLink_fontColor";s:0:"";s:20:"hoverLink_fontFamily";s:0:"";s:18:"hoverLink_fontSize";s:0:"";s:19:"hoverLink_fontStyle";s:0:"";s:20:"hoverLink_fontWeight";s:0:"";s:17:"hoverLink_textDec";s:0:"";s:5:"extra";s:0:"";}]]></template>
 <templatephp><![CDATA[]]></templatephp>
 </fragment>
 
 <fragment fragmentid="34" styleid="0" groupid="164" fragmentName="th, .headFoot" fragmentVarName="headerFooter" fragmentType="style" defaultid="0" disOrder="7">
-<template><![CDATA[a:29:{s:12:"main_bgColor";s:7:"#28436E";s:14:"main_fontColor";s:4:"#fff";s:15:"main_fontFamily";s:0:"";s:13:"main_fontSize";s:4:"12px";s:14:"main_fontStyle";s:0:"";s:15:"main_fontWeight";s:4:"bold";s:12:"main_textDec";s:0:"";s:15:"regLink_bgColor";s:0:"";s:17:"regLink_fontColor";s:4:"#fff";s:18:"regLink_fontFamily";s:0:"";s:16:"regLink_fontSize";s:0:"";s:17:"regLink_fontStyle";s:0:"";s:18:"regLink_fontWeight";s:0:"";s:15:"regLink_textDec";s:0:"";s:17:"visitLink_bgColor";s:0:"";s:19:"visitLink_fontColor";s:0:"";s:20:"visitLink_fontFamily";s:0:"";s:18:"visitLink_fontSize";s:0:"";s:19:"visitLink_fontStyle";s:0:"";s:20:"visitLink_fontWeight";s:0:"";s:17:"visitLink_textDec";s:0:"";s:17:"hoverLink_bgColor";s:0:"";s:19:"hoverLink_fontColor";s:7:"#fbe286";s:20:"hoverLink_fontFamily";s:0:"";s:18:"hoverLink_fontSize";s:0:"";s:19:"hoverLink_fontStyle";s:0:"";s:20:"hoverLink_fontWeight";s:0:"";s:17:"hoverLink_textDec";s:0:"";s:5:"extra";s:45:"padding: 4px !important;
+<template><![CDATA[a:29:{s:12:"main_bgColor";s:57:"#537495 url(./../images/wtcBB-Default/navbg.jpg) repeat-x";s:14:"main_fontColor";s:4:"#fff";s:15:"main_fontFamily";s:0:"";s:13:"main_fontSize";s:0:"";s:14:"main_fontStyle";s:0:"";s:15:"main_fontWeight";s:4:"bold";s:12:"main_textDec";s:0:"";s:15:"regLink_bgColor";s:0:"";s:17:"regLink_fontColor";s:4:"#fff";s:18:"regLink_fontFamily";s:0:"";s:16:"regLink_fontSize";s:0:"";s:17:"regLink_fontStyle";s:0:"";s:18:"regLink_fontWeight";s:0:"";s:15:"regLink_textDec";s:0:"";s:17:"visitLink_bgColor";s:0:"";s:19:"visitLink_fontColor";s:0:"";s:20:"visitLink_fontFamily";s:0:"";s:18:"visitLink_fontSize";s:0:"";s:19:"visitLink_fontStyle";s:0:"";s:20:"visitLink_fontWeight";s:0:"";s:17:"visitLink_textDec";s:0:"";s:17:"hoverLink_bgColor";s:0:"";s:19:"hoverLink_fontColor";s:7:"#fbe286";s:20:"hoverLink_fontFamily";s:0:"";s:18:"hoverLink_fontSize";s:0:"";s:19:"hoverLink_fontStyle";s:0:"";s:20:"hoverLink_fontWeight";s:0:"";s:17:"hoverLink_textDec";s:0:"";s:5:"extra";s:45:"padding: 4px !important;
 text-align: center;";}]]></template>
 <templatephp><![CDATA[]]></templatephp>
 </fragment>
 
 <fragment fragmentid="27" styleid="0" groupid="164" fragmentName=".page" fragmentVarName="page" fragmentType="style" defaultid="0" disOrder="2">
-<template><![CDATA[a:29:{s:12:"main_bgColor";s:4:"#fff";s:14:"main_fontColor";s:4:"#000";s:15:"main_fontFamily";s:0:"";s:13:"main_fontSize";s:4:"12px";s:14:"main_fontStyle";s:0:"";s:15:"main_fontWeight";s:0:"";s:12:"main_textDec";s:0:"";s:15:"regLink_bgColor";s:0:"";s:17:"regLink_fontColor";s:7:"#A9D2EA";s:18:"regLink_fontFamily";s:0:"";s:16:"regLink_fontSize";s:0:"";s:17:"regLink_fontStyle";s:0:"";s:18:"regLink_fontWeight";s:0:"";s:15:"regLink_textDec";s:4:"none";s:17:"visitLink_bgColor";s:0:"";s:19:"visitLink_fontColor";s:0:"";s:20:"visitLink_fontFamily";s:0:"";s:18:"visitLink_fontSize";s:0:"";s:19:"visitLink_fontStyle";s:0:"";s:20:"visitLink_fontWeight";s:0:"";s:17:"visitLink_textDec";s:0:"";s:17:"hoverLink_bgColor";s:0:"";s:19:"hoverLink_fontColor";s:7:"#4f4f4f";s:20:"hoverLink_fontFamily";s:0:"";s:18:"hoverLink_fontSize";s:0:"";s:19:"hoverLink_fontStyle";s:0:"";s:20:"hoverLink_fontWeight";s:0:"";s:17:"hoverLink_textDec";s:0:"";s:5:"extra";s:51:"margin: 10px 20px;
+<template><![CDATA[a:29:{s:12:"main_bgColor";s:4:"#fff";s:14:"main_fontColor";s:7:"#282828";s:15:"main_fontFamily";s:0:"";s:13:"main_fontSize";s:0:"";s:14:"main_fontStyle";s:0:"";s:15:"main_fontWeight";s:0:"";s:12:"main_textDec";s:0:"";s:15:"regLink_bgColor";s:0:"";s:17:"regLink_fontColor";s:7:"#59798c";s:18:"regLink_fontFamily";s:0:"";s:16:"regLink_fontSize";s:0:"";s:17:"regLink_fontStyle";s:0:"";s:18:"regLink_fontWeight";s:0:"";s:15:"regLink_textDec";s:0:"";s:17:"visitLink_bgColor";s:0:"";s:19:"visitLink_fontColor";s:0:"";s:20:"visitLink_fontFamily";s:0:"";s:18:"visitLink_fontSize";s:0:"";s:19:"visitLink_fontStyle";s:0:"";s:20:"visitLink_fontWeight";s:0:"";s:17:"visitLink_textDec";s:0:"";s:17:"hoverLink_bgColor";s:0:"";s:19:"hoverLink_fontColor";s:7:"#4f4f4f";s:20:"hoverLink_fontFamily";s:0:"";s:18:"hoverLink_fontSize";s:0:"";s:19:"hoverLink_fontStyle";s:0:"";s:20:"hoverLink_fontWeight";s:0:"";s:17:"hoverLink_textDec";s:0:"";s:5:"extra";s:51:"margin: 10px 20px;
 border-style: inset !important;";}]]></template>
 <templatephp><![CDATA[]]></templatephp>
 </fragment>
@@ -659,7 +646,7 @@ border-style: inset !important;";}]]></template>
 </fragment>
 
 <fragment fragmentid="32" styleid="0" groupid="164" fragmentName=".alt2" fragmentVarName="secondAlteration" fragmentType="style" defaultid="0" disOrder="6">
-<template><![CDATA[a:29:{s:12:"main_bgColor";s:7:"#F5F6F6";s:14:"main_fontColor";s:4:"#000";s:15:"main_fontFamily";s:0:"";s:13:"main_fontSize";s:4:"12px";s:14:"main_fontStyle";s:0:"";s:15:"main_fontWeight";s:0:"";s:12:"main_textDec";s:0:"";s:15:"regLink_bgColor";s:0:"";s:17:"regLink_fontColor";s:7:"#4C7799";s:18:"regLink_fontFamily";s:0:"";s:16:"regLink_fontSize";s:0:"";s:17:"regLink_fontStyle";s:0:"";s:18:"regLink_fontWeight";s:0:"";s:15:"regLink_textDec";s:0:"";s:17:"visitLink_bgColor";s:0:"";s:19:"visitLink_fontColor";s:0:"";s:20:"visitLink_fontFamily";s:0:"";s:18:"visitLink_fontSize";s:0:"";s:19:"visitLink_fontStyle";s:0:"";s:20:"visitLink_fontWeight";s:0:"";s:17:"visitLink_textDec";s:0:"";s:17:"hoverLink_bgColor";s:0:"";s:19:"hoverLink_fontColor";s:0:"";s:20:"hoverLink_fontFamily";s:0:"";s:18:"hoverLink_fontSize";s:0:"";s:19:"hoverLink_fontStyle";s:0:"";s:20:"hoverLink_fontWeight";s:0:"";s:17:"hoverLink_textDec";s:0:"";s:5:"extra";s:0:"";}]]></template>
+<template><![CDATA[a:29:{s:12:"main_bgColor";s:4:"#fff";s:14:"main_fontColor";s:0:"";s:15:"main_fontFamily";s:0:"";s:13:"main_fontSize";s:0:"";s:14:"main_fontStyle";s:0:"";s:15:"main_fontWeight";s:0:"";s:12:"main_textDec";s:0:"";s:15:"regLink_bgColor";s:0:"";s:17:"regLink_fontColor";s:0:"";s:18:"regLink_fontFamily";s:0:"";s:16:"regLink_fontSize";s:0:"";s:17:"regLink_fontStyle";s:0:"";s:18:"regLink_fontWeight";s:0:"";s:15:"regLink_textDec";s:0:"";s:17:"visitLink_bgColor";s:0:"";s:19:"visitLink_fontColor";s:0:"";s:20:"visitLink_fontFamily";s:0:"";s:18:"visitLink_fontSize";s:0:"";s:19:"visitLink_fontStyle";s:0:"";s:20:"visitLink_fontWeight";s:0:"";s:17:"visitLink_textDec";s:0:"";s:17:"hoverLink_bgColor";s:0:"";s:19:"hoverLink_fontColor";s:0:"";s:20:"hoverLink_fontFamily";s:0:"";s:18:"hoverLink_fontSize";s:0:"";s:19:"hoverLink_fontStyle";s:0:"";s:20:"hoverLink_fontWeight";s:0:"";s:17:"hoverLink_textDec";s:0:"";s:5:"extra";s:0:"";}]]></template>
 <templatephp><![CDATA[]]></templatephp>
 </fragment>
 
@@ -669,7 +656,7 @@ border-style: inset !important;";}]]></template>
 </fragment>
 
 <fragment fragmentid="38" styleid="0" groupid="164" fragmentName=".small" fragmentVarName="smallFont" fragmentType="style" defaultid="0" disOrder="10">
-<template><![CDATA[a:8:{s:12:"main_bgColor";s:0:"";s:14:"main_fontColor";s:0:"";s:15:"main_fontFamily";s:0:"";s:13:"main_fontSize";s:4:"10px";s:14:"main_fontStyle";s:0:"";s:15:"main_fontWeight";s:0:"";s:12:"main_textDec";s:0:"";s:5:"extra";s:0:"";}]]></template>
+<template><![CDATA[a:8:{s:12:"main_bgColor";s:0:"";s:14:"main_fontColor";s:0:"";s:15:"main_fontFamily";s:0:"";s:13:"main_fontSize";s:3:"85%";s:14:"main_fontStyle";s:0:"";s:15:"main_fontWeight";s:0:"";s:12:"main_textDec";s:0:"";s:5:"extra";s:0:"";}]]></template>
 <templatephp><![CDATA[]]></templatephp>
 </fragment>
 
@@ -679,12 +666,12 @@ border-style: inset !important;";}]]></template>
 </fragment>
 
 <fragment fragmentid="40" styleid="0" groupid="164" fragmentName=".time" fragmentVarName="timeFont" fragmentType="style" defaultid="0" disOrder="12">
-<template><![CDATA[a:8:{s:12:"main_bgColor";s:0:"";s:14:"main_fontColor";s:7:"#577899";s:15:"main_fontFamily";s:0:"";s:13:"main_fontSize";s:4:"10px";s:14:"main_fontStyle";s:0:"";s:15:"main_fontWeight";s:0:"";s:12:"main_textDec";s:0:"";s:5:"extra";s:0:"";}]]></template>
+<template><![CDATA[a:8:{s:12:"main_bgColor";s:0:"";s:14:"main_fontColor";s:7:"#577899";s:15:"main_fontFamily";s:0:"";s:13:"main_fontSize";s:3:"85%";s:14:"main_fontStyle";s:0:"";s:15:"main_fontWeight";s:0:"";s:12:"main_textDec";s:0:"";s:5:"extra";s:0:"";}]]></template>
 <templatephp><![CDATA[]]></templatephp>
 </fragment>
 
 <fragment fragmentid="62" styleid="0" groupid="184" fragmentName="borderColor" fragmentVarName="borderColor" fragmentType="option" defaultid="0" disOrder="0">
-<template><![CDATA[#00417f]]></template>
+<template><![CDATA[#59798c]]></template>
 <templatephp><![CDATA[]]></templatephp>
 </fragment>
 
@@ -699,7 +686,7 @@ border-style: inset !important;";}]]></template>
 </fragment>
 
 <fragment fragmentid="65" styleid="0" groupid="184" fragmentName="docType" fragmentVarName="docType" fragmentType="option" defaultid="0" disOrder="0">
-<template><![CDATA[<!DOCTYPE html PUBLIC \\\\\\\\\\\\\\\"-//W3C//DTD XHTML 1.0 Strict//EN\\\\\\\\\\\\\\\" \\\\\\\\\\\\\\\"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd\\\\\\\\\\\\\\\">]]></template>
+<template><![CDATA[<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">]]></template>
 <templatephp><![CDATA[]]></templatephp>
 </fragment>
 
@@ -709,7 +696,7 @@ border-style: inset !important;";}]]></template>
 </fragment>
 
 <fragment fragmentid="96" styleid="0" groupid="184" fragmentName="inBorderColor" fragmentVarName="inBorderColor" fragmentType="option" defaultid="0" disOrder="0">
-<template><![CDATA[#e2e2e2]]></template>
+<template><![CDATA[#ccc]]></template>
 <templatephp><![CDATA[]]></templatephp>
 </fragment>
 
