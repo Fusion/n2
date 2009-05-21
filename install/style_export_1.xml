@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <root>
-<style styleid="2" parentid="1" name="n2" disOrder="2" selectable="1" enabled="1" fragmentids="N;">
+<style styleid="1" parentid="-1" name="n2" disOrder="1" selectable="1" enabled="1" fragmentids="N;">
 <css><![CDATA[/**
  * CSS For Style: n2
  * Style ID: 2
@@ -907,6 +907,10 @@ border-style: inset !important;";}]]></template>
             <strong>Page Execution:</strong> {$pageExec} | 
         </if>
 
+        <if($cpuLoad = getServerLoad())>
+            <strong>Server Load:</strong> {$cpuLoad} | 
+        </if>
+
         <strong>Query Count:</strong> {$wtcDB->getQueryCount()}
     </div>
 
@@ -937,6 +941,10 @@ border-style: inset !important;";}]]></template>
     <div class=\"floatLeft\">
         " . (($pageExec = pageLoadTime()) ? ("
             <strong>Page Execution:</strong> {$pageExec} | 
+        ") : (""))
+        
+        . (($cpuLoad = getServerLoad()) ? ("
+            <strong>Server Load:</strong> {$cpuLoad} | 
         ") : ("")) . "
 
         <strong>Query Count:</strong> {$wtcDB->getQueryCount()}

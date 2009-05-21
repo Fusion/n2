@@ -270,4 +270,50 @@ function pageLoadTime() {
 	return number_format($total, 2);
 }
 
+/**
+ * Gets cpu load
+ */
+	function getServerLoad()
+	{
+		$loadavg = false;
+		
+		// Original algorithm is taken from
+		// Adodb perf source code, taken from
+		// http://msdn.microsoft.com/library/default.asp?url=/library/en-us/wmisdk/wmi/example__obtaining_raw_performance_data.asp
+		if (strncmp(PHP_OS,'WIN',3)==0)
+		{
+			if (PHP_VERSION == '5.0.0') return false;
+			if (PHP_VERSION == '5.0.1') return false;
+			if (PHP_VERSION == '5.0.2') return false;
+			if (PHP_VERSION == '5.0.3') return false;
+			if (PHP_VERSION == '5.0.11') return false; # see http://bugs.php.net/bug.php?id=31737
+			if (PHP_VERSION == '5.0.12') return false; # see http://bugs.php.net/bug.php?id=31737
+			if (PHP_VERSION == '4.3.10') return false; # see http://bugs.php.net/bug.php?id=31737
+			
+			@$c = new COM("WinMgmts:{impersonationLevel=impersonate}!Win32_PerfRawData_PerfOS_Processor.Name='_Total'");
+			if (!$c) return false;
+			
+			$info[0] = $c->PercentProcessorTime;
+			$info[1] = 0;
+			$info[2] = 0;
+			$info[3] = $c->TimeStamp_Sys100NS;
+			return $info;
+		}
+		
+		if ( @file_exists('/proc/loadavg') )
+		{
+			$f = @fopen("/proc/loadavg", "r");
+			if($f)
+			{
+				$line = fgets($f);
+				if($line)
+				{
+					$tokens = explode( ' ', $line );
+					$loadavg = trim($tokens[0]);
+				}
+				fclose($f);
+			}
+		}
+		return $loadavg;
+	}
 ?>
