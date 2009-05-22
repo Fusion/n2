@@ -426,6 +426,7 @@ $lang['admin_icons_man'] = '帖子图标经理';
 $lang['admin_icons_man_disOrder'] = '显示顺序';
 $lang['admin_icons_man_img'] = '图片';
 $lang['admin_import'] = '导入';
+$lang['admin_info_advanced'] = '[TBT] <span class="important">Advanced users only.</span>';
 $lang['admin_inherit'] = '承继';
 $lang['admin_language_add'] = '添加语言';
 $lang['admin_language_addCat_catName'] = '目录名称:';
@@ -865,6 +866,7 @@ $lang['admin_style_colors_cssCat'] = 'CSS 类别:';
 $lang['admin_style_colors_extraNote'] = '&lt;em&gt;注意:&lt;/em&gt; 在这部分的风格中，CSS声明将被内置于主要的选择群中. 这意味着如果你在代
 码中添加 ("{" 和 "}") 符号，你将收到不可预知的结果. &lt;span class="important"&gt;仅对高级用户.&lt;/span&gt;';
 $lang['admin_style_colors_note'] = '&lt;strong&gt;注意:&lt;/strong&gt; 你可以用TAB键浏览而不会丢失任何数据.';
+$lang['admin_style_c_advanced_extra'] = '[TBT] Extra (key: values):';
 $lang['admin_style_c_bgColor'] = '背景颜色:';
 $lang['admin_style_c_extra'] = '附加道具';
 $lang['admin_style_c_fontColor'] = '字体颜色';

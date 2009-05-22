@@ -1305,7 +1305,7 @@ else if(isset($_GET['colors'])) {
 					'bgColor' => 'admin_style_c_bgColor', 'fontColor' => 'admin_style_c_fontColor',
 					'fontFamily' => 'admin_style_c_fontFamily', 'fontSize' => 'admin_style_c_fontSize',
 					'fontStyle' => 'admin_style_c_fontStyle', 'fontWeight' => 'admin_style_c_fontWeight',
-					'textDec' => 'admin_style_c_textDec'
+					'textDec' => 'admin_style_c_textDec', 'advanced_extra' => 'admin_style_c_advanced_extra'
 				);
 
 	$colorSectionsObj = new AdminHTML('locationSelect', '', false, Array(
@@ -1398,7 +1398,8 @@ else if(isset($_GET['colors'])) {
 						$fieldObj = new AdminHTML('tableRow', Array(
 																'title' => $lang[$langVar],
 																'desc' => '',
-																'type' => ((strpos($var, 'Color') !== false) ? 'textColor' : 'text'),
+																'type' => ((strpos($var, 'Color') !== false) ? 'textColor' :
+																	((substr($var, 0, 8) == 'advanced') ? 'advanced' : 'text')),
 																'name' => 'css[' . $name . '_' . $var . ']',
 																'value' => $colValues[$name . '_' . $var],
 																'class' => ' ' . $colorType

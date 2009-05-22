@@ -445,6 +445,7 @@ $lang['admin_icons_man'] = 'Ìû×ÓÍ¼±ê¾­Àí';
 $lang['admin_icons_man_disOrder'] = 'ÏÔÊ¾Ë³Ðò';
 $lang['admin_icons_man_img'] = 'Í¼Æ¬';
 $lang['admin_import'] = 'µ¼Èë';
+$lang['admin_info_advanced'] = '[TBT] <span class="important">Advanced users only.</span>';
 $lang['admin_inherit'] = '³Ð¼Ì';
 $lang['admin_language_add'] = 'Ìí¼ÓÓïÑÔ';
 $lang['admin_language_addCat_catName'] = 'Ä¿Â¼Ãû³Æ:';
@@ -884,6 +885,7 @@ $lang['admin_style_colors_cssCat'] = 'CSS Àà±ð:';
 $lang['admin_style_colors_extraNote'] = '<em>×¢Òâ:</em> ÔÚÕâ²¿·ÖµÄ·ç¸ñÖÐ£¬CSSÉùÃ÷½«±»ÄÚÖÃÓÚÖ÷ÒªµÄÑ¡ÔñÈºÖÐ. ÕâÒâÎ¶×ÅÈç¹ûÄãÔÚ´ú
 ÂëÖÐÌí¼Ó ("{" ºÍ "}") ·ûºÅ£¬Äã½«ÊÕµ½²»¿ÉÔ¤ÖªµÄ½á¹û. <span class="important">½ö¶Ô¸ß¼¶ÓÃ»§.</span>';
 $lang['admin_style_colors_note'] = '<strong>×¢Òâ:</strong> Äã¿ÉÒÔÓÃTAB¼üä¯ÀÀ¶ø²»»á¶ªÊ§ÈÎºÎÊý¾Ý.';
+$lang['admin_style_c_advanced_extra'] = '[TBT] Extra (key: values):';
 $lang['admin_style_c_bgColor'] = '±³¾°ÑÕÉ«:';
 $lang['admin_style_c_extra'] = '¸½¼ÓµÀ¾ß';
 $lang['admin_style_c_fontColor'] = '×ÖÌåÑÕÉ«';

@@ -634,6 +634,7 @@ class AdminHTML {
 				break;
 
 				case 'text':
+				case 'advanced':
 					// html?
 					$this->title['value'] = wtcspecialchars($this->title['value']);
 
@@ -643,6 +644,10 @@ class AdminHTML {
 						if($this->title['addRevert']) {
 							print("\t\t\t\t\t" . '<label for="revert_' . $this->title['name'] . '"><input type="checkbox" name="revert_' . $this->title['name'] . '" id="revert_' . $this->title['name'] . '" /> <strong>' . $lang['admin_style_revert'] . '</strong></label>' . "\n");
 						}
+						
+						if($this->title['type'] == 'advanced')
+							print($lang['admin_info_advanced']);
+						
 					print("\t\t\t\t" . '</td>' . "\n\n");
 				break;
 

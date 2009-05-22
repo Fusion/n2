@@ -347,7 +347,8 @@ class Style extends Object {
 							'fontSize' => 'font-size:',
 							'fontStyle' => 'font-style:',
 							'fontWeight' => 'font-weight:',
-							'textDec' => 'text-decoration:'
+							'textDec' => 'text-decoration:',
+							'advanced_extra' => ''
 						);
 
 		// now a correlation for the different kinds of classes
