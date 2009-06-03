@@ -55,7 +55,7 @@ class Navigation {
 		$forumIter = new ParentForumIterator($FORUM->info['forumid']);
 
 		foreach($forumIter as $forum) {
-			$navLink = './index.php?file=forum&amp;f=' . $forum->info['forumid'] . $SESSURL;
+			$navLink = n2link('file=forum&amp;f=' . $forum->info['forumid'] . $SESSURL);
 			$navName = $forum->info['name'];
 
 			$temp = new StyleFragment('navigation_linkBit');
@@ -63,7 +63,7 @@ class Navigation {
 		}
 
 		if(is_array($this->path)) {
-			$navLink = './index.php?file=forum&amp;f=' . $FORUM->info['forumid'] . $SESSURL;
+			$navLink = n2link('file=forum&amp;f=' . $FORUM->info['forumid'] . $SESSURL);
 			$navName = $FORUM->info['name'];
 
 			$temp = new StyleFragment('navigation_linkBit');

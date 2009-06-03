@@ -22,35 +22,45 @@
 // ************************************************** \\
 ## ************************************************** ##
 ## ************************************************** ##
-## **************** REDIRECTION CLASS *************** ##
+## **************** REPUTATION FILE ***************** ##
 ## ************************************************** ##
 ## ************************************************** ##
 // ************************************************** \\
 
 
-class Redirect {
-	private $goto;
-	
-	// Constructor	
-	public function __construct($uri = '') {
-		if(empty($uri)) {
-			$this->goto = $_SERVER['HTTP_REFERER'];
-		}
-		
-		else {
-			$this->goto = $uri;
-		}
-		if('http' != substr($this->goto, 0, 4))
-			$this->goto = n2link(str_replace('&', '&amp;', $this->goto), true);
-		// make sure to remove ampersands...
-		$this->goto = str_replace('&amp;', '&', $this->goto);
-		
-		$this->newLocation();
+class Reputation {
+	private $bogus;
+
+	// Constructor
+	public function __construct($bogus) {
+		global $lang;
+
+		$this->bogus = $bogus;
 	}
-	
-	// Private Methods
-	private function newLocation() {
-		header('Location: ' . $this->goto);
-		flush(); // odd... sometimes weird things happen without this... o_0
+
+	// bogus
+	public function doBogus($bogus) {
+		global $lang;
+
+		$err = '';
+
+		if('err' == $bogus)) {
+			$err = new WtcBBException($lang['bogus_text'] . $this->bogus, false);
+		}
+
+		return $err;
+	}
+
+	// Private methods
+	private function checkBogus() {
+		global $lang;
+
+		$valid = false;
+
+		if(!$valid) {
+			return new WtcBBException($lang['bogus_check'] . $this->bogus, false);
+		}
 	}
 }
+
+?>

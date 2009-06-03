@@ -185,7 +185,7 @@ class WtcDBA implements WtcDatabaseLayer {
 		$update = '';
 
 		foreach($arr as $field => $v) {
-			$update .= ' ' . $field . ' = "' . $this->escapeString($v, $escape) . '" ,';
+			$update .= ' ' . $field . ' = "' . $this->escapeString($v, $escape) .	'" ,';
 		}
 
 		// remove last comma

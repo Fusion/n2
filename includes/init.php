@@ -68,13 +68,35 @@ define('AWEEK', ADAY * 7);
 define('AMONTH', ADAY * 31);
 define('AYEAR', ADAY * 365);
 define('FAQ_LANG_CAT', 119);
+define('HOME', str_replace('index.php', '', $_SERVER['PHP_SELF']));
+define('SCRIPT_HOME', str_replace('index.php', '', $_SERVER['PATH_TRANSLATED']));
+define('SEO', $seo);
 define('DEV', false);
-
 
 /**
  * Surpress XSS in _SERVER
  */
 $_SERVER = array_map_recursive('wtcspecialchars', $_SERVER);
+
+/**
+ * SEO URL
+ */
+if(!empty($_REQUEST['rewrite']))
+{
+	$gets = explode('/', str_replace(HOME, '', $_SERVER['REQUEST_URI']));
+	$mtype = 0;
+	foreach($gets as $get)
+	{
+		if(0 == $mtype % 2)
+			$getname = $get;
+		else
+		{
+			$_GET[$getname]     = $get;
+			$_REQUEST[$getname] = $get;
+		}
+		++ $mtype;
+	}
+}
 
 /**
  * From php.net: get rid of the evil assumptions of magic_quotes_gpc()

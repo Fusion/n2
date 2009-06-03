@@ -94,7 +94,7 @@ if($_GET['do'] == 'avatar') {
 
 				// good to go
 				else {
-					$User->update(Array('avatar' => $upload->getDestination()));
+					$User->update(Array('avatar' => HOME . $upload->getDestination()));
 				}
 			}
 		}

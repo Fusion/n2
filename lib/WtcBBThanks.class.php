@@ -50,6 +50,8 @@ class WtcBBThanks {
 		else {
 			// only do it if we're using redirects...
 			if($bboptions['redirect']) {
+				if('http' != substr($this->goto, 0, 4))
+					$this->goto = n2link($this->goto, true);			
 				$this->userThanks();
 			}
 

@@ -493,7 +493,7 @@ class User extends Object {
 		}
 
 		for($x = 1; $x <= $rank->getImgRepeat(); $x++) {
-			$retval .= '<img src="' . $rank->getImgPath() . '" alt="' . $lang['user_rankAlt'] . '" />';
+			$retval .= '<img src="' . HOME . $rank->getImgPath() . '" alt="' . $lang['user_rankAlt'] . '" />';
 		}
 
 		return $retval;

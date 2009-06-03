@@ -214,6 +214,35 @@ function unhtmlspecialchars($text) {
    return strtr($text, $trans_table);
 }
 
+function n2urlize($text) {
+	return
+		str_replace(
+			array('/', '?'),
+			array('&#47;', '&#63;'),
+			$text);
+}
+
+/**
+ * Take a regular link and seoize it if necessary
+ */
+function n2link($text, $removeHead = false) {
+	if($removeHead)
+		$text = str_replace('./index.php?', '', $text);
+		
+	if(SEO)
+	{
+		return 
+			HOME .
+			str_replace(
+				array('=', '&amp;'),
+				array('/', '/'),
+				$text);
+	}
+	else
+	{
+		return '?'.$text;
+	}
+}
 
 /**
  * Alias to censor stuff

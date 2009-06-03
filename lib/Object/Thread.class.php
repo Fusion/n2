@@ -109,6 +109,10 @@ class Thread extends Object {
 	public function getName() {
 		return censor($this->info['name']);
 	}
+	
+	public function getUrlizedName() {
+		return n2urlize($this->getName());
+	}
 
 	public function getViews() {
 		return $this->info['views'];

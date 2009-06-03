@@ -1036,7 +1036,7 @@ border-style: inset !important;";}]]></template>
            <!--<td><a href="./index.php?file=faq{$SESSURL}">{$lang[user_index_faq]}</a></td>-->
 
            <if($LOGIN)>
-            <td><a href="index.php?file=login&amp;do=logout{$SESSURL}">{$lang[user_index_logout]}</a></td>
+            <td><a href="./index.php?file=login&amp;do=logout{$SESSURL}">{$lang[user_index_logout]}</a></td>
            </if>
           </tr>
         </table>
@@ -1058,7 +1058,7 @@ border-style: inset !important;";}]]></template>
               {$lang[user_lastVisitHere]} <span class="time fullFont">{$globalLastVisit->getDate()}</span>
             </p>
           <else />
-              <form action="index.php?file=login" method="post" id="login" class="small">
+              <form action="./index.php?file=login" method="post" id="login" class="small">
                 <!--<div>
                   <label for="rememberme">
                     <input type="checkbox" name="login[remember]" value="1" /> {$lang[user_rememberMe]}
@@ -1164,7 +1164,7 @@ border-style: inset !important;";}]]></template>
            <!--<td><a href=\"./index.php?file=faq{$SESSURL}\">{$lang[user_index_faq]}</a></td>-->
 
            " . (($LOGIN) ? ("
-            <td><a href=\"index.php?file=login&amp;do=logout{$SESSURL}\">{$lang[user_index_logout]}</a></td>
+            <td><a href=\"./index.php?file=login&amp;do=logout{$SESSURL}\">{$lang[user_index_logout]}</a></td>
            ") : ("")) . "
           </tr>
         </table>
@@ -1186,7 +1186,7 @@ border-style: inset !important;";}]]></template>
               {$lang[user_lastVisitHere]} <span class=\"time fullFont\">{$globalLastVisit->getDate()}</span>
             </p>
           ") : ("
-              <form action=\"index.php?file=login\" method=\"post\" id=\"login\" class=\"small\">
+              <form action=\"./index.php?file=login\" method=\"post\" id=\"login\" class=\"small\">
                 <!--<div>
                   <label for=\"rememberme\">
                     <input type=\"checkbox\" name=\"login[remember]\" value=\"1\" /> {$lang[user_rememberMe]}
@@ -1367,7 +1367,7 @@ border-style: inset !important;";}]]></template>
         </div>
 
         <if(!empty($threadBits))>
-          <form method="post" action="index.php?file=thread">
+          <form method="post" action="./index.php?file=thread">
             $threadList
 
             <div class="clear">
@@ -1494,7 +1494,7 @@ border-style: inset !important;";}]]></template>
         </div>
 
         " . ((!empty($threadBits)) ? ("
-          <form method=\"post\" action=\"index.php?file=thread\">
+          <form method=\"post\" action=\"./index.php?file=thread\">
             $threadList
 
             <div class=\"clear\">
@@ -1993,7 +1993,7 @@ border-style: inset !important;";}]]></template>
 <fragment fragmentid="110" styleid="0" groupid="206" fragmentName="forumdisplay_catbit_depth1" fragmentVarName="forumdisplay_catbit_depth1" fragmentType="template" defaultid="0" disOrder="0">
 <template><![CDATA[<tr>
     <td class="cat" colspan="6">
-        <a href="index.php?file=forum&amp;f={$forum->info[forumid]}{$SESSURL}">{$forum->info[name]}</a>
+        <a href="./index.php?file=forum&amp;f={$forum->info[forumid]}{$SESSURL}">{$forum->info[name]}</a>
         <if(!empty($forum->info['description']))>
             <p class="small">{$forum->info[description]}</p>
         </if>
@@ -2004,7 +2004,7 @@ border-style: inset !important;";}]]></template>
 ]]></template>
 <templatephp><![CDATA[<tr>
     <td class=\"cat\" colspan=\"6\">
-        <a href=\"index.php?file=forum&amp;f={$forum->info[forumid]}{$SESSURL}\">{$forum->info[name]}</a>
+        <a href=\"./index.php?file=forum&amp;f={$forum->info[forumid]}{$SESSURL}\">{$forum->info[name]}</a>
         " . ((!empty($forum->info['description'])) ? ("
             <p class=\"small\">{$forum->info[description]}</p>
         ") : ("")) . "
@@ -2019,7 +2019,7 @@ border-style: inset !important;";}]]></template>
 <template><![CDATA[<tr>
     <td class="cat" style="width: 2.5%;">&nbsp;</td>
     <td class="cat" colspan="5">
-        <a href="index.php?file=forum&amp;f={$forum->info[forumid]}{$SESSURL}">{$forum->info[name]}</a>
+        <a href="./index.php?file=forum&amp;f={$forum->info[forumid]}{$SESSURL}">{$forum->info[name]}</a>
         <if(!empty($forum->info['description']))>
             <p class="small">{$forum->info[description]}</p>
         </if>
@@ -2030,7 +2030,7 @@ border-style: inset !important;";}]]></template>
 <templatephp><![CDATA[<tr>
     <td class=\"cat\" style=\"width: 2.5%;\">&nbsp;</td>
     <td class=\"cat\" colspan=\"5\">
-        <a href=\"index.php?file=forum&amp;f={$forum->info[forumid]}{$SESSURL}\">{$forum->info[name]}</a>
+        <a href=\"./index.php?file=forum&amp;f={$forum->info[forumid]}{$SESSURL}\">{$forum->info[name]}</a>
         " . ((!empty($forum->info['description'])) ? ("
             <p class=\"small\">{$forum->info[description]}</p>
         ") : ("")) . "
@@ -2054,7 +2054,7 @@ border-style: inset !important;";}]]></template>
         </if>
     </td>
     <td class="alt2" style="width: 59.5%;">
-        <a href="index.php?file=forum&amp;f={$forum->info[forumid]}{$SESSURL}">{$forum->info[name]}</a>
+        <a href="./index.php?file=forum&amp;f={$forum->info[forumid]}{$SESSURL}">{$forum->info[name]}</a>
         <if(!empty($forum->info['description']))>
             <p class="small">{$forum->info[description]}</p>
         </if>
@@ -2105,7 +2105,7 @@ border-style: inset !important;";}]]></template>
         ")) . "
     </td>
     <td class=\"alt2\" style=\"width: 59.5%;\">
-        <a href=\"index.php?file=forum&amp;f={$forum->info[forumid]}{$SESSURL}\">{$forum->info[name]}</a>
+        <a href=\"./index.php?file=forum&amp;f={$forum->info[forumid]}{$SESSURL}\">{$forum->info[name]}</a>
         " . ((!empty($forum->info['description'])) ? ("
             <p class=\"small\">{$forum->info[description]}</p>
         ") : ("")) . "
@@ -2159,7 +2159,7 @@ border-style: inset !important;";}]]></template>
         </if>
     </td>
     <td class="alt2" style="width: 57.5%">
-        <a href="index.php?file=forum&amp;f={$forum->info[forumid]}{$SESSURL}">{$forum->info[name]}</a>
+        <a href="./index.php?file=forum&amp;f={$forum->info[forumid]}{$SESSURL}">{$forum->info[name]}</a>
         <if(!empty($forum->info['description']))>
             <p class="small">{$forum->info[description]}</p>
         </if>
@@ -2209,7 +2209,7 @@ border-style: inset !important;";}]]></template>
         ")) . "
     </td>
     <td class=\"alt2\" style=\"width: 57.5%\">
-        <a href=\"index.php?file=forum&amp;f={$forum->info[forumid]}{$SESSURL}\">{$forum->info[name]}</a>
+        <a href=\"./index.php?file=forum&amp;f={$forum->info[forumid]}{$SESSURL}\">{$forum->info[name]}</a>
         " . ((!empty($forum->info['description'])) ? ("
             <p class=\"small\">{$forum->info[description]}</p>
         ") : ("")) . "
@@ -2251,7 +2251,7 @@ border-style: inset !important;";}]]></template>
 <fragment fragmentid="293" styleid="0" groupid="206" fragmentName="" fragmentVarName="forumdisplay_linkbit_depth1" fragmentType="template" defaultid="0" disOrder="0">
 <template><![CDATA[<tr>
     <td class="alt2" colspan="6">
-        <a href="index.php?file=forum&amp;f={$forum->info[forumid]}{$SESSURL}">{$forum->info[name]}</a> ({$lang[user_forum_hits]} {$forum->info[linkCount]})
+        <a href="./index.php?file=forum&amp;f={$forum->info[forumid]}{$SESSURL}">{$forum->info[name]}</a> ({$lang[user_forum_hits]} {$forum->info[linkCount]})
         <if(!empty($forum->info['description']))>
             <p class="small">{$forum->info[description]}</p>
         </if>
@@ -2261,7 +2261,7 @@ border-style: inset !important;";}]]></template>
 ]]></template>
 <templatephp><![CDATA[<tr>
     <td class=\"alt2\" colspan=\"6\">
-        <a href=\"index.php?file=forum&amp;f={$forum->info[forumid]}{$SESSURL}\">{$forum->info[name]}</a> ({$lang[user_forum_hits]} {$forum->info[linkCount]})
+        <a href=\"./index.php?file=forum&amp;f={$forum->info[forumid]}{$SESSURL}\">{$forum->info[name]}</a> ({$lang[user_forum_hits]} {$forum->info[linkCount]})
         " . ((!empty($forum->info['description'])) ? ("
             <p class=\"small\">{$forum->info[description]}</p>
         ") : ("")) . "
@@ -2275,7 +2275,7 @@ border-style: inset !important;";}]]></template>
 <template><![CDATA[<tr>
     <td class="alt1" style="width: 2.5%;">&nbsp;</td>
     <td class="alt2" colspan="5">
-        <a href="index.php?file=forum&amp;f={$forum->info[forumid]}{$SESSURL}">{$forum->info[name]}</a> ({$lang[user_forum_hits]} {$forum->info[linkCount]})
+        <a href="./index.php?file=forum&amp;f={$forum->info[forumid]}{$SESSURL}">{$forum->info[name]}</a> ({$lang[user_forum_hits]} {$forum->info[linkCount]})
         <if(!empty($forum->info['description']))>
             <p class="small">{$forum->info[description]}</p>
         </if>
@@ -2286,7 +2286,7 @@ border-style: inset !important;";}]]></template>
 <templatephp><![CDATA[<tr>
     <td class=\"alt1\" style=\"width: 2.5%;\">&nbsp;</td>
     <td class=\"alt2\" colspan=\"5\">
-        <a href=\"index.php?file=forum&amp;f={$forum->info[forumid]}{$SESSURL}\">{$forum->info[name]}</a> ({$lang[user_forum_hits]} {$forum->info[linkCount]})
+        <a href=\"./index.php?file=forum&amp;f={$forum->info[forumid]}{$SESSURL}\">{$forum->info[name]}</a> ({$lang[user_forum_hits]} {$forum->info[linkCount]})
         " . ((!empty($forum->info['description'])) ? ("
             <p class=\"small\">{$forum->info[description]}</p>
         ") : ("")) . "
@@ -2450,7 +2450,7 @@ $forumBits
     <tr>
         <td class="cat" colspan="6">
             <div class="floatLeft">
-                <a href="index.php?file=forum&amp;f={$forum->info[forumid]}{$SESSURL}">{$forum->info[name]}</a>
+                <a href="./index.php?file=forum&amp;f={$forum->info[forumid]}{$SESSURL}">{$forum->info[name]}</a>
                 <if(!empty($forum->info['description']))>
                     <p class="small">{$forum->info[description]}</p>
                 </if>
@@ -2473,7 +2473,7 @@ $forumBits
     <tr>
         <td class=\"cat\" colspan=\"6\">
             <div class=\"floatLeft\">
-                <a href=\"index.php?file=forum&amp;f={$forum->info[forumid]}{$SESSURL}\">{$forum->info[name]}</a>
+                <a href=\"./index.php?file=forum&amp;f={$forum->info[forumid]}{$SESSURL}\">{$forum->info[name]}</a>
                 " . ((!empty($forum->info['description'])) ? ("
                     <p class=\"small\">{$forum->info[description]}</p>
                 ") : ("")) . "
@@ -2494,7 +2494,7 @@ $forumBits
 <template><![CDATA[    <tr class="exColTr_f{$forum->info[parent]}">
         <td class="cat" style="width: 2.5%;">&nbsp;</td>
         <td class="cat" colspan="5">
-            <a href="index.php?file=forum&amp;f={$forum->info[forumid]}{$SESSURL}">{$forum->info[name]}</a>
+            <a href="./index.php?file=forum&amp;f={$forum->info[forumid]}{$SESSURL}">{$forum->info[name]}</a>
             <if(!empty($forum->info['description']))>
                 <p class="small">{$forum->info[description]}</p>
             </if>
@@ -2505,7 +2505,7 @@ $forumBits
 <templatephp><![CDATA[    <tr class=\"exColTr_f{$forum->info[parent]}\">
         <td class=\"cat\" style=\"width: 2.5%;\">&nbsp;</td>
         <td class=\"cat\" colspan=\"5\">
-            <a href=\"index.php?file=forum&amp;f={$forum->info[forumid]}{$SESSURL}\">{$forum->info[name]}</a>
+            <a href=\"./index.php?file=forum&amp;f={$forum->info[forumid]}{$SESSURL}\">{$forum->info[name]}</a>
             " . ((!empty($forum->info['description'])) ? ("
                 <p class=\"small\">{$forum->info[description]}</p>
             ") : ("")) . "
@@ -2535,7 +2535,7 @@ $forumBits
             </if>
         </td>
         <td class="alt2" style="width: 53.5%;">
-            <a href="index.php?file=forum&amp;f={$forum->info[forumid]}{$SESSURL}">{$forum->info[name]}</a>
+            <a href="./index.php?file=forum&amp;f={$forum->info[forumid]}{$SESSURL}">{$forum->info[name]}</a>
             <if(!empty($forum->info['description']))>
                 <p class="small">{$forum->info[description]}</p>
             </if>
@@ -2592,7 +2592,7 @@ $forumBits
             ")) . "
         </td>
         <td class=\"alt2\" style=\"width: 53.5%;\">
-            <a href=\"index.php?file=forum&amp;f={$forum->info[forumid]}{$SESSURL}\">{$forum->info[name]}</a>
+            <a href=\"./index.php?file=forum&amp;f={$forum->info[forumid]}{$SESSURL}\">{$forum->info[name]}</a>
             " . ((!empty($forum->info['description'])) ? ("
                 <p class=\"small\">{$forum->info[description]}</p>
             ") : ("")) . "
@@ -2646,7 +2646,7 @@ $forumBits
         </if>
     </td>
     <td class="alt2" style="width: 53.5%">
-        <a href="index.php?file=forum&amp;f={$forum->info[forumid]}{$SESSURL}">{$forum->info[name]}</a>
+        <a href="./index.php?file=forum&amp;f={$forum->info[forumid]}{$SESSURL}">{$forum->info[name]}</a>
         <if(!empty($forum->info['description']))>
             <p class="small">{$forum->info[description]}</p>
         </if>
@@ -2696,7 +2696,7 @@ $forumBits
         ")) . "
     </td>
     <td class=\"alt2\" style=\"width: 53.5%\">
-        <a href=\"index.php?file=forum&amp;f={$forum->info[forumid]}{$SESSURL}\">{$forum->info[name]}</a>
+        <a href=\"./index.php?file=forum&amp;f={$forum->info[forumid]}{$SESSURL}\">{$forum->info[name]}</a>
         " . ((!empty($forum->info['description'])) ? ("
             <p class=\"small\">{$forum->info[description]}</p>
         ") : ("")) . "
@@ -2744,7 +2744,7 @@ $forumBits
     <tr>
         <td class="alt2" colspan="6">
             <div class="floatLeft">
-                <a href="index.php?file=forum&amp;f={$forum->info[forumid]}{$SESSURL}">{$forum->info[name]}</a> ({$lang[user_forum_hits]} {$forum->info[linkCount]})
+                <a href="./index.php?file=forum&amp;f={$forum->info[forumid]}{$SESSURL}">{$forum->info[name]}</a> ({$lang[user_forum_hits]} {$forum->info[linkCount]})
                 <if(!empty($forum->info['description']))>
                     <p class="small">{$forum->info[description]}</p>
                 </if>
@@ -2767,7 +2767,7 @@ $forumBits
     <tr>
         <td class=\"alt2\" colspan=\"6\">
             <div class=\"floatLeft\">
-                <a href=\"index.php?file=forum&amp;f={$forum->info[forumid]}{$SESSURL}\">{$forum->info[name]}</a> ({$lang[user_forum_hits]} {$forum->info[linkCount]})
+                <a href=\"./index.php?file=forum&amp;f={$forum->info[forumid]}{$SESSURL}\">{$forum->info[name]}</a> ({$lang[user_forum_hits]} {$forum->info[linkCount]})
                 " . ((!empty($forum->info['description'])) ? ("
                     <p class=\"small\">{$forum->info[description]}</p>
                 ") : ("")) . "
@@ -2788,7 +2788,7 @@ $forumBits
 <template><![CDATA[    <tr class="exColTr_f{$forum->info[parent]}">
         <td class="alt1" style="width: 2.5%;">&nbsp;</td>
         <td class="alt2" colspan="5" style="width: 97.5%;">
-            <a href="index.php?file=forum&amp;f={$forum->info[forumid]}{$SESSURL}">{$forum->info[name]}</a> ({$lang[user_forum_hits]} {$forum->info[linkCount]})
+            <a href="./index.php?file=forum&amp;f={$forum->info[forumid]}{$SESSURL}">{$forum->info[name]}</a> ({$lang[user_forum_hits]} {$forum->info[linkCount]})
             <if(!empty($forum->info['description']))>
                 <p class="small">{$forum->info[description]}</p>
             </if>
@@ -2799,7 +2799,7 @@ $forumBits
 <templatephp><![CDATA[    <tr class=\"exColTr_f{$forum->info[parent]}\">
         <td class=\"alt1\" style=\"width: 2.5%;\">&nbsp;</td>
         <td class=\"alt2\" colspan=\"5\" style=\"width: 97.5%;\">
-            <a href=\"index.php?file=forum&amp;f={$forum->info[forumid]}{$SESSURL}\">{$forum->info[name]}</a> ({$lang[user_forum_hits]} {$forum->info[linkCount]})
+            <a href=\"./index.php?file=forum&amp;f={$forum->info[forumid]}{$SESSURL}\">{$forum->info[name]}</a> ({$lang[user_forum_hits]} {$forum->info[linkCount]})
             " . ((!empty($forum->info['description'])) ? ("
                 <p class=\"small\">{$forum->info[description]}</p>
             ") : ("")) . "

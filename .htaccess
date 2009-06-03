@@ -1,0 +1,8 @@
+ErrorDocument 404 /labs/wtcbb/test/index.php?do=unknown_page
+Options +FollowSymLinks
+RewriteEngine On
+RewriteBase /labs/wtcbb/test/
+RewriteCond %{REQUEST_FILENAME} !-F
+RewriteCond %{REQUEST_URI} !^.*/index\.php.*$
+RewriteCond %{REQUEST_URI} !^.*\.([A-Za-z]{1,4})$
+RewriteRule ^(.*)$ index.php?rewrite=true [L]

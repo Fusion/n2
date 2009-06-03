@@ -404,7 +404,6 @@ input.text, textarea {
       <if($post->getStarterId())>
         <p class="small smallMarTop">Posts: {$postUser->info[posts]}</p>
         <p class="small">Joined: {$joined->getDate()}</p>
-        <p class="small">Reputation: <a href="./index.php?file=profile&amp;do=reputation&amp;u={$postUser->info[userid]}{$SESSURL}">{$postUser->info[reputation]}</a> [<a href="./index.php?file=profile&amp;do=reputation&amp;act=up&amp;u={$postUser->info[userid]}{$SESSURL}">+</a>|<a href="./index.php?file=profile&amp;do=reputation&amp;act=down&amp;u={$postUser->info[userid]}{$SESSURL}">-</a>]</p>
       </if>
     </td>
 
@@ -475,7 +474,6 @@ input.text, textarea {
       " . (($post->getStarterId()) ? ("
         <p class=\"small smallMarTop\">Posts: {$postUser->info[posts]}</p>
         <p class=\"small\">Joined: {$joined->getDate()}</p>
-		<p class=\"small\">Reputation: <a href=\"./index.php?file=profile&amp;do=reputation&amp;u={$postUser->info[userid]}{$SESSURL}\">{$postUser->info[reputation]}</a> [<a href=\"./index.php?file=profile&amp;do=reputation&amp;act=up&amp;u={$postUser->info[userid]}{$SESSURL}\">+</a>|<a href=\"./index.php?file=profile&amp;do=reputation&amp;act=down&amp;u={$postUser->info[userid]}{$SESSURL}\">-</a>]</p>
       ") : ("")) . "
     </td>
 
@@ -5014,7 +5012,6 @@ Avatar 3
 
       <p class="small smallMarTop noMarBot">Posts: {$postUser->info[posts]}</p>
       <p class="small noMarTop">Joined: {$joined->getDate()}</p>
-      <p class="small noMarTop">Reputation: <a href="./index.php?file=profile&amp;do=reputation&amp;u={$postUser->info[userid]}{$SESSURL}">{$postUser->info[reputation]}</a></p>
     </td>
 
     <td class="alt2 pbMessage vertTop bordRight">
@@ -5132,7 +5129,6 @@ Avatar 3
 
       <p class=\"small smallMarTop noMarBot\">Posts: {$postUser->info[posts]}</p>
       <p class=\"small noMarTop\">Joined: {$joined->getDate()}</p>
-      <p class=\"small noMarTop\">Reputation: <a href=\"./index.php?file=profile&amp;do=reputation&amp;u={$postUser->info[userid]}{$SESSURL}\">{$postUser->info[reputation]}</a></p>
     </td>
 
     <td class=\"alt2 pbMessage vertTop bordRight\">
@@ -5789,33 +5785,6 @@ $bits
 </fragment>
 
 <fragment fragmentid="321" styleid="0" groupid="269" fragmentName="" fragmentVarName="profile_category_field" fragmentType="template" defaultid="0" disOrder="0">
-<template><![CDATA[    <tr class="alt{$GROUP_ALT}">
-      <td>
-        <strong>{$fieldName}</strong>
-        <if(!empty($fieldDesc))>
-          <!-- <p class="small noMar">{$fieldDesc}</p> -->
-        </if>
-      </td>
-      <td>
-        {$fieldValue}
-      </td>
-    </tr>
-]]></template>
-<templatephp><![CDATA[    <tr class=\"alt{$GROUP_ALT}\">
-      <td>
-        <strong>{$fieldName}</strong>
-        " . ((!empty($fieldDesc)) ? ("
-          <!-- <p class=\"small noMar\">{$fieldDesc}</p> -->
-        ") : ("")) . "
-      </td>
-      <td>
-        {$fieldValue}
-      </td>
-    </tr>
-]]></templatephp>
-</fragment>
-
-<fragment fragmentid="337" styleid="0" groupid="269" fragmentName="" fragmentVarName="profile_reputation" fragmentType="template" defaultid="0" disOrder="0">
 <template><![CDATA[    <tr class="alt{$GROUP_ALT}">
       <td>
         <strong>{$fieldName}</strong>
@@ -6534,7 +6503,6 @@ $bits
       <if($post->getStarterId())>
         <p class="small smallMarTop noMarBot">Posts: {$postUser->info[posts]}</p>
         <p class="small noMarTop">Joined: {$joined->getDate()}</p>
-		<p class="small noMarTop">Reputation: <a href="./index.php?file=profile&amp;do=reputation&amp;u={$postUser->info[userid]}{$SESSURL}">{$postUser->info[reputation]}</a> [<a href="./index.php?file=profile&amp;do=reputation&amp;act=up&amp;u={$postUser->info[userid]}{$SESSURL}">+</a>|<a href="./index.php?file=profile&amp;do=reputation&amp;act=down&amp;u={$postUser->info[userid]}{$SESSURL}">-</a>]</p>
       </if>
     </td>
 
@@ -6644,7 +6612,6 @@ $bits
       " . (($post->getStarterId()) ? ("
         <p class=\"small smallMarTop noMarBot\">Posts: {$postUser->info[posts]}</p>
         <p class=\"small noMarTop\">Joined: {$joined->getDate()}</p>
-		<p class=\"small noMarTop\">Reputation: <a href=\"./index.php?file=profile&amp;do=reputation&amp;u={$postUser->info[userid]}{$SESSURL}\">{$postUser->info[reputation]}</a> [<a href=\"./index.php?file=profile&amp;do=reputation&amp;act=up&amp;u={$postUser->info[userid]}{$SESSURL}\">+</a>|<a href=\"./index.php?file=profile&amp;do=reputation&amp;act=down&amp;u={$postUser->info[userid]}{$SESSURL}\">-</a>]</p>
       ") : ("")) . "
     </td>
 
@@ -8790,8 +8757,7 @@ display: block;
 
       <if($post->getStarterId())>
         <p class="small smallMarTop noMarBot">Posts: {$postUser->info[posts]}</p>
-        <p class="small noMarTop noMarBot">Joined: {$joined->getDate()}</p>
-		<p class="small noMarTop">Reputation: <a href="./index.php?file=profile&amp;do=reputation&amp;u={$postUser->info[userid]}{$SESSURL}">{$postUser->info[reputation]}</a> [<a href="./index.php?file=profile&amp;do=reputation&amp;act=up&amp;u={$postUser->info[userid]}{$SESSURL}">+</a>|<a href="./index.php?file=profile&amp;do=reputation&amp;act=down&amp;u={$postUser->info[userid]}{$SESSURL}">-</a>]</p>        
+        <p class="small noMarTop">Joined: {$joined->getDate()}</p>
       </if>
     </td>
 
@@ -8966,7 +8932,6 @@ display: block;
       " . (($post->getStarterId()) ? ("
         <p class=\"small smallMarTop noMarBot\">Posts: {$postUser->info[posts]}</p>
         <p class=\"small noMarTop\">Joined: {$joined->getDate()}</p>
-		<p class=\"small noMarTop\">Reputation: <a href=\"./index.php?file=profile&amp;do=reputation&amp;u={$postUser->info[userid]}{$SESSURL}\">{$postUser->info[reputation]}</a> [<a href=\"./index.php?file=profile&amp;do=reputation&amp;act=up&amp;u={$postUser->info[userid]}{$SESSURL}\">+</a>|<a href=\"./index.php?file=profile&amp;do=reputation&amp;act=down&amp;u={$postUser->info[userid]}{$SESSURL}\">-</a>]</p>        
       ") : ("")) . "
     </td>
 
@@ -9540,7 +9505,6 @@ display: block;
       <if($post->getStarterId())>
         <p class="small smallMarTop noMarBot">Posts: {$postUser->info[posts]}</p>
         <p class="small noMarTop">Joined: {$joined->getDate()}</p>
-		<p class="small noMarTop">Reputation: <a href="./index.php?file=profile&amp;do=reputation&amp;u={$postUser->info[userid]}{$SESSURL}">{$postUser->info[reputation]}</a> [<a href="./index.php?file=profile&amp;do=reputation&amp;act=up&amp;u={$postUser->info[userid]}{$SESSURL}">+</a>|<a href="./index.php?file=profile&amp;do=reputation&amp;act=down&amp;u={$postUser->info[userid]}{$SESSURL}">-</a>]</p>        
       </if>
     </td>
 
@@ -9652,7 +9616,6 @@ display: block;
       " . (($post->getStarterId()) ? ("
         <p class=\"small smallMarTop noMarBot\">Posts: {$postUser->info[posts]}</p>
         <p class=\"small noMarTop\">Joined: {$joined->getDate()}</p>
-        <p class=\"small noMarTop\">Reputation: <a href=\"./index.php?file=profile&amp;do=reputation&amp;u={$postUser->info[userid]}{$SESSURL}\">{$postUser->info[reputation]}</a> [<a href=\"./index.php?file=profile&amp;do=reputation&amp;act=up&amp;u={$postUser->info[userid]}{$SESSURL}\">+</a>|<a href=\"./index.php?file=profile&amp;do=reputation&amp;act=down&amp;u={$postUser->info[userid]}{$SESSURL}\">-</a>]</p>
       ") : ("")) . "
     </td>
 

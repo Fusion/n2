@@ -147,7 +147,19 @@ class StyleFragment extends Object {
 				$template = str_replace($matches[0], '" . ((' . stripslashes($matches[1]) . ') ? ("' . $matches[2] . '") : ("' . $matches[4] . '")) . "', $template);
 			}
 		}
-
+		
+		// and what about 'em links?
+		$template = preg_replace_callback(
+			'/<n2link\((.*)\)>/',
+			create_function(
+				'$matches',
+				'return n2link($matches[0]);'),
+			$template);
+		$template = str_replace(
+			'<home>',
+			HOME,
+			$template);
+			
 		return $template;
 	}
 
@@ -195,7 +207,7 @@ class StyleFragment extends Object {
 	}
 
 	public function getCssFilePath() {
-		return $this->css;
+		return HOME . $this->css;
 	}
 
 	public function getDefaultId() {

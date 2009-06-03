@@ -102,7 +102,7 @@ class Avatar extends Object {
 	}
 
 	public function getImgPath() {
-		return $this->info['imgPath'];
+		return HOME . $this->info['imgPath'];
 	}
 
 	public function getInfo() {

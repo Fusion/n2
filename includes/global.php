@@ -127,6 +127,8 @@ $VISUALS = Array(
 foreach($VISUALS as $var => $meh) {
 	$temp = new StyleFragment($var, 'option');
 	$VISUALS[$var] = $temp->dump();
+	if('images' == $var)
+		$VISUALS[$var] = str_replace('./', HOME, $VISUALS[$var]);
 }
 
 // throw together all border styles...

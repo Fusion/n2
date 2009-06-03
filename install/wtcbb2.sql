@@ -3737,6 +3737,7 @@ CREATE TABLE `userinfo` (
   `passTimeNew` int(11) default NULL,
   `avatar` text,
   `oldPass` tinyint(1) NOT NULL default '0',
+  `reputation` int(11) default 0,
   PRIMARY KEY  (`userid`),
   KEY `usergroupid` (`usergroupid`),
   KEY `joined` (`joined`)

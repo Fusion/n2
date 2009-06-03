@@ -37,6 +37,7 @@ class Forum extends Object {
 	public function __construct($forumid = '', $foruminfo = '') {
 		if(!empty($foruminfo) AND is_array($foruminfo)) {
 			$this->info = $foruminfo;
+			$this->info['urlizedname'] = n2urlize($this->info['name']);
 			$this->forumid = $this->info['forumid'];
 		}
 
@@ -258,6 +259,7 @@ class Forum extends Object {
 		$getForum = new Query($query['forum']['get'], Array(1 => $User->info['userid'], $User->info['userid'], $this->forumid));
 
 		$this->info = parent::queryInfoById($getForum);
+		$this->info['urlizedname'] = n2urlize($this->info['name']);
 	}
 
 

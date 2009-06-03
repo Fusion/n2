@@ -619,6 +619,7 @@ SELECT DISTINCT
 	' . WTC_TP . 'userinfo.posts, ' . WTC_TP . 'userinfo.joined, ' . WTC_TP . 'userinfo.homepage,
 	' . WTC_TP . 'userinfo.usertitle, ' . WTC_TP . 'userinfo.usertitle_opt, ' . WTC_TP . 'userinfo.sig,
 	' . WTC_TP . 'userinfo.avatar, ' . WTC_TP . 'sessions.userid AS isOnline,
+	' . WTC_TP . 'userinfo.reputation,
 	' . WTC_TP . 'userinfo_pro.*
 FROM
 	' . WTC_TP . 'posts
