@@ -239,6 +239,7 @@ $query['styles_fragments']['get_all_inStyle_style'] = 'SELECT fragmentid, stylei
 
 $query['styles_fragments']['search'] = 'SELECT fragmentid, styleid, groupid, fragmentName, fragmentVarName, fragmentType, fragment, template_php, defaultid, disOrder FROM ' . WTC_TP . 'styles_fragments WHERE (fragmentid IN (?) OR defaultid = 0) AND fragmentType LIKE \'?\' AND (fragmentVarName LIKE \'%?%\' OR fragment LIKE \'%?%\') ORDER BY fragmentVarName';
 
+$query['styles_fragments']['get_all_ids'] = 'SELECT fragmentid FROM ' . WTC_TP . 'styles_fragments WHERE fragmentType LIKE \'?\'';
 
 // ##### SESSION QUERIES ##### \\
 $query['sessions']['replace'] = 'REPLACE INTO ' . WTC_TP . 'sessions (sessionid, username, userid, lastactive, loc, details, ip, userAgent, lastaction) VALUES (\'?\', \'?\', \'?\', \'?\', \'?\', \'?\', \'?\', \'?\', \'?\')';
@@ -1225,6 +1226,49 @@ WHERE
 ORDER BY name
 ';
 
+// ##### REPUTATIONS QUERIES ##### \\
+$query['reputations']['insert'] = 'INSERT INTO ' . WTC_TP . 'reputations (?) VALUES (?)';
+
+$query['reputations']['update'] = 'UPDATE ' . WTC_TP . 'reputations SET ? WHERE repid = \'?\'';
+
+$query['reputations']['count'] = 'SELECT COUNT(*) AS total FROM ' . WTC_TP . 'reputations';
+
+$query['reputations']['get'] = 'SELECT * FROM ' . WTC_TP . 'reputations WHERE repid = \'?\'';
+
+$query['reputations']['get_all_member'] = 'SELECT COUNT(*) AS total FROM ' . WTC_TP . 'reputations WHERE ' . WTC_TP . 'reputations.userid = \'?\' AND ' . WTC_TP . 'reputations.deleted != \'?\'';
+
+$query['reputations']['get_manyById'] = 'SELECT * FROM ' . WTC_TP . 'reputations WHERE repid IN(?)';
+
+$query['reputations']['get_display_reputation'] = '
+SELECT DISTINCT
+	' . WTC_TP . 'reputations.*,
+	' . WTC_TP . 'userinfo.userid, ' . WTC_TP . 'userinfo.username, ' . WTC_TP . 'userinfo.htmlBegin,
+	' . WTC_TP . 'userinfo.htmlEnd, ' . WTC_TP . 'userinfo.usergroupid, ' . WTC_TP . 'userinfo.secgroupids,
+	' . WTC_TP . 'userinfo.posts, ' . WTC_TP . 'userinfo.joined, ' . WTC_TP . 'userinfo.homepage,
+	' . WTC_TP . 'userinfo.usertitle, ' . WTC_TP . 'userinfo.usertitle_opt, ' . WTC_TP . 'userinfo.sig,
+	' . WTC_TP . 'userinfo.avatar, ' . WTC_TP . 'sessions.userid AS isOnline,
+	' . WTC_TP . 'userinfo.reputation,
+	' . WTC_TP . 'userinfo_pro.*
+FROM
+	' . WTC_TP . 'reputations
+LEFT JOIN
+	' . WTC_TP . 'userinfo
+	ON
+		' . WTC_TP . 'reputations.repby = ' . WTC_TP . 'userinfo.userid
+LEFT JOIN
+	' . WTC_TP . 'userinfo_pro
+	ON
+		' . WTC_TP . 'userinfo.userid = ' . WTC_TP . 'userinfo_pro.user_id
+LEFT JOIN
+	' . WTC_TP . 'sessions
+	ON
+		' . WTC_TP . 'sessions.userid = ' . WTC_TP . 'userinfo.userid
+WHERE
+	' . WTC_TP . 'reputations.userid = \'?\' AND ' . WTC_TP . 'reputations.deleted != \'?\'
+ORDER BY
+	' . WTC_TP . 'reputations.? ?
+LIMIT ?, ?
+';
 
 // ##### CRON QUERIES ##### \\
 $query['cron']['insert'] = 'INSERT INTO ' . WTC_TP . 'cron (?) VALUES (?)';

@@ -404,7 +404,7 @@ input.text, textarea {
       <if($post->getStarterId())>
         <p class="small smallMarTop">Posts: {$postUser->info[posts]}</p>
         <p class="small">Joined: {$joined->getDate()}</p>
-        <p class="small">Reputation: <a href="./index.php?file=profile&amp;do=reputation&amp;u={$postUser->info[userid]}{$SESSURL}">{$postUser->info[reputation]}</a> [<a href="./index.php?file=profile&amp;do=reputation&amp;act=up&amp;u={$postUser->info[userid]}{$SESSURL}">+</a>|<a href="./index.php?file=profile&amp;do=reputation&amp;act=down&amp;u={$postUser->info[userid]}{$SESSURL}">-</a>]</p>
+        <p class="small">Reputation: <a href="<n2link(file=profile&amp;do=reputation&amp;u={$postUser->info[userid]}{$SESSURL})>">{$postUser->info[reputation]}</a> [<a href="<n2link(file=profile&amp;do=reputation&amp;act=up&amp;u={$postUser->info[userid]}{$SESSURL})>">+</a>|<a href="<n2link(file=profile&amp;do=reputation&amp;act=down&amp;u={$postUser->info[userid]}{$SESSURL})>">-</a>]</p>
       </if>
     </td>
 
@@ -425,7 +425,7 @@ input.text, textarea {
 
   <tr>
     <td class="alt1 pbProfile vertTop center bord noBordTop">
-      <a href="./index.php?file=profile&amp;u={$postUser->info[userid]}{$SESSURL}"><img src="{$VISUALS[images]}/{$IMAGES[profileIcon]}" alt="{$postUser->info[username]}" class="aligned" /></a>
+      <a href="<n2link(file=profile&amp;u={$postUser->info[userid]}{$SESSURL})>"><img src="{$VISUALS[images]}/{$IMAGES[profileIcon]}" alt="{$postUser->info[username]}" class="aligned" /></a>
 
         <if(!empty($postUser->info['homepage']) AND $postUser->info['homepage'] != 'http://')>
           <a href="{$postUser->info[homepage]}"><img src="{$VISUALS[images]}/{$IMAGES[homeIcon]}" alt="{$lang[user_thread_goToHome]}" class="aligned" /></a>
@@ -443,9 +443,9 @@ input.text, textarea {
       <div class="floatLeft">
         <a href="#"><img src="{$VISUALS[images]}/{$IMAGES[upIcon]}" alt="{$lang[user_topPage]}" class="aligned" /></a>
 
-        <a href="./index.php?file=personal&amp;do=send&amp;u={$postUser->info[username]}{$SESSURL}"><img src="{$VISUALS[images]}/{$IMAGES[postbit_pm]}" alt="{$lang[user_thread_sendPm]}" class="aligned" /></a>
+        <a href="<n2link(file=personal&amp;do=send&amp;u={$postUser->info[username]}{$SESSURL})>"><img src="{$VISUALS[images]}/{$IMAGES[postbit_pm]}" alt="{$lang[user_thread_sendPm]}" class="aligned" /></a>
 
-        <a href="./index.php?file=sendemail&amp;u={$post->getStarterId()}{$SESSURL}"><img src="{$VISUALS[images]}/{$IMAGES[postbit_email]}" alt="{$lang[admin_style_i_postbit_email]}" class="aligned" /></a>
+        <a href="<n2link(file=sendemail&amp;u={$post->getStarterId()}{$SESSURL})>"><img src="{$VISUALS[images]}/{$IMAGES[postbit_email]}" alt="{$lang[admin_style_i_postbit_email]}" class="aligned" /></a>
       </div>
     </td>
   </tr>
@@ -475,7 +475,7 @@ input.text, textarea {
       " . (($post->getStarterId()) ? ("
         <p class=\"small smallMarTop\">Posts: {$postUser->info[posts]}</p>
         <p class=\"small\">Joined: {$joined->getDate()}</p>
-		<p class=\"small\">Reputation: <a href=\"./index.php?file=profile&amp;do=reputation&amp;u={$postUser->info[userid]}{$SESSURL}\">{$postUser->info[reputation]}</a> [<a href=\"./index.php?file=profile&amp;do=reputation&amp;act=up&amp;u={$postUser->info[userid]}{$SESSURL}\">+</a>|<a href=\"./index.php?file=profile&amp;do=reputation&amp;act=down&amp;u={$postUser->info[userid]}{$SESSURL}\">-</a>]</p>
+		<p class=\"small\">Reputation: <a href=\"" . n2link("file=profile&amp;do=reputation&amp;u={$postUser->info[userid]}{$SESSURL}") . "\">{$postUser->info[reputation]}</a> [<a href=\"" . n2link("file=profile&amp;do=reputation&amp;act=up&amp;u={$postUser->info[userid]}{$SESSURL}") . "\">+</a>|<a href=\"" . n2link("file=profile&amp;do=reputation&amp;act=down&amp;u={$postUser->info[userid]}{$SESSURL}") . "\">-</a>]</p>
       ") : ("")) . "
     </td>
 
@@ -496,7 +496,7 @@ input.text, textarea {
 
   <tr>
     <td class=\"alt1 pbProfile vertTop center bord noBordTop\">
-      <a href=\"./index.php?file=profile&amp;u={$postUser->info[userid]}{$SESSURL}\"><img src=\"{$VISUALS[images]}/{$IMAGES[profileIcon]}\" alt=\"{$postUser->info[username]}\" class=\"aligned\" /></a>
+      <a href=\"" . n2link("file=profile&amp;u={$postUser->info[userid]}{$SESSURL}") . "\"><img src=\"{$VISUALS[images]}/{$IMAGES[profileIcon]}\" alt=\"{$postUser->info[username]}\" class=\"aligned\" /></a>
 
         " . ((!empty($postUser->info['homepage']) AND $postUser->info['homepage'] != 'http://') ? ("
           <a href=\"{$postUser->info[homepage]}\"><img src=\"{$VISUALS[images]}/{$IMAGES[homeIcon]}\" alt=\"{$lang[user_thread_goToHome]}\" class=\"aligned\" /></a>
@@ -514,9 +514,9 @@ input.text, textarea {
       <div class=\"floatLeft\">
         <a href=\"#\"><img src=\"{$VISUALS[images]}/{$IMAGES[upIcon]}\" alt=\"{$lang[user_topPage]}\" class=\"aligned\" /></a>
 
-        <a href=\"./index.php?file=personal&amp;do=send&amp;u={$postUser->info[username]}{$SESSURL}\"><img src=\"{$VISUALS[images]}/{$IMAGES[postbit_pm]}\" alt=\"{$lang[user_thread_sendPm]}\" class=\"aligned\" /></a>
+        <a href=\"" . n2link("file=personal&amp;do=send&amp;u={$postUser->info[username]}{$SESSURL}") . "\"><img src=\"{$VISUALS[images]}/{$IMAGES[postbit_pm]}\" alt=\"{$lang[user_thread_sendPm]}\" class=\"aligned\" /></a>
 
-        <a href=\"./index.php?file=sendemail&amp;u={$post->getStarterId()}{$SESSURL}\"><img src=\"{$VISUALS[images]}/{$IMAGES[postbit_email]}\" alt=\"{$lang[admin_style_i_postbit_email]}\" class=\"aligned\" /></a>
+        <a href=\"" . n2link("file=sendemail&amp;u={$post->getStarterId()}{$SESSURL}") . "\"><img src=\"{$VISUALS[images]}/{$IMAGES[postbit_email]}\" alt=\"{$lang[admin_style_i_postbit_email]}\" class=\"aligned\" /></a>
       </div>
     </td>
   </tr>
@@ -599,7 +599,7 @@ input.text, textarea {
 </div>]]></template>
 <templatephp><![CDATA[<div class=\"bbcode floatLeft\" id=\"bbcode_{$BB->getBBCodeId()}\" title=\"{$BB->getBBCodeId()}\">
   " . ((file_exists('./images/message/' . $BB->getTag() . '.gif')) ? ("
-    <img src=\"./images/message/{$BB->getTag()}.gif\" alt=\"{$BB->getName()}\" class=\"bbcodeButton\" />
+    <img src=\"".HOME."images/message/{$BB->getTag()}.gif\" alt=\"{$BB->getName()}\" class=\"bbcodeButton\" />
   ") : ("
     {$BB->getName()}
   ")) . "
@@ -889,7 +889,7 @@ border-style: inset !important;";}]]></template>
 <fragment fragmentid="90" styleid="0" groupid="156" fragmentName="" fragmentVarName="footer" fragmentType="template" defaultid="0" disOrder="0">
 <template><![CDATA[  <if(!empty($forumJumpBits))>
     <div class="marCenter right smallMarTop">
-      <form method="get" action="./index.php">
+      <form method="get" action="<n2link(./index.php)>">
         <input type="hidden" name="file" value="forum" />
         {$SESSION_INPUT}
 
@@ -925,7 +925,7 @@ border-style: inset !important;";}]]></template>
 </html>]]></template>
 <templatephp><![CDATA[  " . ((!empty($forumJumpBits)) ? ("
     <div class=\"marCenter right smallMarTop\">
-      <form method=\"get\" action=\"./index.php\">
+      <form method=\"get\" action=\"" . n2link("./index.php") . "\">
         <input type=\"hidden\" name=\"file\" value=\"forum\" />
         {$SESSION_INPUT}
 
@@ -1013,7 +1013,7 @@ border-style: inset !important;";}]]></template>
       </script>
     </if>
 
-    <style type="text/css">@import url(./css/{$STYLE->getStyleId()}.css);</style>
+    <style type="text/css">@import url(<home>css/{$STYLE->getStyleId()}.css);</style>
     <style type="text/css">@import url({$stylesheet->getCssFilePath()});</style>
     $meta
 </head>
@@ -1021,7 +1021,7 @@ border-style: inset !important;";}]]></template>
 
 <div class="page">
     <div class="marCenter smallMarBot"><div class="cont clear noBord">
-        <h2 class="floatLeft"><a href="./index.php?{$SESSURL}"><img src="{$VISUALS[images]}/{$VISUALS[titleImage]}" alt="n2" /></a></h2>
+        <h2 class="floatLeft"><a href="<n2link({$SESSURL})>"><img src="{$VISUALS[images]}/{$VISUALS[titleImage]}" alt="n2" /></a></h2>
     </div></div>
 
     <div class="marCenter smallMarTop"><div class="cont noBordBot">
@@ -1029,29 +1029,29 @@ border-style: inset !important;";}]]></template>
         <table cellspacing="0" cellpadding="0" id="mainNav">
           <tr>
            <if(LOGIN)>
-            <td><a href="./index.php?file=usercp{$SESSURL}">{$lang[user_index_membersArea]}</a></td>
+            <td><a href="<n2link(file=usercp{$SESSURL})>">{$lang[user_index_membersArea]}</a></td>
            </if>
 
            <if(LOGIN)>
-            <td><a href="./index.php?file=personal{$SESSURL}">{$lang[user_index_messaging]}</a></td>
+            <td><a href="<n2link(file=personal{$SESSURL})>">{$lang[user_index_messaging]}</a></td>
            </if>
 
-           <td><a href="./index.php?file=search{$SESSURL}">{$lang[user_index_search]}</a></td>
+           <td><a href="<n2link(file=search{$SESSURL})>">{$lang[user_index_search]}</a></td>
 
            <if(!LOGIN)>
-            <td><a href="./index.php?file=register{$SESSURL}">{$lang[user_index_register]}</a></td>
+            <td><a href="<n2link(file=register{$SESSURL})>">{$lang[user_index_register]}</a></td>
            </if>
 
            <if(LOGIN)>
-            <td><a href="./index.php?file=newposts{$SESSURL}">{$lang[user_index_newPosts]}</a></td>
+            <td><a href="<n2link(file=newposts{$SESSURL})>">{$lang[user_index_newPosts]}</a></td>
            </if>
 
-           <td><a href="./index.php?file=members{$SESSURL}">{$lang[user_index_members]}</a></td>
+           <td><a href="<n2link(file=members{$SESSURL})>">{$lang[user_index_members]}</a></td>
 
-           <!--<td><a href="./index.php?file=faq{$SESSURL}">{$lang[user_index_faq]}</a></td>-->
+           <!--<td><a href="<n2link(file=faq{$SESSURL})>">{$lang[user_index_faq]}</a></td>-->
 
            <if($LOGIN)>
-            <td><a href="./index.php?file=login&amp;do=logout{$SESSURL}">{$lang[user_index_logout]}</a></td>
+            <td><a href="<n2link(file=login&amp;do=logout{$SESSURL})>">{$lang[user_index_logout]}</a></td>
            </if>
           </tr>
         </table>
@@ -1064,7 +1064,7 @@ border-style: inset !important;";}]]></template>
           <if($LOGIN)>
             <p class="noMar">
               <if(PMS)>
-                <a href="./index.php?file=personal&amp;do=convo{$SESSURL}">You have new messages!</a>
+                <a href="<n2link(file=personal&amp;do=convo{$SESSURL})>">You have new messages!</a>
               <else />
                 Welcome back <strong>{$User->info[username]}</strong>!
               </if>
@@ -1073,7 +1073,7 @@ border-style: inset !important;";}]]></template>
               {$lang[user_lastVisitHere]} <span class="time fullFont">{$globalLastVisit->getDate()}</span>
             </p>
           <else />
-              <form action="./index.php?file=login" method="post" id="login" class="small">
+              <form action="<n2link(file=login)>" method="post" id="login" class="small">
                 <!--<div>
                   <label for="rememberme">
                     <input type="checkbox" name="login[remember]" value="1" /> {$lang[user_rememberMe]}
@@ -1097,7 +1097,7 @@ border-style: inset !important;";}]]></template>
             <if($_GET['file'] == 'boardIndex')>
                 {$bboptions[boardName]}
             <else />
-                <a href="./index.php?{$SESSURL}">{$bboptions[boardName]}</a>
+                <a href="<n2link({$SESSURL})>">{$bboptions[boardName]}</a>
             </if>
 
             <if(is_object($Nav))>
@@ -1123,9 +1123,9 @@ border-style: inset !important;";}]]></template>
           var SESSURL = \'\';
         ")) . "
     </script>
-    <script type=\"text/javascript\" src=\"./scripts/wtcBBLib.js\"></script>
-    <script type=\"text/javascript\" src=\"./scripts/expandCollapse.js\"></script>
-    " . ((!$LOGIN) ? ("<script type=\"text/javascript\" src=\"./scripts/LoginBox.js\"></script>") : ("")) . "
+    <script type=\"text/javascript\" src=\"".HOME."scripts/wtcBBLib.js\"></script>
+    <script type=\"text/javascript\" src=\"".HOME."scripts/expandCollapse.js\"></script>
+    " . ((!$LOGIN) ? ("<script type=\"text/javascript\" src=\"".HOME."scripts/LoginBox.js\"></script>") : ("")) . "
 
     " . ((PMS_ALERT) ? ("
       <script type=\"text/javascript\">
@@ -1141,7 +1141,7 @@ border-style: inset !important;";}]]></template>
       </script>
     ") : ("")) . "
 
-    <style type=\"text/css\">@import url(./css/{$STYLE->getStyleId()}.css);</style>
+    <style type=\"text/css\">@import url(".HOME."css/{$STYLE->getStyleId()}.css);</style>
     <style type=\"text/css\">@import url({$stylesheet->getCssFilePath()});</style>
     $meta
 </head>
@@ -1149,7 +1149,7 @@ border-style: inset !important;";}]]></template>
 
 <div class=\"page\">
     <div class=\"marCenter smallMarBot\"><div class=\"cont clear noBord\">
-        <h2 class=\"floatLeft\"><a href=\"./index.php?{$SESSURL}\"><img src=\"{$VISUALS[images]}/{$VISUALS[titleImage]}\" alt=\"n2\" /></a></h2>
+        <h2 class=\"floatLeft\"><a href=\"" . n2link("{$SESSURL}") . "\"><img src=\"{$VISUALS[images]}/{$VISUALS[titleImage]}\" alt=\"n2\" /></a></h2>
     </div></div>
 
     <div class=\"marCenter smallMarTop\"><div class=\"cont noBordBot\">
@@ -1157,29 +1157,29 @@ border-style: inset !important;";}]]></template>
         <table cellspacing=\"0\" cellpadding=\"0\" id=\"mainNav\">
           <tr>
            " . ((LOGIN) ? ("
-            <td><a href=\"./index.php?file=usercp{$SESSURL}\">{$lang[user_index_membersArea]}</a></td>
+            <td><a href=\"" . n2link("file=usercp{$SESSURL}") . "\">{$lang[user_index_membersArea]}</a></td>
            ") : ("")) . "
 
            " . ((LOGIN) ? ("
-            <td><a href=\"./index.php?file=personal{$SESSURL}\">{$lang[user_index_messaging]}</a></td>
+            <td><a href=\"" . n2link("file=personal{$SESSURL}") . "\">{$lang[user_index_messaging]}</a></td>
            ") : ("")) . "
 
-           <td><a href=\"./index.php?file=search{$SESSURL}\">{$lang[user_index_search]}</a></td>
+           <td><a href=\"" . n2link("file=search{$SESSURL}") . "\">{$lang[user_index_search]}</a></td>
 
            " . ((!LOGIN) ? ("
-            <td><a href=\"./index.php?file=register{$SESSURL}\">{$lang[user_index_register]}</a></td>
+            <td><a href=\"" . n2link("file=register{$SESSURL}") . "\">{$lang[user_index_register]}</a></td>
            ") : ("")) . "
 
            " . ((LOGIN) ? ("
-            <td><a href=\"./index.php?file=newposts{$SESSURL}\">{$lang[user_index_newPosts]}</a></td>
+            <td><a href=\"" . n2link("file=newposts{$SESSURL}") . "\">{$lang[user_index_newPosts]}</a></td>
            ") : ("")) . "
 
-           <td><a href=\"./index.php?file=members{$SESSURL}\">{$lang[user_index_members]}</a></td>
+           <td><a href=\"" . n2link("file=members{$SESSURL}") . "\">{$lang[user_index_members]}</a></td>
 
-           <!--<td><a href=\"./index.php?file=faq{$SESSURL}\">{$lang[user_index_faq]}</a></td>-->
+           <!--<td><a href=\"" . n2link("file=faq{$SESSURL}") . "\">{$lang[user_index_faq]}</a></td>-->
 
            " . (($LOGIN) ? ("
-            <td><a href=\"./index.php?file=login&amp;do=logout{$SESSURL}\">{$lang[user_index_logout]}</a></td>
+            <td><a href=\"" . n2link("file=login&amp;do=logout{$SESSURL}") . "\">{$lang[user_index_logout]}</a></td>
            ") : ("")) . "
           </tr>
         </table>
@@ -1192,7 +1192,7 @@ border-style: inset !important;";}]]></template>
           " . (($LOGIN) ? ("
             <p class=\"noMar\">
               " . ((PMS) ? ("
-                <a href=\"./index.php?file=personal&amp;do=convo{$SESSURL}\">You have new messages!</a>
+                <a href=\"" . n2link("file=personal&amp;do=convo{$SESSURL}") . "\">You have new messages!</a>
               ") : ("
                 Welcome back <strong>{$User->info[username]}</strong>!
               ")) . "
@@ -1201,7 +1201,7 @@ border-style: inset !important;";}]]></template>
               {$lang[user_lastVisitHere]} <span class=\"time fullFont\">{$globalLastVisit->getDate()}</span>
             </p>
           ") : ("
-              <form action=\"./index.php?file=login\" method=\"post\" id=\"login\" class=\"small\">
+              <form action=\"" . n2link("file=login") . "\" method=\"post\" id=\"login\" class=\"small\">
                 <!--<div>
                   <label for=\"rememberme\">
                     <input type=\"checkbox\" name=\"login[remember]\" value=\"1\" /> {$lang[user_rememberMe]}
@@ -1225,7 +1225,7 @@ border-style: inset !important;";}]]></template>
             " . (($_GET['file'] == 'boardIndex') ? ("
                 {$bboptions[boardName]}
             ") : ("
-                <a href=\"./index.php?{$SESSURL}\">{$bboptions[boardName]}</a>
+                <a href=\"" . n2link("{$SESSURL}") . "\">{$bboptions[boardName]}</a>
             ")) . "
 
             " . ((is_object($Nav)) ? ("
@@ -1253,7 +1253,7 @@ border-style: inset !important;";}]]></template>
     <script type="text/javascript" src="./scripts/wtcBBLib.js"></script>
     <script type="text/javascript" src="./scripts/expandCollapse.js"></script>
     <if(!$LOGIN)><script type="text/javascript" src="./scripts/LoginBox.js"></script></if>
-    <style type="text/css">@import url(./css/{$STYLE->getStyleId()}.css);</style>
+    <style type="text/css">@import url(<home>css/{$STYLE->getStyleId()}.css);</style>
     <style type="text/css">@import url({$stylesheet->getCssFilePath()});</style>
     $meta
 </head>
@@ -1273,10 +1273,10 @@ border-style: inset !important;";}]]></template>
         var wtcBBPath = \"{$bboptions[cookPath]}\";
         " . ((!empty($SESSURL)) ? ("var SESSURL = \"{$SESSURL}\";") : ("")) . "
     </script>
-    <script type=\"text/javascript\" src=\"./scripts/wtcBBLib.js\"></script>
-    <script type=\"text/javascript\" src=\"./scripts/expandCollapse.js\"></script>
-    " . ((!$LOGIN) ? ("<script type=\"text/javascript\" src=\"./scripts/LoginBox.js\"></script>") : ("")) . "
-    <style type=\"text/css\">@import url(./css/{$STYLE->getStyleId()}.css);</style>
+    <script type=\"text/javascript\" src=\"".HOME."scripts/wtcBBLib.js\"></script>
+    <script type=\"text/javascript\" src=\"".HOME."scripts/expandCollapse.js\"></script>
+    " . ((!$LOGIN) ? ("<script type=\"text/javascript\" src=\"".HOME."scripts/LoginBox.js\"></script>") : ("")) . "
+    <style type=\"text/css\">@import url(".HOME."css/{$STYLE->getStyleId()}.css);</style>
     <style type=\"text/css\">@import url({$stylesheet->getCssFilePath()});</style>
     $meta
 </head>
@@ -1307,7 +1307,7 @@ border-style: inset !important;";}]]></template>
 
   <div class="floatRight">
     <if(LOGIN)>
-      <form method="get" action="./index.php" class="noMar">
+      <form method="get" action="<n2link(./index.php)>" class="noMar">
         <input type="hidden" name="file" value="forum" />
         <input type="hidden" name="f" value="{$FORUM->info[forumid]}" />
 
@@ -1377,12 +1377,12 @@ border-style: inset !important;";}]]></template>
             </div>
 
             <div class="floatRight">
-                <a href="./index.php?file=postthread&amp;f={$forumid}{$SESSURL}"><img src="{$VISUALS[images]}/{$IMAGES[postthread]}" alt="{$lang[user_forum_postThread]}" /></a>
+                <a href="<n2link(file=postthread&amp;f={$forumid}{$SESSURL})>"><img src="{$VISUALS[images]}/{$IMAGES[postthread]}" alt="{$lang[user_forum_postThread]}" /></a>
             </div>
         </div>
 
         <if(!empty($threadBits))>
-          <form method="post" action="./index.php?file=thread">
+          <form method="post" action="<n2link(file=thread)>">
             $threadList
 
             <div class="clear">
@@ -1395,7 +1395,7 @@ border-style: inset !important;";}]]></template>
               </div>
 
               <div class="floatRight">
-                <a href="./index.php?file=postthread&amp;f={$forumid}{$SESSURL}"><img src="{$VISUALS[images]}/{$IMAGES[postthread]}" alt="{$lang[user_forum_postThread]}" /></a>
+                <a href="<n2link(file=postthread&amp;f={$forumid}{$SESSURL})>"><img src="{$VISUALS[images]}/{$IMAGES[postthread]}" alt="{$lang[user_forum_postThread]}" /></a>
               </div>
             </div>
           </form>
@@ -1408,7 +1408,7 @@ border-style: inset !important;";}]]></template>
 <if($bboptions['browsingForum'])>
     <div class="marCenter smallMarTop"><div class="cont">
         <div class="cat clear border">
-            <p class="floatLeft"><a href="./index.php?file=online{$SESSURL}">{$lang[user_forum_currentlyBrowsing]}</a></p>
+            <p class="floatLeft"><a href="<n2link(file=online{$SESSURL})>">{$lang[user_forum_currentlyBrowsing]}</a></p>
             <div class="floatRight"><img src="{$VISUALS[images]}/{$IMAGES[collapse]}" alt="Collapse" id="browsingForum_img" class="exCol_click_browsingForum" /></div>
         </div>
 
@@ -1434,7 +1434,7 @@ border-style: inset !important;";}]]></template>
 
   <div class=\"floatRight\">
     " . ((LOGIN) ? ("
-      <form method=\"get\" action=\"./index.php\" class=\"noMar\">
+      <form method=\"get\" action=\"" . n2link("./index.php") . "\" class=\"noMar\">
         <input type=\"hidden\" name=\"file\" value=\"forum\" />
         <input type=\"hidden\" name=\"f\" value=\"{$FORUM->info[forumid]}\" />
 
@@ -1504,12 +1504,12 @@ border-style: inset !important;";}]]></template>
             </div>
 
             <div class=\"floatRight\">
-                <a href=\"./index.php?file=postthread&amp;f={$forumid}{$SESSURL}\"><img src=\"{$VISUALS[images]}/{$IMAGES[postthread]}\" alt=\"{$lang[user_forum_postThread]}\" /></a>
+                <a href=\"" . n2link("file=postthread&amp;f={$forumid}{$SESSURL}") . "\"><img src=\"{$VISUALS[images]}/{$IMAGES[postthread]}\" alt=\"{$lang[user_forum_postThread]}\" /></a>
             </div>
         </div>
 
         " . ((!empty($threadBits)) ? ("
-          <form method=\"post\" action=\"./index.php?file=thread\">
+          <form method=\"post\" action=\"" . n2link("file=thread") . "\">
             $threadList
 
             <div class=\"clear\">
@@ -1522,7 +1522,7 @@ border-style: inset !important;";}]]></template>
               </div>
 
               <div class=\"floatRight\">
-                <a href=\"./index.php?file=postthread&amp;f={$forumid}{$SESSURL}\"><img src=\"{$VISUALS[images]}/{$IMAGES[postthread]}\" alt=\"{$lang[user_forum_postThread]}\" /></a>
+                <a href=\"" . n2link("file=postthread&amp;f={$forumid}{$SESSURL}") . "\"><img src=\"{$VISUALS[images]}/{$IMAGES[postthread]}\" alt=\"{$lang[user_forum_postThread]}\" /></a>
               </div>
             </div>
           </form>
@@ -1535,7 +1535,7 @@ border-style: inset !important;";}]]></template>
 " . (($bboptions['browsingForum']) ? ("
     <div class=\"marCenter smallMarTop\"><div class=\"cont\">
         <div class=\"cat clear border\">
-            <p class=\"floatLeft\"><a href=\"./index.php?file=online{$SESSURL}\">{$lang[user_forum_currentlyBrowsing]}</a></p>
+            <p class=\"floatLeft\"><a href=\"" . n2link("file=online{$SESSURL}") . "\">{$lang[user_forum_currentlyBrowsing]}</a></p>
             <div class=\"floatRight\"><img src=\"{$VISUALS[images]}/{$IMAGES[collapse]}\" alt=\"Collapse\" id=\"browsingForum_img\" class=\"exCol_click_browsingForum\" /></div>
         </div>
 
@@ -1560,9 +1560,9 @@ border-style: inset !important;";}]]></template>
       <img src="{$VISUALS[images]}/{$IMAGES[announceIcon]}" alt="{$lang[user_forum_announcements]}" />
     </td>
     <td>
-      <a href="./index.php?file=announce&amp;a={$obj->getAnnounceid()}&amp;f={$FORUM->info[forumid]}{$SESSURL}#{$obj->getAnnounceId()}">{$obj->getTitle()}</a>
+      <a href="<n2link(file=announce&amp;a={$obj->getAnnounceid()}&amp;f={$FORUM->info[forumid]}{$SESSURL}#{$obj->getAnnounceId()})>">{$obj->getTitle()}</a>
 
-      <p class="noMar small"><a href="./index.php?file=profile&amp;u={$obj->getStarterId()}{$SESSURL}">{$obj->getStarter()}</a></p>
+      <p class="noMar small"><a href="<n2link(file=profile&amp;u={$obj->getStarterId()}{$SESSURL})>">{$obj->getStarter()}</a></p>
     </td>
     <td class="right">{$lastUpdated->getDate()}<br />{$lang[user_forum_views]}: {$obj->getViews()}</td>
 </tr>
@@ -1573,9 +1573,9 @@ border-style: inset !important;";}]]></template>
       <img src=\"{$VISUALS[images]}/{$IMAGES[announceIcon]}\" alt=\"{$lang[user_forum_announcements]}\" />
     </td>
     <td>
-      <a href=\"./index.php?file=announce&amp;a={$obj->getAnnounceid()}&amp;f={$FORUM->info[forumid]}{$SESSURL}#{$obj->getAnnounceId()}\">{$obj->getTitle()}</a>
+      <a href=\"" . n2link("file=announce&amp;a={$obj->getAnnounceid()}&amp;f={$FORUM->info[forumid]}{$SESSURL}#{$obj->getAnnounceId()}") . "\">{$obj->getTitle()}</a>
 
-      <p class=\"noMar small\"><a href=\"./index.php?file=profile&amp;u={$obj->getStarterId()}{$SESSURL}\">{$obj->getStarter()}</a></p>
+      <p class=\"noMar small\"><a href=\"" . n2link("file=profile&amp;u={$obj->getStarterId()}{$SESSURL}") . "\">{$obj->getStarter()}</a></p>
     </td>
     <td class=\"right\">{$lastUpdated->getDate()}<br />{$lang[user_forum_views]}: {$obj->getViews()}</td>
 </tr>
@@ -1646,9 +1646,9 @@ border-style: inset !important;";}]]></template>
         </if>
 
         <if($obj->isRead())>
-            <a href="./index.php?file=thread&amp;t={$obj->getThreadId()}{$SESSURL}" title="{$obj->getDesc()}" class="normalWeight">{$obj->getName()}</a>
+            <a href="<n2link(file=thread&amp;t={$obj->getThreadId()}&amp;title={$obj->getUrlizedName()}{$SESSURL})>" title="{$obj->getDesc()}" class="normalWeight">{$obj->getName()}</a>
         <else />
-            <a href="./index.php?file=thread&amp;t={$obj->getThreadId()}&amp;do=newest{$SESSURL}" title="{$obj->getDesc()}">{$obj->getName()}</a>
+            <a href="<n2link(file=thread&amp;t={$obj->getThreadId()}&amp;do=newest&amp;title={$obj->getUrlizedName()}{$SESSURL})>" title="{$obj->getDesc()}">{$obj->getName()}</a>
         </if>
 
         <if(!empty($pages))>
@@ -1659,12 +1659,12 @@ border-style: inset !important;";}]]></template>
             <if(!$obj->getStarterId())>
                 <strong>{$obj->getStarter()}</strong>
             <else />
-                <a href="./index.php?file=profile&amp;u={$obj->getStarterId()}{$SESSURL}">{$obj->getStarter()}</a>
+                <a href="<n2link(file=profile&amp;u={$obj->getStarterId()}{$SESSURL})>">{$obj->getStarter()}</a>
             </if>
         </p>
     </td>
     <td>
-      <a href="./index.php?file=forum&amp;f={$obj->getForumId()}{$SESSURL}">{$forums[$obj->getForumId()]->info[name]}</a>
+      <a href="<n2link(file=forum&amp;f={$obj->getForumId()}{$SESSURL})>">{$forums[$obj->getForumId()]->info[name]}</a>
     </td>
     <td class="center">{$obj->getReplies()}</td>
     <td class="center">{$obj->getViews()}</td>
@@ -1674,10 +1674,10 @@ border-style: inset !important;";}]]></template>
             <if(!$obj->getLastReplyUserId())>
                 <strong>{$obj->getLastReplyUsername()}</strong>
             <else />
-                <a href="./index.php?file=profile&amp;u={$obj->getLastReplyUserId()}{$SESSURL}">{$obj->getLastReplyUsername()}</a>
+                <a href="<n2link(file=profile&amp;u={$obj->getLastReplyUserId()}{$SESSURL})>">{$obj->getLastReplyUsername()}</a>
             </if>
 
-            <a href="./index.php?file=thread&amp;t={$obj->getThreadId()}&amp;p={$obj->getLastReplyPostId()}{$SESSURL}"><img src="{$VISUALS[images]}/{$IMAGES[lastPost]}" alt="{$lang[user_forum_lastPost]}" class="aligned" /></a>
+            <a href="<n2link(file=thread&amp;t={$obj->getThreadId()}&amp;p={$obj->getLastReplyPostId()}&amp;title={$obj->getUrlizedName()}{$SESSURL})>"><img src="{$VISUALS[images]}/{$IMAGES[lastPost]}" alt="{$lang[user_forum_lastPost]}" class="aligned" /></a>
         </p>
     </td>
 </tr>
@@ -1717,9 +1717,9 @@ border-style: inset !important;";}]]></template>
         ") : ("")) . "
 
         " . (($obj->isRead()) ? ("
-            <a href=\"./index.php?file=thread&amp;t={$obj->getThreadId()}{$SESSURL}\" title=\"{$obj->getDesc()}\" class=\"normalWeight\">{$obj->getName()}</a>
+            <a href=\"" . n2link("file=thread&amp;t={$obj->getThreadId()}&amp;title={$obj->getUrlizedName()}{$SESSURL}") . "\" title=\"{$obj->getDesc()}\" class=\"normalWeight\">{$obj->getName()}</a>
         ") : ("
-            <a href=\"./index.php?file=thread&amp;t={$obj->getThreadId()}&amp;do=newest{$SESSURL}\" title=\"{$obj->getDesc()}\">{$obj->getName()}</a>
+            <a href=\"" . n2link("file=thread&amp;t={$obj->getThreadId()}&amp;do=newest&amp;title={$obj->getUrlizedName()}{$SESSURL}") . "\" title=\"{$obj->getDesc()}\">{$obj->getName()}</a>
         ")) . "
 
         " . ((!empty($pages)) ? ("
@@ -1730,12 +1730,12 @@ border-style: inset !important;";}]]></template>
             " . ((!$obj->getStarterId()) ? ("
                 <strong>{$obj->getStarter()}</strong>
             ") : ("
-                <a href=\"./index.php?file=profile&amp;u={$obj->getStarterId()}{$SESSURL}\">{$obj->getStarter()}</a>
+                <a href=\"" . n2link("file=profile&amp;u={$obj->getStarterId()}{$SESSURL}") . "\">{$obj->getStarter()}</a>
             ")) . "
         </p>
     </td>
     <td>
-      <a href=\"./index.php?file=forum&amp;f={$obj->getForumId()}{$SESSURL}\">{$forums[$obj->getForumId()]->info[name]}</a>
+      <a href=\"" . n2link("file=forum&amp;f={$obj->getForumId()}{$SESSURL}") . "\">{$forums[$obj->getForumId()]->info[name]}</a>
     </td>
     <td class=\"center\">{$obj->getReplies()}</td>
     <td class=\"center\">{$obj->getViews()}</td>
@@ -1745,10 +1745,10 @@ border-style: inset !important;";}]]></template>
             " . ((!$obj->getLastReplyUserId()) ? ("
                 <strong>{$obj->getLastReplyUsername()}</strong>
             ") : ("
-                <a href=\"./index.php?file=profile&amp;u={$obj->getLastReplyUserId()}{$SESSURL}\">{$obj->getLastReplyUsername()}</a>
+                <a href=\"" . n2link("file=profile&amp;u={$obj->getLastReplyUserId()}{$SESSURL}") . "\">{$obj->getLastReplyUsername()}</a>
             ")) . "
 
-            <a href=\"./index.php?file=thread&amp;t={$obj->getThreadId()}&amp;p={$obj->getLastReplyPostId()}{$SESSURL}\"><img src=\"{$VISUALS[images]}/{$IMAGES[lastPost]}\" alt=\"{$lang[user_forum_lastPost]}\" class=\"aligned\" /></a>
+            <a href=\"" . n2link("file=thread&amp;t={$obj->getThreadId()}&amp;p={$obj->getLastReplyPostId()}&amp;title={$obj->getUrlizedName()}{$SESSURL}") . "\"><img src=\"{$VISUALS[images]}/{$IMAGES[lastPost]}\" alt=\"{$lang[user_forum_lastPost]}\" class=\"aligned\" /></a>
         </p>
     </td>
 </tr>
@@ -1801,7 +1801,7 @@ border-style: inset !important;";}]]></template>
     </td>
     <td class="center" style="width: 2%;">
       <if($obj->isDeleted())>
-        <a href="./index.php?file=thread&amp;t={$obj->getThreadId()}&amp;do=restore{$SESSURL}">{$lang[user_thread_restorePost]}</a>
+        <a href="<n2link(file=thread&amp;t={$obj->getThreadId()}&amp;do=restore&amp;title={$obj->getUrlizedName()}{$SESSURL})>">{$lang[user_thread_restorePost]}</a>
       <else />
         <if(($iconPath = $obj->getPostIconPath()) AND !empty($iconPath))>
             <img src="{$obj->getPostIconPath()}" alt="{$obj->getName()}" />
@@ -1825,9 +1825,9 @@ border-style: inset !important;";}]]></template>
         </if>
 
         <if($obj->isRead())>
-            <a href="./index.php?file=thread&amp;t={$obj->getThreadId()}{$SESSURL}" title="{$obj->getDesc()}" class="normalWeight">{$obj->getName()}</a>
+            <a href="<n2link(file=thread&amp;t={$obj->getThreadId()}&amp;title={$obj->getUrlizedName()}{$SESSURL})>" title="{$obj->getDesc()}" class="normalWeight">{$obj->getName()}</a>
         <else />
-            <a href="./index.php?file=thread&amp;t={$obj->getThreadId()}&amp;do=newest{$SESSURL}" title="{$obj->getDesc()}">{$obj->getName()}</a>
+            <a href="<n2link(file=thread&amp;t={$obj->getThreadId()}&amp;do=newest&amp;title={$obj->getUrlizedName()}{$SESSURL})>" title="{$obj->getDesc()}">{$obj->getName()}</a>
         </if>
 
         <if(!empty($pages))>
@@ -1838,7 +1838,7 @@ border-style: inset !important;";}]]></template>
             <if(!$obj->getStarterId())>
                 <strong>{$obj->getStarter()}</strong>
             <else />
-                <a href="./index.php?file=profile&amp;u={$obj->getStarterId()}{$SESSURL}">{$obj->getStarter()}</a>
+                <a href="<n2link(file=profile&amp;u={$obj->getStarterId()}{$SESSURL})>">{$obj->getStarter()}</a>
             </if>
         </p>
       </div>
@@ -1865,10 +1865,10 @@ border-style: inset !important;";}]]></template>
             <if(!$obj->getLastReplyUserId())>
                 <strong>{$obj->getLastReplyUsername()}</strong>
             <else />
-                <a href="./index.php?file=profile&amp;u={$obj->getLastReplyUserId()}{$SESSURL}">{$obj->getLastReplyUsername()}</a>
+                <a href="<n2link(file=profile&amp;u={$obj->getLastReplyUserId()}{$SESSURL})>">{$obj->getLastReplyUsername()}</a>
             </if>
 
-            <a href="./index.php?file=thread&amp;t={$obj->getThreadId()}&amp;p={$obj->getLastReplyPostId()}{$SESSURL}"><img src="{$VISUALS[images]}/{$IMAGES[lastPost]}" alt="{$lang[user_forum_lastPost]}" class="aligned" /></a>
+            <a href="<n2link(file=thread&amp;t={$obj->getThreadId()}&amp;p={$obj->getLastReplyPostId()}&amp;title={$obj->getUrlizedName()}{$SESSURL})>"><img src="{$VISUALS[images]}/{$IMAGES[lastPost]}" alt="{$lang[user_forum_lastPost]}" class="aligned" /></a>
         </p>
     </td>
     <if($User->isMod($FORUM->info['forumid']))>
@@ -1886,7 +1886,7 @@ border-style: inset !important;";}]]></template>
     </td>
     <td class=\"center\" style=\"width: 2%;\">
       " . (($obj->isDeleted()) ? ("
-        <a href=\"./index.php?file=thread&amp;t={$obj->getThreadId()}&amp;do=restore{$SESSURL}\">{$lang[user_thread_restorePost]}</a>
+        <a href=\"" . n2link("file=thread&amp;t={$obj->getThreadId()}&amp;do=restore&amp;title={$obj->getUrlizedName()}{$SESSURL}") . "\">{$lang[user_thread_restorePost]}</a>
       ") : ("
         " . ((($iconPath = $obj->getPostIconPath()) AND !empty($iconPath)) ? ("
             <img src=\"{$obj->getPostIconPath()}\" alt=\"{$obj->getName()}\" />
@@ -1910,9 +1910,9 @@ border-style: inset !important;";}]]></template>
         ") : ("")) . "
 
         " . (($obj->isRead()) ? ("
-            <a href=\"./index.php?file=thread&amp;t={$obj->getThreadId()}{$SESSURL}\" title=\"{$obj->getDesc()}\" class=\"normalWeight\">{$obj->getName()}</a>
+            <a href=\"" . n2link("file=thread&amp;t={$obj->getThreadId()}&amp;title={$obj->getUrlizedName()}{$SESSURL}") . "\" title=\"{$obj->getDesc()}\" class=\"normalWeight\">{$obj->getName()}</a>
         ") : ("
-            <a href=\"./index.php?file=thread&amp;t={$obj->getThreadId()}&amp;do=newest{$SESSURL}\" title=\"{$obj->getDesc()}\">{$obj->getName()}</a>
+            <a href=\"" . n2link("file=thread&amp;t={$obj->getThreadId()}&amp;do=newest&amp;title={$obj->getUrlizedName()}{$SESSURL}") . "\" title=\"{$obj->getDesc()}\">{$obj->getName()}</a>
         ")) . "
 
         " . ((!empty($pages)) ? ("
@@ -1923,7 +1923,7 @@ border-style: inset !important;";}]]></template>
             " . ((!$obj->getStarterId()) ? ("
                 <strong>{$obj->getStarter()}</strong>
             ") : ("
-                <a href=\"./index.php?file=profile&amp;u={$obj->getStarterId()}{$SESSURL}\">{$obj->getStarter()}</a>
+                <a href=\"" . n2link("file=profile&amp;u={$obj->getStarterId()}{$SESSURL}") . "\">{$obj->getStarter()}</a>
             ")) . "
         </p>
       </div>
@@ -1950,10 +1950,10 @@ border-style: inset !important;";}]]></template>
             " . ((!$obj->getLastReplyUserId()) ? ("
                 <strong>{$obj->getLastReplyUsername()}</strong>
             ") : ("
-                <a href=\"./index.php?file=profile&amp;u={$obj->getLastReplyUserId()}{$SESSURL}\">{$obj->getLastReplyUsername()}</a>
+                <a href=\"" . n2link("file=profile&amp;u={$obj->getLastReplyUserId()}{$SESSURL}") . "\">{$obj->getLastReplyUsername()}</a>
             ")) . "
 
-            <a href=\"./index.php?file=thread&amp;t={$obj->getThreadId()}&amp;p={$obj->getLastReplyPostId()}{$SESSURL}\"><img src=\"{$VISUALS[images]}/{$IMAGES[lastPost]}\" alt=\"{$lang[user_forum_lastPost]}\" class=\"aligned\" /></a>
+            <a href=\"" . n2link("file=thread&amp;t={$obj->getThreadId()}&amp;p={$obj->getLastReplyPostId()}&amp;title={$obj->getUrlizedName()}{$SESSURL}") . "\"><img src=\"{$VISUALS[images]}/{$IMAGES[lastPost]}\" alt=\"{$lang[user_forum_lastPost]}\" class=\"aligned\" /></a>
         </p>
     </td>
     " . (($User->isMod($FORUM->info['forumid'])) ? ("
@@ -2008,7 +2008,7 @@ border-style: inset !important;";}]]></template>
 <fragment fragmentid="110" styleid="0" groupid="206" fragmentName="forumdisplay_catbit_depth1" fragmentVarName="forumdisplay_catbit_depth1" fragmentType="template" defaultid="0" disOrder="0">
 <template><![CDATA[<tr>
     <td class="cat" colspan="6">
-        <a href="./index.php?file=forum&amp;f={$forum->info[forumid]}{$SESSURL}">{$forum->info[name]}</a>
+        <a href="<n2link(file=forum&amp;f={$forum->info[forumid]}&amp;title={$forum->info[urlizedname]}{$SESSURL})>">{$forum->info[name]}</a>
         <if(!empty($forum->info['description']))>
             <p class="small">{$forum->info[description]}</p>
         </if>
@@ -2019,7 +2019,7 @@ border-style: inset !important;";}]]></template>
 ]]></template>
 <templatephp><![CDATA[<tr>
     <td class=\"cat\" colspan=\"6\">
-        <a href=\"./index.php?file=forum&amp;f={$forum->info[forumid]}{$SESSURL}\">{$forum->info[name]}</a>
+        <a href=\"" . n2link("file=forum&amp;f={$forum->info[forumid]}&amp;title={$forum->info[urlizedname]}{$SESSURL}") . "\">{$forum->info[name]}</a>
         " . ((!empty($forum->info['description'])) ? ("
             <p class=\"small\">{$forum->info[description]}</p>
         ") : ("")) . "
@@ -2034,7 +2034,7 @@ border-style: inset !important;";}]]></template>
 <template><![CDATA[<tr>
     <td class="cat" style="width: 2.5%;">&nbsp;</td>
     <td class="cat" colspan="5">
-        <a href="./index.php?file=forum&amp;f={$forum->info[forumid]}{$SESSURL}">{$forum->info[name]}</a>
+        <a href="<n2link(file=forum&amp;f={$forum->info[forumid]}&amp;title={$forum->info[urlizedname]}{$SESSURL})>">{$forum->info[name]}</a>
         <if(!empty($forum->info['description']))>
             <p class="small">{$forum->info[description]}</p>
         </if>
@@ -2045,7 +2045,7 @@ border-style: inset !important;";}]]></template>
 <templatephp><![CDATA[<tr>
     <td class=\"cat\" style=\"width: 2.5%;\">&nbsp;</td>
     <td class=\"cat\" colspan=\"5\">
-        <a href=\"./index.php?file=forum&amp;f={$forum->info[forumid]}{$SESSURL}\">{$forum->info[name]}</a>
+        <a href=\"" . n2link("file=forum&amp;f={$forum->info[forumid]}&amp;title={$forum->info[urlizedname]}{$SESSURL}") . "\">{$forum->info[name]}</a>
         " . ((!empty($forum->info['description'])) ? ("
             <p class=\"small\">{$forum->info[description]}</p>
         ") : ("")) . "
@@ -2069,20 +2069,20 @@ border-style: inset !important;";}]]></template>
         </if>
     </td>
     <td class="alt2" style="width: 59.5%;">
-        <a href="./index.php?file=forum&amp;f={$forum->info[forumid]}{$SESSURL}">{$forum->info[name]}</a>
+        <a href="<n2link(file=forum&amp;f={$forum->info[forumid]}&amp;title={$forum->info[urlizedname]}{$SESSURL})>">{$forum->info[name]}</a>
         <if(!empty($forum->info['description']))>
             <p class="small">{$forum->info[description]}</p>
         </if>
     </td>
     <td class="alt1 left" style="width: 18%;">
         <if($canView AND !empty($forum->info['last_reply_username']) AND !empty($forum->info['last_reply_threadtitle']) AND !empty($forum->info['last_reply_threadid']) AND !empty($forum->info['last_reply_date']))>
-            <p class="noMar small"><a href="./index.php?file=thread&amp;t={$forum->info[last_reply_threadid]}&amp;do=newest{$SESSURL}"><img src="{$VISUALS[images]}/{$IMAGES[newestPost]}" alt="{$lang[user_forum_newestPost]}" class="aligned" /></a> <a href="./index.php?file=thread&amp;t={$forum->info[last_reply_threadid]}{$SESSURL}">{$formattedThreadTitle}</a></p>
+            <p class="noMar small"><a href="<n2link(file=thread&amp;t={$forum->info[last_reply_threadid]}&amp;do=newest{$SESSURL})>"><img src="{$VISUALS[images]}/{$IMAGES[newestPost]}" alt="{$lang[user_forum_newestPost]}" class="aligned" /></a> <a href="<n2link(file=thread&amp;t={$forum->info[last_reply_threadid]}{$SESSURL})>">{$formattedThreadTitle}</a></p>
             <span class="time">{$replyDate->getDate()}</span>
 
             <if(!$forum->info['last_reply_userid'])>
                 <strong class="small">{$forum->info[last_reply_username]}</strong>
             <else />
-                <a href="./index.php?file=profile&amp;u={$forum->info[last_reply_userid]}{$SESSURL}" class="small">{$forum->info[last_reply_username]}</a>
+                <a href="<n2link(file=profile&amp;u={$forum->info[last_reply_userid]}{$SESSURL})>" class="small">{$forum->info[last_reply_username]}</a>
             </if>
         <else />
             <span class="small">{$lang[global_noneAvailable]}</span>
@@ -2120,20 +2120,20 @@ border-style: inset !important;";}]]></template>
         ")) . "
     </td>
     <td class=\"alt2\" style=\"width: 59.5%;\">
-        <a href=\"./index.php?file=forum&amp;f={$forum->info[forumid]}{$SESSURL}\">{$forum->info[name]}</a>
+        <a href=\"" . n2link("file=forum&amp;f={$forum->info[forumid]}&amp;title={$forum->info[urlizedname]}{$SESSURL}") . "\">{$forum->info[name]}</a>
         " . ((!empty($forum->info['description'])) ? ("
             <p class=\"small\">{$forum->info[description]}</p>
         ") : ("")) . "
     </td>
     <td class=\"alt1 left\" style=\"width: 18%;\">
         " . (($canView AND !empty($forum->info['last_reply_username']) AND !empty($forum->info['last_reply_threadtitle']) AND !empty($forum->info['last_reply_threadid']) AND !empty($forum->info['last_reply_date'])) ? ("
-            <p class=\"noMar small\"><a href=\"./index.php?file=thread&amp;t={$forum->info[last_reply_threadid]}&amp;do=newest{$SESSURL}\"><img src=\"{$VISUALS[images]}/{$IMAGES[newestPost]}\" alt=\"{$lang[user_forum_newestPost]}\" class=\"aligned\" /></a> <a href=\"./index.php?file=thread&amp;t={$forum->info[last_reply_threadid]}{$SESSURL}\">{$formattedThreadTitle}</a></p>
+            <p class=\"noMar small\"><a href=\"" . n2link("file=thread&amp;t={$forum->info[last_reply_threadid]}&amp;do=newest{$SESSURL}") . "\"><img src=\"{$VISUALS[images]}/{$IMAGES[newestPost]}\" alt=\"{$lang[user_forum_newestPost]}\" class=\"aligned\" /></a> <a href=\"" . n2link("file=thread&amp;t={$forum->info[last_reply_threadid]}{$SESSURL}") . "\">{$formattedThreadTitle}</a></p>
             <span class=\"time\">{$replyDate->getDate()}</span>
 
             " . ((!$forum->info['last_reply_userid']) ? ("
                 <strong class=\"small\">{$forum->info[last_reply_username]}</strong>
             ") : ("
-                <a href=\"./index.php?file=profile&amp;u={$forum->info[last_reply_userid]}{$SESSURL}\" class=\"small\">{$forum->info[last_reply_username]}</a>
+                <a href=\"" . n2link("file=profile&amp;u={$forum->info[last_reply_userid]}{$SESSURL}") . "\" class=\"small\">{$forum->info[last_reply_username]}</a>
             ")) . "
         ") : ("
             <span class=\"small\">{$lang[global_noneAvailable]}</span>
@@ -2174,20 +2174,20 @@ border-style: inset !important;";}]]></template>
         </if>
     </td>
     <td class="alt2" style="width: 57.5%">
-        <a href="./index.php?file=forum&amp;f={$forum->info[forumid]}{$SESSURL}">{$forum->info[name]}</a>
+        <a href="<n2link(file=forum&amp;f={$forum->info[forumid]}&amp;title={$forum->info[urlizedname]}{$SESSURL})>">{$forum->info[name]}</a>
         <if(!empty($forum->info['description']))>
             <p class="small">{$forum->info[description]}</p>
         </if>
     </td>
     <td class="alt1 left" style="width: 20%;">
         <if($canView AND !empty($forum->info['last_reply_username']) AND !empty($forum->info['last_reply_threadtitle']) AND !empty($forum->info['last_reply_threadid']) AND !empty($forum->info['last_reply_date']))>
-            <p class="noMar small"><a href="./index.php?file=thread&amp;t={$forum->info[last_reply_threadid]}&amp;do=newest{$SESSURL}"><img src="{$VISUALS[images]}/{$IMAGES[newestPost]}" alt="{$lang[user_forum_newestPost]}" class="aligned" /></a> <a href="./index.php?file=thread&amp;t={$forum->info[last_reply_threadid]}{$SESSURL}">{$formattedThreadTitle}</a></p>
+            <p class="noMar small"><a href="<n2link(file=thread&amp;t={$forum->info[last_reply_threadid]}&amp;do=newest{$SESSURL})>"><img src="{$VISUALS[images]}/{$IMAGES[newestPost]}" alt="{$lang[user_forum_newestPost]}" class="aligned" /></a> <a href="<n2link(file=thread&amp;t={$forum->info[last_reply_threadid]}{$SESSURL})>">{$formattedThreadTitle}</a></p>
             <span class="time">{$replyDate->getDate()}</span>
 
             <if(!$forum->info['last_reply_userid'])>
                 <strong class="small">{$forum->info[last_reply_username]}</strong>
             <else />
-                <a href="./index.php?file=profile&amp;u={$forum->info[last_reply_userid]}{$SESSURL}" class="small">{$forum->info[last_reply_username]}</a>
+                <a href="<n2link(file=profile&amp;u={$forum->info[last_reply_userid]}{$SESSURL})>" class="small">{$forum->info[last_reply_username]}</a>
             </if>
         <else />
             <span class="small">{$lang[global_noneAvailable]}</span>
@@ -2224,20 +2224,20 @@ border-style: inset !important;";}]]></template>
         ")) . "
     </td>
     <td class=\"alt2\" style=\"width: 57.5%\">
-        <a href=\"./index.php?file=forum&amp;f={$forum->info[forumid]}{$SESSURL}\">{$forum->info[name]}</a>
+        <a href=\"" . n2link("file=forum&amp;f={$forum->info[forumid]}&amp;title={$forum->info[urlizedname]}{$SESSURL}") . "\">{$forum->info[name]}</a>
         " . ((!empty($forum->info['description'])) ? ("
             <p class=\"small\">{$forum->info[description]}</p>
         ") : ("")) . "
     </td>
     <td class=\"alt1 left\" style=\"width: 20%;\">
         " . (($canView AND !empty($forum->info['last_reply_username']) AND !empty($forum->info['last_reply_threadtitle']) AND !empty($forum->info['last_reply_threadid']) AND !empty($forum->info['last_reply_date'])) ? ("
-            <p class=\"noMar small\"><a href=\"./index.php?file=thread&amp;t={$forum->info[last_reply_threadid]}&amp;do=newest{$SESSURL}\"><img src=\"{$VISUALS[images]}/{$IMAGES[newestPost]}\" alt=\"{$lang[user_forum_newestPost]}\" class=\"aligned\" /></a> <a href=\"./index.php?file=thread&amp;t={$forum->info[last_reply_threadid]}{$SESSURL}\">{$formattedThreadTitle}</a></p>
+            <p class=\"noMar small\"><a href=\"" . n2link("file=thread&amp;t={$forum->info[last_reply_threadid]}&amp;do=newest{$SESSURL}") . "\"><img src=\"{$VISUALS[images]}/{$IMAGES[newestPost]}\" alt=\"{$lang[user_forum_newestPost]}\" class=\"aligned\" /></a> <a href=\"" . n2link("file=thread&amp;t={$forum->info[last_reply_threadid]}{$SESSURL}") . "\">{$formattedThreadTitle}</a></p>
             <span class=\"time\">{$replyDate->getDate()}</span>
 
             " . ((!$forum->info['last_reply_userid']) ? ("
                 <strong class=\"small\">{$forum->info[last_reply_username]}</strong>
             ") : ("
-                <a href=\"./index.php?file=profile&amp;u={$forum->info[last_reply_userid]}{$SESSURL}\" class=\"small\">{$forum->info[last_reply_username]}</a>
+                <a href=\"" . n2link("file=profile&amp;u={$forum->info[last_reply_userid]}{$SESSURL}") . "\" class=\"small\">{$forum->info[last_reply_username]}</a>
             ")) . "
         ") : ("
             <span class=\"small\">{$lang[global_noneAvailable]}</span>
@@ -2266,7 +2266,7 @@ border-style: inset !important;";}]]></template>
 <fragment fragmentid="293" styleid="0" groupid="206" fragmentName="" fragmentVarName="forumdisplay_linkbit_depth1" fragmentType="template" defaultid="0" disOrder="0">
 <template><![CDATA[<tr>
     <td class="alt2" colspan="6">
-        <a href="./index.php?file=forum&amp;f={$forum->info[forumid]}{$SESSURL}">{$forum->info[name]}</a> ({$lang[user_forum_hits]} {$forum->info[linkCount]})
+        <a href="<n2link(file=forum&amp;f={$forum->info[forumid]}&amp;title={$forum->info[urlizedname]}{$SESSURL})>">{$forum->info[name]}</a> ({$lang[user_forum_hits]} {$forum->info[linkCount]})
         <if(!empty($forum->info['description']))>
             <p class="small">{$forum->info[description]}</p>
         </if>
@@ -2276,7 +2276,7 @@ border-style: inset !important;";}]]></template>
 ]]></template>
 <templatephp><![CDATA[<tr>
     <td class=\"alt2\" colspan=\"6\">
-        <a href=\"./index.php?file=forum&amp;f={$forum->info[forumid]}{$SESSURL}\">{$forum->info[name]}</a> ({$lang[user_forum_hits]} {$forum->info[linkCount]})
+        <a href=\"" . n2link("file=forum&amp;f={$forum->info[forumid]}&amp;title={$forum->info[urlizedname]}{$SESSURL}") . "\">{$forum->info[name]}</a> ({$lang[user_forum_hits]} {$forum->info[linkCount]})
         " . ((!empty($forum->info['description'])) ? ("
             <p class=\"small\">{$forum->info[description]}</p>
         ") : ("")) . "
@@ -2290,7 +2290,7 @@ border-style: inset !important;";}]]></template>
 <template><![CDATA[<tr>
     <td class="alt1" style="width: 2.5%;">&nbsp;</td>
     <td class="alt2" colspan="5">
-        <a href="./index.php?file=forum&amp;f={$forum->info[forumid]}{$SESSURL}">{$forum->info[name]}</a> ({$lang[user_forum_hits]} {$forum->info[linkCount]})
+        <a href="<n2link(file=forum&amp;f={$forum->info[forumid]}&amp;title={$forum->info[urlizedname]}{$SESSURL})>">{$forum->info[name]}</a> ({$lang[user_forum_hits]} {$forum->info[linkCount]})
         <if(!empty($forum->info['description']))>
             <p class="small">{$forum->info[description]}</p>
         </if>
@@ -2301,7 +2301,7 @@ border-style: inset !important;";}]]></template>
 <templatephp><![CDATA[<tr>
     <td class=\"alt1\" style=\"width: 2.5%;\">&nbsp;</td>
     <td class=\"alt2\" colspan=\"5\">
-        <a href=\"./index.php?file=forum&amp;f={$forum->info[forumid]}{$SESSURL}\">{$forum->info[name]}</a> ({$lang[user_forum_hits]} {$forum->info[linkCount]})
+        <a href=\"" . n2link("file=forum&amp;f={$forum->info[forumid]}&amp;title={$forum->info[urlizedname]}{$SESSURL}") . "\">{$forum->info[name]}</a> ({$lang[user_forum_hits]} {$forum->info[linkCount]})
         " . ((!empty($forum->info['description'])) ? ("
             <p class=\"small\">{$forum->info[description]}</p>
         ") : ("")) . "
@@ -2315,13 +2315,13 @@ border-style: inset !important;";}]]></template>
 <template><![CDATA[    $forumList
 
   <if($User->info['userid'])>
-    <p class="marCenter right"><a href="./index.php?file=misc&amp;do=markRead{$SESSURL}">{$lang[user_index_markRead]}</a></p>
+    <p class="marCenter right"><a href="<n2link(file=misc&amp;do=markRead{$SESSURL})>">{$lang[user_index_markRead]}</a></p>
   </if>
 
   <if($bboptions['whosOnline'])>
     <div class="marCenter smallMarTop"><div class="cont">
         <div class="cat clear border">
-            <p class="floatLeft"><a href="./index.php?file=online{$SESSURL}">{$lang[user_index_whosOnline]}</a></p>
+            <p class="floatLeft"><a href="<n2link(file=online{$SESSURL})>">{$lang[user_index_whosOnline]}</a></p>
             <div class="floatRight"><img src="{$VISUALS[images]}/{$IMAGES[collapse]}" alt="Collapse" id="whosOnline_img" class="exCol_click_whosOnline" /></div>
         </div>
 
@@ -2359,7 +2359,7 @@ border-style: inset !important;";}]]></template>
 
                 <p class="noMar">
                   {$lang[user_index_welcome]}
-                  <a href="./index.php?file=profile&amp;u={$newMember[userid]}">{$newMember[username]}</a>
+                  <a href="<n2link(file=profile&amp;u={$newMember[userid]})>">{$newMember[username]}</a>
                 </p>
             </div>
         </div>
@@ -2368,13 +2368,13 @@ border-style: inset !important;";}]]></template>
 <templatephp><![CDATA[    $forumList
 
   " . (($User->info['userid']) ? ("
-    <p class=\"marCenter right\"><a href=\"./index.php?file=misc&amp;do=markRead{$SESSURL}\">{$lang[user_index_markRead]}</a></p>
+    <p class=\"marCenter right\"><a href=\"" . n2link("file=misc&amp;do=markRead{$SESSURL}") . "\">{$lang[user_index_markRead]}</a></p>
   ") : ("")) . "
 
   " . (($bboptions['whosOnline']) ? ("
     <div class=\"marCenter smallMarTop\"><div class=\"cont\">
         <div class=\"cat clear border\">
-            <p class=\"floatLeft\"><a href=\"./index.php?file=online{$SESSURL}\">{$lang[user_index_whosOnline]}</a></p>
+            <p class=\"floatLeft\"><a href=\"" . n2link("file=online{$SESSURL}") . "\">{$lang[user_index_whosOnline]}</a></p>
             <div class=\"floatRight\"><img src=\"{$VISUALS[images]}/{$IMAGES[collapse]}\" alt=\"Collapse\" id=\"whosOnline_img\" class=\"exCol_click_whosOnline\" /></div>
         </div>
 
@@ -2412,7 +2412,7 @@ border-style: inset !important;";}]]></template>
 
                 <p class=\"noMar\">
                   {$lang[user_index_welcome]}
-                  <a href=\"./index.php?file=profile&amp;u={$newMember[userid]}\">{$newMember[username]}</a>
+                  <a href=\"" . n2link("file=profile&amp;u={$newMember[userid]}") . "\">{$newMember[username]}</a>
                 </p>
             </div>
         </div>
@@ -2421,8 +2421,8 @@ border-style: inset !important;";}]]></template>
 </fragment>
 
 <fragment fragmentid="104" styleid="0" groupid="189" fragmentName="forumhome_whoBit" fragmentVarName="forumhome_whoBit" fragmentType="template" defaultid="0" disOrder="0">
-<template><![CDATA[{$before}<a href="./index.php?file=profile&amp;u={$userObj->info[userid]}{$SESSURL}">{$userObj->getHTMLName()}</a>]]></template>
-<templatephp><![CDATA[{$before}<a href=\"./index.php?file=profile&amp;u={$userObj->info[userid]}{$SESSURL}\">{$userObj->getHTMLName()}</a>]]></templatephp>
+<template><![CDATA[{$before}<a href="<n2link(file=profile&amp;u={$userObj->info[userid]}{$SESSURL})>">{$userObj->getHTMLName()}</a>]]></template>
+<templatephp><![CDATA[{$before}<a href=\"" . n2link("file=profile&amp;u={$userObj->info[userid]}{$SESSURL}") . "\">{$userObj->getHTMLName()}</a>]]></templatephp>
 </fragment>
 
 <fragment fragmentid="92" styleid="0" groupid="187" fragmentName="" fragmentVarName="forumhomelist" fragmentType="template" defaultid="0" disOrder="0">
@@ -2465,7 +2465,7 @@ $forumBits
     <tr>
         <td class="cat" colspan="6">
             <div class="floatLeft">
-                <a href="./index.php?file=forum&amp;f={$forum->info[forumid]}{$SESSURL}">{$forum->info[name]}</a>
+                <a href="<n2link(file=forum&amp;f={$forum->info[forumid]}&amp;title={$forum->info[urlizedname]}{$SESSURL})>">{$forum->info[name]}</a>
                 <if(!empty($forum->info['description']))>
                     <p class="small">{$forum->info[description]}</p>
                 </if>
@@ -2488,7 +2488,7 @@ $forumBits
     <tr>
         <td class=\"cat\" colspan=\"6\">
             <div class=\"floatLeft\">
-                <a href=\"./index.php?file=forum&amp;f={$forum->info[forumid]}{$SESSURL}\">{$forum->info[name]}</a>
+                <a href=\"" . n2link("file=forum&amp;f={$forum->info[forumid]}&amp;title={$forum->info[urlizedname]}{$SESSURL}") . "\">{$forum->info[name]}</a>
                 " . ((!empty($forum->info['description'])) ? ("
                     <p class=\"small\">{$forum->info[description]}</p>
                 ") : ("")) . "
@@ -2509,7 +2509,7 @@ $forumBits
 <template><![CDATA[    <tr class="exColTr_f{$forum->info[parent]}">
         <td class="cat" style="width: 2.5%;">&nbsp;</td>
         <td class="cat" colspan="5">
-            <a href="./index.php?file=forum&amp;f={$forum->info[forumid]}{$SESSURL}">{$forum->info[name]}</a>
+            <a href="<n2link(file=forum&amp;f={$forum->info[forumid]}&amp;title={$forum->info[urlizedname]}{$SESSURL})>">{$forum->info[name]}</a>
             <if(!empty($forum->info['description']))>
                 <p class="small">{$forum->info[description]}</p>
             </if>
@@ -2520,7 +2520,7 @@ $forumBits
 <templatephp><![CDATA[    <tr class=\"exColTr_f{$forum->info[parent]}\">
         <td class=\"cat\" style=\"width: 2.5%;\">&nbsp;</td>
         <td class=\"cat\" colspan=\"5\">
-            <a href=\"./index.php?file=forum&amp;f={$forum->info[forumid]}{$SESSURL}\">{$forum->info[name]}</a>
+            <a href=\"" . n2link("file=forum&amp;f={$forum->info[forumid]}&amp;title={$forum->info[urlizedname]}{$SESSURL}") . "\">{$forum->info[name]}</a>
             " . ((!empty($forum->info['description'])) ? ("
                 <p class=\"small\">{$forum->info[description]}</p>
             ") : ("")) . "
@@ -2550,20 +2550,20 @@ $forumBits
             </if>
         </td>
         <td class="alt2" style="width: 53.5%;">
-            <a href="./index.php?file=forum&amp;f={$forum->info[forumid]}{$SESSURL}">{$forum->info[name]}</a>
+            <a href="<n2link(file=forum&amp;f={$forum->info[forumid]}&amp;title={$forum->info[urlizedname]}{$SESSURL})>">{$forum->info[name]}</a>
             <if(!empty($forum->info['description']))>
                 <p class="small">{$forum->info[description]}</p>
             </if>
         </td>
         <td class="alt1 left" style="width: 20%;" colspan="2">
             <if($canView AND !empty($forum->info['last_reply_username']) AND !empty($forum->info['last_reply_threadtitle']) AND !empty($forum->info['last_reply_threadid']) AND !empty($forum->info['last_reply_date']))>
-                <p class="noMar small"><a href="./index.php?file=thread&amp;t={$forum->info[last_reply_threadid]}&amp;do=newest{$SESSURL}"><img src="{$VISUALS[images]}/{$IMAGES[newestPost]}" alt="{$lang[user_forum_newestPost]}" class="aligned" /></a> <a href="./index.php?file=thread&amp;t={$forum->info[last_reply_threadid]}{$SESSURL}">{$formattedThreadTitle}</a></p>
+                <p class="noMar small"><a href="<n2link(file=thread&amp;t={$forum->info[last_reply_threadid]}&amp;do=newest{$SESSURL})>"><img src="{$VISUALS[images]}/{$IMAGES[newestPost]}" alt="{$lang[user_forum_newestPost]}" class="aligned" /></a> <a href="<n2link(file=thread&amp;t={$forum->info[last_reply_threadid]}{$SESSURL})>">{$formattedThreadTitle}</a></p>
                 <span class="time">{$replyDate->getDate()}</span>
 
                 <if(!$forum->info['last_reply_userid'])>
                     <strong class="small">{$forum->info[last_reply_username]}</strong>
                 <else />
-                    <a href="./index.php?file=profile&amp;u={$forum->info[last_reply_userid]}{$SESSURL}" class="small">{$forum->info[last_reply_username]}</a>
+                    <a href="<n2link(file=profile&amp;u={$forum->info[last_reply_userid]}{$SESSURL})>" class="small">{$forum->info[last_reply_username]}</a>
                 </if>
             <else />
                 <span class="small">{$lang[global_noneAvailable]}</span>
@@ -2607,20 +2607,20 @@ $forumBits
             ")) . "
         </td>
         <td class=\"alt2\" style=\"width: 53.5%;\">
-            <a href=\"./index.php?file=forum&amp;f={$forum->info[forumid]}{$SESSURL}\">{$forum->info[name]}</a>
+            <a href=\"" . n2link("file=forum&amp;f={$forum->info[forumid]}&amp;title={$forum->info[urlizedname]}{$SESSURL}") . "\">{$forum->info[name]}</a>
             " . ((!empty($forum->info['description'])) ? ("
                 <p class=\"small\">{$forum->info[description]}</p>
             ") : ("")) . "
         </td>
         <td class=\"alt1 left\" style=\"width: 20%;\" colspan=\"2\">
             " . (($canView AND !empty($forum->info['last_reply_username']) AND !empty($forum->info['last_reply_threadtitle']) AND !empty($forum->info['last_reply_threadid']) AND !empty($forum->info['last_reply_date'])) ? ("
-                <p class=\"noMar small\"><a href=\"./index.php?file=thread&amp;t={$forum->info[last_reply_threadid]}&amp;do=newest{$SESSURL}\"><img src=\"{$VISUALS[images]}/{$IMAGES[newestPost]}\" alt=\"{$lang[user_forum_newestPost]}\" class=\"aligned\" /></a> <a href=\"./index.php?file=thread&amp;t={$forum->info[last_reply_threadid]}{$SESSURL}\">{$formattedThreadTitle}</a></p>
+                <p class=\"noMar small\"><a href=\"" . n2link("file=thread&amp;t={$forum->info[last_reply_threadid]}&amp;do=newest{$SESSURL}") . "\"><img src=\"{$VISUALS[images]}/{$IMAGES[newestPost]}\" alt=\"{$lang[user_forum_newestPost]}\" class=\"aligned\" /></a> <a href=\"" . n2link("file=thread&amp;t={$forum->info[last_reply_threadid]}{$SESSURL}") . "\">{$formattedThreadTitle}</a></p>
                 <span class=\"time\">{$replyDate->getDate()}</span>
 
                 " . ((!$forum->info['last_reply_userid']) ? ("
                     <strong class=\"small\">{$forum->info[last_reply_username]}</strong>
                 ") : ("
-                    <a href=\"./index.php?file=profile&amp;u={$forum->info[last_reply_userid]}{$SESSURL}\" class=\"small\">{$forum->info[last_reply_username]}</a>
+                    <a href=\"" . n2link("file=profile&amp;u={$forum->info[last_reply_userid]}{$SESSURL}") . "\" class=\"small\">{$forum->info[last_reply_username]}</a>
                 ")) . "
             ") : ("
                 <span class=\"small\">{$lang[global_noneAvailable]}</span>
@@ -2661,20 +2661,20 @@ $forumBits
         </if>
     </td>
     <td class="alt2" style="width: 53.5%">
-        <a href="./index.php?file=forum&amp;f={$forum->info[forumid]}{$SESSURL}">{$forum->info[name]}</a>
+        <a href="<n2link(file=forum&amp;f={$forum->info[forumid]}&amp;title={$forum->info[urlizedname]}{$SESSURL})>">{$forum->info[name]}</a>
         <if(!empty($forum->info['description']))>
             <p class="small">{$forum->info[description]}</p>
         </if>
     </td>
     <td class="alt1 left" style="width: 20%;" colspan="2">
         <if($canView AND !empty($forum->info['last_reply_username']) AND !empty($forum->info['last_reply_threadtitle']) AND !empty($forum->info['last_reply_threadid']) AND !empty($forum->info['last_reply_date']))>
-            <p class="noMar small"><a href="./index.php?file=thread&amp;t={$forum->info[last_reply_threadid]}&amp;do=newest{$SESSURL}"><img src="{$VISUALS[images]}/{$IMAGES[newestPost]}" alt="{$lang[user_forum_newestPost]}" class="aligned" /></a> <a href="./index.php?file=thread&amp;t={$forum->info[last_reply_threadid]}&amp;do=lastpost{$SESSURL}">{$formattedThreadTitle}</a></p>
+            <p class="noMar small"><a href="<n2link(file=thread&amp;t={$forum->info[last_reply_threadid]}&amp;do=newest{$SESSURL})>"><img src="{$VISUALS[images]}/{$IMAGES[newestPost]}" alt="{$lang[user_forum_newestPost]}" class="aligned" /></a> <a href="<n2link(file=thread&amp;t={$forum->info[last_reply_threadid]}&amp;do=lastpost{$SESSURL})>">{$formattedThreadTitle}</a></p>
             <span class="time">{$replyDate->getDate()}</span>
 
             <if(!$forum->info['last_reply_userid'])>
                 <strong class="small">{$forum->info[last_reply_username]}</strong>
             <else />
-                <a href="./index.php?file=profile&amp;u={$forum->info[last_reply_userid]}{$SESSURL}" class="small">{$forum->info[last_reply_username]}</a>
+                <a href="<n2link(file=profile&amp;u={$forum->info[last_reply_userid]}{$SESSURL})>" class="small">{$forum->info[last_reply_username]}</a>
             </if>
         <else />
             <span class="small">{$lang[global_noneAvailable]}</span>
@@ -2711,20 +2711,20 @@ $forumBits
         ")) . "
     </td>
     <td class=\"alt2\" style=\"width: 53.5%\">
-        <a href=\"./index.php?file=forum&amp;f={$forum->info[forumid]}{$SESSURL}\">{$forum->info[name]}</a>
+        <a href=\"" . n2link("file=forum&amp;f={$forum->info[forumid]}&amp;title={$forum->info[urlizedname]}{$SESSURL}") . "\">{$forum->info[name]}</a>
         " . ((!empty($forum->info['description'])) ? ("
             <p class=\"small\">{$forum->info[description]}</p>
         ") : ("")) . "
     </td>
     <td class=\"alt1 left\" style=\"width: 20%;\" colspan=\"2\">
         " . (($canView AND !empty($forum->info['last_reply_username']) AND !empty($forum->info['last_reply_threadtitle']) AND !empty($forum->info['last_reply_threadid']) AND !empty($forum->info['last_reply_date'])) ? ("
-            <p class=\"noMar small\"><a href=\"./index.php?file=thread&amp;t={$forum->info[last_reply_threadid]}&amp;do=newest{$SESSURL}\"><img src=\"{$VISUALS[images]}/{$IMAGES[newestPost]}\" alt=\"{$lang[user_forum_newestPost]}\" class=\"aligned\" /></a> <a href=\"./index.php?file=thread&amp;t={$forum->info[last_reply_threadid]}&amp;do=lastpost{$SESSURL}\">{$formattedThreadTitle}</a></p>
+            <p class=\"noMar small\"><a href=\"" . n2link("file=thread&amp;t={$forum->info[last_reply_threadid]}&amp;do=newest{$SESSURL}") . "\"><img src=\"{$VISUALS[images]}/{$IMAGES[newestPost]}\" alt=\"{$lang[user_forum_newestPost]}\" class=\"aligned\" /></a> <a href=\"" . n2link("file=thread&amp;t={$forum->info[last_reply_threadid]}&amp;do=lastpost{$SESSURL}") . "\">{$formattedThreadTitle}</a></p>
             <span class=\"time\">{$replyDate->getDate()}</span>
 
             " . ((!$forum->info['last_reply_userid']) ? ("
                 <strong class=\"small\">{$forum->info[last_reply_username]}</strong>
             ") : ("
-                <a href=\"./index.php?file=profile&amp;u={$forum->info[last_reply_userid]}{$SESSURL}\" class=\"small\">{$forum->info[last_reply_username]}</a>
+                <a href=\"" . n2link("file=profile&amp;u={$forum->info[last_reply_userid]}{$SESSURL}") . "\" class=\"small\">{$forum->info[last_reply_username]}</a>
             ")) . "
         ") : ("
             <span class=\"small\">{$lang[global_noneAvailable]}</span>
@@ -2759,7 +2759,7 @@ $forumBits
     <tr>
         <td class="alt2" colspan="6">
             <div class="floatLeft">
-                <a href="./index.php?file=forum&amp;f={$forum->info[forumid]}{$SESSURL}">{$forum->info[name]}</a> ({$lang[user_forum_hits]} {$forum->info[linkCount]})
+                <a href="<n2link(file=forum&amp;f={$forum->info[forumid]}&amp;title={$forum->info[urlizedname]}{$SESSURL})>">{$forum->info[name]}</a> ({$lang[user_forum_hits]} {$forum->info[linkCount]})
                 <if(!empty($forum->info['description']))>
                     <p class="small">{$forum->info[description]}</p>
                 </if>
@@ -2782,7 +2782,7 @@ $forumBits
     <tr>
         <td class=\"alt2\" colspan=\"6\">
             <div class=\"floatLeft\">
-                <a href=\"./index.php?file=forum&amp;f={$forum->info[forumid]}{$SESSURL}\">{$forum->info[name]}</a> ({$lang[user_forum_hits]} {$forum->info[linkCount]})
+                <a href=\"" . n2link("file=forum&amp;f={$forum->info[forumid]}&amp;title={$forum->info[urlizedname]}{$SESSURL}") . "\">{$forum->info[name]}</a> ({$lang[user_forum_hits]} {$forum->info[linkCount]})
                 " . ((!empty($forum->info['description'])) ? ("
                     <p class=\"small\">{$forum->info[description]}</p>
                 ") : ("")) . "
@@ -2803,7 +2803,7 @@ $forumBits
 <template><![CDATA[    <tr class="exColTr_f{$forum->info[parent]}">
         <td class="alt1" style="width: 2.5%;">&nbsp;</td>
         <td class="alt2" colspan="5" style="width: 97.5%;">
-            <a href="./index.php?file=forum&amp;f={$forum->info[forumid]}{$SESSURL}">{$forum->info[name]}</a> ({$lang[user_forum_hits]} {$forum->info[linkCount]})
+            <a href="<n2link(file=forum&amp;f={$forum->info[forumid]}&amp;title={$forum->info[urlizedname]}{$SESSURL})>">{$forum->info[name]}</a> ({$lang[user_forum_hits]} {$forum->info[linkCount]})
             <if(!empty($forum->info['description']))>
                 <p class="small">{$forum->info[description]}</p>
             </if>
@@ -2814,7 +2814,7 @@ $forumBits
 <templatephp><![CDATA[    <tr class=\"exColTr_f{$forum->info[parent]}\">
         <td class=\"alt1\" style=\"width: 2.5%;\">&nbsp;</td>
         <td class=\"alt2\" colspan=\"5\" style=\"width: 97.5%;\">
-            <a href=\"./index.php?file=forum&amp;f={$forum->info[forumid]}{$SESSURL}\">{$forum->info[name]}</a> ({$lang[user_forum_hits]} {$forum->info[linkCount]})
+            <a href=\"" . n2link("file=forum&amp;f={$forum->info[forumid]}&amp;title={$forum->info[urlizedname]}{$SESSURL}") . "\">{$forum->info[name]}</a> ({$lang[user_forum_hits]} {$forum->info[linkCount]})
             " . ((!empty($forum->info['description'])) ? ("
                 <p class=\"small\">{$forum->info[description]}</p>
             ") : ("")) . "
@@ -2929,14 +2929,14 @@ $forumBits
 <template><![CDATA[<tr class="alt{$ALT}">
   <td>{$status}</td>
   <td>
-    <a href="./index.php?file=profile&amp;u={$userObj->info[userid]}{$SESSURL}">{$userObj->getHTMLName()}</a>
+    <a href="<n2link(file=profile&amp;u={$userObj->info[userid]}{$SESSURL})>">{$userObj->getHTMLName()}</a>
   </td>
   <td class="center">{$userObj->info[posts]}</td>
   <td class="center">
     <if($lastPost instanceof WtcDate)>
       <span class="time">{$lastPost->getDate()}</span>
       <br />
-      <a href="./index.php?file=post&amp;p={$userObj->info[lastpostid]}{$SESSURL}">{$lang[user_memList_findLastPost]}</a>
+      <a href="<n2link(file=post&amp;p={$userObj->info[lastpostid]}{$SESSURL})>">{$lang[user_memList_findLastPost]}</a>
     <else />
       {$lastPost}
     </if>
@@ -2944,7 +2944,7 @@ $forumBits
   <td class="center time">{$joined->getDate()}</td>
   <td class="center">
           <if($userObj->info['emailContact'])>
-            <a href="./index.php?file=sendemail&amp;u={$userObj->info[userid]}{$SESSURL}"><img src="{$VISUALS[images]}/{$IMAGES[postbit_email]}" alt="{$lang[user_profile_email]}" /></a>
+            <a href="<n2link(file=sendemail&amp;u={$userObj->info[userid]}{$SESSURL})>"><img src="{$VISUALS[images]}/{$IMAGES[postbit_email]}" alt="{$lang[user_profile_email]}" /></a>
           </if>
 
           <if($userObj->info['emailContact'] AND $userObj->info['receivePm'])>
@@ -2952,7 +2952,7 @@ $forumBits
           </if>
 
           <if($userObj->info['receivePm'])>
-            <a href="./index.php?file=personal&amp;do=send&amp;u={$userObj->info[userid]}{$SESSURL}"><img src="{$VISUALS[images]}/{$IMAGES[postbit_pm]}" alt="{$lang[user_profile_pm]}" /></a>
+            <a href="<n2link(file=personal&amp;do=send&amp;u={$userObj->info[userid]}{$SESSURL})>"><img src="{$VISUALS[images]}/{$IMAGES[postbit_pm]}" alt="{$lang[user_profile_pm]}" /></a>
           </if>
 
           &nbsp;
@@ -2961,14 +2961,14 @@ $forumBits
 <templatephp><![CDATA[<tr class=\"alt{$ALT}\">
   <td>{$status}</td>
   <td>
-    <a href=\"./index.php?file=profile&amp;u={$userObj->info[userid]}{$SESSURL}\">{$userObj->getHTMLName()}</a>
+    <a href=\"" . n2link("file=profile&amp;u={$userObj->info[userid]}{$SESSURL}") . "\">{$userObj->getHTMLName()}</a>
   </td>
   <td class=\"center\">{$userObj->info[posts]}</td>
   <td class=\"center\">
     " . (($lastPost instanceof WtcDate) ? ("
       <span class=\"time\">{$lastPost->getDate()}</span>
       <br />
-      <a href=\"./index.php?file=post&amp;p={$userObj->info[lastpostid]}{$SESSURL}\">{$lang[user_memList_findLastPost]}</a>
+      <a href=\"" . n2link("file=post&amp;p={$userObj->info[lastpostid]}{$SESSURL}") . "\">{$lang[user_memList_findLastPost]}</a>
     ") : ("
       {$lastPost}
     ")) . "
@@ -2976,7 +2976,7 @@ $forumBits
   <td class=\"center time\">{$joined->getDate()}</td>
   <td class=\"center\">
           " . (($userObj->info['emailContact']) ? ("
-            <a href=\"./index.php?file=sendemail&amp;u={$userObj->info[userid]}{$SESSURL}\"><img src=\"{$VISUALS[images]}/{$IMAGES[postbit_email]}\" alt=\"{$lang[user_profile_email]}\" /></a>
+            <a href=\"" . n2link("file=sendemail&amp;u={$userObj->info[userid]}{$SESSURL}") . "\"><img src=\"{$VISUALS[images]}/{$IMAGES[postbit_email]}\" alt=\"{$lang[user_profile_email]}\" /></a>
           ") : ("")) . "
 
           " . (($userObj->info['emailContact'] AND $userObj->info['receivePm']) ? ("
@@ -2984,7 +2984,7 @@ $forumBits
           ") : ("")) . "
 
           " . (($userObj->info['receivePm']) ? ("
-            <a href=\"./index.php?file=personal&amp;do=send&amp;u={$userObj->info[userid]}{$SESSURL}\"><img src=\"{$VISUALS[images]}/{$IMAGES[postbit_pm]}\" alt=\"{$lang[user_profile_pm]}\" /></a>
+            <a href=\"" . n2link("file=personal&amp;do=send&amp;u={$userObj->info[userid]}{$SESSURL}") . "\"><img src=\"{$VISUALS[images]}/{$IMAGES[postbit_pm]}\" alt=\"{$lang[user_profile_pm]}\" /></a>
           ") : ("")) . "
 
           &nbsp;
@@ -3018,7 +3018,7 @@ $forumBits
     </div></div>
 </if>
 
-<form method="post" action="./index.php?file=postedit&amp;p={$postid}" onsubmit="Message.closeAll();">
+<form method="post" action="<n2link(file=postedit&amp;p={$postid})>" onsubmit="Message.closeAll();">
 {$SESSION_INPUT}
 
 <script type="text/javascript">
@@ -3208,7 +3208,7 @@ $forumBits
     </div></div>
 ") : ("")) . "
 
-<form method=\"post\" action=\"./index.php?file=postedit&amp;p={$postid}\" onsubmit=\"Message.closeAll();\">
+<form method=\"post\" action=\"" . n2link("file=postedit&amp;p={$postid}") . "\" onsubmit=\"Message.closeAll();\">
 {$SESSION_INPUT}
 
 <script type=\"text/javascript\">
@@ -3217,8 +3217,8 @@ $forumBits
 
 </script>
 
-<script type=\"text/javascript\" src=\"./scripts/Message.js.php\"></script>
-<script type=\"text/javascript\" src=\"./scripts/Message.js\"></script>
+<script type=\"text/javascript\" src=\"".HOME."scripts/Message.js.php\"></script>
+<script type=\"text/javascript\" src=\"".HOME."scripts/Message.js\"></script>
 
 <div class=\"marCenter smallMarTop smallMarBot alt1\"><div class=\"cont\">
     <h3 class=\"cat border\">{$lang[global_message]}</h3>
@@ -3401,7 +3401,7 @@ $forumBits
     </div></div>
 </if>
 
-<form method="post" action="./index.php?file=postreply&amp;t={$threadid}" onsubmit="Message.closeAll();">
+<form method="post" action="<n2link(file=postreply&amp;t={$threadid})>" onsubmit="Message.closeAll();">
 <input type="hidden" name="myHash" value="{$myHash}" />
 {$SESSION_INPUT}
 
@@ -3558,7 +3558,7 @@ $forumBits
     </div></div>
 ") : ("")) . "
 
-<form method=\"post\" action=\"./index.php?file=postreply&amp;t={$threadid}\" onsubmit=\"Message.closeAll();\">
+<form method=\"post\" action=\"" . n2link("file=postreply&amp;t={$threadid}") . "\" onsubmit=\"Message.closeAll();\">
 <input type=\"hidden\" name=\"myHash\" value=\"{$myHash}\" />
 {$SESSION_INPUT}
 
@@ -3568,8 +3568,8 @@ $forumBits
 
 </script>
 
-<script type=\"text/javascript\" src=\"./scripts/Message.js.php\"></script>
-<script type=\"text/javascript\" src=\"./scripts/Message.js\"></script>
+<script type=\"text/javascript\" src=\"".HOME."scripts/Message.js.php\"></script>
+<script type=\"text/javascript\" src=\"".HOME."scripts/Message.js\"></script>
 
 <div class=\"marCenter smallMarTop smallMarBot alt1\"><div class=\"cont\">
     <h3 class=\"cat border\">{$lang[global_message]}</h3>
@@ -3718,7 +3718,7 @@ $forumBits
     </div></div>
 </if>
 
-<form method="post" action="./index.php?file=postthread&amp;f={$id}" onsubmit="Message.closeAll();">
+<form method="post" action="<n2link(file=postthread&amp;f={$id})>" onsubmit="Message.closeAll();">
 <input type="hidden" name="myHash" value="{$myHash}" />
 {$SESSION_INPUT}
 
@@ -3874,7 +3874,7 @@ $forumBits
     </div></div>
 ") : ("")) . "
 
-<form method=\"post\" action=\"./index.php?file=postthread&amp;f={$id}\" onsubmit=\"Message.closeAll();\">
+<form method=\"post\" action=\"" . n2link("file=postthread&amp;f={$id}") . "\" onsubmit=\"Message.closeAll();\">
 <input type=\"hidden\" name=\"myHash\" value=\"{$myHash}\" />
 {$SESSION_INPUT}
 
@@ -3884,8 +3884,8 @@ $forumBits
 
 </script>
 
-<script type=\"text/javascript\" src=\"./scripts/Message.js.php\"></script>
-<script type=\"text/javascript\" src=\"./scripts/Message.js\"></script>
+<script type=\"text/javascript\" src=\"".HOME."scripts/Message.js.php\"></script>
+<script type=\"text/javascript\" src=\"".HOME."scripts/Message.js\"></script>
 
 <table cellspacing=\"{$VISUALS[inBorderWidth]}\" cellpadding=\"0\">
     <tr>
@@ -4063,8 +4063,8 @@ $forumBits
 </fragment>
 
 <fragment fragmentid="121" styleid="0" groupid="213" fragmentName="moderator_bit" fragmentVarName="moderator_bit" fragmentType="template" defaultid="0" disOrder="0">
-<template><![CDATA[<if($separator)>, </if><a href="./index.php?file=profile&amp;u={$Mod->info[userid]}{$SESSURL}">{$Mod->getHTMLName()}</a>]]></template>
-<templatephp><![CDATA[" . (($separator) ? (", ") : ("")) . "<a href=\"./index.php?file=profile&amp;u={$Mod->info[userid]}{$SESSURL}\">{$Mod->getHTMLName()}</a>]]></templatephp>
+<template><![CDATA[<if($separator)>, </if><a href="<n2link(file=profile&amp;u={$Mod->info[userid]}{$SESSURL})>">{$Mod->getHTMLName()}</a>]]></template>
+<templatephp><![CDATA[" . (($separator) ? (", ") : ("")) . "<a href=\"" . n2link("file=profile&amp;u={$Mod->info[userid]}{$SESSURL}") . "\">{$Mod->getHTMLName()}</a>]]></templatephp>
 </fragment>
 
 <fragment fragmentid="122" styleid="0" groupid="214" fragmentName="navigation_linkBit" fragmentVarName="navigation_linkBit" fragmentType="template" defaultid="0" disOrder="0">
@@ -4093,33 +4093,33 @@ $forumBits
 </fragment>
 
 <fragment fragmentid="172" styleid="0" groupid="228" fragmentName="page_first" fragmentVarName="page_first" fragmentType="template" defaultid="0" disOrder="0">
-<template><![CDATA[<a href="{$url}&amp;page=1">&laquo;</a> ]]></template>
-<templatephp><![CDATA[<a href=\"{$url}&amp;page=1\">&laquo;</a> ]]></templatephp>
+<template><![CDATA[<a href="<n2link({$url}&amp;page=1)>">&laquo;</a> ]]></template>
+<templatephp><![CDATA[<a href=\"" . n2link("{$url}&amp;page=1") . "\">&laquo;</a> ]]></templatephp>
 </fragment>
 
 <fragment fragmentid="173" styleid="0" groupid="228" fragmentName="page_last" fragmentVarName="page_last" fragmentType="template" defaultid="0" disOrder="0">
-<template><![CDATA[<a href="{$url}&amp;page={$pages}">&raquo;</a>]]></template>
-<templatephp><![CDATA[<a href=\"{$url}&amp;page={$pages}\">&raquo;</a>]]></templatephp>
+<template><![CDATA[<a href="<n2link({$url}&amp;page={$pages})>">&raquo;</a>]]></template>
+<templatephp><![CDATA[<a href=\"" . n2link("{$url}&amp;page={$pages}") . "\">&raquo;</a>]]></templatephp>
 </fragment>
 
 <fragment fragmentid="175" styleid="0" groupid="228" fragmentName="page_next" fragmentVarName="page_next" fragmentType="template" defaultid="0" disOrder="0">
-<template><![CDATA[<a href="{$url}&amp;page={$curr}">&gt;</a> ]]></template>
-<templatephp><![CDATA[<a href=\"{$url}&amp;page={$curr}\">&gt;</a> ]]></templatephp>
+<template><![CDATA[<a href="<n2link({$url}&amp;page={$curr})>">&gt;</a> ]]></template>
+<templatephp><![CDATA[<a href=\"" . n2link("{$url}&amp;page={$curr}") . "\">&gt;</a> ]]></templatephp>
 </fragment>
 
 <fragment fragmentid="170" styleid="0" groupid="228" fragmentName="page_number" fragmentVarName="page_number" fragmentType="template" defaultid="0" disOrder="0">
-<template><![CDATA[<a href="{$url}&amp;page={$pageNumUse}">{$pageNumUse}</a> ]]></template>
-<templatephp><![CDATA[<a href=\"{$url}&amp;page={$pageNumUse}\">{$pageNumUse}</a> ]]></templatephp>
+<template><![CDATA[<a href="<n2link({$url}&amp;page={$pageNumUse})>">{$pageNumUse}</a> ]]></template>
+<templatephp><![CDATA[<a href=\"" . n2link("{$url}&amp;page={$pageNumUse}") . "\">{$pageNumUse}</a> ]]></templatephp>
 </fragment>
 
 <fragment fragmentid="174" styleid="0" groupid="228" fragmentName="page_prev" fragmentVarName="page_prev" fragmentType="template" defaultid="0" disOrder="0">
-<template><![CDATA[<a href="{$url}&amp;page={$curr}">&lt;</a> ]]></template>
-<templatephp><![CDATA[<a href=\"{$url}&amp;page={$curr}\">&lt;</a> ]]></templatephp>
+<template><![CDATA[<a href="<n2link({$url}&amp;page={$curr})>">&lt;</a> ]]></template>
+<templatephp><![CDATA[<a href=\"" . n2link("{$url}&amp;page={$curr}") . "\">&lt;</a> ]]></templatephp>
 </fragment>
 
 <fragment fragmentid="275" styleid="0" groupid="263" fragmentName="" fragmentVarName="personal_convo" fragmentType="template" defaultid="0" disOrder="0">
 <template><![CDATA[<div class="marCenter smallMarTop smallMarBot clear">
-    <form method="get" action="./index.php" class="floatRight">
+    <form method="get" action="<n2link(./index.php)>" class="floatRight">
       <input type="hidden" name="file" value="personal" />
       <input type="hidden" name="do" value="convo" />
       {$SESSION_INPUT}
@@ -4133,7 +4133,7 @@ $forumBits
 </div>
   
 <if(!empty($convoBits))>
- <form method="post" action="./index.php?file=personal&amp;do=convo{$SESSURL}" class="noMar">
+ <form method="post" action="<n2link(file=personal&amp;do=convo{$SESSURL})>" class="noMar">
   <table cellspacing="{$VISUALS[inBorderWidth]}" cellpadding="0">
     <tr>
       <th style="width: 40px;">
@@ -4169,7 +4169,7 @@ $forumBits
 </if>
 ]]></template>
 <templatephp><![CDATA[<div class=\"marCenter smallMarTop smallMarBot clear\">
-    <form method=\"get\" action=\"./index.php\" class=\"floatRight\">
+    <form method=\"get\" action=\"" . n2link("./index.php") . "\" class=\"floatRight\">
       <input type=\"hidden\" name=\"file\" value=\"personal\" />
       <input type=\"hidden\" name=\"do\" value=\"convo\" />
       {$SESSION_INPUT}
@@ -4183,7 +4183,7 @@ $forumBits
 </div>
   
 " . ((!empty($convoBits)) ? ("
- <form method=\"post\" action=\"./index.php?file=personal&amp;do=convo{$SESSURL}\" class=\"noMar\">
+ <form method=\"post\" action=\"" . n2link("file=personal&amp;do=convo{$SESSURL}") . "\" class=\"noMar\">
   <table cellspacing=\"{$VISUALS[inBorderWidth]}\" cellpadding=\"0\">
     <tr>
       <th style=\"width: 40px;\">
@@ -4221,8 +4221,8 @@ $forumBits
 </fragment>
 
 <fragment fragmentid="279" styleid="0" groupid="263" fragmentName="" fragmentVarName="personal_convoMembers" fragmentType="template" defaultid="0" disOrder="0">
-<template><![CDATA[{$before}<a href="./index.php?file=profile&amp;u={$userid}{$SESSURL}">{$username}</a>]]></template>
-<templatephp><![CDATA[{$before}<a href=\"./index.php?file=profile&amp;u={$userid}{$SESSURL}\">{$username}</a>]]></templatephp>
+<template><![CDATA[{$before}<a href="<n2link(file=profile&amp;u={$userid}{$SESSURL})>">{$username}</a>]]></template>
+<templatephp><![CDATA[{$before}<a href=\"" . n2link("file=profile&amp;u={$userid}{$SESSURL}") . "\">{$username}</a>]]></templatephp>
 </fragment>
 
 <fragment fragmentid="276" styleid="0" groupid="263" fragmentName="" fragmentVarName="personal_convo_bit" fragmentType="template" defaultid="0" disOrder="0">
@@ -4235,9 +4235,9 @@ $forumBits
 
     <td>
         <if($obj->isRead())>
-            <a href="./index.php?file=personal&amp;do=convo&amp;c={$obj->getConvoId()}{$SESSURL}" class="normalWeight">{$obj->getTitle()}</a>
+            <a href="<n2link(file=personal&amp;do=convo&amp;c={$obj->getConvoId()}{$SESSURL})>" class="normalWeight">{$obj->getTitle()}</a>
         <else />
-            <a href="./index.php?file=personal&amp;do=convo&amp;c={$obj->getConvoId()}&amp;act=newest{$SESSURL}">{$obj->getTitle()}</a>
+            <a href="<n2link(file=personal&amp;do=convo&amp;c={$obj->getConvoId()}&amp;act=newest{$SESSURL})>">{$obj->getTitle()}</a>
         </if>
 
         <if(!empty($pages))>
@@ -4250,9 +4250,9 @@ $forumBits
     <td class="right">
         <span class="time">{$replyDate->getDate()}</span>
         <p class="noMar small">{$lang[global_by]} 
-            <a href="./index.php?file=profile&amp;u={$obj->getLastReplyUserId()}{$SESSURL}">{$obj->getLastReplyUsername()}</a>
+            <a href="<n2link(file=profile&amp;u={$obj->getLastReplyUserId()}{$SESSURL})>">{$obj->getLastReplyUsername()}</a>
 
-            <a href="./index.php?file=personal&amp;do=convo&amp;c={$obj->getConvoId()}&amp;m={$obj->getLastReplyMessageId()}{$SESSURL}"><img src="{$VISUALS[images]}/{$IMAGES[lastPost]}" alt="{$lang[user_forum_lastPost]}" class="aligned" /></a>
+            <a href="<n2link(file=personal&amp;do=convo&amp;c={$obj->getConvoId()}&amp;m={$obj->getLastReplyMessageId()}{$SESSURL})>"><img src="{$VISUALS[images]}/{$IMAGES[lastPost]}" alt="{$lang[user_forum_lastPost]}" class="aligned" /></a>
         </p>
     </td>
 </tr>
@@ -4268,9 +4268,9 @@ $forumBits
 
     <td>
         " . (($obj->isRead()) ? ("
-            <a href=\"./index.php?file=personal&amp;do=convo&amp;c={$obj->getConvoId()}{$SESSURL}\" class=\"normalWeight\">{$obj->getTitle()}</a>
+            <a href=\"" . n2link("file=personal&amp;do=convo&amp;c={$obj->getConvoId()}{$SESSURL}") . "\" class=\"normalWeight\">{$obj->getTitle()}</a>
         ") : ("
-            <a href=\"./index.php?file=personal&amp;do=convo&amp;c={$obj->getConvoId()}&amp;act=newest{$SESSURL}\">{$obj->getTitle()}</a>
+            <a href=\"" . n2link("file=personal&amp;do=convo&amp;c={$obj->getConvoId()}&amp;act=newest{$SESSURL}") . "\">{$obj->getTitle()}</a>
         ")) . "
 
         " . ((!empty($pages)) ? ("
@@ -4283,9 +4283,9 @@ $forumBits
     <td class=\"right\">
         <span class=\"time\">{$replyDate->getDate()}</span>
         <p class=\"noMar small\">{$lang[global_by]} 
-            <a href=\"./index.php?file=profile&amp;u={$obj->getLastReplyUserId()}{$SESSURL}\">{$obj->getLastReplyUsername()}</a>
+            <a href=\"" . n2link("file=profile&amp;u={$obj->getLastReplyUserId()}{$SESSURL}") . "\">{$obj->getLastReplyUsername()}</a>
 
-            <a href=\"./index.php?file=personal&amp;do=convo&amp;c={$obj->getConvoId()}&amp;m={$obj->getLastReplyMessageId()}{$SESSURL}\"><img src=\"{$VISUALS[images]}/{$IMAGES[lastPost]}\" alt=\"{$lang[user_forum_lastPost]}\" class=\"aligned\" /></a>
+            <a href=\"" . n2link("file=personal&amp;do=convo&amp;c={$obj->getConvoId()}&amp;m={$obj->getLastReplyMessageId()}{$SESSURL}") . "\"><img src=\"{$VISUALS[images]}/{$IMAGES[lastPost]}\" alt=\"{$lang[user_forum_lastPost]}\" class=\"aligned\" /></a>
         </p>
     </td>
 </tr>
@@ -4312,7 +4312,7 @@ $forumBits
   </div>
 </div></div>
 
-<form method="post" action="./index.php?file=personal&amp;do=folders" class="noMar">
+<form method="post" action="<n2link(file=personal&amp;do=folders)>" class="noMar">
   {$SESSION_INPUT}
 
   <table cellspacing="{$VISUALS[inBorderWidth]}" cellpadding="0">
@@ -4345,7 +4345,7 @@ $forumBits
 </form>
 
 
-<form method="post" action="./index.php?file=personal&amp;do=folders" class="noMar">
+<form method="post" action="<n2link(file=personal&amp;do=folders)>" class="noMar">
   {$SESSION_INPUT}
 
   <table cellspacing="{$VISUALS[inBorderWidth]}" cellpadding="0">
@@ -4381,7 +4381,7 @@ $forumBits
   </div>
 </div></div>
 
-<form method=\"post\" action=\"./index.php?file=personal&amp;do=folders\" class=\"noMar\">
+<form method=\"post\" action=\"" . n2link("file=personal&amp;do=folders") . "\" class=\"noMar\">
   {$SESSION_INPUT}
 
   <table cellspacing=\"{$VISUALS[inBorderWidth]}\" cellpadding=\"0\">
@@ -4414,7 +4414,7 @@ $forumBits
 </form>
 
 
-<form method=\"post\" action=\"./index.php?file=personal&amp;do=folders\" class=\"noMar\">
+<form method=\"post\" action=\"" . n2link("file=personal&amp;do=folders") . "\" class=\"noMar\">
   {$SESSION_INPUT}
 
   <table cellspacing=\"{$VISUALS[inBorderWidth]}\" cellpadding=\"0\">
@@ -4461,7 +4461,7 @@ $forumBits
       <strong>{$_POST[edit][$Folder->getFolderId()]}</strong>
     </if>
 
-    <p class="noMar small">{$lang[user_per_folders_messages]} {$Folder->getTotalMessages()} - <a href="./index.php?file=personal&amp;do=convo&amp;f={$Folder->getFolderId()}{$SESSURL}">{$lang[user_per_folders_viewMessages]}</a></p>
+    <p class="noMar small">{$lang[user_per_folders_messages]} {$Folder->getTotalMessages()} - <a href="<n2link(file=personal&amp;do=convo&amp;f={$Folder->getFolderId()}{$SESSURL})>">{$lang[user_per_folders_viewMessages]}</a></p>
   </td>
 </tr>
 
@@ -4484,7 +4484,7 @@ $forumBits
       <strong>{$_POST[edit][$Folder->getFolderId()]}</strong>
     ")) . "
 
-    <p class=\"noMar small\">{$lang[user_per_folders_messages]} {$Folder->getTotalMessages()} - <a href=\"./index.php?file=personal&amp;do=convo&amp;f={$Folder->getFolderId()}{$SESSURL}\">{$lang[user_per_folders_viewMessages]}</a></p>
+    <p class=\"noMar small\">{$lang[user_per_folders_messages]} {$Folder->getTotalMessages()} - <a href=\"" . n2link("file=personal&amp;do=convo&amp;f={$Folder->getFolderId()}{$SESSURL}") . "\">{$lang[user_per_folders_viewMessages]}</a></p>
   </td>
 </tr>
 
@@ -4500,20 +4500,20 @@ $forumBits
 <template><![CDATA[<div class="marCenter smallMarTop smallMarBot"><div class="cont">
   <div class="headFoot border clear small">
     <ul id="personalArea">
-      <li><a href="./index.php?file=usercp{$SESSURL}">{$lang[user_index_membersArea]}</a></li>
-      <li><a href="./index.php?file=personal&amp;do=send{$SESSURL}">{$lang[user_per_send]}</a></li>
-      <li><a href="./index.php?file=personal&amp;do=convo{$SESSURL}">{$lang[user_per_convo]}</a></li>
-      <li><a href="./index.php?file=personal&amp;do=folders{$SESSURL}">{$lang[user_per_folders]}</a></li>
+      <li><a href="<n2link(file=usercp{$SESSURL})>">{$lang[user_index_membersArea]}</a></li>
+      <li><a href="<n2link(file=personal&amp;do=send{$SESSURL})>">{$lang[user_per_send]}</a></li>
+      <li><a href="<n2link(file=personal&amp;do=convo{$SESSURL})>">{$lang[user_per_convo]}</a></li>
+      <li><a href="<n2link(file=personal&amp;do=folders{$SESSURL})>">{$lang[user_per_folders]}</a></li>
     </ul>
   </div>
 </div></div>]]></template>
 <templatephp><![CDATA[<div class=\"marCenter smallMarTop smallMarBot\"><div class=\"cont\">
   <div class=\"headFoot border clear small\">
     <ul id=\"personalArea\">
-      <li><a href=\"./index.php?file=usercp{$SESSURL}\">{$lang[user_index_membersArea]}</a></li>
-      <li><a href=\"./index.php?file=personal&amp;do=send{$SESSURL}\">{$lang[user_per_send]}</a></li>
-      <li><a href=\"./index.php?file=personal&amp;do=convo{$SESSURL}\">{$lang[user_per_convo]}</a></li>
-      <li><a href=\"./index.php?file=personal&amp;do=folders{$SESSURL}\">{$lang[user_per_folders]}</a></li>
+      <li><a href=\"" . n2link("file=usercp{$SESSURL}") . "\">{$lang[user_index_membersArea]}</a></li>
+      <li><a href=\"" . n2link("file=personal&amp;do=send{$SESSURL}") . "\">{$lang[user_per_send]}</a></li>
+      <li><a href=\"" . n2link("file=personal&amp;do=convo{$SESSURL}") . "\">{$lang[user_per_convo]}</a></li>
+      <li><a href=\"" . n2link("file=personal&amp;do=folders{$SESSURL}") . "\">{$lang[user_per_folders]}</a></li>
     </ul>
   </div>
 </div></div>]]></templatephp>
@@ -4534,7 +4534,7 @@ $forumBits
     </div></div>
 </if>
 
-<form method="post" action="./index.php?file=personal&amp;do=send<if($Convo instanceof Conversation)>&amp;c={$Convo->getConvoId()}</if>" onsubmit="Message.closeAll();">
+<form method="post" action="<n2link(file=personal&amp;do=send<if($Convo instanceof Conversation)>&amp;c={$Convo->getConvoId()}</if>)>" onsubmit="Message.closeAll();">
 <input type="hidden" name="myHash" value="{$myHash}" />
 {$SESSION_INPUT}
 
@@ -4643,7 +4643,7 @@ $forumBits
     </div></div>
 ") : ("")) . "
 
-<form method=\"post\" action=\"./index.php?file=personal&amp;do=send" . (($Convo instanceof Conversation) ? ("&amp;c={$Convo->getConvoId()}") : ("")) . "\" onsubmit=\"Message.closeAll();\">
+<form method=\"post\" action=\"" . n2link("file=personal&amp;do=send") . "" . (($Convo instanceof Conversation) ? ("&amp;c={$Convo->getConvoId()}") : ("")) . "\" onsubmit=\"Message.closeAll();\">
 <input type=\"hidden\" name=\"myHash\" value=\"{$myHash}\" />
 {$SESSION_INPUT}
 
@@ -4657,8 +4657,8 @@ $forumBits
 
 </script>
 
-<script type=\"text/javascript\" src=\"./scripts/Message.js.php\"></script>
-<script type=\"text/javascript\" src=\"./scripts/Message.js\"></script>
+<script type=\"text/javascript\" src=\"".HOME."scripts/Message.js.php\"></script>
+<script type=\"text/javascript\" src=\"".HOME."scripts/Message.js\"></script>
 
 <table cellspacing=\"{$VISUALS[inBorderWidth]}\" cellpadding=\"0\">
     <tr>
@@ -4764,7 +4764,7 @@ $forumBits
     </div>
 
     <div class="floatRight">
-        <a href="./index.php?file=personal&amp;do=send&amp;c={$Convo->getConvoId()}{$SESSURL}">
+        <a href="<n2link(file=personal&amp;do=send&amp;c={$Convo->getConvoId()}{$SESSURL})>">
           <img src="{$VISUALS[images]}/{$IMAGES[postreply]}" alt="{$lang[user_thread_postReply]}" />
         </a>
     </div>
@@ -4797,13 +4797,13 @@ $forumBits
   </div>
 
   <div class="floatRight">
-    <a href="./index.php?file=personal&amp;do=send&amp;c={$Convo->getConvoId()}{$SESSURL}">
+    <a href="<n2link(file=personal&amp;do=send&amp;c={$Convo->getConvoId()}{$SESSURL})>">
       <img src="{$VISUALS[images]}/{$IMAGES[postreply]}" alt="{$lang[user_thread_postReply]}" />
     </a>
   </div>
 </div>
 
-  <form method="post" action="./index.php?file=personal&amp;do=send&amp;c={$Convo->getConvoId()}" onsubmit="Message.closeAll();">
+  <form method="post" action="<n2link(file=personal&amp;do=send&amp;c={$Convo->getConvoId()})>" onsubmit="Message.closeAll();">
     {$SESSION_INPUT}
     <input type="hidden" name="send[title]" value="Re: {$Convo->getTitle()}" />
 
@@ -4879,7 +4879,7 @@ $forumBits
     </div>
 
     <div class=\"floatRight\">
-        <a href=\"./index.php?file=personal&amp;do=send&amp;c={$Convo->getConvoId()}{$SESSURL}\">
+        <a href=\"" . n2link("file=personal&amp;do=send&amp;c={$Convo->getConvoId()}{$SESSURL}") . "\">
           <img src=\"{$VISUALS[images]}/{$IMAGES[postreply]}\" alt=\"{$lang[user_thread_postReply]}\" />
         </a>
     </div>
@@ -4896,7 +4896,7 @@ $forumBits
   window.replyURL = \'./index.php?file=personal&do=send&c=\';
 
 </script>
-<script type=\"text/javascript\" src=\"./scripts/Thread.js\"></script>
+<script type=\"text/javascript\" src=\"".HOME."scripts/Thread.js\"></script>
 
 <div id=\"threadDisplay\" class=\"noMar\" name=\"{$Convo->getConvoId()}\">
   $postBits
@@ -4912,18 +4912,18 @@ $forumBits
   </div>
 
   <div class=\"floatRight\">
-    <a href=\"./index.php?file=personal&amp;do=send&amp;c={$Convo->getConvoId()}{$SESSURL}\">
+    <a href=\"" . n2link("file=personal&amp;do=send&amp;c={$Convo->getConvoId()}{$SESSURL}") . "\">
       <img src=\"{$VISUALS[images]}/{$IMAGES[postreply]}\" alt=\"{$lang[user_thread_postReply]}\" />
     </a>
   </div>
 </div>
 
-  <form method=\"post\" action=\"./index.php?file=personal&amp;do=send&amp;c={$Convo->getConvoId()}\" onsubmit=\"Message.closeAll();\">
+  <form method=\"post\" action=\"" . n2link("file=personal&amp;do=send&amp;c={$Convo->getConvoId()}") . "\" onsubmit=\"Message.closeAll();\">
     {$SESSION_INPUT}
     <input type=\"hidden\" name=\"send[title]\" value=\"Re: {$Convo->getTitle()}\" />
 
-    <script type=\"text/javascript\" src=\"./scripts/Message.js.php\"></script>
-    <script type=\"text/javascript\" src=\"./scripts/Message.js\"></script>
+    <script type=\"text/javascript\" src=\"".HOME."scripts/Message.js.php\"></script>
+    <script type=\"text/javascript\" src=\"".HOME."scripts/Message.js\"></script>
 
     <div class=\"marCenter smallMarTop smallMarBot alt1\"><div class=\"cont\">
       <div class=\"cat border clear\">
@@ -5014,7 +5014,7 @@ Avatar 3
 
       <p class="small smallMarTop noMarBot">Posts: {$postUser->info[posts]}</p>
       <p class="small noMarTop">Joined: {$joined->getDate()}</p>
-      <p class="small noMarTop">Reputation: <a href="./index.php?file=profile&amp;do=reputation&amp;u={$postUser->info[userid]}{$SESSURL}">{$postUser->info[reputation]}</a></p>
+      <p class="small noMarTop">Reputation: <a href="<n2link(file=profile&amp;do=reputation&amp;u={$postUser->info[userid]}{$SESSURL})>">{$postUser->info[reputation]}</a></p>
     </td>
 
     <td class="alt2 pbMessage vertTop bordRight">
@@ -5066,7 +5066,7 @@ Avatar 3
 
   <tr>
     <td class="alt1 pbProfile vertTop center bord noBordTop">
-        <a href="./index.php?file=profile&amp;u={$postUser->info[userid]}"><img src="{$VISUALS[images]}/{$IMAGES[profileIcon]}" alt="{$postUser->info[username]}" class="aligned" /></a>
+        <a href="<n2link(file=profile&amp;u={$postUser->info[userid]})>"><img src="{$VISUALS[images]}/{$IMAGES[profileIcon]}" alt="{$postUser->info[username]}" class="aligned" /></a>
 
         <if(!empty($postUser->info['homepage']) AND $postUser->info['homepage'] != 'http://')>
           <a href="{$postUser->info[homepage]}"><img src="{$VISUALS[images]}/{$IMAGES[homeIcon]}" alt="{$lang[user_thread_goToHome]}" class="aligned" /></a>
@@ -5082,7 +5082,7 @@ Avatar 3
       <div class="floatLeft">
         <a href="#"><img src="{$VISUALS[images]}/{$IMAGES[upIcon]}" alt="{$lang[user_topPage]}" class="aligned" /></a>
 
-        <a href="./index.php?file=personal&amp;do=send&amp;u={$postUser->info[username]}"><img src="{$VISUALS[images]}/{$IMAGES[postbit_pm]}" alt="{$lang[user_thread_sendPm]}" class="aligned" /></a>
+        <a href="<n2link(file=personal&amp;do=send&amp;u={$postUser->info[username]})>"><img src="{$VISUALS[images]}/{$IMAGES[postbit_pm]}" alt="{$lang[user_thread_sendPm]}" class="aligned" /></a>
 
         <img src="{$VISUALS[images]}/{$IMAGES[postbit_email]}" alt="{$lang[admin_style_i_postbit_email]}" class="aligned" />
       </div>
@@ -5090,7 +5090,7 @@ Avatar 3
       <div class="floatRight">
         <img src="{$VISUALS[images]}/{$IMAGES[postbit_quoteP]}" alt="{$lang[user_thread_quote]}" class="aligned quoteButton" id="quote_{$post->getMessageId()}" />
 
-        <a href="./index.php?file=personal&amp;do=send&amp;c={$Convo->getConvoId()}&amp;p[]={$post->getMessageId()}{$SESSURL}" onclick="return false;"><img src="{$VISUALS[images]}/{$IMAGES[postbit_reply]}" alt="{$lang[user_thread_reply]}" class="aligned replyButton" title="{$post->getMessageId()}" /></a>
+        <a href="<n2link(file=personal&amp;do=send&amp;c={$Convo->getConvoId()}&amp;p[]={$post->getMessageId()}{$SESSURL})>" onclick="return false;"><img src="{$VISUALS[images]}/{$IMAGES[postbit_reply]}" alt="{$lang[user_thread_reply]}" class="aligned replyButton" title="{$post->getMessageId()}" /></a>
 
         <a href="javascript:document.getElementById('message').focus();"><img src="{$VISUALS[images]}/{$IMAGES[postbit_quickReply]}" id="qr_{$post->getMessageId()}" alt="{$lang[user_thread_jumpToQuick]}" class="aligned qrButton" /></a>
       </div>
@@ -5132,7 +5132,7 @@ Avatar 3
 
       <p class=\"small smallMarTop noMarBot\">Posts: {$postUser->info[posts]}</p>
       <p class=\"small noMarTop\">Joined: {$joined->getDate()}</p>
-      <p class=\"small noMarTop\">Reputation: <a href=\"./index.php?file=profile&amp;do=reputation&amp;u={$postUser->info[userid]}{$SESSURL}\">{$postUser->info[reputation]}</a></p>
+      <p class=\"small noMarTop\">Reputation: <a href=\"" . n2link("file=profile&amp;do=reputation&amp;u={$postUser->info[userid]}{$SESSURL}") . "\">{$postUser->info[reputation]}</a></p>
     </td>
 
     <td class=\"alt2 pbMessage vertTop bordRight\">
@@ -5184,7 +5184,7 @@ Avatar 3
 
   <tr>
     <td class=\"alt1 pbProfile vertTop center bord noBordTop\">
-        <a href=\"./index.php?file=profile&amp;u={$postUser->info[userid]}\"><img src=\"{$VISUALS[images]}/{$IMAGES[profileIcon]}\" alt=\"{$postUser->info[username]}\" class=\"aligned\" /></a>
+        <a href=\"" . n2link("file=profile&amp;u={$postUser->info[userid]}") . "\"><img src=\"{$VISUALS[images]}/{$IMAGES[profileIcon]}\" alt=\"{$postUser->info[username]}\" class=\"aligned\" /></a>
 
         " . ((!empty($postUser->info['homepage']) AND $postUser->info['homepage'] != 'http://') ? ("
           <a href=\"{$postUser->info[homepage]}\"><img src=\"{$VISUALS[images]}/{$IMAGES[homeIcon]}\" alt=\"{$lang[user_thread_goToHome]}\" class=\"aligned\" /></a>
@@ -5200,7 +5200,7 @@ Avatar 3
       <div class=\"floatLeft\">
         <a href=\"#\"><img src=\"{$VISUALS[images]}/{$IMAGES[upIcon]}\" alt=\"{$lang[user_topPage]}\" class=\"aligned\" /></a>
 
-        <a href=\"./index.php?file=personal&amp;do=send&amp;u={$postUser->info[username]}\"><img src=\"{$VISUALS[images]}/{$IMAGES[postbit_pm]}\" alt=\"{$lang[user_thread_sendPm]}\" class=\"aligned\" /></a>
+        <a href=\"" . n2link("file=personal&amp;do=send&amp;u={$postUser->info[username]}") . "\"><img src=\"{$VISUALS[images]}/{$IMAGES[postbit_pm]}\" alt=\"{$lang[user_thread_sendPm]}\" class=\"aligned\" /></a>
 
         <img src=\"{$VISUALS[images]}/{$IMAGES[postbit_email]}\" alt=\"{$lang[admin_style_i_postbit_email]}\" class=\"aligned\" />
       </div>
@@ -5208,7 +5208,7 @@ Avatar 3
       <div class=\"floatRight\">
         <img src=\"{$VISUALS[images]}/{$IMAGES[postbit_quoteP]}\" alt=\"{$lang[user_thread_quote]}\" class=\"aligned quoteButton\" id=\"quote_{$post->getMessageId()}\" />
 
-        <a href=\"./index.php?file=personal&amp;do=send&amp;c={$Convo->getConvoId()}&amp;p[]={$post->getMessageId()}{$SESSURL}\" onclick=\"return false;\"><img src=\"{$VISUALS[images]}/{$IMAGES[postbit_reply]}\" alt=\"{$lang[user_thread_reply]}\" class=\"aligned replyButton\" title=\"{$post->getMessageId()}\" /></a>
+        <a href=\"" . n2link("file=personal&amp;do=send&amp;c={$Convo->getConvoId()}&amp;p[]={$post->getMessageId()}{$SESSURL}") . "\" onclick=\"return false;\"><img src=\"{$VISUALS[images]}/{$IMAGES[postbit_reply]}\" alt=\"{$lang[user_thread_reply]}\" class=\"aligned replyButton\" title=\"{$post->getMessageId()}\" /></a>
 
         <a href=\"javascript:document.getElementById(\'message\').focus();\"><img src=\"{$VISUALS[images]}/{$IMAGES[postbit_quickReply]}\" id=\"qr_{$post->getMessageId()}\" alt=\"{$lang[user_thread_jumpToQuick]}\" class=\"aligned qrButton\" /></a>
       </div>
@@ -5220,7 +5220,7 @@ Avatar 3
 <fragment fragmentid="242" styleid="0" groupid="242" fragmentName="" fragmentVarName="poll" fragmentType="template" defaultid="0" disOrder="0">
 <template><![CDATA[{$error}
 
-<form method="post" action="./index.php?file=poll&amp;t={$threadid}">
+<form method="post" action="<n2link(file=poll&amp;t={$threadid})>">
 {$SESSION_INPUT}
 
 <table cellspacing="{$VISUALS[inBorderWidth]}" cellpadding="0">
@@ -5293,7 +5293,7 @@ Avatar 3
 </form>]]></template>
 <templatephp><![CDATA[{$error}
 
-<form method=\"post\" action=\"./index.php?file=poll&amp;t={$threadid}\">
+<form method=\"post\" action=\"" . n2link("file=poll&amp;t={$threadid}") . "\">
 {$SESSION_INPUT}
 
 <table cellspacing=\"{$VISUALS[inBorderWidth]}\" cellpadding=\"0\">
@@ -5369,7 +5369,7 @@ Avatar 3
 <fragment fragmentid="248" styleid="0" groupid="242" fragmentName="" fragmentVarName="poll_edit" fragmentType="template" defaultid="0" disOrder="0">
 <template><![CDATA[{$error}
 
-<form method="post" action="./index.php?file=poll&amp;poll={$Poll->getPollId()}">
+<form method="post" action="<n2link(file=poll&amp;poll={$Poll->getPollId()})>">
 {$SESSION_INPUT}
 
 <table cellspacing="{$VISUALS[inBorderWidth]}" cellpadding="0">
@@ -5442,7 +5442,7 @@ Avatar 3
 </form>]]></template>
 <templatephp><![CDATA[{$error}
 
-<form method=\"post\" action=\"./index.php?file=poll&amp;poll={$Poll->getPollId()}\">
+<form method=\"post\" action=\"" . n2link("file=poll&amp;poll={$Poll->getPollId()}") . "\">
 {$SESSION_INPUT}
 
 <table cellspacing=\"{$VISUALS[inBorderWidth]}\" cellpadding=\"0\">
@@ -5583,7 +5583,7 @@ $bits
     <tr>
       <td class="center alt1" colspan="2">
           <if($Member->info['emailContact'])>
-            <a href="./index.php?file=sendemail&amp;u={$Member->info[userid]}{$SESSURL}"><img src="{$VISUALS[images]}/{$IMAGES[postbit_email]}" alt="{$lang[user_profile_email]}" /></a>
+            <a href="<n2link(file=sendemail&amp;u={$Member->info[userid]}{$SESSURL})>"><img src="{$VISUALS[images]}/{$IMAGES[postbit_email]}" alt="{$lang[user_profile_email]}" /></a>
           </if>
 
           <if($Member->info['emailContact'] AND $Member->info['receivePm'])>
@@ -5591,7 +5591,7 @@ $bits
           </if>
 
           <if($Member->info['receivePm'])>
-            <a href="./index.php?file=personal&amp;do=send&amp;u={$Member->info[username]}{$SESSURL}"><img src="{$VISUALS[images]}/{$IMAGES[postbit_pm]}" alt="{$lang[user_profile_pm]}" /></a>
+            <a href="<n2link(file=personal&amp;do=send&amp;u={$Member->info[username]}{$SESSURL})>"><img src="{$VISUALS[images]}/{$IMAGES[postbit_pm]}" alt="{$lang[user_profile_pm]}" /></a>
           </if>
 
           &nbsp;
@@ -5633,7 +5633,7 @@ $bits
         <td>
           <if($lastPost instanceof WtcDate)>
             {$lastPost->getDate()}
-            <a href="./index.php?file=post&amp;p={$Member->info[lastpostid]}{$SESSURL}">{$lang[user_memList_findLastPost]}</a>
+            <a href="<n2link(file=post&amp;p={$Member->info[lastpostid]}{$SESSURL})>">{$lang[user_memList_findLastPost]}</a>
           <else />
             {$lang[user_memList_never]}
           </if>
@@ -5681,7 +5681,7 @@ $bits
     <tr>
       <td class=\"center alt1\" colspan=\"2\">
           " . (($Member->info['emailContact']) ? ("
-            <a href=\"./index.php?file=sendemail&amp;u={$Member->info[userid]}{$SESSURL}\"><img src=\"{$VISUALS[images]}/{$IMAGES[postbit_email]}\" alt=\"{$lang[user_profile_email]}\" /></a>
+            <a href=\"" . n2link("file=sendemail&amp;u={$Member->info[userid]}{$SESSURL}") . "\"><img src=\"{$VISUALS[images]}/{$IMAGES[postbit_email]}\" alt=\"{$lang[user_profile_email]}\" /></a>
           ") : ("")) . "
 
           " . (($Member->info['emailContact'] AND $Member->info['receivePm']) ? ("
@@ -5689,7 +5689,7 @@ $bits
           ") : ("")) . "
 
           " . (($Member->info['receivePm']) ? ("
-            <a href=\"./index.php?file=personal&amp;do=send&amp;u={$Member->info[username]}{$SESSURL}\"><img src=\"{$VISUALS[images]}/{$IMAGES[postbit_pm]}\" alt=\"{$lang[user_profile_pm]}\" /></a>
+            <a href=\"" . n2link("file=personal&amp;do=send&amp;u={$Member->info[username]}{$SESSURL}") . "\"><img src=\"{$VISUALS[images]}/{$IMAGES[postbit_pm]}\" alt=\"{$lang[user_profile_pm]}\" /></a>
           ") : ("")) . "
 
           &nbsp;
@@ -5731,7 +5731,7 @@ $bits
         <td>
           " . (($lastPost instanceof WtcDate) ? ("
             {$lastPost->getDate()}
-            <a href=\"./index.php?file=post&amp;p={$Member->info[lastpostid]}{$SESSURL}\">{$lang[user_memList_findLastPost]}</a>
+            <a href=\"" . n2link("file=post&amp;p={$Member->info[lastpostid]}{$SESSURL}") . "\">{$lang[user_memList_findLastPost]}</a>
           ") : ("
             {$lang[user_memList_never]}
           ")) . "
@@ -5815,37 +5815,184 @@ $bits
 ]]></templatephp>
 </fragment>
 
-<fragment fragmentid="337" styleid="0" groupid="269" fragmentName="" fragmentVarName="profile_reputation" fragmentType="template" defaultid="0" disOrder="0">
-<template><![CDATA[    <tr class="alt{$GROUP_ALT}">
-      <td>
-        <strong>{$fieldName}</strong>
-        <if(!empty($fieldDesc))>
-          <!-- <p class="small noMar">{$fieldDesc}</p> -->
-        </if>
-      </td>
-      <td>
-        {$fieldValue}
-      </td>
-    </tr>
-]]></template>
-<templatephp><![CDATA[    <tr class=\"alt{$GROUP_ALT}\">
-      <td>
-        <strong>{$fieldName}</strong>
-        " . ((!empty($fieldDesc)) ? ("
-          <!-- <p class=\"small noMar\">{$fieldDesc}</p> -->
-        ") : ("")) . "
-      </td>
-      <td>
-        {$fieldValue}
-      </td>
-    </tr>
+<fragment fragmentid="337" styleid="0" groupid="269" fragmentName="" fragmentVarName="reputationdisplay" fragmentType="template" defaultid="0" disOrder="0">
+<template><![CDATA[<div class="marCenter smallMarTop smallMarBot"><div class="cont">
+  <div class="headFoot border clear">
+    <h3 class="left floatLeft tinyMarTop">Reputation Name</h3>
+  </div>
+</div></div>
+
+<script type="text/javascript">
+
+  window.delMinusSrc = "{$VISUALS[images]}/{$IMAGES[postbit_dMinus]}";
+  window.delPlusSrc = "{$VISUALS[images]}/{$IMAGES[postbit_dPlus]}";
+
+</script>
+<script type="text/javascript" src="./scripts/Ajax.js"></script>
+<script type="text/javascript" src="./scripts/Thread.js"></script>
+
+<div id="threadDisplay" class="noMar">
+  $repBits
+</div>
+
+<div class="marCenter clear">
+  <div class="floatLeft">
+    <if($pages->hasPages())>
+        <div>{$pages->getPageNumbers()}</div>
+    <else />
+        &nbsp;
+    </if>
+  </div>
+</div>]]></template>
+<templatephp><![CDATA[
 ]]></templatephp>
+</fragment>
+
+<fragment fragmentid="338" styleid="0" groupid="269" fragmentName="" fragmentVarName="reputationdisplay_bit" fragmentType="template" defaultid="0" disOrder="0">
+<template><![CDATA[<table cellspacing="0" cellpadding="0" class="noMarTop postbit bord2">
+  <tr>
+
+    <td class="alt1 pbPrefixInfo">
+      <if($rep->isUpvote())> 
+        <a href="#"><img src="{$VISUALS[images]}/{$IMAGES[postbit_upvote]}" alt="{$lang[reputation_up]}" class="aligned" /></a>
+      <else />
+        <a href="#"><img src="{$VISUALS[images]}/{$IMAGES[postbit_downvote]}" alt="{$lang[reputation_down]}" class="aligned" /></a>
+      </if>
+    </td>
+
+    <td class="alt1 pbProfile vertTop bord noBordTop noBordBot noBordLeft">
+      <p class="noMar">
+        <strong>
+          <if($rep->getReputationGiverId())>
+            {$repUser->getHTMLName()}
+          <else />
+            {$rep->getReputationGiverName()}
+          </if>
+        </strong>
+
+        <if($rep->getReputationGiverId())>{$status}</if>
+      </p>
+
+      <if(!empty($repUser->info['avatar']))>
+        <div class="smallMarTop">
+          <img src="{$repUser->info[avatar]}" alt="{$repUser->info[username]}'s {$lang[global_avatar]}" />
+        </div>
+      </if>
+
+      <p class="noMar small">{$repUser->getTitle()}</p>
+
+      <if($ranks)>
+        <div class="smallMarTop">{$ranks}</div>
+      </if>
+
+      <if($rep->getReputationGiverId())>
+        <p class="small smallMarTop noMarBot">Posts: {$repUser->info[posts]}</p>
+        <p class="small noMarTop noMarBot">Joined: {$joined->getDate()}</p>
+                <p class="small noMarTop">Reputation: <a href="<n2link(file=profile&amp;do=reputation&amp;u={$repUser->info[userid]}{$SESSURL})>">{$repUser->info[reputation]}</a> [<a href="<n2link(file=profile&amp;do=reputation&amp;act=up&amp;u={$repUser->info[userid]}{$SESSURL})>">+</a>|<a href="<n2link(file=profile&amp;do=reputation&amp;act=down&amp;u={$repUser->info[userid]}{$SESSURL})>">-</a>]</p>        
+      </if>
+    </td>
+
+    <td class="alt2 pbMessage vertTop bordRight">
+      <div class="clear goUp">
+        <div class="floatLeft">
+            <span class="time">{$timeline->getDate()}</span>
+        </div>
+
+        <div class="floatRight">
+          <if($rep->isDeleted())>
+            <a href="<n2link(file=profile&amp;p={$rep->getRepId()}&amp;do=restorereputation{$SESSURL})>">{$lang[user_thread_restorePost]}</a>
+          <else />
+            <if($rep->canDelete())>
+              <img src="{$VISUALS[images]}/{$IMAGES[postbit_dPlus]}" alt="{$lang[user_thread_deletePost]}" class="deleteButton" id="delete_{$rep->getRepId()}" />
+
+              <a href="<n2link(file=profile&amp;p={$rep->getRepId()}&amp;do=deletereputation{$SESSURL})>"><img src="{$VISUALS[images]}/{$IMAGES[postbit_delIcon]}" id="del_{$rep->getRepId()}" alt="{$lang[user_thread_deletePost]}" class="delButton" title="{$rep->getRepId()}" /></a>
+            <else /></if>
+          </if>
+
+          <a href="<n2link(file=sendemail&amp;do=reportreputation&amp;p={$rep->getRepId()})>"><img src="{$VISUALS[images]}/{$IMAGES[postbit_report]}" alt="{$lang[user_thread_reportPost]}" /></a>
+        </div>
+      </div>
+
+      <hr class="postSep" />
+
+      <div class="expand">
+        <div id="regtext_{$rep->getRepId()}">
+          <span id="postmessage_{$rep->getRepId()}">{$message}</span>
+
+          <if(!empty($signature))>
+            <div class="marTop">
+              ______________________________
+              <div>{$signature}</div>
+            </div>
+          </if>
+        </div>
+
+        <div id="quickedit_{$rep->getRepId()}" style="display: none;">
+          <textarea id="qearea_{$rep->getRepId()}" class="quickReply"></textarea>
+        </div>
+
+        <if(($rep->isEdited() OR $rep->isDeleted()) AND $rep->showEdited($repUser))>
+              <p class="marTop small emphasize noMarBot">
+                {$lang[user_thread_editedBy]} {$rep->actionBy()}
+
+                <if($editedTime instanceof WtcDate)>
+                  <span class="time fullFont">{$editedTime->getDate()}</span>
+                </if>
+
+                <if($actionReason = $rep->actionReason() AND !empty($actionReason))>
+                  {$actionReason}
+                </if>
+              </p>
+        </if>
+      </div>
+
+      <div style="display: none;">
+          <span id="username_{$rep->getRepId()}">{$rep->getReputationGiverName()}</span>
+      </div>
+    </td>
+  </tr>
+
+  <tr>
+    <td class="alt1 pbProfile vertTop center bord noBordTop" colspan="2">
+      <if($rep->getReputationGiverId())>
+        <a href="<n2link(file=profile&amp;u={$repUser->info[userid]}{$SESSURL})>"><img src="{$VISUALS[images]}/{$IMAGES[profileIcon]}" alt="{$repUser->info[username]}" class="aligned" /></a>
+
+        <if(!empty($repUser->info['homepage']) AND $repUser->info['homepage'] != 'http://')>
+          <a href="{$repUser->info[homepage]}"><img src="{$VISUALS[images]}/{$IMAGES[homeIcon]}" alt="{$lang[user_thread_goToHome]}" class="aligned" /></a>
+        </if>
+      </if>
+    </td>
+
+    <td class="alt2 pbMessage vertTop right bordBot bordRight">
+      <div class="floatLeft">
+        <a href="#"><img src="{$VISUALS[images]}/{$IMAGES[upIcon]}" alt="{$lang[user_topPage]}" class="aligned" /></a>
+
+        <if(LOGIN)>
+          <a href="<n2link(file=personal&amp;do=send&amp;u={$rep->getReputationGiverName()}{$SESSURL})>"><img src="{$VISUALS[images]}/{$IMAGES[postbit_pm]}" alt="{$lang[user_thread_sendPm]}" class="aligned" /></a>
+
+          <a href="<n2link(file=sendemail&amp;u={$rep->getReputationGiverId()}{$SESSURL})>"><img src="{$VISUALS[images]}/{$IMAGES[postbit_email]}" alt="{$lang[admin_style_i_postbit_email]}" class="aligned" /></a>
+        </if>
+      </div>
+    </td>
+  </tr>
+</table>]]></template>
+<templatephp><![CDATA[]]></templatephp>
+</fragment>
+
+<fragment fragmentid="339" styleid="0" groupid="5454" fragmentName="postbit_upvote" fragmentVarName="postbit_upvote" fragmentType="imageName" defaultid="0" disOrder="0">
+<template><![CDATA[postbit_upvote.png]]></template>
+<templatephp><![CDATA[postbit_upvote.png]]></templatephp>
+</fragment>
+
+<fragment fragmentid="340" styleid="0" groupid="5454" fragmentName="postbit_downvote" fragmentVarName="postbit_downvote" fragmentType="imageName" defaultid="0" disOrder="0">
+<template><![CDATA[postbit_downvote.png]]></template>
+<templatephp><![CDATA[postbit_downvote.png]]></templatephp>
 </fragment>
 
 <fragment fragmentid="264" styleid="0" groupid="253" fragmentName="" fragmentVarName="register_info" fragmentType="template" defaultid="0" disOrder="0">
 <template><![CDATA[{$error}
 
-<form method="post" action="./index.php?file=register&amp;do=info" class="noMar">
+<form method="post" action="<n2link(file=register&amp;do=info)>" class="noMar">
   {$SESSION_INPUT}
 
   <if($_POST['coppa'])>
@@ -5944,7 +6091,7 @@ $bits
 </form>]]></template>
 <templatephp><![CDATA[{$error}
 
-<form method=\"post\" action=\"./index.php?file=register&amp;do=info\" class=\"noMar\">
+<form method=\"post\" action=\"" . n2link("file=register&amp;do=info") . "\" class=\"noMar\">
   {$SESSION_INPUT}
 
   " . (($_POST['coppa']) ? ("
@@ -6046,7 +6193,7 @@ $bits
 <fragment fragmentid="262" styleid="0" groupid="253" fragmentName="" fragmentVarName="register_main" fragmentType="template" defaultid="0" disOrder="0">
 <template><![CDATA[{$error}
 
-<form method="post" action="./index.php?file=register&amp;do=tos" class="noMar">
+<form method="post" action="<n2link(file=register&amp;do=tos)>" class="noMar">
   {$SESSION_INPUT}
 
   <table cellspacing="{$VISUALS[inBorderWidth]}" cellpadding="0">
@@ -6089,7 +6236,7 @@ $bits
 </form>]]></template>
 <templatephp><![CDATA[{$error}
 
-<form method=\"post\" action=\"./index.php?file=register&amp;do=tos\" class=\"noMar\">
+<form method=\"post\" action=\"" . n2link("file=register&amp;do=tos") . "\" class=\"noMar\">
   {$SESSION_INPUT}
 
   <table cellspacing=\"{$VISUALS[inBorderWidth]}\" cellpadding=\"0\">
@@ -6141,7 +6288,7 @@ $bits
 
     <p class="marTop">{$lang[user_reg_tos_text]}</p>
 
-    <form method="post" action="./index.php?file=register&amp;do=info" class="marTop center">
+    <form method="post" action="<n2link(file=register&amp;do=info)>" class="marTop center">
       {$SESSION_INPUT}
 
       <if($coppa)>
@@ -6162,7 +6309,7 @@ $bits
 
     <p class=\"marTop\">{$lang[user_reg_tos_text]}</p>
 
-    <form method=\"post\" action=\"./index.php?file=register&amp;do=info\" class=\"marTop center\">
+    <form method=\"post\" action=\"" . n2link("file=register&amp;do=info") . "\" class=\"marTop center\">
       {$SESSION_INPUT}
 
       " . (($coppa) ? ("
@@ -6180,7 +6327,7 @@ $bits
 <fragment fragmentid="250" styleid="0" groupid="245" fragmentName="" fragmentVarName="search" fragmentType="template" defaultid="0" disOrder="0">
 <template><![CDATA[{$error}
 
-<form method="post" action="./index.php?file=search" class="noMar">
+<form method="post" action="<n2link(file=search)>" class="noMar">
   {$SESSION_INPUT}
 
   <table cellspacing="{$VISUALS[inBorderWidth]}" cellpadding="0">
@@ -6309,7 +6456,7 @@ $bits
 </form>]]></template>
 <templatephp><![CDATA[{$error}
 
-<form method=\"post\" action=\"./index.php?file=search\" class=\"noMar\">
+<form method=\"post\" action=\"" . n2link("file=search") . "\" class=\"noMar\">
   {$SESSION_INPUT}
 
   <table cellspacing=\"{$VISUALS[inBorderWidth]}\" cellpadding=\"0\">
@@ -6507,11 +6654,11 @@ $bits
     <td class="cat pbHeader bord" colspan="2">
       <div class="clear">
         <p class="floatLeft pad">
-          <a href="./index.php?file=post&amp;p={$post->getPostId()}{$SESSURL}" name="{$post->getPostId()}">{$post->getTitle()}</a>
+          <a href="<n2link(file=post&amp;p={$post->getPostId()}{$SESSURL})>" name="{$post->getPostId()}">{$post->getTitle()}</a>
         </p>
 
         <p class="floatRight pad">
-          <a href="./index.php?file=thread&amp;t={$post->getThreadId()}&amp;p={$post->getPostId()}{$SESSURL}">{$Thread->getName()}</a>
+          <a href="<n2link(file=thread&amp;t={$post->getThreadId()}&amp;p={$post->getPostId()}{$SESSURL})>">{$Thread->getName()}</a>
         </p>
       </div>
     </td>
@@ -6534,7 +6681,7 @@ $bits
       <if($post->getStarterId())>
         <p class="small smallMarTop noMarBot">Posts: {$postUser->info[posts]}</p>
         <p class="small noMarTop">Joined: {$joined->getDate()}</p>
-		<p class="small noMarTop">Reputation: <a href="./index.php?file=profile&amp;do=reputation&amp;u={$postUser->info[userid]}{$SESSURL}">{$postUser->info[reputation]}</a> [<a href="./index.php?file=profile&amp;do=reputation&amp;act=up&amp;u={$postUser->info[userid]}{$SESSURL}">+</a>|<a href="./index.php?file=profile&amp;do=reputation&amp;act=down&amp;u={$postUser->info[userid]}{$SESSURL}">-</a>]</p>
+		<p class="small noMarTop">Reputation: <a href="<n2link(file=profile&amp;do=reputation&amp;u={$postUser->info[userid]}{$SESSURL})>">{$postUser->info[reputation]}</a> [<a href="<n2link(file=profile&amp;do=reputation&amp;act=up&amp;u={$postUser->info[userid]}{$SESSURL})>">+</a>|<a href="<n2link(file=profile&amp;do=reputation&amp;act=down&amp;u={$postUser->info[userid]}{$SESSURL})>">-</a>]</p>
       </if>
     </td>
 
@@ -6574,7 +6721,7 @@ $bits
   <tr>
     <td class="alt1 pbProfile vertTop center bord noBordTop">
       <if($post->getStarterId())>
-        <a href="./index.php?file=profile&amp;u={$postUser->info[userid]}{$SESSURL}"><img src="{$VISUALS[images]}/{$IMAGES[profileIcon]}" alt="{$postUser->info[username]}" class="aligned" /></a>
+        <a href="<n2link(file=profile&amp;u={$postUser->info[userid]}{$SESSURL})>"><img src="{$VISUALS[images]}/{$IMAGES[profileIcon]}" alt="{$postUser->info[username]}" class="aligned" /></a>
 
         <if(!empty($postUser->info['homepage']) AND $postUser->info['homepage'] != 'http://')>
           <a href="{$postUser->info[homepage]}"><img src="{$VISUALS[images]}/{$IMAGES[homeIcon]}" alt="{$lang[user_thread_goToHome]}" class="aligned" /></a>
@@ -6593,19 +6740,19 @@ $bits
       <div class="floatLeft">
         <a href="#"><img src="{$VISUALS[images]}/{$IMAGES[upIcon]}" alt="{$lang[user_topPage]}" class="aligned" /></a>
 
-        <a href="./index.php?file=personal&amp;do=send&amp;u={$post->getStarterName()}{$SESSURL}"><img src="{$VISUALS[images]}/{$IMAGES[postbit_pm]}" alt="{$lang[user_thread_sendPm]}" class="aligned" /></a>
+        <a href="<n2link(file=personal&amp;do=send&amp;u={$post->getStarterName()}{$SESSURL})>"><img src="{$VISUALS[images]}/{$IMAGES[postbit_pm]}" alt="{$lang[user_thread_sendPm]}" class="aligned" /></a>
 
-        <a href="./index.php?file=sendemail&amp;u={$post->getStarterId()}{$SESSURL}"><img src="{$VISUALS[images]}/{$IMAGES[postbit_email]}" alt="{$lang[admin_style_i_postbit_email]}" class="aligned" /></a>
+        <a href="<n2link(file=sendemail&amp;u={$post->getStarterId()}{$SESSURL})>"><img src="{$VISUALS[images]}/{$IMAGES[postbit_email]}" alt="{$lang[admin_style_i_postbit_email]}" class="aligned" /></a>
       </div>
 
       <div class="floatRight">
         <if(!$post->isDeleted())>
           <if($post->canEdit())>
-            <a href="./index.php?file=postedit&amp;p={$post->getPostId()}{$SESSURL}"><img src="{$VISUALS[images]}/{$IMAGES[postbit_edit]}" alt="{$lang[global_edit]}" class="aligned" /></a>
+            <a href="<n2link(file=postedit&amp;p={$post->getPostId()}{$SESSURL})>"><img src="{$VISUALS[images]}/{$IMAGES[postbit_edit]}" alt="{$lang[global_edit]}" class="aligned" /></a>
           </if>
 
           <if($Thread->canReply())>
-            <a href="./index.php?file=postreply&amp;t={$Thread->getThreadId()}&amp;p[]={$post->getPostId()}{$SESSURL}"><img src="{$VISUALS[images]}/{$IMAGES[postbit_reply]}" alt="{$lang[user_thread_reply]}" class="aligned replyButton" title="{$post->getPostId()}" /></a>
+            <a href="<n2link(file=postreply&amp;t={$Thread->getThreadId()}&amp;p[]={$post->getPostId()}&amp;title={$Thread->getUrlizedName()}{$SESSURL})>"><img src="{$VISUALS[images]}/{$IMAGES[postbit_reply]}" alt="{$lang[user_thread_reply]}" class="aligned replyButton" title="{$post->getPostId()}" /></a>
           </if>
         </if>
       </div>
@@ -6617,11 +6764,11 @@ $bits
     <td class=\"cat pbHeader bord\" colspan=\"2\">
       <div class=\"clear\">
         <p class=\"floatLeft pad\">
-          <a href=\"./index.php?file=post&amp;p={$post->getPostId()}{$SESSURL}\" name=\"{$post->getPostId()}\">{$post->getTitle()}</a>
+          <a href=\"" . n2link("file=post&amp;p={$post->getPostId()}{$SESSURL}") . "\" name=\"{$post->getPostId()}\">{$post->getTitle()}</a>
         </p>
 
         <p class=\"floatRight pad\">
-          <a href=\"./index.php?file=thread&amp;t={$post->getThreadId()}&amp;p={$post->getPostId()}{$SESSURL}\">{$Thread->getName()}</a>
+          <a href=\"" . n2link("file=thread&amp;t={$post->getThreadId()}&amp;p={$post->getPostId()}{$SESSURL}") . "\">{$Thread->getName()}</a>
         </p>
       </div>
     </td>
@@ -6644,7 +6791,7 @@ $bits
       " . (($post->getStarterId()) ? ("
         <p class=\"small smallMarTop noMarBot\">Posts: {$postUser->info[posts]}</p>
         <p class=\"small noMarTop\">Joined: {$joined->getDate()}</p>
-		<p class=\"small noMarTop\">Reputation: <a href=\"./index.php?file=profile&amp;do=reputation&amp;u={$postUser->info[userid]}{$SESSURL}\">{$postUser->info[reputation]}</a> [<a href=\"./index.php?file=profile&amp;do=reputation&amp;act=up&amp;u={$postUser->info[userid]}{$SESSURL}\">+</a>|<a href=\"./index.php?file=profile&amp;do=reputation&amp;act=down&amp;u={$postUser->info[userid]}{$SESSURL}\">-</a>]</p>
+		<p class=\"small noMarTop\">Reputation: <a href=\"" . n2link("file=profile&amp;do=reputation&amp;u={$postUser->info[userid]}{$SESSURL}") . "\">{$postUser->info[reputation]}</a> [<a href=\"" . n2link("file=profile&amp;do=reputation&amp;act=up&amp;u={$postUser->info[userid]}{$SESSURL}") . "\">+</a>|<a href=\"" . n2link("file=profile&amp;do=reputation&amp;act=down&amp;u={$postUser->info[userid]}{$SESSURL}") . "\">-</a>]</p>
       ") : ("")) . "
     </td>
 
@@ -6684,7 +6831,7 @@ $bits
   <tr>
     <td class=\"alt1 pbProfile vertTop center bord noBordTop\">
       " . (($post->getStarterId()) ? ("
-        <a href=\"./index.php?file=profile&amp;u={$postUser->info[userid]}{$SESSURL}\"><img src=\"{$VISUALS[images]}/{$IMAGES[profileIcon]}\" alt=\"{$postUser->info[username]}\" class=\"aligned\" /></a>
+        <a href=\"" . n2link("file=profile&amp;u={$postUser->info[userid]}{$SESSURL}") . "\"><img src=\"{$VISUALS[images]}/{$IMAGES[profileIcon]}\" alt=\"{$postUser->info[username]}\" class=\"aligned\" /></a>
 
         " . ((!empty($postUser->info['homepage']) AND $postUser->info['homepage'] != 'http://') ? ("
           <a href=\"{$postUser->info[homepage]}\"><img src=\"{$VISUALS[images]}/{$IMAGES[homeIcon]}\" alt=\"{$lang[user_thread_goToHome]}\" class=\"aligned\" /></a>
@@ -6703,19 +6850,19 @@ $bits
       <div class=\"floatLeft\">
         <a href=\"#\"><img src=\"{$VISUALS[images]}/{$IMAGES[upIcon]}\" alt=\"{$lang[user_topPage]}\" class=\"aligned\" /></a>
 
-        <a href=\"./index.php?file=personal&amp;do=send&amp;u={$post->getStarterName()}{$SESSURL}\"><img src=\"{$VISUALS[images]}/{$IMAGES[postbit_pm]}\" alt=\"{$lang[user_thread_sendPm]}\" class=\"aligned\" /></a>
+        <a href=\"" . n2link("file=personal&amp;do=send&amp;u={$post->getStarterName()}{$SESSURL}") . "\"><img src=\"{$VISUALS[images]}/{$IMAGES[postbit_pm]}\" alt=\"{$lang[user_thread_sendPm]}\" class=\"aligned\" /></a>
 
-        <a href=\"./index.php?file=sendemail&amp;u={$post->getStarterId()}{$SESSURL}\"><img src=\"{$VISUALS[images]}/{$IMAGES[postbit_email]}\" alt=\"{$lang[admin_style_i_postbit_email]}\" class=\"aligned\" /></a>
+        <a href=\"" . n2link("file=sendemail&amp;u={$post->getStarterId()}{$SESSURL}") . "\"><img src=\"{$VISUALS[images]}/{$IMAGES[postbit_email]}\" alt=\"{$lang[admin_style_i_postbit_email]}\" class=\"aligned\" /></a>
       </div>
 
       <div class=\"floatRight\">
         " . ((!$post->isDeleted()) ? ("
           " . (($post->canEdit()) ? ("
-            <a href=\"./index.php?file=postedit&amp;p={$post->getPostId()}{$SESSURL}\"><img src=\"{$VISUALS[images]}/{$IMAGES[postbit_edit]}\" alt=\"{$lang[global_edit]}\" class=\"aligned\" /></a>
+            <a href=\"" . n2link("file=postedit&amp;p={$post->getPostId()}{$SESSURL}") . "\"><img src=\"{$VISUALS[images]}/{$IMAGES[postbit_edit]}\" alt=\"{$lang[global_edit]}\" class=\"aligned\" /></a>
           ") : ("")) . "
 
           " . (($Thread->canReply()) ? ("
-            <a href=\"./index.php?file=postreply&amp;t={$Thread->getThreadId()}&amp;p[]={$post->getPostId()}{$SESSURL}\"><img src=\"{$VISUALS[images]}/{$IMAGES[postbit_reply]}\" alt=\"{$lang[user_thread_reply]}\" class=\"aligned replyButton\" title=\"{$post->getPostId()}\" /></a>
+            <a href=\"" . n2link("file=postreply&amp;t={$Thread->getThreadId()}&amp;p[]={$post->getPostId()}&amp;title={$Thread->getUrlizedName()}{$SESSURL}") . "\"><img src=\"{$VISUALS[images]}/{$IMAGES[postbit_reply]}\" alt=\"{$lang[user_thread_reply]}\" class=\"aligned replyButton\" title=\"{$post->getPostId()}\" /></a>
           ") : ("")) . "
         ") : ("")) . "
       </div>
@@ -6742,7 +6889,7 @@ $bits
             </div>
 
             <div class="floatRight">
-                <a href="./index.php?file=postthread&amp;f={$forumid}{$SESSURL}"><img src="{$VISUALS[images]}/{$IMAGES[postthread]}" alt="{$lang[user_forum_postThread]}" /></a>
+                <a href="<n2link(file=postthread&amp;f={$forumid}{$SESSURL})>"><img src="{$VISUALS[images]}/{$IMAGES[postthread]}" alt="{$lang[user_forum_postThread]}" /></a>
             </div>
         </div>
 
@@ -6770,7 +6917,7 @@ $bits
               </div>
 
               <div class="floatRight">
-                <a href="./index.php?file=postthread&amp;f={$forumid}{$SESSURL}"><img src="{$VISUALS[images]}/{$IMAGES[postthread]}" alt="{$lang[user_forum_postThread]}" /></a>
+                <a href="<n2link(file=postthread&amp;f={$forumid}{$SESSURL})>"><img src="{$VISUALS[images]}/{$IMAGES[postthread]}" alt="{$lang[user_forum_postThread]}" /></a>
               </div>
             </div>
     </div>]]></template>
@@ -6791,7 +6938,7 @@ $bits
             </div>
 
             <div class=\"floatRight\">
-                <a href=\"./index.php?file=postthread&amp;f={$forumid}{$SESSURL}\"><img src=\"{$VISUALS[images]}/{$IMAGES[postthread]}\" alt=\"{$lang[user_forum_postThread]}\" /></a>
+                <a href=\"" . n2link("file=postthread&amp;f={$forumid}{$SESSURL}") . "\"><img src=\"{$VISUALS[images]}/{$IMAGES[postthread]}\" alt=\"{$lang[user_forum_postThread]}\" /></a>
             </div>
         </div>
 
@@ -6819,7 +6966,7 @@ $bits
               </div>
 
               <div class=\"floatRight\">
-                <a href=\"./index.php?file=postthread&amp;f={$forumid}{$SESSURL}\"><img src=\"{$VISUALS[images]}/{$IMAGES[postthread]}\" alt=\"{$lang[user_forum_postThread]}\" /></a>
+                <a href=\"" . n2link("file=postthread&amp;f={$forumid}{$SESSURL}") . "\"><img src=\"{$VISUALS[images]}/{$IMAGES[postthread]}\" alt=\"{$lang[user_forum_postThread]}\" /></a>
               </div>
             </div>
     </div>]]></templatephp>
@@ -6828,7 +6975,7 @@ $bits
 <fragment fragmentid="289" styleid="0" groupid="271" fragmentName="" fragmentVarName="sendemail_member" fragmentType="template" defaultid="0" disOrder="0">
 <template><![CDATA[{$error}
 
-<form method="post" action="./index.php?file=sendemail">
+<form method="post" action="<n2link(file=sendemail)>">
   <input type="hidden" name="sende[myref]" value="{$_SERVER[HTTP_REFERER]}" />
   {$SESSION_INPUT}
 
@@ -6861,7 +7008,7 @@ $bits
 </form>]]></template>
 <templatephp><![CDATA[{$error}
 
-<form method=\"post\" action=\"./index.php?file=sendemail\">
+<form method=\"post\" action=\"" . n2link("file=sendemail") . "\">
   <input type=\"hidden\" name=\"sende[myref]\" value=\"{$_SERVER[HTTP_REFERER]}\" />
   {$SESSION_INPUT}
 
@@ -6905,7 +7052,7 @@ $bits
   </div>
 </div></div>
 
-<form method="post" action="./index.php?file=sendemail&amp;do=report&amp;p={$Post->getPostId()}">
+<form method="post" action="<n2link(file=sendemail&amp;do=report&amp;p={$Post->getPostId()})>">
   <input type="hidden" name="sende[myref]" value="{$_SERVER[HTTP_REFERER]}" />
   {$SESSION_INPUT}
 
@@ -6941,7 +7088,7 @@ $bits
   </div>
 </div></div>
 
-<form method=\"post\" action=\"./index.php?file=sendemail&amp;do=report&amp;p={$Post->getPostId()}\">
+<form method=\"post\" action=\"" . n2link("file=sendemail&amp;do=report&amp;p={$Post->getPostId()}") . "\">
   <input type=\"hidden\" name=\"sende[myref]\" value=\"{$_SERVER[HTTP_REFERER]}\" />
   {$SESSION_INPUT}
 
@@ -7090,6 +7237,10 @@ margin-bottom: 5px;
 
     .postbit .pbProfile {
     width: 150px;
+    }
+
+    .postbit .pbPrefixInfo {
+    width: 50px;
     }
 
         .postbit .pbMessage .goUp {
@@ -7651,6 +7802,10 @@ margin-bottom: 5px;
     width: 150px;
     }
 
+    .postbit .pbPrefixInfo {
+    width: 50px;
+    }
+
         .postbit .pbMessage .goUp {
         margin: -4px 0 0 0;
         }
@@ -8179,7 +8334,7 @@ display: block;
     <h3 class="left floatLeft tinyMarTop">{$Thread->getName()}</h3>
 
     <if(LOGIN)>
-      <form method="get" action="./index.php" class="floatRight">
+      <form method="get" action="<n2link(./index.php)>" class="floatRight">
         <input type="hidden" name="file" value="thread" />
         <input type="hidden" name="t" value="{$Thread->getThreadId()}" />
         {$SESSION_INPUT}
@@ -8276,7 +8431,7 @@ display: block;
 </if>
 
 <if($Poll instanceof Poll AND !$Poll->isDisabled())>
-  <form method="post" class="smallMarBot" action="./index.php?file=poll&amp;poll={$Poll->getPollId()}&amp;do=vote">
+  <form method="post" class="smallMarBot" action="<n2link(file=poll&amp;poll={$Poll->getPollId()}&amp;do=vote)>">
     {$SESSION_INPUT}
 
     <table cellspacing="{$VISUALS[inBorderWidth]}" cellpadding="0">
@@ -8287,9 +8442,9 @@ display: block;
           <if(!$Poll->hasVoted())>
             <p class="floatRight">
               <if(!$_GET['poll'])>
-                <a href="./index.php?file=thread&amp;t={$Thread->getThreadId()}&amp;page={$page}&amp;poll=1{$SESSURL}">{$lang[user_thread_pollResults]}</a>
+                <a href="<n2link(file=thread&amp;t={$Thread->getThreadId()}&amp;page={$page}&amp;poll=1&amp;title={$Thread->getUrlizedName()}{$SESSURL})>">{$lang[user_thread_pollResults]}</a>
               <else />
-                <a href="./index.php?file=thread&amp;t={$Thread->getThreadId()}&amp;page={$page}{$SESSURL}">{$lang[user_thread_hidePollResults]}</a>
+                <a href="<n2link(file=thread&amp;t={$Thread->getThreadId()}&amp;page={$page}&amp;title={$Thread->getUrlizedName()}{$SESSURL})>">{$lang[user_thread_hidePollResults]}</a>
               </if>
             </p>
           </if>
@@ -8322,7 +8477,7 @@ display: block;
     </div>
 
     <div class="floatRight">
-        <a href="./index.php?file=postreply&amp;t={$Thread->getThreadId()}{$SESSURL}">
+        <a href="<n2link(file=postreply&amp;t={$Thread->getThreadId()}&amp;title={$Thread->getUrlizedName()}{$SESSURL})>">
           <if($Thread->isClosed())>
             <img src="{$VISUALS[images]}/{$IMAGES[closed]}" alt="{$lang[user_thread_closed]}" title="{$lang[user_thread_closed]}" />
           <else />
@@ -8360,7 +8515,7 @@ display: block;
   </div>
 
   <div class="floatRight">
-    <a href="./index.php?file=postreply&amp;t={$Thread->getThreadId()}{$SESSURL}">
+    <a href="<n2link(file=postreply&amp;t={$Thread->getThreadId()}&amp;title={$Thread->getUrlizedName()}{$SESSURL})>">
       <if($Thread->isClosed())>
         <img src="{$VISUALS[images]}/{$IMAGES[closed]}" alt="{$lang[user_thread_closed]}" title="{$lang[user_thread_closed]}" />
       <else />
@@ -8371,7 +8526,7 @@ display: block;
 </div>
 
 <if($Thread->canReply())>
-  <form method="post" action="./index.php?file=postreply&amp;t={$Thread->getThreadId()}" onsubmit="Message.closeAll();">
+  <form method="post" action="<n2link(file=postreply&amp;t={$Thread->getThreadId()})>" onsubmit="Message.closeAll();">
     {$SESSION_INPUT}
     <input type="hidden" name="postreply[title]" value="Re: {$Thread->getName()}" />
 
@@ -8437,7 +8592,7 @@ display: block;
 <if($bboptions['browsingThread'])>
     <div class="marCenter smallMarTop"><div class="cont">
         <div class="cat clear border">
-            <p class="floatLeft"><a href="./index.php?file=online{$SESSURL}">{$lang[user_thread_currentlyBrowsing]}</a></p>
+            <p class="floatLeft"><a href="<n2link(file=online{$SESSURL})>">{$lang[user_thread_currentlyBrowsing]}</a></p>
             <div class="floatRight"><img src="{$VISUALS[images]}/{$IMAGES[collapse]}" alt="Collapse" id="browsingThread_img" class="exCol_click_browsingThread" /></div>
         </div>
 
@@ -8454,299 +8609,21 @@ display: block;
     </div></div>
 </if>
 ]]></template>
-<templatephp><![CDATA[<div class=\"marCenter smallMarTop smallMarBot\"><div class=\"cont\">
-  <div class=\"headFoot border clear\">
-    <h3 class=\"left floatLeft tinyMarTop\">{$Thread->getName()}</h3>
-
-    " . ((LOGIN) ? ("
-      <form method=\"get\" action=\"./index.php\" class=\"floatRight\">
-        <input type=\"hidden\" name=\"file\" value=\"thread\" />
-        <input type=\"hidden\" name=\"t\" value=\"{$Thread->getThreadId()}\" />
-        {$SESSION_INPUT}
-
-        <select name=\"do\">
-          <option value=\"0\">{$lang[user_thread_options]}</option>
-
-          <option value=\"subscribe\">
-            " . (($Thread->isSubscribed()) ? ("
-              {$lang[user_thread_unsubscribe]}
-            ") : ("
-              {$lang[user_thread_subscribe]}
-            ")) . "
-          </option>
-
-          " . (($Thread->canPolls() AND !$Thread->isPoll()) ? ("
-            <option value=\"poll\">{$lang[user_thread_addpoll]}</option>
-          ") : ("")) . "
-
-          " . (($Thread->isPoll() AND $User->modAction('canEditPolls', $Thread->getForumId())) ? ("
-            <option value=\"poll\">{$lang[user_thread_editpoll]}</option>
-            <option value=\"delPoll\">{$lang[user_thread_delpoll]}</option>
-          ") : ("")) . "
-
-          " . (($User->modAction('canEditThreads', $Thread->getForumId())) ? ("
-            <option value=\"edit\">
-              {$lang[user_thread_editThread]}
-            </option>
-          ") : ("")) . "
-
-          " . (($Thread->canDelete() OR $Thread->canPermDelete()) ? ("
-            " . (($Thread->isDeleted()) ? ("
-              <option value=\"restore\">
-                {$lang[user_thread_restoreThread]}
-              </option>
-            ") : ("
-              <option value=\"delete\">
-                {$lang[user_thread_deleteThread]}
-              </option>
-            ")) . "
-          ") : ("")) . "
-
-          " . (($Thread->canClose()) ? ("
-            <option value=\"openClose\">
-              " . (($Thread->isClosed()) ? ("
-                {$lang[user_message_openThread]}
-              ") : ("
-                {$lang[user_message_closeThread]}
-              ")) . "
-            </option>
-          ") : ("")) . "
-
-          " . (($Thread->canSticky()) ? ("
-            <option value=\"stickUnstick\">
-              " . (($Thread->isSticky()) ? ("
-                {$lang[user_message_unstick]}
-              ") : ("
-                {$lang[user_message_stick]}
-              ")) . "
-            </option>
-          ") : ("")) . "
-
-          " . (($Thread->canMove()) ? ("
-            <option value=\"move\">
-              {$lang[user_thread_moveCopyThread]}
-            </option>
-          ") : ("")) . "
-
-          " . (($Thread->canSplit()) ? ("
-            <option value=\"split\">
-              {$lang[user_thread_splitThread]}
-            </option>
-          ") : ("")) . "
-
-          " . (($Thread->canMerge()) ? ("
-            <option value=\"merge\">
-              {$lang[user_thread_mergeThread]}
-            </option>
-          ") : ("")) . "
-        </select>
-
-        <input type=\"submit\" value=\"{$lang[global_go]}\" class=\"button\" />
-      </form>
-    ") : ("")) . "
-  </div>
-</div></div>
-
-" . (($Thread->isDeleted()) ? ("
-  <div class=\"marCenter smallMarTop smallMarBot alt2\"><div class=\"cont\">
-    <p class=\"cat border error\">{$lang[user_thread_delThread]}</p>
-
-    <p class=\"bord noBordTop pad\">{$lang[user_thread_delMessage]}</p>
-  </div></div>
-") : ("")) . "
-
-" . (($Poll instanceof Poll AND !$Poll->isDisabled()) ? ("
-  <form method=\"post\" class=\"smallMarBot\" action=\"./index.php?file=poll&amp;poll={$Poll->getPollId()}&amp;do=vote\">
-    {$SESSION_INPUT}
-
-    <table cellspacing=\"{$VISUALS[inBorderWidth]}\" cellpadding=\"0\">
-      <tr>
-        <td class=\"cat\" colspan=\"2\">
-          <p class=\"floatLeft\">{$Poll->getTitle()}</p>
-
-          " . ((!$Poll->hasVoted()) ? ("
-            <p class=\"floatRight\">
-              " . ((!$_GET['poll']) ? ("
-                <a href=\"./index.php?file=thread&amp;t={$Thread->getThreadId()}&amp;page={$page}&amp;poll=1{$SESSURL}\">{$lang[user_thread_pollResults]}</a>
-              ") : ("
-                <a href=\"./index.php?file=thread&amp;t={$Thread->getThreadId()}&amp;page={$page}{$SESSURL}\">{$lang[user_thread_hidePollResults]}</a>
-              ")) . "
-            </p>
-          ") : ("")) . "
-        </td>
-      </tr>
-
-      {$optionBits}
-
-      <tr>
-        <td class=\"cat center\" colspan=\"2\">
-          " . (($Poll->hasVoted() OR $_GET['poll']) ? ("
-            {$lang[user_thread_totalVotes]} {$Poll->getNumVotes()}
-          ") : ("
-            <input type=\"submit\" value=\"{$lang[global_submit]}\" class=\"button\" />
-            <input type=\"reset\" value=\"{$lang[global_reset]}\" class=\"button\" />
-          ")) . "
-        </td>
-      </tr>
-    </table>
-  </form>
-") : ("")) . "
-
-<div class=\"marCenter clear tinyMarBot\">
-    <div class=\"floatLeft\">
-        " . (($pages->hasPages()) ? ("
-            <div>{$pages->getPageNumbers()}</div>
-        ") : ("
-            &nbsp;
-        ")) . "
-    </div>
-
-    <div class=\"floatRight\">
-        <a href=\"./index.php?file=postreply&amp;t={$Thread->getThreadId()}{$SESSURL}\">
-          " . (($Thread->isClosed()) ? ("
-            <img src=\"{$VISUALS[images]}/{$IMAGES[closed]}\" alt=\"{$lang[user_thread_closed]}\" />
-          ") : ("
-            <img src=\"{$VISUALS[images]}/{$IMAGES[postreply]}\" alt=\"{$lang[user_thread_postReply]}\" />
-          ")) . "
-        </a>
-    </div>
-</div>
-
-<script type=\"text/javascript\">
-
-  window.quoteMinusSrc = \"{$VISUALS[images]}/{$IMAGES[postbit_quoteM]}\";
-  window.quotePlusSrc = \"{$VISUALS[images]}/{$IMAGES[postbit_quoteP]}\";
-
-  window.delMinusSrc = \"{$VISUALS[images]}/{$IMAGES[postbit_dMinus]}\";
-  window.delPlusSrc = \"{$VISUALS[images]}/{$IMAGES[postbit_dPlus]}\";
-
-  window.replyURL = \'./index.php?file=postreply&t=\';
-
-</script>
-<script type=\"text/javascript\" src=\"./scripts/Ajax.js\"></script>
-<script type=\"text/javascript\" src=\"./scripts/Thread.js\"></script>
-
-<div id=\"threadDisplay\" class=\"noMar\" name=\"{$Thread->getThreadId()}\">
-  $postBits
-</div>
-
-<div class=\"marCenter clear\">
-  <div class=\"floatLeft\">
-    " . (($pages->hasPages()) ? ("
-        <div>{$pages->getPageNumbers()}</div>
-    ") : ("
-        &nbsp;
-    ")) . "
-  </div>
-
-  <div class=\"floatRight\">
-    <a href=\"./index.php?file=postreply&amp;t={$Thread->getThreadId()}{$SESSURL}\">
-      " . (($Thread->isClosed()) ? ("
-        <img src=\"{$VISUALS[images]}/{$IMAGES[closed]}\" alt=\"{$lang[user_thread_closed]}\" />
-      ") : ("
-        <img src=\"{$VISUALS[images]}/{$IMAGES[postreply]}\" alt=\"{$lang[user_thread_postReply]}\" />
-      ")) . "
-    </a>
-  </div>
-</div>
-
-" . (($Thread->canReply()) ? ("
-  <form method=\"post\" action=\"./index.php?file=postreply&amp;t={$Thread->getThreadId()}\" onsubmit=\"Message.closeAll();\">
-    {$SESSION_INPUT}
-    <input type=\"hidden\" name=\"postreply[title]\" value=\"Re: {$Thread->getName()}\" />
-
-    " . ((!LOGIN) ? ("
-      <input type=\"hidden\" name=\"postreply[postUsername]\" value=\"{$User->info[username]}\" />
-    ") : ("")) . "
-
-    <script type=\"text/javascript\" src=\"./scripts/Message.js.php\"></script>
-    <script type=\"text/javascript\" src=\"./scripts/Message.js\"></script>
-
-    <div class=\"marCenter smallMarTop smallMarBot alt1\"><div class=\"cont\">
-      <div class=\"cat border clear\">
-        <p class=\"floatLeft\">{$lang[user_thread_quickReply]}</p>
-        <div class=\"floatRight\">
-          <img src=\"{$VISUALS[images]}/{$IMAGES[collapse]}\" alt=\"Collapse\" id=\"quickReply_img\" class=\"exCol_click_quickReply\" />
-        </div>
-      </div>
-
-      <div id=\"quickReply\">
-        <div class=\"alt1 bord noBordTop noBordBot pad center\">
-          <div style=\"width: 95.6%; margin: 0 2.2% 0 2.2%;\">
-            {$toolBar->dump()}
-            <textarea name=\"message\" id=\"message\" class=\"quickReply\">{$_POST[message]}</textarea>
-
-            <div>
-              " . (($User->check('canSig')) ? ("
-                <label for=\"sig\">
-                  <input type=\"checkbox\" id=\"sig\" name=\"postreply[sig]\" value=\"1\"" . ((!$_POST OR $_POST['postreply']['sig']) ? (" checked=\"checked\"") : ("")) . " /> {$lang[user_message_showSig]}
-                </label>
-              ") : ("
-                <input type=\"checkbox\" disabled=\"disabled\" /> {$lang[user_message_showSig]}
-              ")) . "
-
-              " . (($User->check('canBBCode', $FORUM->getForumId())) ? ("
-                <label for=\"parseBB\">
-                  <input type=\"checkbox\" id=\"parseBB\" name=\"postreply[bbcode]\" value=\"1\"" . ((!$_POST OR $_POST['postreply']['bbcode']) ? (" checked=\"checked\"") : ("")) . " /> {$lang[user_message_parseBB]}
-                </label>
-              ") : ("
-                <input type=\"checkbox\" disabled=\"disabled\" /> {$lang[user_message_parseBB]}
-              ")) . "
-
-              " . (($User->check('canSmilies', $FORUM->getForumId())) ? ("
-                <label for=\"parseSmilies\">
-                  <input type=\"checkbox\" id=\"parseSmilies\" name=\"postreply[smilies]\" value=\"1\"" . ((!$_POST OR $_POST['postreply']['smilies']) ? (" checked=\"checked\"") : ("")) . " /> {$lang[user_message_parseSmilies]}
-                </label>
-              ") : ("
-                <input type=\"checkbox\" disabled=\"disabled\" /> {$lang[user_message_parseSmilies]}
-              ")) . "
-            </div>
-          </div>
-        </div>
-
-        <p class=\"center cat bord\">
-          <input type=\"submit\" value=\"{$lang[global_submit]}\" class=\"button\" />
-          <input type=\"reset\" value=\"{$lang[global_reset]}\" class=\"button\" />
-          <input type=\"submit\" value=\"{$lang[global_preview]}\" class=\"button\" name=\"preview\" />
-        </p>
-      </div>
-    </div></div>
-  </form>
-") : ("")) . "
-
-" . (($bboptions['browsingThread']) ? ("
-    <div class=\"marCenter smallMarTop\"><div class=\"cont\">
-        <div class=\"cat clear border\">
-            <p class=\"floatLeft\"><a href=\"./index.php?file=online{$SESSURL}\">{$lang[user_thread_currentlyBrowsing]}</a></p>
-            <div class=\"floatRight\"><img src=\"{$VISUALS[images]}/{$IMAGES[collapse]}\" alt=\"Collapse\" id=\"browsingThread_img\" class=\"exCol_click_browsingThread\" /></div>
-        </div>
-
-        <div class=\"clear alt1 bord noBordTop\" id=\"browsingThread\">
-            <div class=\"floatLeft pad alt1\">
-                <img src=\"{$VISUALS[images]}/{$IMAGES[whosOnline]}\" alt=\"{$lang[user_thread_currentlyBrowsing]}\" />
-            </div>
-
-            <div class=\"pad alt2 bordLeft\" style=\"margin-left: 44px; min-height: 35px;\">
-                <p>{$lang[user_whosOnline_members]}: {$members} | {$lang[user_whosOnline_guests]}: {$guests} | {$lang[user_whosOnline_robots]}: {$robots}</p>
-                <span class=\"small\">$whoBits</span>
-            </div>
-        </div>
-    </div></div>
-") : ("")) . "
+<templatephp><![CDATA[
 ]]></templatephp>
 </fragment>
 
 <fragment fragmentid="233" styleid="0" groupid="212" fragmentName="" fragmentVarName="threaddisplay_attachbit" fragmentType="template" defaultid="0" disOrder="0">
-<template><![CDATA[<li><a href="./index.php?file=attach&amp;a={$Attach->getAttachId()}" class="small">{$Attach->getFileName()}</a> <span class="small">({$lang[user_thread_downloads]} {$Attach->getDownloads()})</span></li>
+<template><![CDATA[<li><a href="<n2link(file=attach&amp;a={$Attach->getAttachId()})>" class="small">{$Attach->getFileName()}</a> <span class="small">({$lang[user_thread_downloads]} {$Attach->getDownloads()})</span></li>
 ]]></template>
-<templatephp><![CDATA[<li><a href=\"./index.php?file=attach&amp;a={$Attach->getAttachId()}\" class=\"small\">{$Attach->getFileName()}</a> <span class=\"small\">({$lang[user_thread_downloads]} {$Attach->getDownloads()})</span></li>
+<templatephp><![CDATA[<li><a href=\"" . n2link("file=attach&amp;a={$Attach->getAttachId()}") . "\" class=\"small\">{$Attach->getFileName()}</a> <span class=\"small\">({$lang[user_thread_downloads]} {$Attach->getDownloads()})</span></li>
 ]]></templatephp>
 </fragment>
 
 <fragment fragmentid="297" styleid="0" groupid="212" fragmentName="threaddisplay_attachThumbBit" fragmentVarName="threaddisplay_attachThumbBit" fragmentType="template" defaultid="0" disOrder="0">
-<template><![CDATA[<a href="./index.php?file=attach&amp;a={$Attach->getAttachId()}"><img src="./index.php?file=attach&amp;a={$Attach->getAttachId()}&amp;thumb=1" alt="{$Attach->getFileName()}" /></a>
+<template><![CDATA[<a href="<n2link(file=attach&amp;a={$Attach->getAttachId()})>"><img src="./index.php?file=attach&amp;a={$Attach->getAttachId()}&amp;thumb=1" alt="{$Attach->getFileName()}" /></a>
 ]]></template>
-<templatephp><![CDATA[<a href=\"./index.php?file=attach&amp;a={$Attach->getAttachId()}\"><img src=\"./index.php?file=attach&amp;a={$Attach->getAttachId()}&amp;thumb=1\" alt=\"{$Attach->getFileName()}\" /></a>
+<templatephp><![CDATA[<a href=\"" . n2link("file=attach&amp;a={$Attach->getAttachId()}") . "\"><img src=\"".HOME."index.php?file=attach&amp;a={$Attach->getAttachId()}&amp;thumb=1\" alt=\"{$Attach->getFileName()}\" /></a>
 ]]></templatephp>
 </fragment>
 
@@ -8756,7 +8633,7 @@ display: block;
     <td class="cat pbHeader bord<if($post->isDeleted())> error</if>" colspan="2">
       <div class="clear">
         <p class="floatLeft pad">
-          <a href="./index.php?file=post&amp;p={$post->getPostId()}{$SESSURL}" name="{$post->getPostId()}">{$post->getTitle()}</a>
+          <a href="<n2link(file=post&amp;p={$post->getPostId()}{$SESSURL})>" name="{$post->getPostId()}">{$post->getTitle()}</a>
         </p>
       </div>
     </td>
@@ -8791,7 +8668,7 @@ display: block;
       <if($post->getStarterId())>
         <p class="small smallMarTop noMarBot">Posts: {$postUser->info[posts]}</p>
         <p class="small noMarTop noMarBot">Joined: {$joined->getDate()}</p>
-		<p class="small noMarTop">Reputation: <a href="./index.php?file=profile&amp;do=reputation&amp;u={$postUser->info[userid]}{$SESSURL}">{$postUser->info[reputation]}</a> [<a href="./index.php?file=profile&amp;do=reputation&amp;act=up&amp;u={$postUser->info[userid]}{$SESSURL}">+</a>|<a href="./index.php?file=profile&amp;do=reputation&amp;act=down&amp;u={$postUser->info[userid]}{$SESSURL}">-</a>]</p>        
+		<p class="small noMarTop">Reputation: <a href="<n2link(file=profile&amp;do=reputation&amp;u={$postUser->info[userid]}{$SESSURL})>">{$postUser->info[reputation]}</a> [<a href="<n2link(file=profile&amp;do=reputation&amp;act=up&amp;u={$postUser->info[userid]}{$SESSURL})>">+</a>|<a href="<n2link(file=profile&amp;do=reputation&amp;act=down&amp;u={$postUser->info[userid]}{$SESSURL})>">-</a>]</p>        
       </if>
     </td>
 
@@ -8807,16 +8684,16 @@ display: block;
 
         <div class="floatRight">
           <if($post->isDeleted())>
-            <a href="./index.php?file=post&amp;p={$post->getPostId()}&amp;do=restore{$SESSURL}">{$lang[user_thread_restorePost]}</a>
+            <a href="<n2link(file=post&amp;p={$post->getPostId()}&amp;do=restore{$SESSURL})>">{$lang[user_thread_restorePost]}</a>
           <else />
             <if($post->canDelete())>
               <img src="{$VISUALS[images]}/{$IMAGES[postbit_dPlus]}" alt="{$lang[user_thread_deletePost]}" class="deleteButton" id="delete_{$post->getPostId()}" />
 
-              <a href="./index.php?file=post&amp;p={$post->getPostId()}&amp;do=delete{$SESSURL}"><img src="{$VISUALS[images]}/{$IMAGES[postbit_delIcon]}" id="del_{$post->getPostId()}" alt="{$lang[user_thread_deletePost]}" class="delButton" title="{$post->getPostId()}" /></a>
+              <a href="<n2link(file=post&amp;p[]={$post->getPostId()}&amp;do=delete{$SESSURL})>"><img src="{$VISUALS[images]}/{$IMAGES[postbit_delIcon]}" id="del_{$post->getPostId()}" alt="{$lang[user_thread_deletePost]}" class="delButton" title="{$post->getPostId()}" /></a>
             <else /></if>
           </if>
 
-          <a href="./index.php?file=sendemail&amp;do=report&amp;p={$post->getPostId()}"><img src="{$VISUALS[images]}/{$IMAGES[postbit_report]}" alt="{$lang[user_thread_reportPost]}" /></a>
+          <a href="<n2link(file=sendemail&amp;do=report&amp;p={$post->getPostId()})>"><img src="{$VISUALS[images]}/{$IMAGES[postbit_report]}" alt="{$lang[user_thread_reportPost]}" /></a>
         </div>
       </div>
 
@@ -8882,7 +8759,7 @@ display: block;
   <tr>
     <td class="alt1 pbProfile vertTop center bord noBordTop">
       <if($post->getStarterId())>
-        <a href="./index.php?file=profile&amp;u={$postUser->info[userid]}{$SESSURL}"><img src="{$VISUALS[images]}/{$IMAGES[profileIcon]}" alt="{$postUser->info[username]}" class="aligned" /></a>
+        <a href="<n2link(file=profile&amp;u={$postUser->info[userid]}{$SESSURL})>"><img src="{$VISUALS[images]}/{$IMAGES[profileIcon]}" alt="{$postUser->info[username]}" class="aligned" /></a>
 
         <if(!empty($postUser->info['homepage']) AND $postUser->info['homepage'] != 'http://')>
           <a href="{$postUser->info[homepage]}"><img src="{$VISUALS[images]}/{$IMAGES[homeIcon]}" alt="{$lang[user_thread_goToHome]}" class="aligned" /></a>
@@ -8902,22 +8779,22 @@ display: block;
         <a href="#"><img src="{$VISUALS[images]}/{$IMAGES[upIcon]}" alt="{$lang[user_topPage]}" class="aligned" /></a>
 
         <if(LOGIN)>
-          <a href="./index.php?file=personal&amp;do=send&amp;u={$post->getStarterName()}{$SESSURL}"><img src="{$VISUALS[images]}/{$IMAGES[postbit_pm]}" alt="{$lang[user_thread_sendPm]}" class="aligned" /></a>
+          <a href="<n2link(file=personal&amp;do=send&amp;u={$post->getStarterName()}{$SESSURL})>"><img src="{$VISUALS[images]}/{$IMAGES[postbit_pm]}" alt="{$lang[user_thread_sendPm]}" class="aligned" /></a>
 
-          <a href="./index.php?file=sendemail&amp;u={$post->getStarterId()}{$SESSURL}"><img src="{$VISUALS[images]}/{$IMAGES[postbit_email]}" alt="{$lang[admin_style_i_postbit_email]}" class="aligned" /></a>
+          <a href="<n2link(file=sendemail&amp;u={$post->getStarterId()}{$SESSURL})>"><img src="{$VISUALS[images]}/{$IMAGES[postbit_email]}" alt="{$lang[admin_style_i_postbit_email]}" class="aligned" /></a>
         </if>
       </div>
 
       <div class="floatRight">
         <if(!$post->isDeleted())>
           <if($post->canEdit())>
-            <a href="./index.php?file=postedit&amp;p={$post->getPostId()}{$SESSURL}"><img src="{$VISUALS[images]}/{$IMAGES[postbit_edit]}" alt="{$lang[global_edit]}" class="aligned editButton" title="{$post->getPostId()}" /></a>
+            <a href="<n2link(file=postedit&amp;p={$post->getPostId()}{$SESSURL})>"><img src="{$VISUALS[images]}/{$IMAGES[postbit_edit]}" alt="{$lang[global_edit]}" class="aligned editButton" title="{$post->getPostId()}" /></a>
           </if>
 
           <if($Thread->canReply())>
             <img src="{$VISUALS[images]}/{$IMAGES[postbit_quoteP]}" alt="{$lang[user_thread_quote]}" title="{$post->getPostId()}" class="aligned quoteButton" id="quote_{$post->getPostId()}" />
 
-            <a href="./index.php?file=postreply&amp;t={$Thread->getThreadId()}&amp;p[]={$post->getPostId()}{$SESSURL}" onclick="return false;"><img src="{$VISUALS[images]}/{$IMAGES[postbit_reply]}" alt="{$lang[user_thread_reply]}" class="aligned replyButton" title="{$post->getPostId()}" /></a>
+            <a href="<n2link(file=postreply&amp;t={$Thread->getThreadId()}&amp;p[]={$post->getPostId()}&amp;title={$Thread->getUrlizedName()}{$SESSURL})>" onclick="return false;"><img src="{$VISUALS[images]}/{$IMAGES[postbit_reply]}" alt="{$lang[user_thread_reply]}" class="aligned replyButton" title="{$post->getPostId()}" /></a>
 
             <a href="javascript:void(0);"><img src="{$VISUALS[images]}/{$IMAGES[postbit_quickReply]}" id="qr_{$post->getPostId()}" alt="{$lang[user_thread_jumpToQuick]}" class="aligned qrButton" /></a>
           </if>
@@ -8926,187 +8803,14 @@ display: block;
     </td>
   </tr>
 </table>]]></template>
-<templatephp><![CDATA[<table cellspacing=\"0\" cellpadding=\"0\" class=\"noMarTop postbit bord2\">
-  <tr>
-    <td class=\"cat pbHeader bord" . (($post->isDeleted()) ? (" error") : ("")) . "\" colspan=\"2\">
-      <div class=\"clear\">
-        <p class=\"floatLeft pad\">
-          <a href=\"./index.php?file=post&amp;p={$post->getPostId()}{$SESSURL}\" name=\"{$post->getPostId()}\">{$post->getTitle()}</a>
-        </p>
-      </div>
-    </td>
-  </tr>
-
-  <tr>
-    <td class=\"alt1 pbProfile vertTop bord noBordTop noBordBot\">
-      <p class=\"noMar\">
-        <strong>
-          " . (($post->getStarterId()) ? ("
-            {$postUser->getHTMLName()}
-          ") : ("
-            {$post->getStarterName()}
-          ")) . "
-        </strong>
-
-        " . (($post->getStarterId()) ? ("{$status}") : ("")) . "
-      </p>
-
-      " . ((!empty($postUser->info['avatar'])) ? ("
-        <div class=\"smallMarTop\">
-          <img src=\"{$postUser->info[avatar]}\" alt=\"{$postUser->info[username]}\'s {$lang[global_avatar]}\" />
-        </div>
-      ") : ("")) . "
-
-      <p class=\"noMar small\">{$postUser->getTitle()}</p>
-
-      " . (($ranks) ? ("
-        <div class=\"smallMarTop\">{$ranks}</div>
-      ") : ("")) . "
-
-      " . (($post->getStarterId()) ? ("
-        <p class=\"small smallMarTop noMarBot\">Posts: {$postUser->info[posts]}</p>
-        <p class=\"small noMarTop\">Joined: {$joined->getDate()}</p>
-		<p class=\"small noMarTop\">Reputation: <a href=\"./index.php?file=profile&amp;do=reputation&amp;u={$postUser->info[userid]}{$SESSURL}\">{$postUser->info[reputation]}</a> [<a href=\"./index.php?file=profile&amp;do=reputation&amp;act=up&amp;u={$postUser->info[userid]}{$SESSURL}\">+</a>|<a href=\"./index.php?file=profile&amp;do=reputation&amp;act=down&amp;u={$postUser->info[userid]}{$SESSURL}\">-</a>]</p>        
-      ") : ("")) . "
-    </td>
-
-    <td class=\"alt2 pbMessage vertTop bordRight\">
-      <div class=\"clear goUp\">
-        <div class=\"floatLeft\">
-            " . (($post->getPostIcon()) ? ("
-                <img src=\"{$post->getPostIcon()}\" alt=\"{$post->getTitle()}\" class=\"aligned\" />
-            ") : ("")) . "
-
-            <span class=\"time\">{$timeline->getDate()}</span>
-        </div>
-
-        <div class=\"floatRight\">
-          " . (($post->isDeleted()) ? ("
-            <a href=\"./index.php?file=post&amp;p={$post->getPostId()}&amp;do=restore{$SESSURL}\">{$lang[user_thread_restorePost]}</a>
-          ") : ("
-            " . (($post->canDelete()) ? ("
-              <img src=\"{$VISUALS[images]}/{$IMAGES[postbit_dPlus]}\" alt=\"{$lang[user_thread_deletePost]}\" class=\"deleteButton\" id=\"delete_{$post->getPostId()}\" />
-
-              <a href=\"./index.php?file=post&amp;p[]={$post->getPostId()}&amp;do=delete{$SESSURL}\"><img src=\"{$VISUALS[images]}/{$IMAGES[postbit_delIcon]}\" id=\"del_{$post->getPostId()}\" alt=\"{$lang[user_thread_deletePost]}\" class=\"delButton\" title=\"{$post->getPostId()}\" /></a>
-            ") : ("")) . "
-          ")) . "
-
-          <a href=\"./index.php?file=sendemail&amp;do=report&amp;p={$post->getPostId()}\"><img src=\"{$VISUALS[images]}/{$IMAGES[postbit_report]}\" alt=\"{$lang[user_thread_reportPost]}\" /></a>
-        </div>
-      </div>
-
-      <hr class=\"postSep\" />
-
-      <div class=\"expand\">
-        <div id=\"regtext_{$post->getPostId()}\">
-          <span id=\"postmessage_{$post->getPostId()}\">{$message}</span>
-
-          " . ((!empty($thumbBits)) ? ("
-            <div class=\"marTop quote marCenter\">
-              <p><strong>{$lang[user_thread_thumbnails]}</strong></p>
-              <div class=\"quoted alt1\">
-                {$thumbBits}
-              </div>
-            </div>
-          ") : ("")) . "
-
-          " . ((!empty($attachBits)) ? ("
-            <div class=\"attachments marTop quote marCenter\">
-              <p><strong>{$lang[user_thread_attachments]}</strong></p>
-              <div class=\"quoted alt1\">
-                <ul>
-                  {$attachBits}
-                </ul>
-              </div>
-            </div>
-          ") : ("")) . "
-
-          " . ((!empty($signature)) ? ("
-            <div class=\"marTop\">
-              ______________________________
-              <div>{$signature}</div>
-            </div>
-          ") : ("")) . "
-        </div>
-
-        <div id=\"quickedit_{$post->getPostId()}\" style=\"display: none;\">
-          <textarea id=\"qearea_{$post->getPostId()}\" class=\"quickReply\"></textarea>
-        </div>
-
-        " . ((($post->isEdited() OR $post->isDeleted()) AND $post->showEdited($postUser)) ? ("
-              <p class=\"marTop small emphasize noMarBot\">
-                {$lang[user_thread_editedBy]} {$post->actionBy()}
-
-                " . (($editedTime instanceof WtcDate) ? ("
-                  <span class=\"time fullFont\">{$editedTime->getDate()}</span>
-                ") : ("")) . "
-
-                " . (($actionReason = $post->actionReason() AND !empty($actionReason)) ? ("
-                  {$actionReason}
-                ") : ("")) . "
-              </p>
-        ") : ("")) . "
-      </div>
-
-      <div style=\"display: none;\">
-          <span id=\"username_{$post->getPostId()}\">{$post->getStarterName()}</span>
-      </div>
-    </td>
-  </tr>
-
-  <tr>
-    <td class=\"alt1 pbProfile vertTop center bord noBordTop\">
-      " . (($post->getStarterId()) ? ("
-        <a href=\"./index.php?file=profile&amp;u={$postUser->info[userid]}{$SESSURL}\"><img src=\"{$VISUALS[images]}/{$IMAGES[profileIcon]}\" alt=\"{$postUser->info[username]}\" class=\"aligned\" /></a>
-
-        " . ((!empty($postUser->info['homepage']) AND $postUser->info['homepage'] != 'http://') ? ("
-          <a href=\"{$postUser->info[homepage]}\"><img src=\"{$VISUALS[images]}/{$IMAGES[homeIcon]}\" alt=\"{$lang[user_thread_goToHome]}\" class=\"aligned\" /></a>
-        ") : ("")) . "
-
-<!--
-        <img src=\"{$VISUALS[images]}/{$IMAGES[icqIcon]}\" alt=\"{$lang[admin_style_i_icqIcon]}\" class=\"aligned\" />
-        <img src=\"{$VISUALS[images]}/{$IMAGES[aimIcon]}\" alt=\"{$lang[admin_style_i_aimIcon]}\" class=\"aligned\" />
-        <img src=\"{$VISUALS[images]}/{$IMAGES[msnIcon]}\" alt=\"{$lang[admin_style_i_msnIcon]}\" class=\"aligned\" />
-        <img src=\"{$VISUALS[images]}/{$IMAGES[yahooIcon]}\" alt=\"{$lang[admin_style_i_yahooIcon]}\" class=\"aligned\" />
--->
-      ") : ("")) . "
-    </td>
-
-    <td class=\"alt2 pbMessage vertTop right bordBot bordRight\">
-      <div class=\"floatLeft\">
-        <a href=\"#\"><img src=\"{$VISUALS[images]}/{$IMAGES[upIcon]}\" alt=\"{$lang[user_topPage]}\" class=\"aligned\" /></a>
-
-        " . ((LOGIN) ? ("
-          <a href=\"./index.php?file=personal&amp;do=send&amp;u={$post->getStarterName()}{$SESSURL}\"><img src=\"{$VISUALS[images]}/{$IMAGES[postbit_pm]}\" alt=\"{$lang[user_thread_sendPm]}\" class=\"aligned\" /></a>
-
-          <a href=\"./index.php?file=sendemail&amp;u={$post->getStarterId()}{$SESSURL}\"><img src=\"{$VISUALS[images]}/{$IMAGES[postbit_email]}\" alt=\"{$lang[admin_style_i_postbit_email]}\" class=\"aligned\" /></a>
-        ") : ("")) . "
-      </div>
-
-      <div class=\"floatRight\">
-        " . ((!$post->isDeleted()) ? ("
-          " . (($post->canEdit()) ? ("
-            <a href=\"./index.php?file=postedit&amp;p={$post->getPostId()}{$SESSURL}\"><img src=\"{$VISUALS[images]}/{$IMAGES[postbit_edit]}\" alt=\"{$lang[global_edit]}\" class=\"aligned editButton\" title=\"{$post->getPostId()}\" /></a>
-          ") : ("")) . "
-
-          " . (($Thread->canReply()) ? ("
-            <img src=\"{$VISUALS[images]}/{$IMAGES[postbit_quoteP]}\" alt=\"{$lang[user_thread_quote]}\" title=\"{$post->getPostId()}\" class=\"aligned quoteButton\" id=\"quote_{$post->getPostId()}\" />
-
-            <a href=\"./index.php?file=postreply&amp;t={$Thread->getThreadId()}&amp;p[]={$post->getPostId()}{$SESSURL}\" onclick=\"return false;\"><img src=\"{$VISUALS[images]}/{$IMAGES[postbit_reply]}\" alt=\"{$lang[user_thread_reply]}\" class=\"aligned replyButton\" title=\"{$post->getPostId()}\" /></a>
-
-            <a href=\"javascript:void(0);\"><img src=\"{$VISUALS[images]}/{$IMAGES[postbit_quickReply]}\" id=\"qr_{$post->getPostId()}\" alt=\"{$lang[user_thread_jumpToQuick]}\" class=\"aligned qrButton\" /></a>
-          ") : ("")) . "
-        ") : ("")) . "
-      </div>
-    </td>
-  </tr>
-</table>]]></templatephp>
+<templatephp><![CDATA[
+]]></templatephp>
 </fragment>
 
 <fragment fragmentid="210" styleid="0" groupid="212" fragmentName="" fragmentVarName="threaddisplay_delete" fragmentType="template" defaultid="0" disOrder="0">
 <template><![CDATA[{$error}
 
-<form method="post" action="./index.php?file=thread&amp;t={$Thread->getThreadId()}&amp;do=delete" class="noMar">
+<form method="post" action="<n2link(file=thread&amp;t={$Thread->getThreadId()}&amp;do=delete)>" class="noMar">
 <input type="hidden" name="meh" value="1" />
 {$SESSION_INPUT}
 
@@ -9152,7 +8856,7 @@ display: block;
 </form>]]></template>
 <templatephp><![CDATA[{$error}
 
-<form method=\"post\" action=\"./index.php?file=thread&amp;t={$Thread->getThreadId()}&amp;do=delete\" class=\"noMar\">
+<form method=\"post\" action=\"" . n2link("file=thread&amp;t={$Thread->getThreadId()}&amp;do=delete") . "\" class=\"noMar\">
 <input type=\"hidden\" name=\"meh\" value=\"1\" />
 {$SESSION_INPUT}
 
@@ -9201,7 +8905,7 @@ display: block;
 <fragment fragmentid="209" styleid="0" groupid="212" fragmentName="" fragmentVarName="threaddisplay_edit" fragmentType="template" defaultid="0" disOrder="0">
 <template><![CDATA[{$error}
 
-<form method="post" action="./index.php?file=thread&amp;t={$Thread->getThreadId()}&amp;do=edit" class="noMar">
+<form method="post" action="<n2link(file=thread&amp;t={$Thread->getThreadId()}&amp;do=edit)>" class="noMar">
 {$SESSION_INPUT}
 
 <table cellspacing="{$VISUALS[inBorderWidth]}" cellpadding="0">
@@ -9236,7 +8940,7 @@ display: block;
 </form>]]></template>
 <templatephp><![CDATA[{$error}
 
-<form method=\"post\" action=\"./index.php?file=thread&amp;t={$Thread->getThreadId()}&amp;do=edit\" class=\"noMar\">
+<form method=\"post\" action=\"" . n2link("file=thread&amp;t={$Thread->getThreadId()}&amp;do=edit") . "\" class=\"noMar\">
 {$SESSION_INPUT}
 
 <table cellspacing=\"{$VISUALS[inBorderWidth]}\" cellpadding=\"0\">
@@ -9274,7 +8978,7 @@ display: block;
 <fragment fragmentid="223" styleid="0" groupid="212" fragmentName="" fragmentVarName="threaddisplay_merge" fragmentType="template" defaultid="0" disOrder="0">
 <template><![CDATA[{$error}
 
-<form method="post" action="./index.php?file=thread&amp;t={$Thread->getThreadId()}&amp;do=merge" class="noMar">
+<form method="post" action="<n2link(file=thread&amp;t={$Thread->getThreadId()}&amp;do=merge)>" class="noMar">
 {$SESSION_INPUT}
 
 <table cellspacing="{$VISUALS[inBorderWidth]}" cellpadding="0">
@@ -9289,7 +8993,7 @@ display: block;
         </td>
         <td>
           <input type="text" class="text" name="url" value="<if($_POST)>{$_POST[url]}</if>" />
-          <p class="noMar small right"><a href="./index.php?file=forum&amp;f={$Thread->getForumId()}{$SESSURL}" target="_blank">{$lang[user_thread_splitThread_open]}</a></p>
+          <p class="noMar small right"><a href="<n2link(file=forum&amp;f={$Thread->getForumId()}{$SESSURL})>" target="_blank">{$lang[user_thread_splitThread_open]}</a></p>
         </td>
     </tr>
 
@@ -9303,7 +9007,7 @@ display: block;
 </form>]]></template>
 <templatephp><![CDATA[{$error}
 
-<form method=\"post\" action=\"./index.php?file=thread&amp;t={$Thread->getThreadId()}&amp;do=merge\" class=\"noMar\">
+<form method=\"post\" action=\"" . n2link("file=thread&amp;t={$Thread->getThreadId()}&amp;do=merge") . "\" class=\"noMar\">
 {$SESSION_INPUT}
 
 <table cellspacing=\"{$VISUALS[inBorderWidth]}\" cellpadding=\"0\">
@@ -9318,7 +9022,7 @@ display: block;
         </td>
         <td>
           <input type=\"text\" class=\"text\" name=\"url\" value=\"" . (($_POST) ? ("{$_POST[url]}") : ("")) . "\" />
-          <p class=\"noMar small right\"><a href=\"./index.php?file=forum&amp;f={$Thread->getForumId()}{$SESSURL}\" target=\"_blank\">{$lang[user_thread_splitThread_open]}</a></p>
+          <p class=\"noMar small right\"><a href=\"" . n2link("file=forum&amp;f={$Thread->getForumId()}{$SESSURL}") . "\" target=\"_blank\">{$lang[user_thread_splitThread_open]}</a></p>
         </td>
     </tr>
 
@@ -9335,7 +9039,7 @@ display: block;
 <fragment fragmentid="211" styleid="0" groupid="212" fragmentName="" fragmentVarName="threaddisplay_move" fragmentType="template" defaultid="0" disOrder="0">
 <template><![CDATA[{$error}
 
-<form method="post" action="./index.php?file=thread&amp;t={$Thread->getThreadId()}&amp;do=move" class="noMar">
+<form method="post" action="<n2link(file=thread&amp;t={$Thread->getThreadId()}&amp;do=move)>" class="noMar">
 {$SESSION_INPUT}
 
 <table cellspacing="{$VISUALS[inBorderWidth]}" cellpadding="0">
@@ -9381,7 +9085,7 @@ display: block;
 </form>]]></template>
 <templatephp><![CDATA[{$error}
 
-<form method=\"post\" action=\"./index.php?file=thread&amp;t={$Thread->getThreadId()}&amp;do=move\" class=\"noMar\">
+<form method=\"post\" action=\"" . n2link("file=thread&amp;t={$Thread->getThreadId()}&amp;do=move") . "\" class=\"noMar\">
 {$SESSION_INPUT}
 
 <table cellspacing=\"{$VISUALS[inBorderWidth]}\" cellpadding=\"0\">
@@ -9499,7 +9203,7 @@ display: block;
     <td class="cat pbHeader bord<if($post->isDeleted())> error</if>" colspan="2">
       <div class="clear">
         <p class="floatLeft pad">
-          <a href="./index.php?file=post&amp;p={$post->getPostId()}{$SESSURL}" name="{$post->getPostId()}">{$post->getTitle()}</a>
+          <a href="<n2link(file=post&amp;p={$post->getPostId()}{$SESSURL})>" name="{$post->getPostId()}">{$post->getTitle()}</a>
         </p>
 
         <if($_GET['do'] == 'split')>
@@ -9540,7 +9244,7 @@ display: block;
       <if($post->getStarterId())>
         <p class="small smallMarTop noMarBot">Posts: {$postUser->info[posts]}</p>
         <p class="small noMarTop">Joined: {$joined->getDate()}</p>
-		<p class="small noMarTop">Reputation: <a href="./index.php?file=profile&amp;do=reputation&amp;u={$postUser->info[userid]}{$SESSURL}">{$postUser->info[reputation]}</a> [<a href="./index.php?file=profile&amp;do=reputation&amp;act=up&amp;u={$postUser->info[userid]}{$SESSURL}">+</a>|<a href="./index.php?file=profile&amp;do=reputation&amp;act=down&amp;u={$postUser->info[userid]}{$SESSURL}">-</a>]</p>        
+		<p class="small noMarTop">Reputation: <a href="<n2link(file=profile&amp;do=reputation&amp;u={$postUser->info[userid]}{$SESSURL})>">{$postUser->info[reputation]}</a> [<a href="<n2link(file=profile&amp;do=reputation&amp;act=up&amp;u={$postUser->info[userid]}{$SESSURL})>">+</a>|<a href="<n2link(file=profile&amp;do=reputation&amp;act=down&amp;u={$postUser->info[userid]}{$SESSURL})>">-</a>]</p>        
       </if>
     </td>
 
@@ -9580,7 +9284,7 @@ display: block;
   <tr>
     <td class="alt1 pbProfile vertTop center bord noBordTop">
         <if($post->getStarterId())>
-<a href="./index.php?file=profile&amp;u={$postUser->info[userid]}{$SESSURL}"><img src="{$VISUALS[images]}/{$IMAGES[profileIcon]}" alt="{$postUser->info[username]}" class="aligned" /></a>
+<a href="<n2link(file=profile&amp;u={$postUser->info[userid]}{$SESSURL})>"><img src="{$VISUALS[images]}/{$IMAGES[profileIcon]}" alt="{$postUser->info[username]}" class="aligned" /></a>
 
         <if(!empty($postUser->info['homepage']) AND $postUser->info['homepage'] != 'http://')>
           <a href="{$postUser->info[homepage]}"><img src="{$VISUALS[images]}/{$IMAGES[homeIcon]}" alt="{$lang[user_thread_goToHome]}" class="aligned" /></a>
@@ -9599,9 +9303,9 @@ display: block;
       <div class="floatLeft">
         <a href="#"><img src="{$VISUALS[images]}/{$IMAGES[upIcon]}" alt="{$lang[user_topPage]}" class="aligned" /></a>
 
-        <a href="./index.php?file=personal&amp;do=send&amp;u={$post->getStarterName()}{$SESSURL}"><img src="{$VISUALS[images]}/{$IMAGES[postbit_pm]}" alt="{$lang[user_thread_sendPm]}" class="aligned" /></a>
+        <a href="<n2link(file=personal&amp;do=send&amp;u={$post->getStarterName()}{$SESSURL})>"><img src="{$VISUALS[images]}/{$IMAGES[postbit_pm]}" alt="{$lang[user_thread_sendPm]}" class="aligned" /></a>
 
-        <a href="./index.php?file=sendemail&amp;u={$post->getStarterId()}{$SESSURL}"><img src="{$VISUALS[images]}/{$IMAGES[postbit_email]}" alt="{$lang[admin_style_i_postbit_email]}" class="aligned" /></a>
+        <a href="<n2link(file=sendemail&amp;u={$post->getStarterId()}{$SESSURL})>"><img src="{$VISUALS[images]}/{$IMAGES[postbit_email]}" alt="{$lang[admin_style_i_postbit_email]}" class="aligned" /></a>
       </div>
     </td>
   </tr>
@@ -9611,7 +9315,7 @@ display: block;
     <td class=\"cat pbHeader bord" . (($post->isDeleted()) ? (" error") : ("")) . "\" colspan=\"2\">
       <div class=\"clear\">
         <p class=\"floatLeft pad\">
-          <a href=\"./index.php?file=post&amp;p={$post->getPostId()}{$SESSURL}\" name=\"{$post->getPostId()}\">{$post->getTitle()}</a>
+          <a href=\"" . n2link("file=post&amp;p={$post->getPostId()}{$SESSURL}") . "\" name=\"{$post->getPostId()}\">{$post->getTitle()}</a>
         </p>
 
         " . (($_GET['do'] == 'split') ? ("
@@ -9652,7 +9356,7 @@ display: block;
       " . (($post->getStarterId()) ? ("
         <p class=\"small smallMarTop noMarBot\">Posts: {$postUser->info[posts]}</p>
         <p class=\"small noMarTop\">Joined: {$joined->getDate()}</p>
-        <p class=\"small noMarTop\">Reputation: <a href=\"./index.php?file=profile&amp;do=reputation&amp;u={$postUser->info[userid]}{$SESSURL}\">{$postUser->info[reputation]}</a> [<a href=\"./index.php?file=profile&amp;do=reputation&amp;act=up&amp;u={$postUser->info[userid]}{$SESSURL}\">+</a>|<a href=\"./index.php?file=profile&amp;do=reputation&amp;act=down&amp;u={$postUser->info[userid]}{$SESSURL}\">-</a>]</p>
+        <p class=\"small noMarTop\">Reputation: <a href=\"" . n2link("file=profile&amp;do=reputation&amp;u={$postUser->info[userid]}{$SESSURL}") . "\">{$postUser->info[reputation]}</a> [<a href=\"" . n2link("file=profile&amp;do=reputation&amp;act=up&amp;u={$postUser->info[userid]}{$SESSURL}") . "\">+</a>|<a href=\"" . n2link("file=profile&amp;do=reputation&amp;act=down&amp;u={$postUser->info[userid]}{$SESSURL}") . "\">-</a>]</p>
       ") : ("")) . "
     </td>
 
@@ -9692,7 +9396,7 @@ display: block;
   <tr>
     <td class=\"alt1 pbProfile vertTop center bord noBordTop\">
         " . (($post->getStarterId()) ? ("
-<a href=\"./index.php?file=profile&amp;u={$postUser->info[userid]}{$SESSURL}\"><img src=\"{$VISUALS[images]}/{$IMAGES[profileIcon]}\" alt=\"{$postUser->info[username]}\" class=\"aligned\" /></a>
+<a href=\"" . n2link("file=profile&amp;u={$postUser->info[userid]}{$SESSURL}") . "\"><img src=\"{$VISUALS[images]}/{$IMAGES[profileIcon]}\" alt=\"{$postUser->info[username]}\" class=\"aligned\" /></a>
 
         " . ((!empty($postUser->info['homepage']) AND $postUser->info['homepage'] != 'http://') ? ("
           <a href=\"{$postUser->info[homepage]}\"><img src=\"{$VISUALS[images]}/{$IMAGES[homeIcon]}\" alt=\"{$lang[user_thread_goToHome]}\" class=\"aligned\" /></a>
@@ -9711,9 +9415,9 @@ display: block;
       <div class=\"floatLeft\">
         <a href=\"#\"><img src=\"{$VISUALS[images]}/{$IMAGES[upIcon]}\" alt=\"{$lang[user_topPage]}\" class=\"aligned\" /></a>
 
-        <a href=\"./index.php?file=personal&amp;do=send&amp;u={$post->getStarterName()}{$SESSURL}\"><img src=\"{$VISUALS[images]}/{$IMAGES[postbit_pm]}\" alt=\"{$lang[user_thread_sendPm]}\" class=\"aligned\" /></a>
+        <a href=\"" . n2link("file=personal&amp;do=send&amp;u={$post->getStarterName()}{$SESSURL}") . "\"><img src=\"{$VISUALS[images]}/{$IMAGES[postbit_pm]}\" alt=\"{$lang[user_thread_sendPm]}\" class=\"aligned\" /></a>
 
-        <a href=\"./index.php?file=sendemail&amp;u={$post->getStarterId()}{$SESSURL}\"><img src=\"{$VISUALS[images]}/{$IMAGES[postbit_email]}\" alt=\"{$lang[admin_style_i_postbit_email]}\" class=\"aligned\" /></a>
+        <a href=\"" . n2link("file=sendemail&amp;u={$post->getStarterId()}{$SESSURL}") . "\"><img src=\"{$VISUALS[images]}/{$IMAGES[postbit_email]}\" alt=\"{$lang[admin_style_i_postbit_email]}\" class=\"aligned\" /></a>
       </div>
     </td>
   </tr>
@@ -9723,7 +9427,7 @@ display: block;
 <fragment fragmentid="217" styleid="0" groupid="212" fragmentName="threaddisplay_split" fragmentVarName="threaddisplay_split" fragmentType="template" defaultid="0" disOrder="0">
 <template><![CDATA[{$error}
 
-<form method="post" action="./index.php?file=thread&amp;t={$Thread->getThreadId()}&amp;do=split" class="noMar">
+<form method="post" action="<n2link(file=thread&amp;t={$Thread->getThreadId()}&amp;do=split)>" class="noMar">
 {$SESSION_INPUT}
 
 <table cellspacing="{$VISUALS[inBorderWidth]}" cellpadding="0">
@@ -9803,7 +9507,7 @@ display: block;
 </form>]]></template>
 <templatephp><![CDATA[{$error}
 
-<form method=\"post\" action=\"./index.php?file=thread&amp;t={$Thread->getThreadId()}&amp;do=split\" class=\"noMar\">
+<form method=\"post\" action=\"" . n2link("file=thread&amp;t={$Thread->getThreadId()}&amp;do=split") . "\" class=\"noMar\">
 {$SESSION_INPUT}
 
 <table cellspacing=\"{$VISUALS[inBorderWidth]}\" cellpadding=\"0\">
@@ -9889,7 +9593,7 @@ display: block;
 <script type="text/javascript" src="./scripts/Attachments.js"></script>
 
 <if($GET->numRows() < $maxAttach)>
- <form method="post" action="./index.php?file=attach&amp;do=upload&amp;link={$myLink}<if($forumid)>&amp;f={$FORUM->info[forumid]}</if><if($Convo instanceof Conversation)>&amp;c={$Convo->getConvoId()}</if><if($Thread instanceof Thread)>&amp;t={$Thread->getThreadId()}</if>{$SESSURL}" enctype="multipart/form-data">
+ <form method="post" action="<n2link(file=attach&amp;do=upload&amp;link={$myLink}<if($forumid)>&amp;f={$FORUM->info[forumid]}</if><if($Convo instanceof Conversation)>&amp;c={$Convo->getConvoId()}</if><if($Thread instanceof Thread)>&amp;t={$Thread->getThreadId()}</if>&amp;title={$Thread->getUrlizedName()}{$SESSURL})>" enctype="multipart/form-data">
 
   <table cellspacing="{$VISUALS[inBorderWidth]}" cellpadding="0">
     <tr>
@@ -9950,10 +9654,10 @@ display: block;
 ]]></template>
 <templatephp><![CDATA[{$error}
 
-<script type=\"text/javascript\" src=\"./scripts/Attachments.js\"></script>
+<script type=\"text/javascript\" src=\"".HOME."scripts/Attachments.js\"></script>
 
 " . (($GET->numRows() < $maxAttach) ? ("
- <form method=\"post\" action=\"./index.php?file=attach&amp;do=upload&amp;link={$myLink}" . (($forumid) ? ("&amp;f={$FORUM->info[forumid]}") : ("")) . "" . (($Convo instanceof Conversation) ? ("&amp;c={$Convo->getConvoId()}") : ("")) . "" . (($Thread instanceof Thread) ? ("&amp;t={$Thread->getThreadId()}") : ("")) . "{$SESSURL}\" enctype=\"multipart/form-data\">
+ <form method=\"post\" action=\"" . n2link("file=attach&amp;do=upload&amp;link={$myLink}") . "" . (($forumid) ? ("&amp;f={$FORUM->info[forumid]}") : ("")) . "" . (($Convo instanceof Conversation) ? ("&amp;c={$Convo->getConvoId()}") : ("")) . "" . (($Thread instanceof Thread) ? ("&amp;t={$Thread->getThreadId()}") : ("")) . "{$SESSURL}\" enctype=\"multipart/form-data\">
 
   <table cellspacing=\"{$VISUALS[inBorderWidth]}\" cellpadding=\"0\">
     <tr>
@@ -10017,22 +9721,22 @@ display: block;
 <fragment fragmentid="232" styleid="0" groupid="236" fragmentName="" fragmentVarName="upload_attachbit" fragmentType="template" defaultid="0" disOrder="0">
 <template><![CDATA[<tr class="alt{$ALT}">
   <td>
-    <a href="./index.php?file=attach&amp;a={$Attach->getAttachId()}{$SESSURL}" target="_blank" class="attachment_{$Attach->getAttachId()}!@#%{$Attach->getFileName()}!@#%{$Attach->getMimeType()}!@#%<if(file_exists($Attach->getThumbPath()))>thumb<else />nothumb</if>">{$Attach->getFileName()}</a>
+    <a href="<n2link(file=attach&amp;a={$Attach->getAttachId()}{$SESSURL})>" target="_blank" class="attachment_{$Attach->getAttachId()}!@#%{$Attach->getFileName()}!@#%{$Attach->getMimeType()}!@#%<if(file_exists($Attach->getThumbPath()))>thumb<else />nothumb</if>">{$Attach->getFileName()}</a>
   </td>
 
   <td>
-    <a href="./index.php?file=attach&amp;a={$Attach->getAttachId()}&amp;do=delete{$SESSURL}">{$lang[user_delete]}</a>
+    <a href="<n2link(file=attach&amp;a={$Attach->getAttachId()}&amp;do=delete{$SESSURL})>">{$lang[user_delete]}</a>
   </td>
 </tr>
 
 ]]></template>
 <templatephp><![CDATA[<tr class=\"alt{$ALT}\">
   <td>
-    <a href=\"./index.php?file=attach&amp;a={$Attach->getAttachId()}{$SESSURL}\" target=\"_blank\" class=\"attachment_{$Attach->getAttachId()}!@#%{$Attach->getFileName()}!@#%{$Attach->getMimeType()}!@#%" . ((file_exists($Attach->getThumbPath())) ? ("thumb") : ("nothumb")) . "\">{$Attach->getFileName()}</a>
+    <a href=\"" . n2link("file=attach&amp;a={$Attach->getAttachId()}{$SESSURL}") . "\" target=\"_blank\" class=\"attachment_{$Attach->getAttachId()}!@#%{$Attach->getFileName()}!@#%{$Attach->getMimeType()}!@#%" . ((file_exists($Attach->getThumbPath())) ? ("thumb") : ("nothumb")) . "\">{$Attach->getFileName()}</a>
   </td>
 
   <td>
-    <a href=\"./index.php?file=attach&amp;a={$Attach->getAttachId()}&amp;do=delete{$SESSURL}\">{$lang[user_delete]}</a>
+    <a href=\"" . n2link("file=attach&amp;a={$Attach->getAttachId()}&amp;do=delete{$SESSURL}") . "\">{$lang[user_delete]}</a>
   </td>
 </tr>
 
@@ -10042,7 +9746,7 @@ display: block;
 <fragment fragmentid="268" styleid="0" groupid="248" fragmentName="" fragmentVarName="usercp_avatar" fragmentType="template" defaultid="0" disOrder="0">
 <template><![CDATA[{$error}
 
-<form method="post" action="./index.php?file=usercp&amp;do=avatar" class="noMar" enctype="multipart/form-data">
+<form method="post" action="<n2link(file=usercp&amp;do=avatar)>" class="noMar" enctype="multipart/form-data">
   {$SESSION_INPUT}
   <input type="hidden" name="page" value="{$page}" />
   <input type="hidden" name="oldGroupId" value="{$groupid}" />
@@ -10146,7 +9850,7 @@ display: block;
 </form>]]></template>
 <templatephp><![CDATA[{$error}
 
-<form method=\"post\" action=\"./index.php?file=usercp&amp;do=avatar\" class=\"noMar\" enctype=\"multipart/form-data\">
+<form method=\"post\" action=\"" . n2link("file=usercp&amp;do=avatar") . "\" class=\"noMar\" enctype=\"multipart/form-data\">
   {$SESSION_INPUT}
   <input type=\"hidden\" name=\"page\" value=\"{$page}\" />
   <input type=\"hidden\" name=\"oldGroupId\" value=\"{$groupid}\" />
@@ -10299,7 +10003,7 @@ display: block;
   </div>
 </div></div>
 
-<form method="post" action="./index.php?file=usercp&amp;do=email" class="noMar">
+<form method="post" action="<n2link(file=usercp&amp;do=email)>" class="noMar">
   {$SESSION_INPUT}
 
   <table cellspacing="{$VISUALS[inBorderWidth]}" cellpadding="0">
@@ -10346,7 +10050,7 @@ display: block;
   </div>
 </div></div>
 
-<form method=\"post\" action=\"./index.php?file=usercp&amp;do=email\" class=\"noMar\">
+<form method=\"post\" action=\"" . n2link("file=usercp&amp;do=email") . "\" class=\"noMar\">
   {$SESSION_INPUT}
 
   <table cellspacing=\"{$VISUALS[inBorderWidth]}\" cellpadding=\"0\">
@@ -10394,26 +10098,26 @@ display: block;
 <template><![CDATA[<div class="marCenter smallMarTop smallMarBot"><div class="cont">
   <div class="headFoot border clear small">
     <ul id="memberArea">
-      <li><a href="./index.php?file=personal{$SESSURL}">{$lang[user_cp_messages]}</a></li>
-      <li><a href="./index.php?file=usercp&amp;do=profile{$SESSURL}">{$lang[user_cp_profile]}</a></li>
-      <li><a href="./index.php?file=usercp&amp;do=preferences{$SESSURL}">{$lang[user_cp_preferences]}</a></li>
-      <li><a href="./index.php?file=usercp&amp;do=email{$SESSURL}">{$lang[user_cp_email]}</a></li>
-      <li><a href="./index.php?file=usercp&amp;do=password{$SESSURL}">{$lang[user_cp_password]}</a></li>
-      <li><a href="./index.php?file=usercp&amp;do=avatar{$SESSURL}">{$lang[user_cp_avatar]}</a></li>
-      <li><a href="./index.php?file=usercp&amp;do=signature{$SESSURL}">{$lang[user_cp_signature]}</a></li>
+      <li><a href="<n2link(file=personal{$SESSURL})>">{$lang[user_cp_messages]}</a></li>
+      <li><a href="<n2link(file=usercp&amp;do=profile{$SESSURL})>">{$lang[user_cp_profile]}</a></li>
+      <li><a href="<n2link(file=usercp&amp;do=preferences{$SESSURL})>">{$lang[user_cp_preferences]}</a></li>
+      <li><a href="<n2link(file=usercp&amp;do=email{$SESSURL})>">{$lang[user_cp_email]}</a></li>
+      <li><a href="<n2link(file=usercp&amp;do=password{$SESSURL})>">{$lang[user_cp_password]}</a></li>
+      <li><a href="<n2link(file=usercp&amp;do=avatar{$SESSURL})>">{$lang[user_cp_avatar]}</a></li>
+      <li><a href="<n2link(file=usercp&amp;do=signature{$SESSURL})>">{$lang[user_cp_signature]}</a></li>
     </ul>
   </div>
 </div></div>]]></template>
 <templatephp><![CDATA[<div class=\"marCenter smallMarTop smallMarBot\"><div class=\"cont\">
   <div class=\"headFoot border clear small\">
     <ul id=\"memberArea\">
-      <li><a href=\"./index.php?file=personal{$SESSURL}\">{$lang[user_cp_messages]}</a></li>
-      <li><a href=\"./index.php?file=usercp&amp;do=profile{$SESSURL}\">{$lang[user_cp_profile]}</a></li>
-      <li><a href=\"./index.php?file=usercp&amp;do=preferences{$SESSURL}\">{$lang[user_cp_preferences]}</a></li>
-      <li><a href=\"./index.php?file=usercp&amp;do=email{$SESSURL}\">{$lang[user_cp_email]}</a></li>
-      <li><a href=\"./index.php?file=usercp&amp;do=password{$SESSURL}\">{$lang[user_cp_password]}</a></li>
-      <li><a href=\"./index.php?file=usercp&amp;do=avatar{$SESSURL}\">{$lang[user_cp_avatar]}</a></li>
-      <li><a href=\"./index.php?file=usercp&amp;do=signature{$SESSURL}\">{$lang[user_cp_signature]}</a></li>
+      <li><a href=\"" . n2link("file=personal{$SESSURL}") . "\">{$lang[user_cp_messages]}</a></li>
+      <li><a href=\"" . n2link("file=usercp&amp;do=profile{$SESSURL}") . "\">{$lang[user_cp_profile]}</a></li>
+      <li><a href=\"" . n2link("file=usercp&amp;do=preferences{$SESSURL}") . "\">{$lang[user_cp_preferences]}</a></li>
+      <li><a href=\"" . n2link("file=usercp&amp;do=email{$SESSURL}") . "\">{$lang[user_cp_email]}</a></li>
+      <li><a href=\"" . n2link("file=usercp&amp;do=password{$SESSURL}") . "\">{$lang[user_cp_password]}</a></li>
+      <li><a href=\"" . n2link("file=usercp&amp;do=avatar{$SESSURL}") . "\">{$lang[user_cp_avatar]}</a></li>
+      <li><a href=\"" . n2link("file=usercp&amp;do=signature{$SESSURL}") . "\">{$lang[user_cp_signature]}</a></li>
     </ul>
   </div>
 </div></div>]]></templatephp>
@@ -10435,7 +10139,7 @@ display: block;
   </div>
 </div></div>
 
-<form method="post" action="./index.php?file=usercp&amp;do=password" class="noMar">
+<form method="post" action="<n2link(file=usercp&amp;do=password)>" class="noMar">
   {$SESSION_INPUT}
 
   <table cellspacing="{$VISUALS[inBorderWidth]}" cellpadding="0">
@@ -10482,7 +10186,7 @@ display: block;
   </div>
 </div></div>
 
-<form method=\"post\" action=\"./index.php?file=usercp&amp;do=password\" class=\"noMar\">
+<form method=\"post\" action=\"" . n2link("file=usercp&amp;do=password") . "\" class=\"noMar\">
   {$SESSION_INPUT}
 
   <table cellspacing=\"{$VISUALS[inBorderWidth]}\" cellpadding=\"0\">
@@ -10524,7 +10228,7 @@ display: block;
 <fragment fragmentid="259" styleid="0" groupid="248" fragmentName="" fragmentVarName="usercp_preferences" fragmentType="template" defaultid="0" disOrder="0">
 <template><![CDATA[{$error}
 
-<form method="post" action="./index.php?file=usercp&amp;do=preferences" class="noMar">
+<form method="post" action="<n2link(file=usercp&amp;do=preferences)>" class="noMar">
   {$SESSION_INPUT}
 
   <table cellspacing="{$VISUALS[inBorderWidth]}" cellpadding="0">
@@ -10590,7 +10294,7 @@ display: block;
 </form>]]></template>
 <templatephp><![CDATA[{$error}
 
-<form method=\"post\" action=\"./index.php?file=usercp&amp;do=preferences\" class=\"noMar\">
+<form method=\"post\" action=\"" . n2link("file=usercp&amp;do=preferences") . "\" class=\"noMar\">
   {$SESSION_INPUT}
 
   <table cellspacing=\"{$VISUALS[inBorderWidth]}\" cellpadding=\"0\">
@@ -10703,7 +10407,7 @@ display: block;
 <fragment fragmentid="258" styleid="0" groupid="248" fragmentName="" fragmentVarName="usercp_profile" fragmentType="template" defaultid="0" disOrder="0">
 <template><![CDATA[{$error}
 
-<form method="post" action="./index.php?file=usercp&amp;do=profile" class="noMar">
+<form method="post" action="<n2link(file=usercp&amp;do=profile)>" class="noMar">
   {$SESSION_INPUT}
 
   <table cellspacing="{$VISUALS[inBorderWidth]}" cellpadding="0">
@@ -10779,7 +10483,7 @@ display: block;
 </form>]]></template>
 <templatephp><![CDATA[{$error}
 
-<form method=\"post\" action=\"./index.php?file=usercp&amp;do=profile\" class=\"noMar\">
+<form method=\"post\" action=\"" . n2link("file=usercp&amp;do=profile") . "\" class=\"noMar\">
   {$SESSION_INPUT}
 
   <table cellspacing=\"{$VISUALS[inBorderWidth]}\" cellpadding=\"0\">
@@ -10921,7 +10625,7 @@ display: block;
     </div></div>
 </if>
 
-<form method="post" action="./index.php?file=usercp&amp;do=signature" onsubmit="Message.closeAll();">
+<form method="post" action="<n2link(file=usercp&amp;do=signature)>" onsubmit="Message.closeAll();">
   {$SESSION_INPUT}
 
   <script type="text/javascript" src="./scripts/Message.js.php"></script>
@@ -10951,11 +10655,11 @@ display: block;
     </div></div>
 ") : ("")) . "
 
-<form method=\"post\" action=\"./index.php?file=usercp&amp;do=signature\" onsubmit=\"Message.closeAll();\">
+<form method=\"post\" action=\"" . n2link("file=usercp&amp;do=signature") . "\" onsubmit=\"Message.closeAll();\">
   {$SESSION_INPUT}
 
-  <script type=\"text/javascript\" src=\"./scripts/Message.js.php\"></script>
-  <script type=\"text/javascript\" src=\"./scripts/Message.js\"></script>
+  <script type=\"text/javascript\" src=\"".HOME."scripts/Message.js.php\"></script>
+  <script type=\"text/javascript\" src=\"".HOME."scripts/Message.js\"></script>
 
   <div class=\"marCenter smallMarTop smallMarBot alt1\"><div class=\"cont\">
     <h3 class=\"cat border\">{$lang[user_cp_sig]}</h3>
@@ -10998,7 +10702,7 @@ display: block;
                 {$lang[user_whosOnline_members]}: {$members} | {$lang[user_whosOnline_guests]}: {$guests} | {$lang[user_whosOnline_robots]}: {$robots}
             </p>
 
-            <form method="get" action="./index.php" class="floatRight">
+            <form method="get" action="<n2link(./index.php)>" class="floatRight">
                 <input type="hidden" name="file" value="online" />
                 $SESSION_INPUT
                 {$lang[user_whosOnline_display]}
@@ -11042,7 +10746,7 @@ display: block;
                 {$lang[user_whosOnline_members]}: {$members} | {$lang[user_whosOnline_guests]}: {$guests} | {$lang[user_whosOnline_robots]}: {$robots}
             </p>
 
-            <form method=\"get\" action=\"./index.php\" class=\"floatRight\">
+            <form method=\"get\" action=\"" . n2link("./index.php") . "\" class=\"floatRight\">
                 <input type=\"hidden\" name=\"file\" value=\"online\" />
                 $SESSION_INPUT
                 {$lang[user_whosOnline_display]}
@@ -11069,7 +10773,7 @@ display: block;
 <template><![CDATA[<tr>
     <td class="alt1">
         <if($userObj->info['userid'])>
-            <a href="./index.php?file=profile&amp;u={$userObj->info[userid]}{$SESSURL}">{$userObj->getHTMLName()}</a>
+            <a href="<n2link(file=profile&amp;u={$userObj->info[userid]}{$SESSURL})>">{$userObj->getHTMLName()}</a>
         <else />
             {$userObj->getHTMLName()}
         </if>
@@ -11093,7 +10797,7 @@ display: block;
 <templatephp><![CDATA[<tr>
     <td class=\"alt1\">
         " . (($userObj->info['userid']) ? ("
-            <a href=\"./index.php?file=profile&amp;u={$userObj->info[userid]}{$SESSURL}\">{$userObj->getHTMLName()}</a>
+            <a href=\"" . n2link("file=profile&amp;u={$userObj->info[userid]}{$SESSURL}") . "\">{$userObj->getHTMLName()}</a>
         ") : ("
             {$userObj->getHTMLName()}
         ")) . "

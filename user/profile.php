@@ -27,13 +27,170 @@
 ## ************************************************** ##
 // ************************************************** \\
 
-if($_GET['do'] == 'poll') {
+if($_GET['do'] == 'restorereputation') {
 	define('AREA', 'USER-PROFILE');
 	require_once('./includes/sessions.php');
 
-	// this just gets the number of posts (so we can do a limit)
-	$allReps = new Query($query['posts']['get_all_thread'], Array(1 => $_GET['t'], $showDeleted));
+	// get the post and the thread
+	$Reputation = new Reputation($_GET['p']);
+
+	// can only do this if they can view deletion notices
+	if(!$User->check('canViewDelNotices')) {
+		new WtcBBException('perm');
+	}
+
+	// not deleted?
+	if(!$Reputation->isDeleted()) {
+		new WtcBBException($lang['error_forum_postNotDel']);
+	}
+
+	// alright... restore it
+	$Reputation->restore();
+
+	new WtcBBThanks($lang['thanks_restoredPost']);
+}
+
+// post deletion
+else if($_GET['do'] == 'deletereputation') {
+	define('AREA', 'USER-PROFILE');
+	require_once('./includes/sessions.php');
+
+	// can only do this if they can view deletion notices
+	if(!$User->check('canViewDelNotices')) {
+		new WtcBBException('perm');
+	}
+
+	// no selection?
+	if(!is_array($_GET['p']) OR !count($_GET['p'])) {
+		new WtcBBException($lang['error_noSelection']);
+	}
+
+	// get all the posts
+	$reputations = new Query($query['reputations']['get_manyById'], Array(1 => implode(',', $_GET['p'])));
+
+	if(!$reputations->numRows()) {
+		new WtcBBException($lang['error_noSelection']);
+	}
+
+
+	// now iterate
+	while($reputation = $reputations->fetchArray()) {
+		// create new object
+		$reputationObj = new Reputation('', $reputation);
+
+		// delete!
+		$reputationObj->softDelete();
+	}
+
+	// thanks
+	new WtcBBThanks($lang['thanks_postsDeleted'], './index.php?file=profile&amp;do=reputation&amp;u=' . 1 . $SESSURL);
+}
+else if($_GET['do'] == 'reputation') {
+	define('AREA', 'USER-PROFILE');
+	require_once('./includes/sessions.php');
+
+	// Who?	
+	$Member = new User($_GET['u']);
+	/**
+	 * @todo Enable this feature some day
+	 * Currently disabled because it would rely on forum id...
+	 */
+	$showDeleted = 1;
+	
+//..
+	// this just gets the number of reputations (so we can do a limit)
+	$allReps = new Query($query['reputations']['get_all_member'], Array(1 => $Member->info['userid'], $showDeleted));
 	$allReps = $wtcDB->fetchArray($allReps);
+//..
+	// get our page number
+	if($_GET['page'] <= 0 OR !is_numeric($_GET['page'])) {
+		$page = 1;
+	}
+
+	else {
+		$page = $_GET['page'];
+	}
+
+	// now get our start and end...
+	$start = $bboptions['postsPerPage'] * ($page - 1);
+	$perPage = $bboptions['postsPerPage'];
+
+	// now build our posts
+	$orderBy = 'rep_timeline';
+	$postBits = ''; $whoBits = '';
+	$ALT = 1;
+	$rep = Array();
+
+	$displayReps = new Query($query['reputations']['get_display_reputation'], Array(
+																	1 => $Member->info['userid'],
+																	2 => $showDeleted,
+																	3 => $orderBy,
+																	4 => 'DESC',
+																	5 => $start,
+																	6 => $perPage
+																));
+//..
+	$rep = $wtcDB->fetchArray($displayReps);
+	$MessageParser = new Message();
+
+//..
+	do {
+		// get our post and user
+		$rep = new Reputation('', $rep);
+		$repUser = new User('', '', $rep->getInfo());
+
+		// get dates
+		$joined = new WtcDate('date', $repUser->info['joined']);
+		$timeline = new WtcDate('dateTime', $rep->getTimeline());
+		$editedTime = ''; $signature = '';
+//..
+		$MessageParser->autoOptions($repUser, $rep);
+		$message = $MessageParser->parse($rep->getMessage(), $rep->getReputationGiverName());
+
+//..
+		// online or offline
+		if($repUser->info['isOnline']) {
+			$temp = new StyleFragment('status_online');
+		}
+
+		else {
+			$temp = new StyleFragment('status_offline');
+		}
+
+		$status = $temp->dump();
+//..
+		// user ranks?
+		$ranks = $repUser->getUserRank();
+//..
+		$temp = new StyleFragment('reputationdisplay_bit');
+		$repBits .= $temp->dump();
+//..
+		if($ALT === 1) {
+			$ALT = 2;
+		}
+
+		else {
+			$ALT = 1;
+		}
+//..
+	} while($rep = $wtcDB->fetchArray($displayReps));
+//..
+	// create page numbers
+	$pages = new PageNumbers($page, $allReps['total'], $bboptions['postsPerPage']);
+//..
+	// create navigation
+	$Nav = new Navigation(Array(
+							'Reputation Nav' => ''
+						), 'forum');
+
+//..
+	$header = new StyleFragment('header');
+	$content = new StyleFragment('reputationdisplay');
+	$footer = new StyleFragment('footer');
+
+	$header->output();
+	$content->output();
+	$footer->output();
 }
 else {
 	// Define AREA

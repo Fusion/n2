@@ -42,6 +42,8 @@ define('NOW', time());
  * Attempt to disable magic_quotes
  */
 set_magic_quotes_runtime(0);
+require_once('./includes/nbbs_error_reporter.php');
+set_error_handler("displayErrorScreen");
 
 /**
  * Set error reporting
@@ -68,6 +70,7 @@ define('AMONTH', ADAY * 31);
 define('AYEAR', ADAY * 365);
 define('FAQ_LANG_CAT', 119);
 define('HOME', str_replace('admin.php', '', $_SERVER['PHP_SELF']));
+define('SEO', $seo);
 define('SCRIPT_HOME', str_replace('admin.php', '', $_SERVER['PATH_TRANSLATED']));
 
 /**

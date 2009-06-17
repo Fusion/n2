@@ -49,6 +49,7 @@ $styleLocations = Array(
 						'admin.php?file=style&amp;do=addTemplate&amp;s=!@#$%' => $lang['admin_style_addTemplate'],
 						'admin.php?file=style&amp;do=add&amp;s=!@#$%' => $lang['admin_style_addChild'],
 						'admin.php?file=style&amp;do=export&amp;s=!@#$%' => $lang['admin_style_man_export'],
+						'admin.php?file=style&amp;fixphp=!@#$%' => $lang['admin_style_man_fixPHP'],						
 						'admin.php?file=style&amp;delete=!@#$%' => $lang['admin_delete']
 				);
 
@@ -364,6 +365,14 @@ else if($_GET['do'] == 'addGroup' OR isset($_GET['editGroup'])) {
 	new AdminHTML('tableEnd', '', true);
 
 	new AdminHTML('footer', '', true);
+}
+
+// re-create all PHP Code
+else if(isset($_GET['fixphp'])) {
+	new Confirm(
+		'',
+		create_function('', 'return fixPHP();'),
+		'admin.php?file=style');
 }
 
 // edit template in window
@@ -1686,5 +1695,32 @@ else {
 	new AdminHTML('footer', '', true, Array('form' => true));
 }
 
+// This function will read a template's complete fragment database and re-generate the PHP version of each fragment
+// TODO: OK this is weird but it seems that there isn't much styleid management happening here...all fragments are considered
+// parts of all styles. Maybe I do not understand styles yet...
+function fixPHP()
+{
+global $lang, $query, $wtcDB;
+
+	if(empty($_GET['fixphp']))
+		new WtcBBException($lang['admin_error_notEnoughInfo']);
+	$templateid = $_GET['fixphp'];
+	
+	$search = new Query($query['styles_fragments']['get_all_ids'], array(1 => 'template'));
+	
+	// nuttin!
+	if(!$wtcDB->numRows($search)) {
+		new WtcBBException($lang['admin_error_noResults']);
+	}
+
+	// alrighty... loop through and put results into array
+	while($result = $wtcDB->fetchArray($search)) {
+		$fragmentObj = new StyleFragment($result['fragmentid']);
+		$updateData = array('template_php' => StyleFragment::parseTemplate($fragmentObj->getFragment()));
+		$fragmentObj->update($updateData);
+	}
+	
+	return true;
+}
 
 ?>

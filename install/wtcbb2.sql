@@ -3029,6 +3029,7 @@ CREATE TABLE `moderators` (
   `canEditPosts` tinyint(1) default NULL,
   `canEditThreads` tinyint(1) default NULL,
   `canEditPolls` tinyint(1) default NULL,
+  `canEditReputations` tinyint(1) default NULL,  
   `canDelete` tinyint(1) default NULL,
   `canPermDelete` tinyint(1) default NULL,
   `canOpenClose` tinyint(1) default NULL,
@@ -3253,6 +3254,34 @@ CREATE TABLE `posts` (
 -- 
 
 INSERT INTO `posts` (`postid`, `threadid`, `forumid`, `postby`, `postUsername`, `message`, `title`, `ip_address`, `posts_timeline`, `posticon`, `deleted`, `edited_by`, `edited_timeline`, `edited_reason`, `sig`, `smilies`, `bbcode`, `defBBCode`, `edited_show`) VALUES (1, 1, 2, 0, 'Chris Ravenscroft', 'Hello,\r\n\r\nThank you for trying out [i]n2[/i].\r\n\r\nPlease report any issue at [url=http://nextbbs.com]http://nextbbs.com[/url]\r\n\r\n-Chris.', 'Successful Installation!', '192.168.1.1', 1242605371, '', 0, '', 0, NULL, 1, 1, 1, 0, 1);
+
+-- --------------------------------------------------------
+
+-- 
+-- Table structure for table `reputations`
+-- 
+
+CREATE TABLE `reputations` (
+  `repid` mediumint(8) unsigned NOT NULL auto_increment,
+  `userid` mediumint(8) unsigned NOT NULL default '0',
+  `repby` mediumint(8) unsigned NOT NULL default '0',
+  `repUsername` varchar(255) default NULL,
+  `message` mediumtext,
+  `up` tinyint(1) default 1,
+  `ip_address` varchar(255) default NULL,
+  `rep_timeline` int(11) default NULL,
+  `deleted` tinyint(1) default NULL,
+  `edited_by` varchar(255) default NULL,
+  `edited_timeline` int(11) default NULL,
+  `edited_reason` varchar(255) default NULL,
+  primary key(`repid`),
+  key `repby` (`repby`),
+  key `deleted` (`deleted`)
+);
+
+-- 
+-- Dumping data for table `reputations`
+-- 
 
 -- --------------------------------------------------------
 

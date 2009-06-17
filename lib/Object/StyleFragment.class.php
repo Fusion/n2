@@ -150,10 +150,8 @@ class StyleFragment extends Object {
 		
 		// and what about 'em links?
 		$template = preg_replace_callback(
-			'/<n2link\((.*)\)>/',
-			create_function(
-				'$matches',
-				'return n2link($matches[0]);'),
+			'/<n2link\((.*?)\)>/',
+			array(self, 'getN2Code'),
 			$template);
 		$template = str_replace(
 			'<home>',
@@ -161,6 +159,11 @@ class StyleFragment extends Object {
 			$template);
 			
 		return $template;
+	}
+	
+	private function getN2Code($matches)
+	{
+		return '" . n2link("' . $matches[1] . '") . "';
 	}
 
 	// Accessors
@@ -225,6 +228,8 @@ class StyleFragment extends Object {
 
 		// get the template...
 		if($this->type == 'template') {
+			// Use this code to debug fragments
+			//static $ctr = 0;if($ctr>2){print($this->getFragmentPHP())."\n\n\n";}$ctr++;
 			eval('$retval = "' . $this->getFragmentPHP() . '";');
 			$retval = str_replace("\'", "'", $retval); // i guess i did it for a reason
 			//$retval = stripslashes($retval); // why did i do this in the first place? o_0

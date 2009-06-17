@@ -1,0 +1,17 @@
+IDs:
+----
+
+Max fragment id:
+340 ("postbit_downvote")
+
+* New image fragment:
+
+<fragment fragmentid="[nid]" styleid="0" groupid="5454" fragmentName="postbit_report" fragmentVarName="[name]" fragmentType="imageName" defaultid="0" disOrder="0">
+<template><![CDATA[postbit_report.gif]]></template>
+<templatephp><![CDATA[postbit_report.gif]]></templatephp>
+</fragment>
+
+* Add new image:
+1. Create fragment (cf. above)
+2. Add translation in all languagex_admin.php for admin cp
+3. Add to includes/global.php IMAGES =

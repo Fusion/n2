@@ -47,6 +47,8 @@ set_magic_quotes_runtime(0);
  * Set error reporting
  */
 error_reporting(E_ALL ^ E_NOTICE);
+require_once('./includes/nbbs_error_reporter.php');
+set_error_handler("displayErrorScreen");
 
 /**
  * Require Necessary Files

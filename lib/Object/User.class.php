@@ -332,7 +332,7 @@ class User extends Object {
 	}
 
 	// checks a mod permission... just pass forum id
-	public function modAction($perm, $forumid) {
+	public function modAction($perm, $forumid = 0) {
 		global $moderators;
 
 		// not a moderator? o_0

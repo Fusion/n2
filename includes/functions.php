@@ -238,9 +238,13 @@ function n2link($text, $removeHead = false) {
 				array('/', '/'),
 				$text);
 	}
-	else
+	else if(!ADMIN)
 	{
 		return '?'.$text;
+	}
+	else
+	{
+		return $text;
 	}
 }
 

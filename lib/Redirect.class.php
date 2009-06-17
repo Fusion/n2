@@ -44,7 +44,6 @@ class Redirect {
 			$this->goto = n2link(str_replace('&', '&amp;', $this->goto), true);
 		// make sure to remove ampersands...
 		$this->goto = str_replace('&amp;', '&', $this->goto);
-		
 		$this->newLocation();
 	}
 	
