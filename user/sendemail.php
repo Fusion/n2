@@ -35,8 +35,13 @@ require_once('./includes/sessions.php');
 // no error yet!
 $error = '';
 
+// report reputation
+if($_GET['do'] == 'reportreputation') {
+	// TODO!!!
+}
+
 // report post
-if($_GET['do'] == 'report') {
+else if($_GET['do'] == 'report') {
 	// get the post...
 	$Post = new Post($_GET['p']);
 

@@ -159,7 +159,7 @@ if($_GET['step'] == 1) {
 			$wtcDB->query($query);
 		}
 
-		new Redirect('step=2');
+		new Redirect('./install.php?step=2');
 	}
 
 	new AdminHTML('header', $lang['install_step1'], true);
@@ -282,7 +282,7 @@ else if($_GET['step'] == 2) {
 														2 => 19
 													), 'unbuffered');
 
-		new Redirect('step=3');
+		new Redirect('./install.php?step=3');
 	}
 
 	new AdminHTML('header', $lang['install_step2'], true);
@@ -418,7 +418,7 @@ else if($_GET['step'] == 3) {
 			new Cache(substr($file->getFilename(), 0, strpos($file->getFilename(), '.')));
 		}
 
-		new Redirect('step=4');
+		new Redirect('./install.php?step=4');
 	}
 
 	new AdminHTML('header', $lang['install_step3'], true);

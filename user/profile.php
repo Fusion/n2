@@ -91,17 +91,16 @@ else if($_GET['do'] == 'reputation') {
 
 	// Who?	
 	$Member = new User($_GET['u']);
-	/**
-	 * @todo Enable this feature some day
-	 * Currently disabled because it would rely on forum id...
-	 */
 	$showDeleted = 1;
+	// should we show deleted?
+	if($User->check('canViewDelNotices')) {
+		$showDeleted = 2; // kind of a hack
+	}	
 	
-//..
 	// this just gets the number of reputations (so we can do a limit)
 	$allReps = new Query($query['reputations']['get_all_member'], Array(1 => $Member->info['userid'], $showDeleted));
 	$allReps = $wtcDB->fetchArray($allReps);
-//..
+
 	// get our page number
 	if($_GET['page'] <= 0 OR !is_numeric($_GET['page'])) {
 		$page = 1;
@@ -121,6 +120,9 @@ else if($_GET['do'] == 'reputation') {
 	$ALT = 1;
 	$rep = Array();
 
+	$MessageParser = new Message();
+	$toolBar = Message::buildLiteToolBar();
+		
 	$displayReps = new Query($query['reputations']['get_display_reputation'], Array(
 																	1 => $Member->info['userid'],
 																	2 => $showDeleted,
@@ -129,61 +131,57 @@ else if($_GET['do'] == 'reputation') {
 																	5 => $start,
 																	6 => $perPage
 																));
-//..
 	$rep = $wtcDB->fetchArray($displayReps);
-	$MessageParser = new Message();
+	if($rep)
+	{
+		do {
+			// get our post and user
+			$rep = new Reputation('', $rep);
+			$repUser = new User('', '', $rep->getInfo());
+	
+			// get dates
+			$joined = new WtcDate('date', $repUser->info['joined']);
+			$timeline = new WtcDate('dateTime', $rep->getTimeline());
+			$editedTime = ''; $signature = '';
+	
+			$MessageParser->autoOptions($repUser, $rep);
+			$message = $MessageParser->parse($rep->getMessage(), $rep->getReputationGiverName());
+	
+			// online or offline
+			if($repUser->info['isOnline']) {
+				$temp = new StyleFragment('status_online');
+			}
+	
+			else {
+				$temp = new StyleFragment('status_offline');
+			}
+	
+			$status = $temp->dump();
+	
+			// user ranks?
+			$ranks = $repUser->getUserRank();
+	
+			$temp = new StyleFragment('reputationdisplay_bit');
+			$repBits .= $temp->dump();
+	
+			if($ALT === 1) {
+				$ALT = 2;
+			}
+	
+			else {
+				$ALT = 1;
+			}
+		} while($rep = $wtcDB->fetchArray($displayReps));	
+	}
 
-//..
-	do {
-		// get our post and user
-		$rep = new Reputation('', $rep);
-		$repUser = new User('', '', $rep->getInfo());
-
-		// get dates
-		$joined = new WtcDate('date', $repUser->info['joined']);
-		$timeline = new WtcDate('dateTime', $rep->getTimeline());
-		$editedTime = ''; $signature = '';
-//..
-		$MessageParser->autoOptions($repUser, $rep);
-		$message = $MessageParser->parse($rep->getMessage(), $rep->getReputationGiverName());
-
-//..
-		// online or offline
-		if($repUser->info['isOnline']) {
-			$temp = new StyleFragment('status_online');
-		}
-
-		else {
-			$temp = new StyleFragment('status_offline');
-		}
-
-		$status = $temp->dump();
-//..
-		// user ranks?
-		$ranks = $repUser->getUserRank();
-//..
-		$temp = new StyleFragment('reputationdisplay_bit');
-		$repBits .= $temp->dump();
-//..
-		if($ALT === 1) {
-			$ALT = 2;
-		}
-
-		else {
-			$ALT = 1;
-		}
-//..
-	} while($rep = $wtcDB->fetchArray($displayReps));
-//..
 	// create page numbers
 	$pages = new PageNumbers($page, $allReps['total'], $bboptions['postsPerPage']);
-//..
+
 	// create navigation
 	$Nav = new Navigation(Array(
 							'Reputation Nav' => ''
 						), 'forum');
 
-//..
 	$header = new StyleFragment('header');
 	$content = new StyleFragment('reputationdisplay');
 	$footer = new StyleFragment('footer');

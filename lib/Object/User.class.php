@@ -190,6 +190,16 @@ class User extends Object {
 		Admin::addDelAdmins();
 	}
 
+	// A guest?
+	public function isGuest() {
+		return (0 == $this->info['userid']);
+	}
+	
+	// Or a member?
+	public function isMember() {
+		return (!$this->isGuest());
+	}
+	
 	// Accessors
 	// whether admin or not...
 	public function isAdmin() {
