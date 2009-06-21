@@ -148,11 +148,11 @@ class Reputation extends Object {
 	}
 
 	public function showSmilies() {
-		return false;
+		return true;
 	}
 
 	public function showBBCode() {
-		return false;
+		return true;
 	}
 
 

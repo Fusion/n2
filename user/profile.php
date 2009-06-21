@@ -134,6 +134,13 @@ else if($_GET['do'] == 'reputation') {
 
 	$MessageParser = new Message();
 	$toolBar = Message::buildLiteToolBar();
+	
+	// Are we rating a post?
+	if($_GET['p'])
+	{
+		$post = new Post($_GET['p']);
+		$_POST['message'] = "In reference to: [url=" . n2link('file=post&p='.$post->getPostId()) ."]".$post->getTitle().":[/url]\n\n";
+	}
 		
 	$displayReps = new Query($query['reputations']['get_display_reputation'], Array(
 																	1 => $Member->info['userid'],
