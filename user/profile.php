@@ -47,6 +47,10 @@ if($_GET['do'] == 'restorereputation') {
 	// alright... restore it
 	$Reputation->restore();
 
+	// Update grand total	
+	$member = new User($Reputation->getUserId());
+	$member->computeReputation();
+
 	new WtcBBThanks($lang['thanks_restoredPost']);
 }
 
@@ -72,15 +76,23 @@ else if($_GET['do'] == 'deletereputation') {
 		new WtcBBException($lang['error_noSelection']);
 	}
 
-
+	$userid = 0;
+	
 	// now iterate
 	while($reputation = $reputations->fetchArray()) {
 		// create new object
 		$reputationObj = new Reputation('', $reputation);
 
+		if(!$userid)
+			$userid = $reputationObj->getUserId();
+
 		// delete!
 		$reputationObj->softDelete();
 	}
+
+	// Update grand total	
+	$member = new User($userid);
+	$member->computeReputation();
 
 	// thanks
 	new WtcBBThanks($lang['thanks_postsDeleted'], './index.php?file=profile&amp;do=reputation&amp;u=' . 1 . $SESSURL);
@@ -178,9 +190,12 @@ else if($_GET['do'] == 'reputation') {
 	$pages = new PageNumbers($page, $allReps['total'], $bboptions['postsPerPage']);
 
 	// create navigation
-	$Nav = new Navigation(Array(
-							'Reputation Nav' => ''
-						), 'forum');
+	$Nav = new Navigation(
+				Array(
+					$lang['user_profile_profile'] => './index.php?file=profile&amp;u=' . $Member->info['userid'],
+					$lang['reputation_title'] => ''
+				)
+			);
 
 	$header = new StyleFragment('header');
 	$content = new StyleFragment('reputationdisplay');

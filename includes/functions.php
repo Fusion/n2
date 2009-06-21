@@ -224,6 +224,7 @@ function n2urlize($text) {
 
 /**
  * Take a regular link and seoize it if necessary
+ * B@todo Check pageNumbers when SEO is on
  */
 function n2link($text, $removeHead = false) {
 	if($removeHead)
@@ -240,6 +241,9 @@ function n2link($text, $removeHead = false) {
 	}
 	else if(!ADMIN)
 	{
+		if($text{0} == '/')
+			return $text;
+			
 		return '?'.$text;
 	}
 	else

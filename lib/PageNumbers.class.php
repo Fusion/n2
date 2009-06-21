@@ -162,11 +162,11 @@ class PageNumbers {
 
 		if(ADMIN) {
 			if($this->buttons) {
-				$retval = '<input type="button" class="button" value="' . $pageNum . '" onclick="window.location=\'' . $this->url . '&amp;page=' . $pageNum . '\';" /> ';
+				$retval = '<input type="button" class="button" value="' . $pageNum . '" onclick="window.location=\'' . n2link($this->url . '&amp;page=' . $pageNum) . '\';" /> ';
 			}
 
 			else {
-				$retval = '<a href="' . $this->url . '&amp;page=' . $pageNum . '">' . $pageNum . '</a> ';
+				$retval = '<a href="' . n2link($this->url . '&amp;page=' . $pageNum . '">' . $pageNum) . '</a> ';
 			}
 		}
 
@@ -207,11 +207,11 @@ class PageNumbers {
 
 		if(ADMIN) {
 			if($this->buttons) {
-				$retval = '<input type="button" class="button" value="&laquo;" onclick="window.location=\'' . $this->url . '&amp;page=1\';" /> ';
+				$retval = '<input type="button" class="button" value="&laquo;" onclick="window.location=\'' . n2link($this->url . '&amp;page=1') . '\';" /> ';
 			}
 
 			else {
-				$retval = '<a href="' . $this->url . '&amp;page=1">&laquo;</a> ';
+				$retval = '<a href="' . n2link($this->url . '&amp;page=1') . '">&laquo;</a> ';
 			}
 		}
 
@@ -229,11 +229,11 @@ class PageNumbers {
 
 		if(ADMIN) {
 			if($this->buttons) {
-				$retval = '<input type="button" class="button" value="&raquo;" onclick="window.location=\'' . $this->url . '&amp;page=' . $this->pages . '\';" />';
+				$retval = '<input type="button" class="button" value="&raquo;" onclick="window.location=\'' . n2link($this->url . '&amp;page=' . $this->pages) . '\';" />';
 			}
 
 			else {
-				$retval = '<a href="' . $this->url . '&amp;page=' . $this->pages . '">&raquo;</a>';
+				$retval = '<a href="' . n2link($this->url . '&amp;page=' . $this->pages) . '">&raquo;</a>';
 			}
 		}
 
@@ -252,11 +252,11 @@ class PageNumbers {
 
 		if(ADMIN) {
 			if($this->buttons) {
-				$retval = '<input type="button" class="button" value="&lt;" onclick="window.location=\'' . $this->url . '&amp;page=' . ($this->curr - 1) . '\';" /> ';
+				$retval = '<input type="button" class="button" value="&lt;" onclick="window.location=\'' . n2link($this->url . '&amp;page=' . ($this->curr - 1)) . '\';" /> ';
 			}
 
 			else {
-				$retval = '<a href="' . $this->url . '&amp;page=' . ($this->curr - 1) . '">&lt;</a> ';
+				$retval = '<a href="' . n2link($this->url . '&amp;page=' . ($this->curr - 1)) . '">&lt;</a> ';
 			}
 		}
 
@@ -275,11 +275,11 @@ class PageNumbers {
 
 		if(ADMIN) {
 			if($this->buttons) {
-				$retval = '<input type="button" class="button" value="&gt;" onclick="window.location=\'' . $this->url . '&amp;page=' . ($this->curr + 1) . '\';" /> ';
+				$retval = '<input type="button" class="button" value="&gt;" onclick="window.location=\'' . n2link($this->url . '&amp;page=' . ($this->curr + 1)) . '\';" /> ';
 			}
 
 			else {
-				$retval = '<a href="' . $this->url . '&amp;page=' . ($this->curr + 1) . '">&gt;</a> ';
+				$retval = '<a href="' . n2link($this->url . '&amp;page=' . ($this->curr + 1)) . '">&gt;</a> ';
 			}
 		}
 

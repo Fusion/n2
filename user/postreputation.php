@@ -37,7 +37,7 @@ $reputed_id = $_GET['u'];
 
 // make sure user exists
 if(!User::exists($reputed_id)) {
-	new WtcBBException($lang['error_forum_invalidForum']);
+	new WtcBBException($lang['error_userDoesNotExist']);
 }
 
 $error = ''; // sanity check
@@ -106,8 +106,11 @@ if($_POST) {
 
 			// now insert the reputation
 			$repid = Reputation::insert($insert);
+			// and now update the user's reputation grand total
+			$member = new User($reputed_id);
+			$member->computeReputation();
 
-			new WtcBBThanks($lang['thanks_postReply'], './index.php?file=profile&amp;do=reputation&amp;u=' . $reputed_id . $SESSURL);
+			new WtcBBThanks($lang['thanks_postReputation'], './index.php?file=profile&amp;do=reputation&amp;u=' . $reputed_id . $SESSURL);
 		}
 	}
 }
@@ -120,13 +123,13 @@ if($_POST) {
 $toolBar = Message::buildLiteToolBar();
 
 // create navigation
-$Nav = new Navigation(
-			Array(
-				'Reputation NEW' => './index.php?file=profile&amp;do=reputation&u=' . $reputed_id,
-				$lang['user_thread_postReply'] => ''
-			),
-			'forum'
-		);
+	$Nav = new Navigation(
+				Array(
+					$lang['user_profile_profile'] => './index.php?file=profile&amp;u=' . $Member->info['userid'],
+					$lang['reputation_title'] => './index.php?file=profile&amp;do=reputation&u=' . $reputed_id,
+					$lang['reputation_adjust'] => ''
+				)
+			);
 
 $header = new StyleFragment('header');
 $content = new StyleFragment('profile_postreputation');

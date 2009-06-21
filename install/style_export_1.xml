@@ -485,7 +485,7 @@ input.text, textarea {
       " . (($post->getStarterId()) ? ("
         <p class=\"small smallMarTop\">Posts: {$postUser->info[posts]}</p>
         <p class=\"small\">Joined: {$joined->getDate()}</p>
-        <p class=\"small\">Reputation: <a href=\"" . n2link("file=profile&amp;do=reputation&amp;u={$postUser->info[userid]}{$SESSURL}") . "\">{$postUser->info[reputation]}</a> [<a href=\"" . n2link("file=profile&amp;do=reputation&amp;act=up&amp;u={$postUser->info[userid]}{$SESSURL}") . "\">+</a>|<a href=\"" . n2link("file=profile&amp;do=reputation&amp;act=down&amp;u={$postUser->info[userid]}{$SESSURL}") . "\">-</a>]</p>
+        <p class=\"small\">Reputation: <a href=\"" . n2link("file=profile&amp;do=reputation&amp;u={$postUser->info[userid]}{$SESSURL}") . "\">{$postUser->info[reputation]}</a> [<a href=\"" . n2link("file=profile&amp;do=reputation&amp;u={$postUser->info[userid]}{$SESSURL}#updownvote") . "\"><img src=\"{$VISUALS[images]}/{$IMAGES[postbit_updownvote]}\" /></a>]</p>
       ") : ("")) . "
     </td>
 
@@ -5581,7 +5581,7 @@ Avatar 3
 <templatephp><![CDATA[postbit_upvote_action.png]]></templatephp>
 </fragment>
 
-<fragment fragmentid="288" styleid="0" groupid="269" fragmentName="" fragmentVarName="profile" fragmentType="template" defaultid="0" disOrder="0">
+<fragment fragmentid="288" styleid="0" groupid="269" fragmentName="profile" fragmentVarName="profile" fragmentType="template" defaultid="0" disOrder="0">
 <template><![CDATA[<div class="clear marCenter">
  <div class="floatLeft" style="width: 48%;">
   <table cellspacing="{$VISUALS[inBorderWidth]}" cellpadding="0" class="fullWidth">
@@ -5661,13 +5661,20 @@ Avatar 3
     </tr>
 
     <tr class="alt2">
+        <td><strong>{$lang[user_profile_reputation]}</strong></td>
+        <td>
+          <a href="<n2link(file=profile&amp;do=reputation&amp;u={$Member->info[userid]}{$SESSURL})>">{$Member->info[reputation]}</a> [<a href="<n2link(file=profile&amp;do=reputation&amp;u={$Member->info[userid]}{$SESSURL}#updownvote)>"><img src="{$VISUALS[images]}/{$IMAGES[postbit_updownvote]}" /></a>]
+        </td>
+    </tr>
+
+    <tr class="alt1">
         <td><strong>{$lang[user_profile_threads]}</strong></td>
         <td>
           {$Member->info[threads]}
         </td>
     </tr>
 
-    <tr class="alt1">
+    <tr class="alt2">
         <td><strong>{$lang[user_profile_posts]}</strong></td>
         <td>
           {$Member->info[posts]}
@@ -5759,13 +5766,20 @@ Avatar 3
     </tr>
 
     <tr class=\"alt2\">
+        <td><strong>{$lang[user_profile_reputation]}</strong></td>
+        <td>
+          <a href=\"" . n2link("file=profile&amp;do=reputation&amp;u={$Member->info[userid]}{$SESSURL}") . "\">{$Member->info[reputation]}</a> [<a href=\"" . n2link("file=profile&amp;do=reputation&amp;u={$Member->info[userid]}{$SESSURL}#updownvote") . "\"><img src=\"{$VISUALS[images]}/{$IMAGES[postbit_updownvote]}\" /></a>]
+        </td>
+    </tr>
+
+    <tr class=\"alt1\">
         <td><strong>{$lang[user_profile_threads]}</strong></td>
         <td>
           {$Member->info[threads]}
         </td>
     </tr>
 
-    <tr class=\"alt1\">
+    <tr class=\"alt2\">
         <td><strong>{$lang[user_profile_posts]}</strong></td>
         <td>
           {$Member->info[posts]}
@@ -5920,7 +5934,7 @@ Avatar 3
 <fragment fragmentid="337" styleid="0" groupid="269" fragmentName="reputationdisplay" fragmentVarName="reputationdisplay" fragmentType="template" defaultid="0" disOrder="0">
 <template><![CDATA[<div class="marCenter smallMarTop smallMarBot"><div class="cont">
   <div class="headFoot border clear">
-    <h3 class="left floatLeft tinyMarTop">Reputation Name</h3>
+    <h3 class="left floatLeft tinyMarTop">{$lang[reputation_heading]} {$Member->getHTMLName()}</h3>
   </div>
 </div></div>
 
@@ -5931,9 +5945,9 @@ Avatar 3
 
 </script>
 <script type="text/javascript" src="./scripts/Ajax.js"></script>
-<script type="text/javascript" src="./scripts/Thread.js"></script>
+<script type="text/javascript" src="./scripts/Reputations.js"></script>
 
-<div id="threadDisplay" class="noMar">
+<div id="reputationsDisplay" class="noMar">
   $repBits
 </div>
 
@@ -5948,6 +5962,7 @@ Avatar 3
 </div>
 
 <if(!$User->isGuest())>
+  <a name="updownvote"></a>
   <form method="post" action="<n2link(file=postreputation&amp;u={$Member->info[userid]})>" onsubmit="Message.closeAll();">
     {$SESSION_INPUT}
 
@@ -5958,7 +5973,7 @@ Avatar 3
 
     <div class="marCenter smallMarTop smallMarBot alt1"><div class="cont">
       <div class="cat border clear">
-        <p class="floatLeft">{$lang[user_thread_quickReply]}</p>
+        <p class="floatLeft">{$lang[reputation_adjust]}</p>
         <div class="floatRight">
           <img src="{$VISUALS[images]}/{$IMAGES[collapse]}" alt="Collapse" id="quickReply_img" class="exCol_click_quickReply" />
         </div>
@@ -5984,7 +5999,7 @@ Avatar 3
 </if>]]></template>
 <templatephp><![CDATA[<div class=\"marCenter smallMarTop smallMarBot\"><div class=\"cont\">
   <div class=\"headFoot border clear\">
-    <h3 class=\"left floatLeft tinyMarTop\">Reputation Name</h3>
+    <h3 class=\"left floatLeft tinyMarTop\">{$lang[reputation_heading]} {$Member->getHTMLName()}</h3>
   </div>
 </div></div>
 
@@ -5995,9 +6010,9 @@ Avatar 3
 
 </script>
 <script type=\"text/javascript\" src=\"./scripts/Ajax.js\"></script>
-<script type=\"text/javascript\" src=\"./scripts/Thread.js\"></script>
+<script type=\"text/javascript\" src=\"./scripts/Reputations.js\"></script>
 
-<div id=\"threadDisplay\" class=\"noMar\">
+<div id=\"reputationsDisplay\" class=\"noMar\">
   $repBits
 </div>
 
@@ -6012,6 +6027,7 @@ Avatar 3
 </div>
 
 " . ((!$User->isGuest()) ? ("
+  <a name=\"updownvote\"></a>
   <form method=\"post\" action=\"" . n2link("file=postreputation&amp;u={$Member->info[userid]}") . "\" onsubmit=\"Message.closeAll();\">
     {$SESSION_INPUT}
 
@@ -6022,7 +6038,7 @@ Avatar 3
 
     <div class=\"marCenter smallMarTop smallMarBot alt1\"><div class=\"cont\">
       <div class=\"cat border clear\">
-        <p class=\"floatLeft\">{$lang[user_thread_quickReply]}</p>
+        <p class=\"floatLeft\">{$lang[reputation_adjust]}</p>
         <div class=\"floatRight\">
           <img src=\"{$VISUALS[images]}/{$IMAGES[collapse]}\" alt=\"Collapse\" id=\"quickReply_img\" class=\"exCol_click_quickReply\" />
         </div>
@@ -6213,7 +6229,7 @@ Avatar 3
       " . (($rep->getReputationGiverId()) ? ("
         <p class=\"small smallMarTop noMarBot\">Posts: {$repUser->info[posts]}</p>
         <p class=\"small noMarTop noMarBot\">Joined: {$joined->getDate()}</p>
-                <p class=\"small noMarTop\">Reputation: <a href=\"" . n2link("file=profile&amp;do=reputation&amp;u={$repUser->info[userid]}{$SESSURL}") . "\">{$repUser->info[reputation]}</a> [<a href=\"" . n2link("file=profile&amp;do=reputation&amp;act=up&amp;u={$repUser->info[userid]}{$SESSURL}") . "\">+</a>|<a href=\"" . n2link("file=profile&amp;do=reputation&amp;act=down&amp;u={$repUser->info[userid]}{$SESSURL}") . "\">-</a>]</p>        
+                <p class=\"small noMarTop\">Reputation: <a href=\"" . n2link("file=profile&amp;do=reputation&amp;u={$repUser->info[userid]}{$SESSURL}") . "\">{$repUser->info[reputation]}</a> [<a href=\"" . n2link("file=profile&amp;do=reputation&amp;u={$postUser->info[userid]}{$SESSURL}#updownvote") . "\"><img src=\"{$VISUALS[images]}/{$IMAGES[postbit_updownvote]}\" /></a>]</p>        
       ") : ("")) . "
     </td>
 
@@ -7119,7 +7135,7 @@ $bits
       " . (($post->getStarterId()) ? ("
         <p class=\"small smallMarTop noMarBot\">Posts: {$postUser->info[posts]}</p>
         <p class=\"small noMarTop\">Joined: {$joined->getDate()}</p>
-		<p class=\"small noMarTop\">Reputation: <a href=\"" . n2link("file=profile&amp;do=reputation&amp;u={$postUser->info[userid]}{$SESSURL}") . "\">{$postUser->info[reputation]}</a> [<a href=\"" . n2link("file=profile&amp;do=reputation&amp;act=up&amp;u={$postUser->info[userid]}{$SESSURL}") . "\">+</a>|<a href=\"" . n2link("file=profile&amp;do=reputation&amp;act=down&amp;u={$postUser->info[userid]}{$SESSURL}") . "\">-</a>]</p>
+		<p class=\"small noMarTop\">Reputation: <a href=\"" . n2link("file=profile&amp;do=reputation&amp;u={$postUser->info[userid]}{$SESSURL}") . "\">{$postUser->info[reputation]}</a> [<a href=\"" . n2link("file=profile&amp;do=reputation&amp;u={$postUser->info[userid]}{$SESSURL}#updownvote") . "\"><img src=\"{$VISUALS[images]}/{$IMAGES[postbit_updownvote]}\" /></a>]</p>
       ") : ("")) . "
     </td>
 
@@ -10135,7 +10151,7 @@ display: block;
       " . (($post->getStarterId()) ? ("
         <p class=\"small smallMarTop noMarBot\">Posts: {$postUser->info[posts]}</p>
         <p class=\"small noMarTop\">Joined: {$joined->getDate()}</p>
-		<p class=\"small noMarTop\">Reputation: <a href=\"" . n2link("file=profile&amp;do=reputation&amp;u={$postUser->info[userid]}{$SESSURL}") . "\">{$postUser->info[reputation]}</a> [<a href=\"" . n2link("file=profile&amp;do=reputation&amp;act=up&amp;u={$postUser->info[userid]}{$SESSURL}") . "\">+</a>|<a href=\"" . n2link("file=profile&amp;do=reputation&amp;act=down&amp;u={$postUser->info[userid]}{$SESSURL}") . "\">-</a>]</p>        
+		<p class=\"small noMarTop\">Reputation: <a href=\"" . n2link("file=profile&amp;do=reputation&amp;u={$postUser->info[userid]}{$SESSURL}") . "\">{$postUser->info[reputation]}</a> [<a href=\"" . n2link("file=profile&amp;do=reputation&amp;u={$postUser->info[userid]}{$SESSURL}#updownvote") . "\"><img src=\"{$VISUALS[images]}/{$IMAGES[postbit_updownvote]}\" /></a>]</p>        
       ") : ("")) . "
     </td>
 

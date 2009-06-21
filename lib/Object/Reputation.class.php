@@ -73,6 +73,10 @@ class Reputation extends Object {
 		return $this->repid;
 	}
 
+	public function getUserId() {
+		return $this->info['userid'];
+	}
+	
 	public function getForumId() {
 		return 0;
 	}

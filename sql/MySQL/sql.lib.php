@@ -1270,6 +1270,8 @@ ORDER BY
 LIMIT ?, ?
 ';
 
+$query['reputations']['get_user_counts'] = 'SELECT up FROM ' . WTC_TP . 'reputations WHERE userid = \'?\' AND deleted != \'1\'';
+
 // ##### CRON QUERIES ##### \\
 $query['cron']['insert'] = 'INSERT INTO ' . WTC_TP . 'cron (?) VALUES (?)';
 

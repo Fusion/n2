@@ -192,7 +192,7 @@ class User extends Object {
 
 	// A guest?
 	public function isGuest() {
-		return (0 == $this->info['userid']);
+		return (0 == $this->userid);
 	}
 	
 	// Or a member?
@@ -339,6 +339,22 @@ class User extends Object {
 		}
 
 		return $retval;
+	}
+	
+	public function computeReputation()
+	{
+		global $query, $wtcDB;
+		
+		$updownvotes = new Query($query['reputations']['get_user_counts'], Array(1 => $this->info['userid']));	
+		$rep = $wtcDB->fetchArray($updownvotes);
+		if(!$rep)
+			return;
+
+		$total = 0;
+		do {
+			$total += ($rep['up'] == '1' ? 1 : -1);
+		} while($rep = $wtcDB->fetchArray($updownvotes));
+		$this->update(array('reputation' => $total));
 	}
 
 	// checks a mod permission... just pass forum id
