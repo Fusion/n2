@@ -569,11 +569,36 @@ class AdminHTML {
 		print("\t\t\t" . '<tr>' . "\n");
 			print("\t\t\t\t" . '<td class="' . AdminHTML::$alt . ' center" colspan="2">' . "\n");
 				print("\t\t\t\t\t" . '<p class="left emphasis">' . $this->title['title'] . '</p>' . "\n");
-				print("\t\t\t\t\t" . '<textarea name="' . $this->title['name'] . '" class="bigArea' . $this->title['class'] . '">' . wtcspecialchars($this->title['value']) . '</textarea>' . "\n");
+				print("\t\t\t\t\t" . '<textarea name="' . $this->title['name'] . '" id="' .
+					str_replace(array('[', ']'), array('_', '_'), $this->title['name']) .
+					'" class="bigArea' . $this->title['class'] . '">' . wtcspecialchars($this->title['value']) . '</textarea>' . "\n");
 			print("\t\t\t\t" . '</td>' . "\n\n");
 		print("\t\t\t" . '</tr>' . "\n\n");
+		
 	}
 
+	public static function formatBigTextArea($areaName) {
+		$areaName = str_replace(array('[', ']'), array('_', '_'), $areaName);
+		print(
+			"\t<script src=\"" . HOME . "includes/thirdparty/codemirror/js/codemirror.js\" type=\"text/javascript\"></script>\n" .
+			"\t<script type=\"text/javascript\">\n" .
+			"\t\tCodeMirror.fromTextArea('{$areaName}', {\n" .
+			"\t\t\theight: \"350px\",\n" .
+			"\t\t\tparserfile: [\"parsexml.js\", \"parsecss.js\", \"tokenizejavascript.js\", \"parsejavascript.js\", \"parsehtmlmixed.js\"],\n" .
+		    "\t\t\tstylesheet: [\n" .
+		    "\t\t\t\t\"" . HOME . "includes/thirdparty/codemirror/css/xmlcolors.css\",\n" .
+		    "\t\t\t\t\"" . HOME . "includes/thirdparty/codemirrorcss/jscolors.css\",\n" .
+		    "\t\t\t\t\"" . HOME . "includes/thirdparty/codemirrorcss/csscolors.css\"\n" .
+		    "\t\t\t],\n" .			
+			"\t\t\tpath: \"" . HOME . "includes/thirdparty/codemirror/js/\",\n" .
+			"\t\t\tcontinuousScanning: 500,\n" .
+			"\t\t\tlineNumbers: false,\n" .
+			"\t\t\ttextWrapping: false,\n" .
+			"\t\t\tautoMatchParens: true\n" .
+			"\t\t});\n" .
+			"\t</script>\n");
+	}
+	
 	private function tableRow() {
 		global $lang;
 

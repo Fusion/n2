@@ -468,6 +468,8 @@ else if(isset($_GET['windowEdit'])) {
 
 	new AdminHTML('tableEnd', '', true, Array('form' => -1, 'footerText' => '<input type="submit" value="' . $lang['admin_style_t_saveReload'] . '" class="button" name="saveReload" />  <input type="submit" value="' . $lang['admin_save'] . '" class="button" />  <input type="reset" value="' . $lang['admin_reset'] . '" class="button" />  <input type="button" value="' . $lang['admin_close'] . '" class="button" onclick="window.close();" />'));
 
+	AdminHTML::formatBigTextArea('template[fragment]');
+	
 	new AdminHTML('footer', '', true, Array('form' => true));
 }
 
@@ -656,6 +658,8 @@ else if($_GET['do'] == 'addTemplate' OR isset($_GET['editTemplate'])) {
 
 	new AdminHTML('tableEnd', '', true, Array('form' => -1, 'footerText' => '<input type="submit" value="' . $lang['admin_style_t_saveReload'] . '" class="button" name="saveReload" />  <input type="submit" value="' . $lang['admin_save'] . '" class="button" />  <input type="reset" value="' . $lang['admin_reset'] . '" class="button" />'));
 
+	AdminHTML::formatBigTextArea('template[fragment]');
+	
 	new AdminHTML('footer', '', true, Array('form' => true));
 }
 
