@@ -188,9 +188,12 @@ var Message = {
 		if(!(el = wtcBB.getTarget(e))) {
 			return;
 		}
-
+		
 		// now add the replacement text...
-		Message.addText(el.className + ' ');
+		if(typeof(_editor) != "undefined" && typeof(_editor.editorInsertSmileyCallback) != "undefined")
+			_editor.editorInsertSmileyCallback(el);
+		else 
+			Message.addText(el.className + ' ');
 	},
 
 	handleBBCode: function(e) {
@@ -218,18 +221,22 @@ var Message = {
 		}
 
 		else {
-			Message.insertAttachment(Message.selection);
+			var pieces = Message.selection.split('!@#%');
+			var id = pieces[0];
+			var name = pieces[1];
+			var mime = pieces[2];
+			var thumb = pieces[3];
+
+			if(typeof(_editor) != "undefined" && typeof(_editor.editorInsertAttachmentCallback) != "undefined")
+				_editor.editorInsertAttachmentCallback(id, name, mime, thumb);
+			else
+				Message.insertAttachment(id, name, mime, thumb);
 		}
 	},
 
 	insertAttachment: function(value) {
 		// split the value, we need the attachment id, the file name, and the mime type
-		var pieces = value.split('!@#%');
-		var id = pieces[0];
-		var name = pieces[1];
-		var mime = pieces[2];
-		var thumb = pieces[3];
-		var attachLink = 'http://www.wtcbb2.com/index.php?file=attach&a=' + id;
+		var attachLink = HOME + '?file=attach&a=' + id;
 
 		// image?
 		if(mime.indexOf('image') != -1) {

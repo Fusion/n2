@@ -3,22 +3,54 @@ $nbbs_vars = array();
 $used_vars = array();
 $runner = 0;
 
-function displayErrorScreen($type, $message, $file, $line, $context)
+function handleShutdown()
+{
+	if($err = error_get_last())
+		displayErrorScreen($err['type'], $err['message'], $err['file'], $err['line']);
+}
+
+function displayExceptionScreen($ex)
+{
+	displayErrorScreen(
+		E_ERROR,
+		$ex->getMessage(),
+		$ex->getFile(),
+		$ex->getLine(),
+		array('Exception'=>true));
+}
+
+function displayErrorScreen($type, $message, $file, $line, $context = false)
 {
 	global $nbbs_vars, $used_vars;
 
 	if(0 == (error_reporting() & $type))
 		return;
 
-        @ob_end_clean(); // get rid of any half-parsed page
+	@ob_end_clean(); // get rid of any half-parsed page
+
+	// Fix for exceptions
+	if(!empty($context) && !empty($context['Exception']))
+	{
+		$type = -1;
+	}
 
 	$backTrace = debug_backtrace();
+
 	$ERROR_TYPES = array(
-		E_NOTICE => 'Notice',
+		-1 => 'Exception',
+		E_ERROR => 'Error',
 		E_WARNING => 'Warning',
-		E_USER_NOTICE => 'User Notice',
+		E_PARSE => 'Parse',
+		E_NOTICE => 'Notice',
+		E_CORE_ERROR => 'Core Error',
+		E_CORE_WARNING => 'Core Warning',
+		E_COMPILE_ERROR => 'Compile Error',
+		E_COMPILE_WARNING => 'Compile Warning',
+		E_USER_ERROR => 'User Error',
 		E_USER_WARNING => 'User Warning',
-		E_ERROR => 'Error');
+		E_USER_NOTICE => 'User Notice',
+		E_STRICT => 'Strict Notice',
+		E_RECOVERABLE_ERROR => 'Recoverable Error');
 
 	$splitSourceCode = preg_split('#<br />#i', highlight_string(file_get_contents($file, true), true));
 	$formattedSourceCode = '';

@@ -49,6 +49,8 @@ set_magic_quotes_runtime(0);
 error_reporting(E_ALL ^ E_NOTICE);
 require_once('./includes/nbbs_error_reporter.php');
 set_error_handler("displayErrorScreen");
+set_exception_handler("displayExceptionScreen");
+register_shutdown_function('handleShutdown');
 
 /**
  * Require Necessary Files

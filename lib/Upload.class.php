@@ -79,7 +79,6 @@ class Upload {
 		}
 
 		// okay... we're good to go...
-		print "MOVING TO " . SCRIPT_HOME . $this->destination . "\n";
 		if(empty($err) AND (empty($this->destination) OR !move_uploaded_file($this->tmp_name, SCRIPT_HOME . $this->destination))) {
 			$err = new WtcBBException($lang['error_upload_errorMovingUploadedFile'] . $this->extraErr, false);
 		}

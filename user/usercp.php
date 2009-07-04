@@ -489,7 +489,7 @@ else if($_GET['do'] == 'preferences') {
 	$fields = Array(
 		'dst', 'timezone', 'styleid', 'toolbar', 'disSigs', 'disImgs', 'disAttach', 'disAv',
 		'disSmi', 'emailContact', 'adminEmails', 'receivePm', 'receivePmEmail', 'receivePmAlert',
-		'displayOrder', 'postsPerPage', 'censor', 'lang'
+		'displayOrder', 'postsPerPage', 'censor', 'lang', 'editor'
 	);
 
 	// I be lazy
@@ -621,6 +621,27 @@ else if($_GET['do'] == 'preferences') {
 		$stylesBits .= $styleBits;
 	}
 
+	// preferred editor
+	$editors = getTextEditors();
+	$val = 'default';
+	$text = $lang['user_cp_pref_defaultEditor'];
+	$temp = new StyleFragment('usercp_preferences_optBit');
+	$editorBits .= $temp->dump();
+
+	foreach($editors as $editor) {
+		$select = '';
+
+		if($_POST['pref']['editor'] == $editor['name']) {
+			$select = ' selected="selected"';
+		}
+
+		$val  = $editor['name'];
+		$text = $editor['longname'];
+
+		$temp = new StyleFragment('usercp_preferences_optBit');
+		$editorBits .= $temp->dump();
+	}
+	
 	// now languages
 	$val = -1;
 	$text = $lang['user_cp_pref_defaultLang'];

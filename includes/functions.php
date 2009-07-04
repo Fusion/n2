@@ -27,25 +27,6 @@
 ## ************************************************** ##
 // ************************************************** \\
 
-function __autoload($className) {
-	global $classPath;
-
-	foreach($classPath as $index => $path) {
-		if(file_exists($path . $className . '.class.php')) {
-			require_once($path . $className . '.class.php');
-
-			break;
-		}
-
-		else if(file_exists($path . $className . '.interface.php')) {
-			require_once($path . $className . '.interface.php');
-
-			break;
-		}
-	}
-}
-
-
 /**
  * Outputs DEBUG messages
  */
@@ -224,7 +205,7 @@ function n2urlize($text) {
 
 /**
  * Take a regular link and seoize it if necessary
- * B@todo Check pageNumbers when SEO is on
+ * @todo Check pageNumbers when SEO is on
  */
 function n2link($text, $removeHead = false) {
 	if($removeHead)
@@ -252,6 +233,46 @@ function n2link($text, $removeHead = false) {
 	}
 }
 
+/**
+ * Use this to canonize src= paths when static
+ */
+function n2src($text) {
+	return HOME . $text;
+}
+
+/**
+ * Present correct textarea based on modules used
+ * @todo Seriously, this code is currently loading a module directly
+ * because there is no support for modules at this point.
+ * Really, shame on me.
+ */
+function textarea($content, $id, $class = null)
+{
+	global $User;
+	
+	$editorid = $User->info['editor'];
+	if($editorid == 'default')
+		$editorid = 'nicEdit';
+		
+	require SCRIPT_HOME . "modules/{$editorid}/{$editorid}.mod.php";
+	
+	$getter = "getModule_{$editorid}";
+	$editor = $getter();
+	return $editor->render($content, $id, $class);
+}
+
+/**
+ * Again this should not be hardcoded!
+ * Return a list of available editors
+ */
+function getTextEditors()
+{
+	return array(
+		array('name' => 'nicEdit',		'longname' => 'WYSIWYG'),
+		array('name' => 'plainEdit',	'longname' => 'Plain')
+	);
+}
+ 
 /**
  * Alias to censor stuff
  */

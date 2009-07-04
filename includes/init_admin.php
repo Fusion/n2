@@ -44,6 +44,8 @@ define('NOW', time());
 set_magic_quotes_runtime(0);
 require_once('./includes/nbbs_error_reporter.php');
 set_error_handler("displayErrorScreen");
+set_exception_handler("displayExceptionScreen");
+register_shutdown_function('handleShutdown');
 
 /**
  * Set error reporting

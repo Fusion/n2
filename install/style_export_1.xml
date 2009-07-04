@@ -579,7 +579,7 @@ input.text, textarea {
 </fragment>
 
 <fragment fragmentid="204" styleid="0" groupid="222" fragmentName="bbcodeLite" fragmentVarName="bbcodeLite" fragmentType="template" defaultid="0" disOrder="0">
-<template><![CDATA[<div id="bbcode clear">
+<template><![CDATA[<div id="bbcode" class="clear">
   <div class="floatLeft">
     $bits
   </div>
@@ -588,7 +588,7 @@ input.text, textarea {
     <a href="javascript:Message.closeAll();">Close All</a>
   </p>
 </div>]]></template>
-<templatephp><![CDATA[<div id=\"bbcode clear\">
+<templatephp><![CDATA[<div id=\"bbcode\" class=\"clear\">
   <div class=\"floatLeft\">
     $bits
   </div>
@@ -599,17 +599,17 @@ input.text, textarea {
 </div>]]></templatephp>
 </fragment>
 
-<fragment fragmentid="129" styleid="0" groupid="222" fragmentName="" fragmentVarName="bbcode_bit" fragmentType="template" defaultid="0" disOrder="0">
+<fragment fragmentid="129" styleid="0" groupid="222" fragmentName="bbcode_bit" fragmentVarName="bbcode_bit" fragmentType="template" defaultid="0" disOrder="0">
 <template><![CDATA[<div class="bbcode floatLeft" id="bbcode_{$BB->getBBCodeId()}" title="{$BB->getBBCodeId()}">
   <if(file_exists('./images/message/' . $BB->getTag() . '.gif'))>
-    <img src="./images/message/{$BB->getTag()}.gif" alt="{$BB->getName()}" class="bbcodeButton" />
+    <img src="./images/message/{$BB->getTag()}.gif" alt="{$BB->getName()}" title="{$BB->getName()}" class="bbcodeButton" />
   <else />
     {$BB->getName()}
   </if>
 </div>]]></template>
 <templatephp><![CDATA[<div class=\"bbcode floatLeft\" id=\"bbcode_{$BB->getBBCodeId()}\" title=\"{$BB->getBBCodeId()}\">
   " . ((file_exists('./images/message/' . $BB->getTag() . '.gif')) ? ("
-    <img src=\"./images/message/{$BB->getTag()}.gif\" alt=\"{$BB->getName()}\" class=\"bbcodeButton\" />
+    <img src=\"./images/message/{$BB->getTag()}.gif\" alt=\"{$BB->getName()}\" title=\"{$BB->getName()}\" class=\"bbcodeButton\" />
   ") : ("
     {$BB->getName()}
   ")) . "
@@ -989,7 +989,7 @@ border-style: inset !important;";}]]></template>
 ]]></templatephp>
 </fragment>
 
-<fragment fragmentid="89" styleid="0" groupid="156" fragmentName="" fragmentVarName="header" fragmentType="template" defaultid="0" disOrder="0">
+<fragment fragmentid="89" styleid="0" groupid="156" fragmentName="header" fragmentVarName="header" fragmentType="template" defaultid="0" disOrder="0">
 <template><![CDATA[{$VISUALS[docType]}
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-US" lang="en-US">
 <head>
@@ -1000,9 +1000,10 @@ border-style: inset !important;";}]]></template>
         var wtcBBDomain = "{$bboptions[cookDomain]}";
         var wtcBBPath = "{$bboptions[cookPath]}";
         <if(!empty($SESSURL))>
-          var SESSURL = "{$SESSURL}";
+        var SESSURL = "{$SESSURL}";
         <else />
-          var SESSURL = '';
+        var SESSURL = '';
+        var HOME = "<home>"; 
         </if>
     </script>
     <script type="text/javascript" src="./scripts/wtcBBLib.js"></script>
@@ -1128,9 +1129,10 @@ border-style: inset !important;";}]]></template>
         var wtcBBDomain = \"{$bboptions[cookDomain]}\";
         var wtcBBPath = \"{$bboptions[cookPath]}\";
         " . ((!empty($SESSURL)) ? ("
-          var SESSURL = \"{$SESSURL}\";
+        var SESSURL = \"{$SESSURL}\";
         ") : ("
-          var SESSURL = \'\';
+        var SESSURL = \'\';
+        var HOME = \"/labs/wtcbb/test/\"; 
         ")) . "
     </script>
     <script type=\"text/javascript\" src=\"./scripts/wtcBBLib.js\"></script>
@@ -3401,7 +3403,7 @@ $forumBits
 ]]></templatephp>
 </fragment>
 
-<fragment fragmentid="127" styleid="0" groupid="207" fragmentName="" fragmentVarName="message_postreply" fragmentType="template" defaultid="0" disOrder="0">
+<fragment fragmentid="127" styleid="0" groupid="207" fragmentName="message_postreply" fragmentVarName="message_postreply" fragmentType="template" defaultid="0" disOrder="0">
 <template><![CDATA[$error
 
 <if(!empty($preview))>
@@ -3437,7 +3439,7 @@ $forumBits
           </div>
 
           <div style="margin-left: 75px;">
-            <textarea name="message" id="message">{$quoted}{$_POST[message]}</textarea>
+            <php(textarea($quoted . $_POST["message"], "message"))>
           </div>
         </div>
       </div>
@@ -3446,7 +3448,10 @@ $forumBits
     <p class="center cat bord">
         <input type="submit" value="{$lang[global_submit]}" class="button" />
         <input type="reset" value="{$lang[global_reset]}" class="button" />
-        <input type="submit" value="{$lang[global_preview]}" class="button" name="preview" />
+        <input type="submit" value="{$lang[global_preview]}" class="button" id="previewbutton" name="preview" />
+        <select name="selecteditor" onChange="document.getElementById('previewbutton').click()">
+          {$editorBits}
+        </select>
     </p>
 </div></div>
 
@@ -3594,7 +3599,7 @@ $forumBits
           </div>
 
           <div style=\"margin-left: 75px;\">
-            <textarea name=\"message\" id=\"message\">{$quoted}{$_POST[message]}</textarea>
+            " . textarea($quoted . $_POST["message"], "message") . "
           </div>
         </div>
       </div>
@@ -3603,7 +3608,10 @@ $forumBits
     <p class=\"center cat bord\">
         <input type=\"submit\" value=\"{$lang[global_submit]}\" class=\"button\" />
         <input type=\"reset\" value=\"{$lang[global_reset]}\" class=\"button\" />
-        <input type=\"submit\" value=\"{$lang[global_preview]}\" class=\"button\" name=\"preview\" />
+        <input type=\"submit\" value=\"{$lang[global_preview]}\" class=\"button\" id=\"previewbutton\" name=\"preview\" />
+        <select name=\"selecteditor\" onChange=\"document.getElementById(\'previewbutton\').click()\">
+          {$editorBits}
+        </select>
     </p>
 </div></div>
 
@@ -4033,7 +4041,7 @@ $forumBits
 </form>]]></templatephp>
 </fragment>
 
-<fragment fragmentid="133" styleid="0" groupid="207" fragmentName="" fragmentVarName="message_toolBar" fragmentType="template" defaultid="0" disOrder="0">
+<fragment fragmentid="133" styleid="0" groupid="207" fragmentName="message_toolBar" fragmentVarName="message_toolBar" fragmentType="template" defaultid="0" disOrder="0">
 <template><![CDATA[<div class="clear smallMarBot">
     <div class="floatLeft">
       $bbcodes
@@ -8893,7 +8901,7 @@ display: block;
         <div class="alt1 bord noBordTop noBordBot pad center">
           <div style="width: 95.6%; margin: 0 2.2% 0 2.2%;">
             {$toolBar->dump()}
-            <textarea name="message" id="message" class="quickReply">{$_POST[message]}</textarea>
+            <php(textarea($_POST["message"], "message", "quickReply"))>
 
             <div>
               <if($User->check('canSig'))>
@@ -9173,7 +9181,7 @@ display: block;
         <div class=\"alt1 bord noBordTop noBordBot pad center\">
           <div style=\"width: 95.6%; margin: 0 2.2% 0 2.2%;\">
             {$toolBar->dump()}
-            <textarea name=\"message\" id=\"message\" class=\"quickReply\">{$_POST[message]}</textarea>
+            " . textarea($_POST["message"], "message", "quickReply") . "
 
             <div>
               " . (($User->check('canSig')) ? ("
@@ -11020,7 +11028,7 @@ display: block;
 </form>]]></templatephp>
 </fragment>
 
-<fragment fragmentid="259" styleid="0" groupid="248" fragmentName="" fragmentVarName="usercp_preferences" fragmentType="template" defaultid="0" disOrder="0">
+<fragment fragmentid="259" styleid="0" groupid="248" fragmentName="usercp_preferences" fragmentVarName="usercp_preferences" fragmentType="template" defaultid="0" disOrder="0">
 <template><![CDATA[{$error}
 
 <form method="post" action="<n2link(file=usercp&amp;do=preferences)>" class="noMar">
@@ -11031,6 +11039,15 @@ display: block;
         <td class="cat" colspan="2">{$lang[user_cp_preferences]}</td>
     </tr>
 
+    <tr class="alt{$ALT}">
+        <td><strong>{$lang[user_cp_pref_editorid]}</strong></td>
+        <td>
+          <select name="pref[editor]">
+            {$editorBits}
+          </select>
+        </td>
+    </tr>
+    
     <tr class="alt2">
         <td><strong>{$lang[user_cp_pref_timezone]}</strong></td>
         <td>
@@ -11097,6 +11114,15 @@ display: block;
         <td class=\"cat\" colspan=\"2\">{$lang[user_cp_preferences]}</td>
     </tr>
 
+    <tr class=\"alt{$ALT}\">
+        <td><strong>{$lang[user_cp_pref_editorid]}</strong></td>
+        <td>
+          <select name=\"pref[editor]\">
+            {$editorBits}
+          </select>
+        </td>
+    </tr>
+    
     <tr class=\"alt2\">
         <td><strong>{$lang[user_cp_pref_timezone]}</strong></td>
         <td>

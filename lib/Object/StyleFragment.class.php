@@ -153,6 +153,10 @@ class StyleFragment extends Object {
 			'/<n2link\((.*?)\)>/',
 			array(self, 'getN2Code'),
 			$template);
+		$template = preg_replace_callback(
+			'/<php\((.*?)\)>/',
+			array(self, 'getPHPCode'),
+			$template);
 		$template = str_replace(
 			'<home>',
 			HOME,
@@ -164,6 +168,15 @@ class StyleFragment extends Object {
 	private function getN2Code($matches)
 	{
 		return '" . n2link("' . $matches[1] . '") . "';
+	}
+
+	/**
+	 * @todo Prior to calling this guy I invoked addslashes() in parseTemplate()
+	 * so you might argue that this is a waste or resources
+	 */
+	private function getPHPCode($matches)
+	{
+		return '" . ' . stripslashes($matches[1]) . ' . "';
 	}
 
 	// Accessors

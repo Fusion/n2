@@ -41,7 +41,7 @@ class Redirect {
 			$this->goto = $uri;
 		}
 		if('http' != substr($this->goto, 0, 4))
-			$this->goto = n2link(str_replace('&', '&amp;', $this->goto), true);
+			$this->goto = n2link($this->goto, true);
 		// make sure to remove ampersands...
 		$this->goto = str_replace('&amp;', '&', $this->goto);
 		$this->newLocation();

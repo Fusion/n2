@@ -13,6 +13,19 @@ var Attachments = {
 		}
 	},
 
+	_attachInput: function() {
+		var attachInput = Attachments.win.document.getElementById('attachGroupInput');
+		if(!attachInput)
+		{
+			var attachGroup = Attachments.win.document.getElementById('attachments');
+			var el = Attachments.win.document.createElement('<div>');
+			el.setAttribute('id', 'attachGroupInput');
+			attachGroup.parentNode.insertBefore(el, attachGroup);
+			attachInput = Attachments.win.document.getElementById('attachGroupInput');
+		}
+		return attachInput;
+	},
+	
 	insertNew: function() {
 		// loop through all "a" elements
 		// compare their class names with those in select menu in main window
@@ -46,6 +59,15 @@ var Attachments = {
 						newObj.value = myClass;
 						newObj.innerHTML = pieces[1];
 						Attachments.win.Message.attachSelect.appendChild(newObj);
+
+/*						
+						var attachInput = Attachments._attachInput();
+						newObj = Attachments.win.document.createElement('input');
+						newObj.setAttribute('type', 'hidden');
+						newObj.setAttribute('name', 'attachgroup[]');
+						newObj.setAttribute('value', myClass);
+						attachInput.appendChild(newObj);
+ */						
 					}
 				}
 			}
@@ -68,6 +90,24 @@ var Attachments = {
 			// uh oh!
 			if(!found) {
 				Attachments.win.Message.attachSelect.removeChild(menuItem);
+				
+/*				
+				// Also remove from hidden input field
+				var attachInput = Attachments._attachInput();
+				var children = attachInput.childNodes;
+				var l = children.length;
+				var i = 0;
+				for(i=0; i<l; i++)
+				{
+					if(children[i].value == menuItem.value)
+					{
+						found = true;
+						break;
+					}
+				}
+				if(found)
+					attachInput.removeChild(children[i]);
+ */					
 			}
 		}
 	}

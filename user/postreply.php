@@ -110,6 +110,14 @@ if($_POST) {
 	$MessageParser = new Message();
 	$MessageParser->autoOptions($User, new Post('', $_POST['postreply']));
 
+	if($_POST['selecteditor']) {
+		// Are we switching favourite editor?
+		if($User->info['editor'] != $_POST['selecteditor']) {
+			$User->update(array('editor' => $_POST['selecteditor']));
+			$User->info['editor'] = $_POST['selecteditor'];
+		}
+	}
+	
 	// preview?
 	if($_POST['preview']) {
 		$preview = $MessageParser->parse($_POST['message'], $User->info['username']);
@@ -271,7 +279,30 @@ if($_POST) {
 }
 
 $postIcon = PostIcon::constructPostIcons();
+
+$attachments = new Query($query['attachments']['get_hash'], Array(1 => $myHash));
+$attachBits = '';
+
+while($attach = $attachments->fetchArray()) {
+	$Attachment = new Attachment('', $attach);
+
+	$temp = new StyleFragment('message_attachBit');
+	$attachBits .= $temp->dump();
+}
+
 $toolBar = Message::buildToolBar();
+
+$editorBits = '';
+$editors = getTextEditors();
+foreach($editors as $editor) {
+	$select = '';
+
+	if($User->info['editor'] == $editor['name']) {
+		$select = ' selected="selected"';
+	}
+
+	$editorBits .= "<option value='{$editor['name']}'{$select}>{$editor['longname']}</option>\n";
+}
 
 // create navigation
 $Nav = new Navigation(
