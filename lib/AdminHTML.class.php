@@ -269,7 +269,9 @@ class AdminHTML {
 		print('</head>' . "\n");
 		print('<body>' . "\n");
 			print('    <div id="container">' . "\n");
-			 print('<div><img src=./images/wtcBB-Default/n2_hangtag_2.png></div>');
+			if($_GET['file'] == 'navigation') {
+				 print('<div><img src=./images/wtcBB-Default/n2_hangtag_2.png></div>');
+			}
 			if(!$_GET['windowEdit'] AND $this->tableOpts['showTitle'] AND !empty($this->title)) {
 				print("\t" . '<h1>' . $this->title . '</h1>' . "\n\n");
 			}

@@ -1,18 +1,24 @@
-body {
-background: #fff;
-font-family: verdana, sans-serif;
-font-size: 80%;
+html, body {
 margin: 0;
+padding: 0;
+height: 100%;
+font-family: Arial, helvetica, sans-serif;
+font-size: 13px;
+}
+
+body {
+background:#2d6e98 url(../images/admin/main-bg.jpg) repeat-x 0 0;
+background-attachment: fixed;
 }
 
 h1 {
 margin: 10px 0 20px 0;
-background: #dfdcdf;
 border: 1px solid #000;
 padding: 4px;
-background: #c0c4d0 url(./../images/admin/navbg.jpg) repeat-x;
-color: #fff;
-font-size: 100%;
+background: #fff;
+color: #3f7174;
+height: 35px;
+font-size: 16px;
 }
 
 a {
@@ -49,12 +55,12 @@ margin: 0 auto;
 	}
 
 		div#container div.box h2 {
-		background: #c0c4d0 url(./../images/admin/navbg.jpg) repeat-x;
-		color: #fff;
-		font-size: 100%;
 		border-bottom: 1px solid #000;
 		padding: 4px;
 		margin: 0;
+		background: #3f7174;
+		color: #fff;
+		font-size: 100%;
 		}
 
 		div#container div.box p {
@@ -113,13 +119,30 @@ margin: 0 auto;
 		}
 
 		div#container table th {
-		background: #d0ccd0 url(./../images/admin/headBg.jpg) repeat-x;
-		color: #000;
+		background: #3f7174;
+		color: #fff;
+		height: 35px;
+		font-size: 16px;
 		}
 
-		div#container table td.header {
-		background: #dfdcdf;
+		div#container table th.footer {
+		height: 24px;
+		font-size: 13px;
 		}
+		
+		div#container table td.header {
+		background: #e5ebeb;
+		}
+
+		div#container table td.noAlt {
+		background: #f5f7f7;
+		}
+
+			div#container table th.noAlt {
+			height: 24px;
+			font-size: 13px;
+			background: #ffffff url(../images/admin/tables-projects-thead.png);
+			}
 
 			div#container table th a {
 			color: #000;
@@ -130,11 +153,11 @@ margin: 0 auto;
 			}
 
 		div#container table td.alt1 {
-		background: #fff;
+		background: #f5f7f7;
 		}
 
 		div#container table td.alt2 {
-		background: #e9e9e9;
+		background: #e5ebeb;
 		}
 
 		div#container table td.top {
