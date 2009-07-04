@@ -1106,7 +1106,7 @@ var nicEditorSelect = bkClass.extend({
 		for(var i=0;i<this.selOptions.length;i++) {
 			var opt = this.selOptions[i];
 			var itmContain = new bkElement('div').setStyle({overflow : 'hidden', borderBottom : '1px solid #ccc', width: '88px', textAlign : 'left', overflow : 'hidden', cursor : 'pointer'});
-			var itm = new bkElement('div').setStyle({padding : '0px 4px'}).setContent(opt[1]).appendTo(itmContain).noSelect();
+			var itm = new bkElement('div').setStyle({padding : '0px 4px', color : 'black'}).setContent(opt[1]).appendTo(itmContain).noSelect(); /* CFR: Added color */
 			itm.addEvent('click',this.update.closure(this,opt[0])).addEvent('mouseover',this.over.closure(this,itm)).addEvent('mouseout',this.out.closure(this,itm)).setAttributes('id',opt[0]);
 			this.pane.append(itmContain);
 			if(!window.opera) {

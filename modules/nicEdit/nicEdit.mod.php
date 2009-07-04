@@ -39,6 +39,11 @@ class NicEdit implements EditorModule
 		$html .= '>' . $content . "</textarea></div>\n";
 
 		$header = <<<EOB
+<style type="text/css">
+.nicEdit-main {
+	background-color: #fff !important;
+}
+</style>		
 <script language="javascript" type="text/javascript" src="{$jspath}"></script>
 
 EOB;
