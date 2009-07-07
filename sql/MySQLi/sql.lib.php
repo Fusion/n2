@@ -22,7 +22,7 @@
 // ************************************************** \\
 ## ************************************************** ##
 ## ************************************************** ##
-## ***************** MySQLi Queries ***************** ##
+## ****************** MySQL Queries ***************** ##
 ## ************************************************** ##
 ## ************************************************** ##
 // ************************************************** \\
@@ -43,7 +43,7 @@
 
 
 // ##### GLOBAL Queries ##### \\
-$query['global']['file:///home2/sujeesh/Desktop/backup_wtcbb/wtcbb/uploadfiles/sql/MySQLi/sql.lib.phpoptions'] = 'SELECT * FROM ' . WTC_TP . 'wtcbboptions';
+$query['global']['options'] = 'SELECT * FROM ' . WTC_TP . 'wtcbboptions';
 
 $query['global']['get_table_fields'] = 'SHOW COLUMNS FROM ' . WTC_TP . '?';
 
@@ -248,7 +248,7 @@ $query['sessions']['update_usernames'] = 'UPDATE ' . WTC_TP . 'sessions SET user
 
 $query['sessions']['update_action'] = 'UPDATE ' . WTC_TP . 'sessions SET lastaction = \'?\' WHERE sessionid = \'?\'';
 
-$query['sessions']['get'] = 'SELECT ' . WTC_TP . 'sessions.sessionid, ' . WTC_TP . 'userinfo.* FROM ' . WTC_TP . 'sessions LEFT JOIN ' . WTC_TP . 'userinfo ON ' . WTC_TP . 'userinfo.userid = ' . WTC_TP . 'sessions.userid WHERE ' . WTC_TP . 'sessions.sessionid = \'?\' AND ' WTC_TP . 'userinfo.userid > 0';
+$query['sessions']['get'] = 'SELECT ' . WTC_TP . 'sessions.sessionid, ' . WTC_TP . 'userinfo.* FROM ' . WTC_TP . 'sessions LEFT JOIN ' . WTC_TP . 'userinfo ON ' . WTC_TP . 'userinfo.userid = ' . WTC_TP . 'sessions.userid WHERE ' . WTC_TP . 'sessions.sessionid = \'?\' AND ' . WTC_TP . 'userinfo.userid > 0';
 
 $query['sessions']['get_noUser'] = 'SELECT * FROM ' . WTC_TP . 'sessions WHERE sessionid = \'?\'';
 
@@ -1005,7 +1005,7 @@ $query['moderator']['update'] = 'UPDATE ' . WTC_TP . 'moderators SET ? WHERE mod
 
 $query['moderator']['get'] = 'SELECT * FROM ' . WTC_TP . 'moderators LEFT JOIN ' . WTC_TP . 'userinfo ON ' . WTC_TP . 'userinfo.userid = ' . WTC_TP . 'moderators.userid WHERE ' . WTC_TP . 'moderators.modid = \'?\'';
 
-$query['moderator']['get_all'] = 'SELECT ' . WTC_TP .'moderators.*, ' . WTC_TP . 'userinfo.username, ' . WTC_TP . 'userinfo.usergroupid, ' . WTC_TP . 'userinfo.secgroupids, ' . WTC_TP . 'userinfo.htmlBegin, ' . WTC_TP . 'userinfo.htmlEnd FROM ' . WTC_TP . 'moderators LEFT JOIN ' . WTC_TP . 'userinfo ON ' . WTC_TP . 'userinfo.userid = ' . WTC_TP . 'moderators.userid';
+$query['moderator']['get_all'] = 'SELECT ' . WTC_TP . 'moderators.*, ' . WTC_TP . 'userinfo.username, ' . WTC_TP . 'userinfo.usergroupid, ' . WTC_TP . 'userinfo.secgroupids, ' . WTC_TP . 'userinfo.htmlBegin, ' . WTC_TP . 'userinfo.htmlEnd FROM ' . WTC_TP . 'moderators LEFT JOIN ' . WTC_TP . 'userinfo ON ' . WTC_TP . 'userinfo.userid = ' . WTC_TP . 'moderators.userid';
 
 
 // ##### LOG QUERIES ##### \\
