@@ -102,6 +102,11 @@ if(!empty($_REQUEST['rewrite']))
 	}
 }
 
+// Funny thing: when RewriteEngine is Off, SCRIPT_URI is undefined
+if(empty($_SERVER['SCRIPT_URI'])) {
+	$_SERVER['SCRIPT_URI'] = (isset($_SERVER['HTTPS']) ? 'https://' : 'http://') . $_SERVER['SERVER_NAME'] . ($_SERVER['SERVER_PORT'] != 80 ? $_SERVER['SERVER_PORT'] : '') . HOME;
+}
+
 /**
  * From php.net: get rid of the evil assumptions of magic_quotes_gpc()
  * Note: this only fixes values, not keys.

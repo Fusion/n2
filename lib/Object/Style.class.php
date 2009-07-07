@@ -392,8 +392,17 @@ class Style extends Object {
 				$sheet .= ' * Style ID: ' . $style->getStyleId() . "\n";
 			$sheet .= ' */' . "\n\n";
 
+			$advancedCss = null;
+			
 			foreach($css as $groupid => $more) {
 				foreach($more as $fragid => $cssObj) {
+					// Advanced css must be appended to the end of the stylesheet
+					if($cssObj->getVarName() == 'advanced')
+					{
+						$advancedCss = $cssObj;
+						continue;
+					}
+
 					$cssVals = unserialize($cssObj->getFragment());
 
 					if(is_array($cssVals)) {
@@ -441,6 +450,13 @@ class Style extends Object {
 							$sheet .= '}' . "\n\n";
 						}
 					}
+				}
+			}
+			
+			if($advancedCss) {
+				$cssVals = unserialize($advancedCss->getFragment());
+				if(!empty($cssVals['extra'])) {
+					$sheet .= "\n\n" . $cssVals['extra'];
 				}
 			}
 

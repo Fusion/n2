@@ -11,18 +11,25 @@ var Tabs = {
 			}
 			
 			var childLis = allUls[i].getElementsByTagName('li');
-			
+		
+			var foundMain = false;
+				
 			for(var k = 0; k < childLis.length; k++) {
 				var aObj = childLis[k].getElementsByTagName('a')[0];
 				
 				wtcBB.addEvent(aObj, 'click', Tabs.handleTabs);
-				
 				if(aObj.id == 'main') {
+					foundMain = true;
 					Tabs.showTab(aObj);
 				}
 				
 				else {
-					Tabs.hideTab(aObj);
+					if(!foundMain && aObj.id == 'extra') {
+						Tabs.showTab(aObj);
+					}
+					else {
+						Tabs.hideTab(aObj);
+					}
 				}
 			}
 		}

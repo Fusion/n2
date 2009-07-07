@@ -1256,9 +1256,17 @@ else if(isset($_GET['colors'])) {
 				$colorObj = $obj;
 				$selection = $lang['admin_style_g_' . $obj->getVarName()];
 			}
+			
+			// never default to "advanced" or any other less important style fragment
+			if(empty($_GET['t']) && $obj->getVarName() == 'body') {
+				$colorObj = $obj;
+				$selection = $lang['admin_style_g_' . $obj->getVarName()];
+			}
 		}
 	}
 
+	$advanced = ($colorObj->getVarName() == 'advanced');
+	
 	$test = $colorObj->getFragment();
 	$colValues = unserialize($test);
 
@@ -1306,12 +1314,19 @@ else if(isset($_GET['colors'])) {
 	// check to see if it should include links...
 	$noLinks = Array('button' => '', 'radioCheck' => '', 'selectMenu' => '', 'smallFont' => '', 'textInput' => '', 'timeFont' => '');
 
-	// set our different sub-sections
-	$sections = Array(
-					'main' => 'admin_style_c_main', 'regLink' => 'admin_style_c_regLink',
-					'visitLink' => 'admin_style_c_visitLink', 'hoverLink' => 'admin_style_c_hoverLink',
-					'extra' => 'admin_style_c_extra'
-				);
+	if(!$advanced)
+	{
+		// set our different sub-sections
+		$sections = Array(
+						'main' => 'admin_style_c_main', 'regLink' => 'admin_style_c_regLink',
+						'visitLink' => 'admin_style_c_visitLink', 'hoverLink' => 'admin_style_c_hoverLink',
+						'extra' => 'admin_style_c_extra'
+					);
+	}
+	else
+	{
+		$sections = Array('extra' => 'admin_style_c_extra');	
+	}
 
 	// now set our fields...
 	$fields = Array(
@@ -1426,7 +1441,8 @@ else if(isset($_GET['colors'])) {
 
 				else {
 					$fieldObj = new AdminHTML('bigTextarea', Array(
-																'title' => $lang['admin_style_colors_extraNote'],
+																'title' =>
+																	($advanced ? $lang['admin_style_colors_advancedNote'] : $lang['admin_style_colors_extraNote']),
 																'name' => 'css[extra]',
 																'value' => $colValues['extra'],
 																'class' => ' ' . $colorType

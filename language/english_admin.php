@@ -872,6 +872,7 @@ $lang['admin_style_ae_parent_desc'] = 'This is the parent style of this style. T
 $lang['admin_style_ae_selectable'] = 'User Selectable:';
 $lang['admin_style_ae_selectable_desc'] = 'If this is enabled, then this style will be able to be selected for use via the User Control Panel (granted that the user has access to change styles). Keep in mind, that even if this style isn\'t selectable it can still be accessed via the "styleid" variable in any URL on the bulletin board.';
 $lang['admin_style_colors'] = 'Colors & Style Options';
+$lang['admin_style_colors_advancedNote'] = '<em>Note:</em> This field is for all advanced CSS declarations you wish to manually add to your stylesheet. They will look like "<em>.myextraclass { color: white; }</em>"<br /><span class="important">Only use this field if you know CSS well.</span>';
 $lang['admin_style_colors_cssCat'] = 'CSS Category:';
 $lang['admin_style_colors_extraNote'] = '<em>Note:</em> These CSS declarations are placed inside the main selector group for this portion of the style. This means that if you incorporate curly braces ("{" and "}") into the code below, you may receive unexpected results. <span class="important">This is for advanced users only.</span>';
 $lang['admin_style_colors_note'] = '<strong>Note:</strong> You may browse between tabs without losing previously entered data.';
@@ -890,6 +891,7 @@ $lang['admin_style_c_textDec'] = 'Text Decoration:';
 $lang['admin_style_c_visitLink'] = 'Visited Link';
 $lang['admin_style_edit'] = 'Edit Style';
 $lang['admin_style_editTemplate'] = 'Edit Template';
+$lang['admin_style_g_advanced'] = 'Advanced';
 $lang['admin_style_g_body'] = 'Body';
 $lang['admin_style_g_button'] = 'Button';
 $lang['admin_style_g_category'] = 'Category';
