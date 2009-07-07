@@ -119,7 +119,97 @@ input.text, textarea {
 .time {
 	color: #577899;
 	font-size: 10px;
+}
+
+.topBarAction, .topBarInfo {
+  background: #F1F2F2;
+  border-bottom: 2px solid #E5E6E6;
+  border-right: 1px solid #E5E6E6;
+}
+
+.bottomBarAction, .bottomBarInfo {
+  background: #F1F2F2;
+  border-top: 2px solid #E5E6E6;
+  border-right: 1px solid #E5E6E6;
 }]]></css>
+<fragment fragmentid="345" styleid="0" groupid="164" fragmentName="advanced" fragmentVarName="advanced" fragmentType="style" defaultid="0" disOrder="0">
+<template><![CDATA[a:1:{s:5:"extra";s:263:".topBarAction, .topBarInfo {
+  background: #F1F2F2;
+  border-bottom: 2px solid #E5E6E6;
+  border-right: 1px solid #E5E6E6;
+}
+
+.bottomBarAction, .bottomBarInfo {
+  background: #F1F2F2;
+  border-top: 2px solid #E5E6E6;
+  border-right: 1px solid #E5E6E6;
+}";}]]></template>
+<templatephp><![CDATA[This is a test fragment.
+]]></templatephp>
+</fragment>
+
+<fragment fragmentid="26" styleid="0" groupid="164" fragmentName="body" fragmentVarName="body" fragmentType="style" defaultid="0" disOrder="1">
+<template><![CDATA[a:33:{s:12:"main_bgColor";s:7:"#284571";s:14:"main_fontColor";s:4:"#fff";s:15:"main_fontFamily";s:19:"verdana, sans-serif";s:13:"main_fontSize";s:4:"12px";s:14:"main_fontStyle";s:0:"";s:15:"main_fontWeight";s:0:"";s:12:"main_textDec";s:0:"";s:19:"main_advanced_extra";s:0:"";s:15:"regLink_bgColor";s:0:"";s:17:"regLink_fontColor";s:7:"#A9D2EA";s:18:"regLink_fontFamily";s:0:"";s:16:"regLink_fontSize";s:0:"";s:17:"regLink_fontStyle";s:0:"";s:18:"regLink_fontWeight";s:0:"";s:15:"regLink_textDec";s:4:"none";s:22:"regLink_advanced_extra";s:0:"";s:17:"visitLink_bgColor";s:0:"";s:19:"visitLink_fontColor";s:0:"";s:20:"visitLink_fontFamily";s:0:"";s:18:"visitLink_fontSize";s:0:"";s:19:"visitLink_fontStyle";s:0:"";s:20:"visitLink_fontWeight";s:0:"";s:17:"visitLink_textDec";s:0:"";s:24:"visitLink_advanced_extra";s:0:"";s:17:"hoverLink_bgColor";s:0:"";s:19:"hoverLink_fontColor";s:4:"#fff";s:20:"hoverLink_fontFamily";s:0:"";s:18:"hoverLink_fontSize";s:0:"";s:19:"hoverLink_fontStyle";s:0:"";s:20:"hoverLink_fontWeight";s:0:"";s:17:"hoverLink_textDec";s:0:"";s:24:"hoverLink_advanced_extra";s:0:"";s:5:"extra";s:0:"";}]]></template>
+<templatephp><![CDATA[]]></templatephp>
+</fragment>
+
+<fragment fragmentid="29" styleid="0" groupid="164" fragmentName=".button" fragmentVarName="button" fragmentType="style" defaultid="0" disOrder="3">
+<template><![CDATA[a:8:{s:12:"main_bgColor";s:57:"#fff url(./../images/wtcBB-Default/buttonbg.jpg) repeat-x";s:14:"main_fontColor";s:4:"#000";s:15:"main_fontFamily";s:19:"verdana, sans-serif";s:13:"main_fontSize";s:4:"100%";s:14:"main_fontStyle";s:0:"";s:15:"main_fontWeight";s:4:"bold";s:12:"main_textDec";s:0:"";s:5:"extra";s:0:"";}]]></template>
+<templatephp><![CDATA[]]></templatephp>
+</fragment>
+
+<fragment fragmentid="30" styleid="0" groupid="164" fragmentName=".cat" fragmentVarName="category" fragmentType="style" defaultid="0" disOrder="4">
+<template><![CDATA[a:29:{s:12:"main_bgColor";s:7:"#28436E";s:14:"main_fontColor";s:4:"#fff";s:15:"main_fontFamily";s:0:"";s:13:"main_fontSize";s:4:"12px";s:14:"main_fontStyle";s:0:"";s:15:"main_fontWeight";s:4:"bold";s:12:"main_textDec";s:0:"";s:15:"regLink_bgColor";s:0:"";s:17:"regLink_fontColor";s:4:"#fff";s:18:"regLink_fontFamily";s:0:"";s:16:"regLink_fontSize";s:0:"";s:17:"regLink_fontStyle";s:0:"";s:18:"regLink_fontWeight";s:0:"";s:15:"regLink_textDec";s:0:"";s:17:"visitLink_bgColor";s:0:"";s:19:"visitLink_fontColor";s:0:"";s:20:"visitLink_fontFamily";s:0:"";s:18:"visitLink_fontSize";s:0:"";s:19:"visitLink_fontStyle";s:0:"";s:20:"visitLink_fontWeight";s:0:"";s:17:"visitLink_textDec";s:0:"";s:17:"hoverLink_bgColor";s:0:"";s:19:"hoverLink_fontColor";s:7:"#fbe286";s:20:"hoverLink_fontFamily";s:0:"";s:18:"hoverLink_fontSize";s:0:"";s:19:"hoverLink_fontStyle";s:0:"";s:20:"hoverLink_fontWeight";s:0:"";s:17:"hoverLink_textDec";s:0:"";s:5:"extra";s:13:"padding: 6px;";}]]></template>
+<templatephp><![CDATA[]]></templatephp>
+</fragment>
+
+<fragment fragmentid="31" styleid="0" groupid="164" fragmentName=".alt1" fragmentVarName="firstAlteration" fragmentType="style" defaultid="0" disOrder="5">
+<template><![CDATA[a:29:{s:12:"main_bgColor";s:7:"#EBF0F7";s:14:"main_fontColor";s:4:"#000";s:15:"main_fontFamily";s:0:"";s:13:"main_fontSize";s:4:"12px";s:14:"main_fontStyle";s:0:"";s:15:"main_fontWeight";s:0:"";s:12:"main_textDec";s:0:"";s:15:"regLink_bgColor";s:0:"";s:17:"regLink_fontColor";s:7:"#4C7799";s:18:"regLink_fontFamily";s:0:"";s:16:"regLink_fontSize";s:0:"";s:17:"regLink_fontStyle";s:0:"";s:18:"regLink_fontWeight";s:0:"";s:15:"regLink_textDec";s:0:"";s:17:"visitLink_bgColor";s:0:"";s:19:"visitLink_fontColor";s:0:"";s:20:"visitLink_fontFamily";s:0:"";s:18:"visitLink_fontSize";s:0:"";s:19:"visitLink_fontStyle";s:0:"";s:20:"visitLink_fontWeight";s:0:"";s:17:"visitLink_textDec";s:0:"";s:17:"hoverLink_bgColor";s:0:"";s:19:"hoverLink_fontColor";s:0:"";s:20:"hoverLink_fontFamily";s:0:"";s:18:"hoverLink_fontSize";s:0:"";s:19:"hoverLink_fontStyle";s:0:"";s:20:"hoverLink_fontWeight";s:0:"";s:17:"hoverLink_textDec";s:0:"";s:5:"extra";s:0:"";}]]></template>
+<templatephp><![CDATA[]]></templatephp>
+</fragment>
+
+<fragment fragmentid="34" styleid="0" groupid="164" fragmentName="th, .headFoot" fragmentVarName="headerFooter" fragmentType="style" defaultid="0" disOrder="7">
+<template><![CDATA[a:29:{s:12:"main_bgColor";s:7:"#28436E";s:14:"main_fontColor";s:4:"#fff";s:15:"main_fontFamily";s:0:"";s:13:"main_fontSize";s:4:"12px";s:14:"main_fontStyle";s:0:"";s:15:"main_fontWeight";s:4:"bold";s:12:"main_textDec";s:0:"";s:15:"regLink_bgColor";s:0:"";s:17:"regLink_fontColor";s:4:"#fff";s:18:"regLink_fontFamily";s:0:"";s:16:"regLink_fontSize";s:0:"";s:17:"regLink_fontStyle";s:0:"";s:18:"regLink_fontWeight";s:0:"";s:15:"regLink_textDec";s:0:"";s:17:"visitLink_bgColor";s:0:"";s:19:"visitLink_fontColor";s:0:"";s:20:"visitLink_fontFamily";s:0:"";s:18:"visitLink_fontSize";s:0:"";s:19:"visitLink_fontStyle";s:0:"";s:20:"visitLink_fontWeight";s:0:"";s:17:"visitLink_textDec";s:0:"";s:17:"hoverLink_bgColor";s:0:"";s:19:"hoverLink_fontColor";s:7:"#fbe286";s:20:"hoverLink_fontFamily";s:0:"";s:18:"hoverLink_fontSize";s:0:"";s:19:"hoverLink_fontStyle";s:0:"";s:20:"hoverLink_fontWeight";s:0:"";s:17:"hoverLink_textDec";s:0:"";s:5:"extra";s:45:"padding: 4px !important;
+text-align: center;";}]]></template>
+<templatephp><![CDATA[]]></templatephp>
+</fragment>
+
+<fragment fragmentid="27" styleid="0" groupid="164" fragmentName=".page" fragmentVarName="page" fragmentType="style" defaultid="0" disOrder="2">
+<template><![CDATA[a:29:{s:12:"main_bgColor";s:4:"#fff";s:14:"main_fontColor";s:4:"#000";s:15:"main_fontFamily";s:0:"";s:13:"main_fontSize";s:4:"12px";s:14:"main_fontStyle";s:0:"";s:15:"main_fontWeight";s:0:"";s:12:"main_textDec";s:0:"";s:15:"regLink_bgColor";s:0:"";s:17:"regLink_fontColor";s:7:"#A9D2EA";s:18:"regLink_fontFamily";s:0:"";s:16:"regLink_fontSize";s:0:"";s:17:"regLink_fontStyle";s:0:"";s:18:"regLink_fontWeight";s:0:"";s:15:"regLink_textDec";s:4:"none";s:17:"visitLink_bgColor";s:0:"";s:19:"visitLink_fontColor";s:0:"";s:20:"visitLink_fontFamily";s:0:"";s:18:"visitLink_fontSize";s:0:"";s:19:"visitLink_fontStyle";s:0:"";s:20:"visitLink_fontWeight";s:0:"";s:17:"visitLink_textDec";s:0:"";s:17:"hoverLink_bgColor";s:0:"";s:19:"hoverLink_fontColor";s:7:"#4f4f4f";s:20:"hoverLink_fontFamily";s:0:"";s:18:"hoverLink_fontSize";s:0:"";s:19:"hoverLink_fontStyle";s:0:"";s:20:"hoverLink_fontWeight";s:0:"";s:17:"hoverLink_textDec";s:0:"";s:5:"extra";s:51:"margin: 10px 20px;
+border-style: inset !important;";}]]></template>
+<templatephp><![CDATA[]]></templatephp>
+</fragment>
+
+<fragment fragmentid="36" styleid="0" groupid="164" fragmentName=".noText" fragmentVarName="radioCheck" fragmentType="style" defaultid="0" disOrder="8">
+<template><![CDATA[a:8:{s:12:"main_bgColor";s:0:"";s:14:"main_fontColor";s:0:"";s:15:"main_fontFamily";s:0:"";s:13:"main_fontSize";s:0:"";s:14:"main_fontStyle";s:0:"";s:15:"main_fontWeight";s:0:"";s:12:"main_textDec";s:0:"";s:5:"extra";s:0:"";}]]></template>
+<templatephp><![CDATA[]]></templatephp>
+</fragment>
+
+<fragment fragmentid="32" styleid="0" groupid="164" fragmentName=".alt2" fragmentVarName="secondAlteration" fragmentType="style" defaultid="0" disOrder="6">
+<template><![CDATA[a:29:{s:12:"main_bgColor";s:7:"#F5F6F6";s:14:"main_fontColor";s:4:"#000";s:15:"main_fontFamily";s:0:"";s:13:"main_fontSize";s:4:"12px";s:14:"main_fontStyle";s:0:"";s:15:"main_fontWeight";s:0:"";s:12:"main_textDec";s:0:"";s:15:"regLink_bgColor";s:0:"";s:17:"regLink_fontColor";s:7:"#4C7799";s:18:"regLink_fontFamily";s:0:"";s:16:"regLink_fontSize";s:0:"";s:17:"regLink_fontStyle";s:0:"";s:18:"regLink_fontWeight";s:0:"";s:15:"regLink_textDec";s:0:"";s:17:"visitLink_bgColor";s:0:"";s:19:"visitLink_fontColor";s:0:"";s:20:"visitLink_fontFamily";s:0:"";s:18:"visitLink_fontSize";s:0:"";s:19:"visitLink_fontStyle";s:0:"";s:20:"visitLink_fontWeight";s:0:"";s:17:"visitLink_textDec";s:0:"";s:17:"hoverLink_bgColor";s:0:"";s:19:"hoverLink_fontColor";s:0:"";s:20:"hoverLink_fontFamily";s:0:"";s:18:"hoverLink_fontSize";s:0:"";s:19:"hoverLink_fontStyle";s:0:"";s:20:"hoverLink_fontWeight";s:0:"";s:17:"hoverLink_textDec";s:0:"";s:5:"extra";s:0:"";}]]></template>
+<templatephp><![CDATA[]]></templatephp>
+</fragment>
+
+<fragment fragmentid="37" styleid="0" groupid="164" fragmentName="select" fragmentVarName="selectMenu" fragmentType="style" defaultid="0" disOrder="9">
+<template><![CDATA[a:8:{s:12:"main_bgColor";s:0:"";s:14:"main_fontColor";s:0:"";s:15:"main_fontFamily";s:19:"verdana, sans-serif";s:13:"main_fontSize";s:4:"100%";s:14:"main_fontStyle";s:0:"";s:15:"main_fontWeight";s:6:"normal";s:12:"main_textDec";s:0:"";s:5:"extra";s:0:"";}]]></template>
+<templatephp><![CDATA[]]></templatephp>
+</fragment>
+
+<fragment fragmentid="38" styleid="0" groupid="164" fragmentName=".small" fragmentVarName="smallFont" fragmentType="style" defaultid="0" disOrder="10">
+<template><![CDATA[a:8:{s:12:"main_bgColor";s:0:"";s:14:"main_fontColor";s:0:"";s:15:"main_fontFamily";s:0:"";s:13:"main_fontSize";s:4:"10px";s:14:"main_fontStyle";s:0:"";s:15:"main_fontWeight";s:0:"";s:12:"main_textDec";s:0:"";s:5:"extra";s:0:"";}]]></template>
+<templatephp><![CDATA[]]></templatephp>
+</fragment>
+
+<fragment fragmentid="39" styleid="0" groupid="164" fragmentName="input.text, textarea" fragmentVarName="textInput" fragmentType="style" defaultid="0" disOrder="11">
+<template><![CDATA[a:8:{s:12:"main_bgColor";s:0:"";s:14:"main_fontColor";s:4:"#000";s:15:"main_fontFamily";s:19:"verdana, sans-serif";s:13:"main_fontSize";s:4:"100%";s:14:"main_fontStyle";s:0:"";s:15:"main_fontWeight";s:0:"";s:12:"main_textDec";s:0:"";s:5:"extra";s:13:"padding: 2px;";}]]></template>
+<templatephp><![CDATA[]]></templatephp>
+</fragment>
+
+<fragment fragmentid="40" styleid="0" groupid="164" fragmentName=".time" fragmentVarName="timeFont" fragmentType="style" defaultid="0" disOrder="12">
+<template><![CDATA[a:8:{s:12:"main_bgColor";s:0:"";s:14:"main_fontColor";s:7:"#577899";s:15:"main_fontFamily";s:0:"";s:13:"main_fontSize";s:4:"10px";s:14:"main_fontStyle";s:0:"";s:15:"main_fontWeight";s:0:"";s:12:"main_textDec";s:0:"";s:5:"extra";s:0:"";}]]></template>
+<templatephp><![CDATA[]]></templatephp>
+</fragment>
+
 <fragment fragmentid="191" styleid="0" groupid="5454" fragmentName="aimIcon" fragmentVarName="aimIcon" fragmentType="imageName" defaultid="0" disOrder="0">
 <template><![CDATA[imAimIcon.gif]]></template>
 <templatephp><![CDATA[imAimIcon.gif]]></templatephp>
@@ -631,68 +721,6 @@ input.text, textarea {
 <fragment fragmentid="132" styleid="0" groupid="222" fragmentName="bbcode_sizebit" fragmentVarName="bbcode_sizebit" fragmentType="template" defaultid="0" disOrder="0">
 <template><![CDATA[<option value="{$val}">{$val}</option>]]></template>
 <templatephp><![CDATA[<option value=\"{$val}\">{$val}</option>]]></templatephp>
-</fragment>
-
-<fragment fragmentid="26" styleid="0" groupid="164" fragmentName="body" fragmentVarName="body" fragmentType="style" defaultid="0" disOrder="1">
-<template><![CDATA[a:29:{s:12:"main_bgColor";s:7:"#284571";s:14:"main_fontColor";s:4:"#fff";s:15:"main_fontFamily";s:19:"verdana, sans-serif";s:13:"main_fontSize";s:4:"12px";s:14:"main_fontStyle";s:0:"";s:15:"main_fontWeight";s:0:"";s:12:"main_textDec";s:0:"";s:15:"regLink_bgColor";s:0:"";s:17:"regLink_fontColor";s:7:"#A9D2EA";s:18:"regLink_fontFamily";s:0:"";s:16:"regLink_fontSize";s:0:"";s:17:"regLink_fontStyle";s:0:"";s:18:"regLink_fontWeight";s:0:"";s:15:"regLink_textDec";s:4:"none";s:17:"visitLink_bgColor";s:0:"";s:19:"visitLink_fontColor";s:0:"";s:20:"visitLink_fontFamily";s:0:"";s:18:"visitLink_fontSize";s:0:"";s:19:"visitLink_fontStyle";s:0:"";s:20:"visitLink_fontWeight";s:0:"";s:17:"visitLink_textDec";s:0:"";s:17:"hoverLink_bgColor";s:0:"";s:19:"hoverLink_fontColor";s:4:"#fff";s:20:"hoverLink_fontFamily";s:0:"";s:18:"hoverLink_fontSize";s:0:"";s:19:"hoverLink_fontStyle";s:0:"";s:20:"hoverLink_fontWeight";s:0:"";s:17:"hoverLink_textDec";s:0:"";s:5:"extra";s:0:"";}]]></template>
-<templatephp><![CDATA[]]></templatephp>
-</fragment>
-
-<fragment fragmentid="29" styleid="0" groupid="164" fragmentName=".button" fragmentVarName="button" fragmentType="style" defaultid="0" disOrder="3">
-<template><![CDATA[a:8:{s:12:"main_bgColor";s:57:"#fff url(./../images/wtcBB-Default/buttonbg.jpg) repeat-x";s:14:"main_fontColor";s:4:"#000";s:15:"main_fontFamily";s:19:"verdana, sans-serif";s:13:"main_fontSize";s:4:"100%";s:14:"main_fontStyle";s:0:"";s:15:"main_fontWeight";s:4:"bold";s:12:"main_textDec";s:0:"";s:5:"extra";s:0:"";}]]></template>
-<templatephp><![CDATA[]]></templatephp>
-</fragment>
-
-<fragment fragmentid="30" styleid="0" groupid="164" fragmentName=".cat" fragmentVarName="category" fragmentType="style" defaultid="0" disOrder="4">
-<template><![CDATA[a:29:{s:12:"main_bgColor";s:7:"#28436E";s:14:"main_fontColor";s:4:"#fff";s:15:"main_fontFamily";s:0:"";s:13:"main_fontSize";s:4:"12px";s:14:"main_fontStyle";s:0:"";s:15:"main_fontWeight";s:4:"bold";s:12:"main_textDec";s:0:"";s:15:"regLink_bgColor";s:0:"";s:17:"regLink_fontColor";s:4:"#fff";s:18:"regLink_fontFamily";s:0:"";s:16:"regLink_fontSize";s:0:"";s:17:"regLink_fontStyle";s:0:"";s:18:"regLink_fontWeight";s:0:"";s:15:"regLink_textDec";s:0:"";s:17:"visitLink_bgColor";s:0:"";s:19:"visitLink_fontColor";s:0:"";s:20:"visitLink_fontFamily";s:0:"";s:18:"visitLink_fontSize";s:0:"";s:19:"visitLink_fontStyle";s:0:"";s:20:"visitLink_fontWeight";s:0:"";s:17:"visitLink_textDec";s:0:"";s:17:"hoverLink_bgColor";s:0:"";s:19:"hoverLink_fontColor";s:7:"#fbe286";s:20:"hoverLink_fontFamily";s:0:"";s:18:"hoverLink_fontSize";s:0:"";s:19:"hoverLink_fontStyle";s:0:"";s:20:"hoverLink_fontWeight";s:0:"";s:17:"hoverLink_textDec";s:0:"";s:5:"extra";s:13:"padding: 6px;";}]]></template>
-<templatephp><![CDATA[]]></templatephp>
-</fragment>
-
-<fragment fragmentid="31" styleid="0" groupid="164" fragmentName=".alt1" fragmentVarName="firstAlteration" fragmentType="style" defaultid="0" disOrder="5">
-<template><![CDATA[a:29:{s:12:"main_bgColor";s:7:"#EBF0F7";s:14:"main_fontColor";s:4:"#000";s:15:"main_fontFamily";s:0:"";s:13:"main_fontSize";s:4:"12px";s:14:"main_fontStyle";s:0:"";s:15:"main_fontWeight";s:0:"";s:12:"main_textDec";s:0:"";s:15:"regLink_bgColor";s:0:"";s:17:"regLink_fontColor";s:7:"#4C7799";s:18:"regLink_fontFamily";s:0:"";s:16:"regLink_fontSize";s:0:"";s:17:"regLink_fontStyle";s:0:"";s:18:"regLink_fontWeight";s:0:"";s:15:"regLink_textDec";s:0:"";s:17:"visitLink_bgColor";s:0:"";s:19:"visitLink_fontColor";s:0:"";s:20:"visitLink_fontFamily";s:0:"";s:18:"visitLink_fontSize";s:0:"";s:19:"visitLink_fontStyle";s:0:"";s:20:"visitLink_fontWeight";s:0:"";s:17:"visitLink_textDec";s:0:"";s:17:"hoverLink_bgColor";s:0:"";s:19:"hoverLink_fontColor";s:0:"";s:20:"hoverLink_fontFamily";s:0:"";s:18:"hoverLink_fontSize";s:0:"";s:19:"hoverLink_fontStyle";s:0:"";s:20:"hoverLink_fontWeight";s:0:"";s:17:"hoverLink_textDec";s:0:"";s:5:"extra";s:0:"";}]]></template>
-<templatephp><![CDATA[]]></templatephp>
-</fragment>
-
-<fragment fragmentid="34" styleid="0" groupid="164" fragmentName="th, .headFoot" fragmentVarName="headerFooter" fragmentType="style" defaultid="0" disOrder="7">
-<template><![CDATA[a:29:{s:12:"main_bgColor";s:7:"#28436E";s:14:"main_fontColor";s:4:"#fff";s:15:"main_fontFamily";s:0:"";s:13:"main_fontSize";s:4:"12px";s:14:"main_fontStyle";s:0:"";s:15:"main_fontWeight";s:4:"bold";s:12:"main_textDec";s:0:"";s:15:"regLink_bgColor";s:0:"";s:17:"regLink_fontColor";s:4:"#fff";s:18:"regLink_fontFamily";s:0:"";s:16:"regLink_fontSize";s:0:"";s:17:"regLink_fontStyle";s:0:"";s:18:"regLink_fontWeight";s:0:"";s:15:"regLink_textDec";s:0:"";s:17:"visitLink_bgColor";s:0:"";s:19:"visitLink_fontColor";s:0:"";s:20:"visitLink_fontFamily";s:0:"";s:18:"visitLink_fontSize";s:0:"";s:19:"visitLink_fontStyle";s:0:"";s:20:"visitLink_fontWeight";s:0:"";s:17:"visitLink_textDec";s:0:"";s:17:"hoverLink_bgColor";s:0:"";s:19:"hoverLink_fontColor";s:7:"#fbe286";s:20:"hoverLink_fontFamily";s:0:"";s:18:"hoverLink_fontSize";s:0:"";s:19:"hoverLink_fontStyle";s:0:"";s:20:"hoverLink_fontWeight";s:0:"";s:17:"hoverLink_textDec";s:0:"";s:5:"extra";s:45:"padding: 4px !important;
-text-align: center;";}]]></template>
-<templatephp><![CDATA[]]></templatephp>
-</fragment>
-
-<fragment fragmentid="27" styleid="0" groupid="164" fragmentName=".page" fragmentVarName="page" fragmentType="style" defaultid="0" disOrder="2">
-<template><![CDATA[a:29:{s:12:"main_bgColor";s:4:"#fff";s:14:"main_fontColor";s:4:"#000";s:15:"main_fontFamily";s:0:"";s:13:"main_fontSize";s:4:"12px";s:14:"main_fontStyle";s:0:"";s:15:"main_fontWeight";s:0:"";s:12:"main_textDec";s:0:"";s:15:"regLink_bgColor";s:0:"";s:17:"regLink_fontColor";s:7:"#A9D2EA";s:18:"regLink_fontFamily";s:0:"";s:16:"regLink_fontSize";s:0:"";s:17:"regLink_fontStyle";s:0:"";s:18:"regLink_fontWeight";s:0:"";s:15:"regLink_textDec";s:4:"none";s:17:"visitLink_bgColor";s:0:"";s:19:"visitLink_fontColor";s:0:"";s:20:"visitLink_fontFamily";s:0:"";s:18:"visitLink_fontSize";s:0:"";s:19:"visitLink_fontStyle";s:0:"";s:20:"visitLink_fontWeight";s:0:"";s:17:"visitLink_textDec";s:0:"";s:17:"hoverLink_bgColor";s:0:"";s:19:"hoverLink_fontColor";s:7:"#4f4f4f";s:20:"hoverLink_fontFamily";s:0:"";s:18:"hoverLink_fontSize";s:0:"";s:19:"hoverLink_fontStyle";s:0:"";s:20:"hoverLink_fontWeight";s:0:"";s:17:"hoverLink_textDec";s:0:"";s:5:"extra";s:51:"margin: 10px 20px;
-border-style: inset !important;";}]]></template>
-<templatephp><![CDATA[]]></templatephp>
-</fragment>
-
-<fragment fragmentid="36" styleid="0" groupid="164" fragmentName=".noText" fragmentVarName="radioCheck" fragmentType="style" defaultid="0" disOrder="8">
-<template><![CDATA[a:8:{s:12:"main_bgColor";s:0:"";s:14:"main_fontColor";s:0:"";s:15:"main_fontFamily";s:0:"";s:13:"main_fontSize";s:0:"";s:14:"main_fontStyle";s:0:"";s:15:"main_fontWeight";s:0:"";s:12:"main_textDec";s:0:"";s:5:"extra";s:0:"";}]]></template>
-<templatephp><![CDATA[]]></templatephp>
-</fragment>
-
-<fragment fragmentid="32" styleid="0" groupid="164" fragmentName=".alt2" fragmentVarName="secondAlteration" fragmentType="style" defaultid="0" disOrder="6">
-<template><![CDATA[a:29:{s:12:"main_bgColor";s:7:"#F5F6F6";s:14:"main_fontColor";s:4:"#000";s:15:"main_fontFamily";s:0:"";s:13:"main_fontSize";s:4:"12px";s:14:"main_fontStyle";s:0:"";s:15:"main_fontWeight";s:0:"";s:12:"main_textDec";s:0:"";s:15:"regLink_bgColor";s:0:"";s:17:"regLink_fontColor";s:7:"#4C7799";s:18:"regLink_fontFamily";s:0:"";s:16:"regLink_fontSize";s:0:"";s:17:"regLink_fontStyle";s:0:"";s:18:"regLink_fontWeight";s:0:"";s:15:"regLink_textDec";s:0:"";s:17:"visitLink_bgColor";s:0:"";s:19:"visitLink_fontColor";s:0:"";s:20:"visitLink_fontFamily";s:0:"";s:18:"visitLink_fontSize";s:0:"";s:19:"visitLink_fontStyle";s:0:"";s:20:"visitLink_fontWeight";s:0:"";s:17:"visitLink_textDec";s:0:"";s:17:"hoverLink_bgColor";s:0:"";s:19:"hoverLink_fontColor";s:0:"";s:20:"hoverLink_fontFamily";s:0:"";s:18:"hoverLink_fontSize";s:0:"";s:19:"hoverLink_fontStyle";s:0:"";s:20:"hoverLink_fontWeight";s:0:"";s:17:"hoverLink_textDec";s:0:"";s:5:"extra";s:0:"";}]]></template>
-<templatephp><![CDATA[]]></templatephp>
-</fragment>
-
-<fragment fragmentid="37" styleid="0" groupid="164" fragmentName="select" fragmentVarName="selectMenu" fragmentType="style" defaultid="0" disOrder="9">
-<template><![CDATA[a:8:{s:12:"main_bgColor";s:0:"";s:14:"main_fontColor";s:0:"";s:15:"main_fontFamily";s:19:"verdana, sans-serif";s:13:"main_fontSize";s:4:"100%";s:14:"main_fontStyle";s:0:"";s:15:"main_fontWeight";s:6:"normal";s:12:"main_textDec";s:0:"";s:5:"extra";s:0:"";}]]></template>
-<templatephp><![CDATA[]]></templatephp>
-</fragment>
-
-<fragment fragmentid="38" styleid="0" groupid="164" fragmentName=".small" fragmentVarName="smallFont" fragmentType="style" defaultid="0" disOrder="10">
-<template><![CDATA[a:8:{s:12:"main_bgColor";s:0:"";s:14:"main_fontColor";s:0:"";s:15:"main_fontFamily";s:0:"";s:13:"main_fontSize";s:4:"10px";s:14:"main_fontStyle";s:0:"";s:15:"main_fontWeight";s:0:"";s:12:"main_textDec";s:0:"";s:5:"extra";s:0:"";}]]></template>
-<templatephp><![CDATA[]]></templatephp>
-</fragment>
-
-<fragment fragmentid="39" styleid="0" groupid="164" fragmentName="input.text, textarea" fragmentVarName="textInput" fragmentType="style" defaultid="0" disOrder="11">
-<template><![CDATA[a:8:{s:12:"main_bgColor";s:0:"";s:14:"main_fontColor";s:4:"#000";s:15:"main_fontFamily";s:19:"verdana, sans-serif";s:13:"main_fontSize";s:4:"100%";s:14:"main_fontStyle";s:0:"";s:15:"main_fontWeight";s:0:"";s:12:"main_textDec";s:0:"";s:5:"extra";s:13:"padding: 2px;";}]]></template>
-<templatephp><![CDATA[]]></templatephp>
-</fragment>
-
-<fragment fragmentid="40" styleid="0" groupid="164" fragmentName=".time" fragmentVarName="timeFont" fragmentType="style" defaultid="0" disOrder="12">
-<template><![CDATA[a:8:{s:12:"main_bgColor";s:0:"";s:14:"main_fontColor";s:7:"#577899";s:15:"main_fontFamily";s:0:"";s:13:"main_fontSize";s:4:"10px";s:14:"main_fontStyle";s:0:"";s:15:"main_fontWeight";s:0:"";s:12:"main_textDec";s:0:"";s:5:"extra";s:0:"";}]]></template>
-<templatephp><![CDATA[]]></templatephp>
 </fragment>
 
 <fragment fragmentid="62" styleid="0" groupid="184" fragmentName="borderColor" fragmentVarName="borderColor" fragmentType="option" defaultid="0" disOrder="0">
@@ -8681,11 +8709,18 @@ display: block;
 </fragment>
 
 <fragment fragmentid="125" styleid="0" groupid="212" fragmentName="threaddisplay" fragmentVarName="threaddisplay" fragmentType="template" defaultid="0" disOrder="0">
-<template><![CDATA[<div class="marCenter smallMarTop smallMarBot"><div class="cont">
-  <div class="headFoot border clear">
-    <h3 class="left floatLeft tinyMarTop">{$Thread->getName()}</h3>
+<template><![CDATA[<if($Thread->isDeleted())>
+  <div class="marCenter smallMarTop smallMarBot alt2"><div class="cont">
+    <p class="cat border error">{$lang[user_thread_delThread]}</p>
 
-    <if(LOGIN)>
+    <p class="bord noBordTop pad">{$lang[user_thread_delMessage]}</p>
+  </div></div>
+</if>
+
+
+<if(LOGIN)>
+  <div class="marCenter smallMarTop"><div class="cont">
+    <div class="clear alt1 bord noBordTop" id="threadActions">      
       <form method="get" action="<n2link(./index.php)>" class="floatRight">
         <input type="hidden" name="file" value="thread" />
         <input type="hidden" name="t" value="{$Thread->getThreadId()}" />
@@ -8770,18 +8805,10 @@ display: block;
 
         <input type="submit" value="{$lang[global_go]}" class="button" />
       </form>
-    </if>
-  </div>
-</div></div>
-
-<if($Thread->isDeleted())>
-  <div class="marCenter smallMarTop smallMarBot alt2"><div class="cont">
-    <p class="cat border error">{$lang[user_thread_delThread]}</p>
-
-    <p class="bord noBordTop pad">{$lang[user_thread_delMessage]}</p>
-  </div></div>
+    </div>
+  </div></div>            
 </if>
-
+            
 <if($Poll instanceof Poll AND !$Poll->isDisabled())>
   <form method="post" class="smallMarBot" action="<n2link(file=poll&amp;poll={$Poll->getPollId()}&amp;do=vote)>">
     {$SESSION_INPUT}
@@ -8852,6 +8879,12 @@ display: block;
 </script>
 <script type="text/javascript" src="./scripts/Ajax.js"></script>
 <script type="text/javascript" src="./scripts/Thread.js"></script>
+
+<div class="marCenter smallMarTop smallMarBot"><div class="cont">            
+  <div class="headFoot border clear">
+    <h3 class="left floatLeft tinyMarTop">{$Thread->getName()}</h3>
+  </div></div>
+</div>
 
 <div id="threadDisplay" class="noMar" name="{$Thread->getThreadId()}">
   $postBits
@@ -8960,12 +8993,21 @@ display: block;
         </div>
     </div></div>
 </if>
-]]></template>
-<templatephp><![CDATA[<div class=\"marCenter smallMarTop smallMarBot\"><div class=\"cont\">
-  <div class=\"headFoot border clear\">
-    <h3 class=\"left floatLeft tinyMarTop\">{$Thread->getName()}</h3>
 
-    " . ((LOGIN) ? ("
+ 
+]]></template>
+<templatephp><![CDATA[" . (($Thread->isDeleted()) ? ("
+  <div class=\"marCenter smallMarTop smallMarBot alt2\"><div class=\"cont\">
+    <p class=\"cat border error\">{$lang[user_thread_delThread]}</p>
+
+    <p class=\"bord noBordTop pad\">{$lang[user_thread_delMessage]}</p>
+  </div></div>
+") : ("")) . "
+
+
+" . ((LOGIN) ? ("
+  <div class=\"marCenter smallMarTop\"><div class=\"cont\">
+    <div class=\"clear alt1 bord noBordTop\" id=\"threadActions\">      
       <form method=\"get\" action=\"" . n2link("./index.php") . "\" class=\"floatRight\">
         <input type=\"hidden\" name=\"file\" value=\"thread\" />
         <input type=\"hidden\" name=\"t\" value=\"{$Thread->getThreadId()}\" />
@@ -9050,18 +9092,10 @@ display: block;
 
         <input type=\"submit\" value=\"{$lang[global_go]}\" class=\"button\" />
       </form>
-    ") : ("")) . "
-  </div>
-</div></div>
-
-" . (($Thread->isDeleted()) ? ("
-  <div class=\"marCenter smallMarTop smallMarBot alt2\"><div class=\"cont\">
-    <p class=\"cat border error\">{$lang[user_thread_delThread]}</p>
-
-    <p class=\"bord noBordTop pad\">{$lang[user_thread_delMessage]}</p>
-  </div></div>
+    </div>
+  </div></div>            
 ") : ("")) . "
-
+            
 " . (($Poll instanceof Poll AND !$Poll->isDisabled()) ? ("
   <form method=\"post\" class=\"smallMarBot\" action=\"" . n2link("file=poll&amp;poll={$Poll->getPollId()}&amp;do=vote") . "\">
     {$SESSION_INPUT}
@@ -9132,6 +9166,12 @@ display: block;
 </script>
 <script type=\"text/javascript\" src=\"./scripts/Ajax.js\"></script>
 <script type=\"text/javascript\" src=\"./scripts/Thread.js\"></script>
+
+<div class=\"marCenter smallMarTop smallMarBot\"><div class=\"cont\">            
+  <div class=\"headFoot border clear\">
+    <h3 class=\"left floatLeft tinyMarTop\">{$Thread->getName()}</h3>
+  </div></div>
+</div>
 
 <div id=\"threadDisplay\" class=\"noMar\" name=\"{$Thread->getThreadId()}\">
   $postBits
@@ -9240,6 +9280,8 @@ display: block;
         </div>
     </div></div>
 ") : ("")) . "
+
+ 
 ]]></templatephp>
 </fragment>
 
@@ -9259,30 +9301,51 @@ display: block;
 
 <fragment fragmentid="126" styleid="0" groupid="212" fragmentName="threaddisplay_bit" fragmentVarName="threaddisplay_bit" fragmentType="template" defaultid="0" disOrder="0">
 <template><![CDATA[<table cellspacing="0" cellpadding="0" class="noMarTop postbit bord2">
-  <tr>
-    <td class="cat pbHeader bord<if($post->isDeleted())> error</if>" colspan="2">
-      <div class="clear">
-        <p class="floatLeft pad">
-          <a href="<n2link(file=post&amp;p={$post->getPostId()}{$SESSURL})>" name="{$post->getPostId()}">{$post->getTitle()}</a>
-        </p>
-      </div>
-    </td>
-  </tr>
 
   <tr>
-    <td class="alt1 pbProfile vertTop bord noBordTop noBordBot">
+    <td class="alt1 pbProfile vertTop noBordTop topBarInfo">
       <p class="noMar">
-        <strong>
+        <if($post->getStarterId())>{$status}</if>
+
+          <strong>
           <if($post->getStarterId())>
             {$postUser->getHTMLName()}
           <else />
             {$post->getStarterName()}
           </if>
         </strong>
-
-        <if($post->getStarterId())>{$status}</if>
       </p>
+    </td>
+          
+    <td class="alt2 pbMessage vertTop bordRight topBarAction">
+      <div class="clear goUp">
+        <div class="floatLeft">
+            <if($post->getPostIcon())>
+                <img src="{$post->getPostIcon()}" alt="{$post->getTitle()}" class="aligned" />
+            </if>
+            <a href="<n2link(file=post&amp;p={$post->getPostId()}{$SESSURL})>" name="{$post->getPostId()}">{$post->getTitle()}</a>
+            <span class="time">{$timeline->getDate()}</span>
+        </div>
+        <div class="floatRight">
+          <if($post->isDeleted())>
+            <a href="<n2link(file=post&amp;p={$post->getPostId()}&amp;do=restore{$SESSURL})>">{$lang[user_thread_restorePost]}</a>
+          <else />
+            <if($post->canDelete())>
+              <img src="{$VISUALS[images]}/{$IMAGES[postbit_dPlus]}" alt="{$lang[user_thread_deletePost]}" class="deleteButton" id="delete_{$post->getPostId()}" />
 
+              <a href="<n2link(file=post&amp;p={$post->getPostId()}&amp;do=delete{$SESSURL})>"><img src="{$VISUALS[images]}/{$IMAGES[postbit_delIcon]}" id="del_{$post->getPostId()}" alt="{$lang[user_thread_deletePost]}" class="delButton" title="{$post->getPostId()}" /></a>
+            <else /></if>
+          </if>
+
+          <a href="<n2link(file=sendemail&amp;do=report&amp;p={$post->getPostId()})>"><img src="{$VISUALS[images]}/{$IMAGES[postbit_report]}" alt="{$lang[user_thread_reportPost]}" /></a>
+        </div>
+      </div>              
+    </td>
+  </tr>
+  
+  
+  <tr>
+    <td class="alt1 pbProfile vertTop bord noBordTop noBordBot">
       <if(!empty($postUser->info['avatar']))>
         <div class="smallMarTop">
           <img src="{$postUser->info[avatar]}" alt="{$postUser->info[username]}'s {$lang[global_avatar]}" />
@@ -9298,37 +9361,11 @@ display: block;
       <if($post->getStarterId())>
         <p class="small smallMarTop noMarBot">Posts: {$postUser->info[posts]}</p>
         <p class="small noMarTop noMarBot">Joined: {$joined->getDate()}</p>
-		<p class="small noMarTop">Reputation: <a href="<n2link(file=profile&amp;do=reputation&amp;u={$postUser->info[userid]}&amp;p={$post->getPostId()}{$SESSURL})>">{$postUser->info[reputation]}</a> [<a href="<n2link(file=profile&amp;do=reputation&amp;u={$postUser->info[userid]}&amp;p={$post->getPostId()}{$SESSURL}#updownvote)>"><img src="{$VISUALS[images]}/{$IMAGES[postbit_updownvote]}" /></a>]</p>        
+    <p class="small noMarTop">Reputation: <a href="<n2link(file=profile&amp;do=reputation&amp;u={$postUser->info[userid]}&amp;p={$post->getPostId()}{$SESSURL})>">{$postUser->info[reputation]}</a> [<a href="<n2link(file=profile&amp;do=reputation&amp;u={$postUser->info[userid]}&amp;p={$post->getPostId()}{$SESSURL}#updownvote)>"><img src="{$VISUALS[images]}/{$IMAGES[postbit_updownvote]}" /></a>]</p>        
       </if>
     </td>
 
     <td class="alt2 pbMessage vertTop bordRight">
-      <div class="clear goUp">
-        <div class="floatLeft">
-            <if($post->getPostIcon())>
-                <img src="{$post->getPostIcon()}" alt="{$post->getTitle()}" class="aligned" />
-            </if>
-
-            <span class="time">{$timeline->getDate()}</span>
-        </div>
-
-        <div class="floatRight">
-          <if($post->isDeleted())>
-            <a href="<n2link(file=post&amp;p={$post->getPostId()}&amp;do=restore{$SESSURL})>">{$lang[user_thread_restorePost]}</a>
-          <else />
-            <if($post->canDelete())>
-              <img src="{$VISUALS[images]}/{$IMAGES[postbit_dPlus]}" alt="{$lang[user_thread_deletePost]}" class="deleteButton" id="delete_{$post->getPostId()}" />
-
-              <a href="<n2link(file=post&amp;p={$post->getPostId()}&amp;do=delete{$SESSURL})>"><img src="{$VISUALS[images]}/{$IMAGES[postbit_delIcon]}" id="del_{$post->getPostId()}" alt="{$lang[user_thread_deletePost]}" class="delButton" title="{$post->getPostId()}" /></a>
-            <else /></if>
-          </if>
-
-          <a href="<n2link(file=sendemail&amp;do=report&amp;p={$post->getPostId()})>"><img src="{$VISUALS[images]}/{$IMAGES[postbit_report]}" alt="{$lang[user_thread_reportPost]}" /></a>
-        </div>
-      </div>
-
-      <hr class="postSep" />
-
       <div class="expand">
         <div id="regtext_{$post->getPostId()}">
           <span id="postmessage_{$post->getPostId()}">{$message}</span>
@@ -9387,7 +9424,7 @@ display: block;
   </tr>
 
   <tr>
-    <td class="alt1 pbProfile vertTop center bord noBordTop">
+    <td class="alt1 pbProfile vertTop bottomBarInfo">
       <if($post->getStarterId())>
         <a href="<n2link(file=profile&amp;u={$postUser->info[userid]}{$SESSURL})>"><img src="{$VISUALS[images]}/{$IMAGES[profileIcon]}" alt="{$postUser->info[username]}" class="aligned" /></a>
 
@@ -9404,7 +9441,7 @@ display: block;
       </if>
     </td>
 
-    <td class="alt2 pbMessage vertTop right bordBot bordRight">
+    <td class="alt2 pbMessage vertTop right bordBot bordRight bottomBarAction">
       <div class="floatLeft">
         <a href="#"><img src="{$VISUALS[images]}/{$IMAGES[upIcon]}" alt="{$lang[user_topPage]}" class="aligned" /></a>
 
@@ -9434,30 +9471,51 @@ display: block;
   </tr>
 </table>]]></template>
 <templatephp><![CDATA[<table cellspacing=\"0\" cellpadding=\"0\" class=\"noMarTop postbit bord2\">
-  <tr>
-    <td class=\"cat pbHeader bord" . (($post->isDeleted()) ? (" error") : ("")) . "\" colspan=\"2\">
-      <div class=\"clear\">
-        <p class=\"floatLeft pad\">
-          <a href=\"" . n2link("file=post&amp;p={$post->getPostId()}{$SESSURL}") . "\" name=\"{$post->getPostId()}\">{$post->getTitle()}</a>
-        </p>
-      </div>
-    </td>
-  </tr>
 
   <tr>
-    <td class=\"alt1 pbProfile vertTop bord noBordTop noBordBot\">
+    <td class=\"alt1 pbProfile vertTop noBordTop topBarInfo\">
       <p class=\"noMar\">
-        <strong>
+        " . (($post->getStarterId()) ? ("{$status}") : ("")) . "
+
+          <strong>
           " . (($post->getStarterId()) ? ("
             {$postUser->getHTMLName()}
           ") : ("
             {$post->getStarterName()}
           ")) . "
         </strong>
-
-        " . (($post->getStarterId()) ? ("{$status}") : ("")) . "
       </p>
+    </td>
+          
+    <td class=\"alt2 pbMessage vertTop bordRight topBarAction\">
+      <div class=\"clear goUp\">
+        <div class=\"floatLeft\">
+            " . (($post->getPostIcon()) ? ("
+                <img src=\"{$post->getPostIcon()}\" alt=\"{$post->getTitle()}\" class=\"aligned\" />
+            ") : ("")) . "
+            <a href=\"" . n2link("file=post&amp;p={$post->getPostId()}{$SESSURL}") . "\" name=\"{$post->getPostId()}\">{$post->getTitle()}</a>
+            <span class=\"time\">{$timeline->getDate()}</span>
+        </div>
+        <div class=\"floatRight\">
+          " . (($post->isDeleted()) ? ("
+            <a href=\"" . n2link("file=post&amp;p={$post->getPostId()}&amp;do=restore{$SESSURL}") . "\">{$lang[user_thread_restorePost]}</a>
+          ") : ("
+            " . (($post->canDelete()) ? ("
+              <img src=\"{$VISUALS[images]}/{$IMAGES[postbit_dPlus]}\" alt=\"{$lang[user_thread_deletePost]}\" class=\"deleteButton\" id=\"delete_{$post->getPostId()}\" />
 
+              <a href=\"" . n2link("file=post&amp;p={$post->getPostId()}&amp;do=delete{$SESSURL}") . "\"><img src=\"{$VISUALS[images]}/{$IMAGES[postbit_delIcon]}\" id=\"del_{$post->getPostId()}\" alt=\"{$lang[user_thread_deletePost]}\" class=\"delButton\" title=\"{$post->getPostId()}\" /></a>
+            ") : ("")) . "
+          ")) . "
+
+          <a href=\"" . n2link("file=sendemail&amp;do=report&amp;p={$post->getPostId()}") . "\"><img src=\"{$VISUALS[images]}/{$IMAGES[postbit_report]}\" alt=\"{$lang[user_thread_reportPost]}\" /></a>
+        </div>
+      </div>              
+    </td>
+  </tr>
+  
+  
+  <tr>
+    <td class=\"alt1 pbProfile vertTop bord noBordTop noBordBot\">
       " . ((!empty($postUser->info['avatar'])) ? ("
         <div class=\"smallMarTop\">
           <img src=\"{$postUser->info[avatar]}\" alt=\"{$postUser->info[username]}\'s {$lang[global_avatar]}\" />
@@ -9473,37 +9531,11 @@ display: block;
       " . (($post->getStarterId()) ? ("
         <p class=\"small smallMarTop noMarBot\">Posts: {$postUser->info[posts]}</p>
         <p class=\"small noMarTop noMarBot\">Joined: {$joined->getDate()}</p>
-		<p class=\"small noMarTop\">Reputation: <a href=\"" . n2link("file=profile&amp;do=reputation&amp;u={$postUser->info[userid]}&amp;p={$post->getPostId()}{$SESSURL}") . "\">{$postUser->info[reputation]}</a> [<a href=\"" . n2link("file=profile&amp;do=reputation&amp;u={$postUser->info[userid]}&amp;p={$post->getPostId()}{$SESSURL}#updownvote") . "\"><img src=\"{$VISUALS[images]}/{$IMAGES[postbit_updownvote]}\" /></a>]</p>        
+    <p class=\"small noMarTop\">Reputation: <a href=\"" . n2link("file=profile&amp;do=reputation&amp;u={$postUser->info[userid]}&amp;p={$post->getPostId()}{$SESSURL}") . "\">{$postUser->info[reputation]}</a> [<a href=\"" . n2link("file=profile&amp;do=reputation&amp;u={$postUser->info[userid]}&amp;p={$post->getPostId()}{$SESSURL}#updownvote") . "\"><img src=\"{$VISUALS[images]}/{$IMAGES[postbit_updownvote]}\" /></a>]</p>        
       ") : ("")) . "
     </td>
 
     <td class=\"alt2 pbMessage vertTop bordRight\">
-      <div class=\"clear goUp\">
-        <div class=\"floatLeft\">
-            " . (($post->getPostIcon()) ? ("
-                <img src=\"{$post->getPostIcon()}\" alt=\"{$post->getTitle()}\" class=\"aligned\" />
-            ") : ("")) . "
-
-            <span class=\"time\">{$timeline->getDate()}</span>
-        </div>
-
-        <div class=\"floatRight\">
-          " . (($post->isDeleted()) ? ("
-            <a href=\"" . n2link("file=post&amp;p={$post->getPostId()}&amp;do=restore{$SESSURL}") . "\">{$lang[user_thread_restorePost]}</a>
-          ") : ("
-            " . (($post->canDelete()) ? ("
-              <img src=\"{$VISUALS[images]}/{$IMAGES[postbit_dPlus]}\" alt=\"{$lang[user_thread_deletePost]}\" class=\"deleteButton\" id=\"delete_{$post->getPostId()}\" />
-
-              <a href=\"" . n2link("file=post&amp;p={$post->getPostId()}&amp;do=delete{$SESSURL}") . "\"><img src=\"{$VISUALS[images]}/{$IMAGES[postbit_delIcon]}\" id=\"del_{$post->getPostId()}\" alt=\"{$lang[user_thread_deletePost]}\" class=\"delButton\" title=\"{$post->getPostId()}\" /></a>
-            ") : ("")) . "
-          ")) . "
-
-          <a href=\"" . n2link("file=sendemail&amp;do=report&amp;p={$post->getPostId()}") . "\"><img src=\"{$VISUALS[images]}/{$IMAGES[postbit_report]}\" alt=\"{$lang[user_thread_reportPost]}\" /></a>
-        </div>
-      </div>
-
-      <hr class=\"postSep\" />
-
       <div class=\"expand\">
         <div id=\"regtext_{$post->getPostId()}\">
           <span id=\"postmessage_{$post->getPostId()}\">{$message}</span>
@@ -9562,7 +9594,7 @@ display: block;
   </tr>
 
   <tr>
-    <td class=\"alt1 pbProfile vertTop center bord noBordTop\">
+    <td class=\"alt1 pbProfile vertTop bottomBarInfo\">
       " . (($post->getStarterId()) ? ("
         <a href=\"" . n2link("file=profile&amp;u={$postUser->info[userid]}{$SESSURL}") . "\"><img src=\"{$VISUALS[images]}/{$IMAGES[profileIcon]}\" alt=\"{$postUser->info[username]}\" class=\"aligned\" /></a>
 
@@ -9579,7 +9611,7 @@ display: block;
       ") : ("")) . "
     </td>
 
-    <td class=\"alt2 pbMessage vertTop right bordBot bordRight\">
+    <td class=\"alt2 pbMessage vertTop right bordBot bordRight bottomBarAction\">
       <div class=\"floatLeft\">
         <a href=\"#\"><img src=\"{$VISUALS[images]}/{$IMAGES[upIcon]}\" alt=\"{$lang[user_topPage]}\" class=\"aligned\" /></a>
 
