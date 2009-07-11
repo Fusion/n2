@@ -48,7 +48,7 @@ body {
 }
 
 .cat {
-	background: #28436E;
+	background: #28436E url(./../images/wtcBB-Default/cat_bgnd.gif) repeat-x;
 	color: #fff;
 	font-size: 12px;
 	font-weight: bold;
@@ -84,7 +84,7 @@ body {
 	}
 
 th, .headFoot {
-	background: #28436E;
+	background: #28436E url(./../images/wtcBB-Default/cat_bgnd.gif) repeat-x;
 	color: #fff;
 	font-size: 12px;
 	font-weight: bold;
@@ -159,7 +159,7 @@ input.text, textarea {
 </fragment>
 
 <fragment fragmentid="30" styleid="0" groupid="164" fragmentName=".cat" fragmentVarName="category" fragmentType="style" defaultid="0" disOrder="4">
-<template><![CDATA[a:29:{s:12:"main_bgColor";s:7:"#28436E";s:14:"main_fontColor";s:4:"#fff";s:15:"main_fontFamily";s:0:"";s:13:"main_fontSize";s:4:"12px";s:14:"main_fontStyle";s:0:"";s:15:"main_fontWeight";s:4:"bold";s:12:"main_textDec";s:0:"";s:15:"regLink_bgColor";s:0:"";s:17:"regLink_fontColor";s:4:"#fff";s:18:"regLink_fontFamily";s:0:"";s:16:"regLink_fontSize";s:0:"";s:17:"regLink_fontStyle";s:0:"";s:18:"regLink_fontWeight";s:0:"";s:15:"regLink_textDec";s:0:"";s:17:"visitLink_bgColor";s:0:"";s:19:"visitLink_fontColor";s:0:"";s:20:"visitLink_fontFamily";s:0:"";s:18:"visitLink_fontSize";s:0:"";s:19:"visitLink_fontStyle";s:0:"";s:20:"visitLink_fontWeight";s:0:"";s:17:"visitLink_textDec";s:0:"";s:17:"hoverLink_bgColor";s:0:"";s:19:"hoverLink_fontColor";s:7:"#fbe286";s:20:"hoverLink_fontFamily";s:0:"";s:18:"hoverLink_fontSize";s:0:"";s:19:"hoverLink_fontStyle";s:0:"";s:20:"hoverLink_fontWeight";s:0:"";s:17:"hoverLink_textDec";s:0:"";s:5:"extra";s:13:"padding: 6px;";}]]></template>
+<template><![CDATA[a:33:{s:12:"main_bgColor";s:60:"#28436E url(./../images/wtcBB-Default/cat_bgnd.gif) repeat-x";s:14:"main_fontColor";s:4:"#fff";s:15:"main_fontFamily";s:0:"";s:13:"main_fontSize";s:4:"12px";s:14:"main_fontStyle";s:0:"";s:15:"main_fontWeight";s:4:"bold";s:12:"main_textDec";s:0:"";s:19:"main_advanced_extra";s:0:"";s:15:"regLink_bgColor";s:0:"";s:17:"regLink_fontColor";s:4:"#fff";s:18:"regLink_fontFamily";s:0:"";s:16:"regLink_fontSize";s:0:"";s:17:"regLink_fontStyle";s:0:"";s:18:"regLink_fontWeight";s:0:"";s:15:"regLink_textDec";s:0:"";s:22:"regLink_advanced_extra";s:0:"";s:17:"visitLink_bgColor";s:0:"";s:19:"visitLink_fontColor";s:0:"";s:20:"visitLink_fontFamily";s:0:"";s:18:"visitLink_fontSize";s:0:"";s:19:"visitLink_fontStyle";s:0:"";s:20:"visitLink_fontWeight";s:0:"";s:17:"visitLink_textDec";s:0:"";s:24:"visitLink_advanced_extra";s:0:"";s:17:"hoverLink_bgColor";s:0:"";s:19:"hoverLink_fontColor";s:7:"#fbe286";s:20:"hoverLink_fontFamily";s:0:"";s:18:"hoverLink_fontSize";s:0:"";s:19:"hoverLink_fontStyle";s:0:"";s:20:"hoverLink_fontWeight";s:0:"";s:17:"hoverLink_textDec";s:0:"";s:24:"hoverLink_advanced_extra";s:0:"";s:5:"extra";s:13:"padding: 6px;";}]]></template>
 <templatephp><![CDATA[]]></templatephp>
 </fragment>
 
@@ -169,7 +169,7 @@ input.text, textarea {
 </fragment>
 
 <fragment fragmentid="34" styleid="0" groupid="164" fragmentName="th, .headFoot" fragmentVarName="headerFooter" fragmentType="style" defaultid="0" disOrder="7">
-<template><![CDATA[a:29:{s:12:"main_bgColor";s:7:"#28436E";s:14:"main_fontColor";s:4:"#fff";s:15:"main_fontFamily";s:0:"";s:13:"main_fontSize";s:4:"12px";s:14:"main_fontStyle";s:0:"";s:15:"main_fontWeight";s:4:"bold";s:12:"main_textDec";s:0:"";s:15:"regLink_bgColor";s:0:"";s:17:"regLink_fontColor";s:4:"#fff";s:18:"regLink_fontFamily";s:0:"";s:16:"regLink_fontSize";s:0:"";s:17:"regLink_fontStyle";s:0:"";s:18:"regLink_fontWeight";s:0:"";s:15:"regLink_textDec";s:0:"";s:17:"visitLink_bgColor";s:0:"";s:19:"visitLink_fontColor";s:0:"";s:20:"visitLink_fontFamily";s:0:"";s:18:"visitLink_fontSize";s:0:"";s:19:"visitLink_fontStyle";s:0:"";s:20:"visitLink_fontWeight";s:0:"";s:17:"visitLink_textDec";s:0:"";s:17:"hoverLink_bgColor";s:0:"";s:19:"hoverLink_fontColor";s:7:"#fbe286";s:20:"hoverLink_fontFamily";s:0:"";s:18:"hoverLink_fontSize";s:0:"";s:19:"hoverLink_fontStyle";s:0:"";s:20:"hoverLink_fontWeight";s:0:"";s:17:"hoverLink_textDec";s:0:"";s:5:"extra";s:45:"padding: 4px !important;
+<template><![CDATA[a:33:{s:12:"main_bgColor";s:60:"#28436E url(./../images/wtcBB-Default/cat_bgnd.gif) repeat-x";s:14:"main_fontColor";s:4:"#fff";s:15:"main_fontFamily";s:0:"";s:13:"main_fontSize";s:4:"12px";s:14:"main_fontStyle";s:0:"";s:15:"main_fontWeight";s:4:"bold";s:12:"main_textDec";s:0:"";s:19:"main_advanced_extra";s:0:"";s:15:"regLink_bgColor";s:0:"";s:17:"regLink_fontColor";s:4:"#fff";s:18:"regLink_fontFamily";s:0:"";s:16:"regLink_fontSize";s:0:"";s:17:"regLink_fontStyle";s:0:"";s:18:"regLink_fontWeight";s:0:"";s:15:"regLink_textDec";s:0:"";s:22:"regLink_advanced_extra";s:0:"";s:17:"visitLink_bgColor";s:0:"";s:19:"visitLink_fontColor";s:0:"";s:20:"visitLink_fontFamily";s:0:"";s:18:"visitLink_fontSize";s:0:"";s:19:"visitLink_fontStyle";s:0:"";s:20:"visitLink_fontWeight";s:0:"";s:17:"visitLink_textDec";s:0:"";s:24:"visitLink_advanced_extra";s:0:"";s:17:"hoverLink_bgColor";s:0:"";s:19:"hoverLink_fontColor";s:7:"#fbe286";s:20:"hoverLink_fontFamily";s:0:"";s:18:"hoverLink_fontSize";s:0:"";s:19:"hoverLink_fontStyle";s:0:"";s:20:"hoverLink_fontWeight";s:0:"";s:17:"hoverLink_textDec";s:0:"";s:24:"hoverLink_advanced_extra";s:0:"";s:5:"extra";s:45:"padding: 4px !important;
 text-align: center;";}]]></template>
 <templatephp><![CDATA[]]></templatephp>
 </fragment>
@@ -7045,39 +7045,41 @@ $bits
   </tr>
 
   <tr>
-    <td class="alt1 pbProfile vertTop bord noBordTop noBordBot">
+    <td class="alt1 pbProfile vertTop noBordTop topBarInfo">
       <p class="noMar">
-        <strong>
+        <if($post->getStarterId())>{$status}</if>
+
+          <strong>
           <if($post->getStarterId())>
             {$postUser->getHTMLName()}
           <else />
             {$post->getStarterName()}
           </if>
         </strong>
-
-        <if($post->getStarterId())>{$status}</if>
       </p>
-
-      <if($post->getStarterId())>
-        <p class="small smallMarTop noMarBot">Posts: {$postUser->info[posts]}</p>
-        <p class="small noMarTop">Joined: {$joined->getDate()}</p>
-		<p class="small noMarTop">Reputation: <a href="<n2link(file=profile&amp;do=reputation&amp;u={$postUser->info[userid]}&amp;p={$post->getPostId()}{$SESSURL})>">{$postUser->info[reputation]}</a> [<a href="<n2link(file=profile&amp;do=reputation&amp;u={$postUser->info[userid]}&amp;p={$post->getPostId()}{$SESSURL}#updownvote)>"><img src="{$VISUALS[images]}/{$IMAGES[postbit_updownvote]}" /></a>]</p>
-      </if>
     </td>
-
-    <td class="alt2 pbMessage vertTop bordRight">
+    <td class="alt2 pbMessage vertTop bordRight topBarAction">
       <div class="clear goUp">
         <div class="floatLeft">
             <if($post->getPostIcon())>
                 <img src="{$post->getPostIcon()}" alt="{$post->getTitle()}" class="aligned" />
             </if>
-
+            <a href="<n2link(file=post&amp;p={$post->getPostId()}{$SESSURL})>" name="{$post->getPostId()}">{$post->getTitle()}</a>
             <span class="time">{$timeline->getDate()}</span>
         </div>
       </div>
+    </td>
+  </tr>
+  <tr>
+    <td class="alt1 pbProfile vertTop bord noBordTop noBordBot">
+      <if($post->getStarterId())>
+        <p class="small smallMarTop noMarBot">Posts: {$postUser->info[posts]}</p>
+        <p class="small noMarTop">Joined: {$joined->getDate()}</p>
+    <p class="small noMarTop">Reputation: <a href="<n2link(file=profile&amp;do=reputation&amp;u={$postUser->info[userid]}&amp;p={$post->getPostId()}{$SESSURL})>">{$postUser->info[reputation]}</a> [<a href="<n2link(file=profile&amp;do=reputation&amp;u={$postUser->info[userid]}&amp;p={$post->getPostId()}{$SESSURL}#updownvote)>"><img src="{$VISUALS[images]}/{$IMAGES[postbit_updownvote]}" /></a>]</p>
+      </if>
+    </td>
 
-      <hr class="postSep" />
-
+    <td class="alt2 pbMessage vertTop bordRight">
       <div class="expand">
           {$message}
 
@@ -7099,7 +7101,7 @@ $bits
   </tr>
 
   <tr>
-    <td class="alt1 pbProfile vertTop center bord noBordTop">
+    <td class="alt1 pbProfile vertTop bottomBarInfo">
       <if($post->getStarterId())>
         <a href="<n2link(file=profile&amp;u={$postUser->info[userid]}{$SESSURL})>"><img src="{$VISUALS[images]}/{$IMAGES[profileIcon]}" alt="{$postUser->info[username]}" class="aligned" /></a>
 
@@ -7116,7 +7118,7 @@ $bits
       </if>
     </td>
 
-    <td class="alt2 pbMessage vertTop right bordBot bordRight">
+    <td class="alt2 pbMessage vertTop right bordBot bordRight bottomBarAction">
       <div class="floatLeft">
         <a href="#"><img src="{$VISUALS[images]}/{$IMAGES[upIcon]}" alt="{$lang[user_topPage]}" class="aligned" /></a>
 
@@ -7138,7 +7140,8 @@ $bits
       </div>
     </td>
   </tr>
-</table>]]></template>
+</table>
+]]></template>
 <templatephp><![CDATA[<table cellspacing=\"0\" cellpadding=\"0\" class=\"noMarTop postbit bord2\">
   <tr>
     <td class=\"cat pbHeader bord\" colspan=\"2\">
@@ -7155,39 +7158,41 @@ $bits
   </tr>
 
   <tr>
-    <td class=\"alt1 pbProfile vertTop bord noBordTop noBordBot\">
+    <td class=\"alt1 pbProfile vertTop noBordTop topBarInfo\">
       <p class=\"noMar\">
-        <strong>
+        " . (($post->getStarterId()) ? ("{$status}") : ("")) . "
+
+          <strong>
           " . (($post->getStarterId()) ? ("
             {$postUser->getHTMLName()}
           ") : ("
             {$post->getStarterName()}
           ")) . "
         </strong>
-
-        " . (($post->getStarterId()) ? ("{$status}") : ("")) . "
       </p>
-
-      " . (($post->getStarterId()) ? ("
-        <p class=\"small smallMarTop noMarBot\">Posts: {$postUser->info[posts]}</p>
-        <p class=\"small noMarTop\">Joined: {$joined->getDate()}</p>
-		<p class=\"small noMarTop\">Reputation: <a href=\"" . n2link("file=profile&amp;do=reputation&amp;u={$postUser->info[userid]}&amp;p={$post->getPostId()}{$SESSURL}") . "\">{$postUser->info[reputation]}</a> [<a href=\"" . n2link("file=profile&amp;do=reputation&amp;u={$postUser->info[userid]}&amp;p={$post->getPostId()}{$SESSURL}#updownvote") . "\"><img src=\"{$VISUALS[images]}/{$IMAGES[postbit_updownvote]}\" /></a>]</p>
-      ") : ("")) . "
     </td>
-
-    <td class=\"alt2 pbMessage vertTop bordRight\">
+    <td class=\"alt2 pbMessage vertTop bordRight topBarAction\">
       <div class=\"clear goUp\">
         <div class=\"floatLeft\">
             " . (($post->getPostIcon()) ? ("
                 <img src=\"{$post->getPostIcon()}\" alt=\"{$post->getTitle()}\" class=\"aligned\" />
             ") : ("")) . "
-
+            <a href=\"" . n2link("file=post&amp;p={$post->getPostId()}{$SESSURL}") . "\" name=\"{$post->getPostId()}\">{$post->getTitle()}</a>
             <span class=\"time\">{$timeline->getDate()}</span>
         </div>
       </div>
+    </td>
+  </tr>
+  <tr>
+    <td class=\"alt1 pbProfile vertTop bord noBordTop noBordBot\">
+      " . (($post->getStarterId()) ? ("
+        <p class=\"small smallMarTop noMarBot\">Posts: {$postUser->info[posts]}</p>
+        <p class=\"small noMarTop\">Joined: {$joined->getDate()}</p>
+    <p class=\"small noMarTop\">Reputation: <a href=\"" . n2link("file=profile&amp;do=reputation&amp;u={$postUser->info[userid]}&amp;p={$post->getPostId()}{$SESSURL}") . "\">{$postUser->info[reputation]}</a> [<a href=\"" . n2link("file=profile&amp;do=reputation&amp;u={$postUser->info[userid]}&amp;p={$post->getPostId()}{$SESSURL}#updownvote") . "\"><img src=\"{$VISUALS[images]}/{$IMAGES[postbit_updownvote]}\" /></a>]</p>
+      ") : ("")) . "
+    </td>
 
-      <hr class=\"postSep\" />
-
+    <td class=\"alt2 pbMessage vertTop bordRight\">
       <div class=\"expand\">
           {$message}
 
@@ -7209,7 +7214,7 @@ $bits
   </tr>
 
   <tr>
-    <td class=\"alt1 pbProfile vertTop center bord noBordTop\">
+    <td class=\"alt1 pbProfile vertTop bottomBarInfo\">
       " . (($post->getStarterId()) ? ("
         <a href=\"" . n2link("file=profile&amp;u={$postUser->info[userid]}{$SESSURL}") . "\"><img src=\"{$VISUALS[images]}/{$IMAGES[profileIcon]}\" alt=\"{$postUser->info[username]}\" class=\"aligned\" /></a>
 
@@ -7226,7 +7231,7 @@ $bits
       ") : ("")) . "
     </td>
 
-    <td class=\"alt2 pbMessage vertTop right bordBot bordRight\">
+    <td class=\"alt2 pbMessage vertTop right bordBot bordRight bottomBarAction\">
       <div class=\"floatLeft\">
         <a href=\"#\"><img src=\"{$VISUALS[images]}/{$IMAGES[upIcon]}\" alt=\"{$lang[user_topPage]}\" class=\"aligned\" /></a>
 
@@ -7248,7 +7253,8 @@ $bits
       </div>
     </td>
   </tr>
-</table>]]></templatephp>
+</table>
+]]></templatephp>
 </fragment>
 
 <fragment fragmentid="251" styleid="0" groupid="245" fragmentName="" fragmentVarName="search_threads" fragmentType="template" defaultid="0" disOrder="0">
@@ -10033,29 +10039,22 @@ display: block;
 </fragment>
 
 <fragment fragmentid="219" styleid="0" groupid="212" fragmentName="threaddisplay_smallbit" fragmentVarName="threaddisplay_smallbit" fragmentType="template" defaultid="0" disOrder="0">
-<template><![CDATA[<table cellspacing="0" cellpadding="0" class="noMarTop postbit bord2">
-  <tr>
-    <td class="cat pbHeader bord<if($post->isDeleted())> error</if>" colspan="2">
-      <div class="clear">
-        <p class="floatLeft pad">
-          <a href="<n2link(file=post&amp;p={$post->getPostId()}{$SESSURL})>" name="{$post->getPostId()}">{$post->getTitle()}</a>
-        </p>
-
-        <if($_GET['do'] == 'split')>
-          <p class="floatRight">
-            <label for="split{$post->getPostId()}">
-			<input type="checkbox" name="delete[{$post->getPostId()}]" id="split{$post->getPostId()}" value="1" checked="checked"<if($post->isDeleted())> disabled="disabled"</if> /> {$lang[user_thread_splitThread_split]}
-            </label>
-          </p>
-        </if>
-      </div>
-    </td>
-  </tr>
+<template><![CDATA[<if($_GET['do'] != 'split')>
+  <div class="marCenter smallMarTop smallMarBot"><div class="cont">            
+    <div class="headFoot border clear">
+      <h3 class="left floatLeft tinyMarTop">{$Thread->getName()}</h3>
+    </div></div>
+  </div>
+</if>
+  
+<table cellspacing="0" cellpadding="0" class="noMarTop postbit bord2">
 
   <tr>
-    <td class="alt1 pbProfile vertTop bord noBordTop noBordBot">
+    <td class="alt1 pbProfile vertTop noBordTop topBarInfo">
       <p class="noMar">
-        <strong>
+        <if($post->getStarterId())>{$status}</if>
+
+          <strong>
           <if($post->getStarterId())>
             {$postUser->getHTMLName()}
           <else />
@@ -10063,43 +10062,88 @@ display: block;
           </if>
         </strong>
       </p>
-
-      <p class="noMar small">{$postUser->getTitle()}</p>
-
-      <if(!empty($postUser->info['avatar']))>
-        <div class="center smallMarTop">Avatar 1 
-          <img src="{$postUser->info[avatar]}" alt="{$postUser->info[username]}'s {$lang[global_avatar]}" />
-        </div>
-      </if>
-
-      <if($ranks)>
-        <div class="center smallMarTop">{$ranks}</div>
-      </if>
-
-      <if($post->getStarterId())>
-        <p class="small smallMarTop noMarBot">Posts: {$postUser->info[posts]}</p>
-        <p class="small noMarTop">Joined: {$joined->getDate()}</p>
-		<p class="small noMarTop">Reputation: <a href="<n2link(file=profile&amp;do=reputation&amp;u={$postUser->info[userid]}&amp;p={$post->getPostId()}{$SESSURL})>">{$postUser->info[reputation]}</a> [<a href="<n2link(file=profile&amp;do=reputation&amp;u={$postUser->info[userid]}&amp;p={$post->getPostId()}{$SESSURL}#updownvote)>"><img src="{$VISUALS[images]}/{$IMAGES[postbit_updownvote]}" /></a>]</p>        
-      </if>
     </td>
-
-    <td class="alt2 pbMessage vertTop bordRight">
+          
+    <td class="alt2 pbMessage vertTop bordRight topBarAction">
       <div class="clear goUp">
         <div class="floatLeft">
             <if($post->getPostIcon())>
                 <img src="{$post->getPostIcon()}" alt="{$post->getTitle()}" class="aligned" />
             </if>
-
+            <a href="<n2link(file=post&amp;p={$post->getPostId()}{$SESSURL})>" name="{$post->getPostId()}">{$post->getTitle()}</a>
             <span class="time">{$timeline->getDate()}</span>
         </div>
-      </div>
+        <if($_GET['do'] == 'split')>
+        <div class="floatRight">
+            <label for="split{$post->getPostId()}">
+      <input type="checkbox" name="delete[{$post->getPostId()}]" id="split{$post->getPostId()}" value="1" checked="checked"<if($post->isDeleted())> disabled="disabled"</if> /> {$lang[user_thread_splitThread_split]}
+            </label>
+        </div>
+        </if>
+      </div>              
+    </td>
+  </tr>
+  
+  
+  <tr>
+    <td class="alt1 pbProfile vertTop bord noBordTop noBordBot">
+      <if(!empty($postUser->info['avatar']))>
+        <div class="smallMarTop">
+          <img src="{$postUser->info[avatar]}" alt="{$postUser->info[username]}'s {$lang[global_avatar]}" />
+        </div>
+      </if>
 
-      <hr class="postSep" />
+      <p class="noMar small">{$postUser->getTitle()}</p>
 
+      <if($ranks)>
+        <div class="smallMarTop">{$ranks}</div>
+      </if>
+
+      <if($post->getStarterId())>
+        <p class="small smallMarTop noMarBot">Posts: {$postUser->info[posts]}</p>
+        <p class="small noMarTop noMarBot">Joined: {$joined->getDate()}</p>
+    <p class="small noMarTop">Reputation: <a href="<n2link(file=profile&amp;do=reputation&amp;u={$postUser->info[userid]}&amp;p={$post->getPostId()}{$SESSURL})>">{$postUser->info[reputation]}</a> [<a href="<n2link(file=profile&amp;do=reputation&amp;u={$postUser->info[userid]}&amp;p={$post->getPostId()}{$SESSURL}#updownvote)>"><img src="{$VISUALS[images]}/{$IMAGES[postbit_updownvote]}" /></a>]</p>        
+      </if>
+    </td>
+
+    <td class="alt2 pbMessage vertTop bordRight">
       <div class="expand">
-          {$message}
+        <div id="regtext_{$post->getPostId()}">
+          <span id="postmessage_{$post->getPostId()}">{$message}</span>
 
-          <if(($post->isEdited() OR $post->isDeleted()) AND $post->showEdited($postUser))>
+          <if(!empty($thumbBits))>
+            <div class="marTop quote marCenter">
+              <p><strong>{$lang[user_thread_thumbnails]}</strong></p>
+              <div class="quoted alt1">
+                {$thumbBits}
+              </div>
+            </div>
+          </if>
+
+          <if(!empty($attachBits))>
+            <div class="attachments marTop quote marCenter">
+              <p><strong>{$lang[user_thread_attachments]}</strong></p>
+              <div class="quoted alt1">
+                <ul>
+                  {$attachBits}
+                </ul>
+              </div>
+            </div>
+          </if>
+
+          <if(!empty($signature))>
+            <div class="marTop">
+              ______________________________
+              <div>{$signature}</div>
+            </div>
+          </if>
+        </div>
+
+        <div id="quickedit_{$post->getPostId()}" style="display: none;">
+          <textarea id="qearea_{$post->getPostId()}" class="quickReply"></textarea>
+        </div>
+
+        <if(($post->isEdited() OR $post->isDeleted()) AND $post->showEdited($postUser))>
               <p class="marTop small emphasize noMarBot">
                 {$lang[user_thread_editedBy]} {$post->actionBy()}
 
@@ -10111,15 +10155,19 @@ display: block;
                   {$actionReason}
                 </if>
               </p>
-          </if>
+        </if>
+      </div>
+
+      <div style="display: none;">
+          <span id="username_{$post->getPostId()}">{$post->getStarterName()}</span>
       </div>
     </td>
   </tr>
 
   <tr>
-    <td class="alt1 pbProfile vertTop center bord noBordTop">
-        <if($post->getStarterId())>
-<a href="<n2link(file=profile&amp;u={$postUser->info[userid]}{$SESSURL})>"><img src="{$VISUALS[images]}/{$IMAGES[profileIcon]}" alt="{$postUser->info[username]}" class="aligned" /></a>
+    <td class="alt1 pbProfile vertTop bottomBarInfo">
+      <if($post->getStarterId())>
+        <a href="<n2link(file=profile&amp;u={$postUser->info[userid]}{$SESSURL})>"><img src="{$VISUALS[images]}/{$IMAGES[profileIcon]}" alt="{$postUser->info[username]}" class="aligned" /></a>
 
         <if(!empty($postUser->info['homepage']) AND $postUser->info['homepage'] != 'http://')>
           <a href="{$postUser->info[homepage]}"><img src="{$VISUALS[images]}/{$IMAGES[homeIcon]}" alt="{$lang[user_thread_goToHome]}" class="aligned" /></a>
@@ -10134,8 +10182,8 @@ display: block;
       </if>
     </td>
 
-    <td class="alt2 pbMessage vertTop right bordBot bordRight">
-      <div class="floatLeft">
+    <td class="alt2 pbMessage vertTop right bordBot bordRight bottomBarAction">
+       <div class="floatLeft">
         <a href="#"><img src="{$VISUALS[images]}/{$IMAGES[upIcon]}" alt="{$lang[user_topPage]}" class="aligned" /></a>
 
         <a href="<n2link(file=personal&amp;do=send&amp;u={$post->getStarterName()}{$SESSURL})>"><img src="{$VISUALS[images]}/{$IMAGES[postbit_pm]}" alt="{$lang[user_thread_sendPm]}" class="aligned" /></a>
@@ -10144,30 +10192,24 @@ display: block;
       </div>
     </td>
   </tr>
-</table>]]></template>
-<templatephp><![CDATA[<table cellspacing=\"0\" cellpadding=\"0\" class=\"noMarTop postbit bord2\">
-  <tr>
-    <td class=\"cat pbHeader bord" . (($post->isDeleted()) ? (" error") : ("")) . "\" colspan=\"2\">
-      <div class=\"clear\">
-        <p class=\"floatLeft pad\">
-          <a href=\"" . n2link("file=post&amp;p={$post->getPostId()}{$SESSURL}") . "\" name=\"{$post->getPostId()}\">{$post->getTitle()}</a>
-        </p>
-
-        " . (($_GET['do'] == 'split') ? ("
-          <p class=\"floatRight\">
-            <label for=\"split{$post->getPostId()}\">
-			<input type=\"checkbox\" name=\"delete[{$post->getPostId()}]\" id=\"split{$post->getPostId()}\" value=\"1\" checked=\"checked\"" . (($post->isDeleted()) ? (" disabled=\"disabled\"") : ("")) . " /> {$lang[user_thread_splitThread_split]}
-            </label>
-          </p>
-        ") : ("")) . "
-      </div>
-    </td>
-  </tr>
+</table>
+]]></template>
+<templatephp><![CDATA[" . (($_GET['do'] != 'split') ? ("
+  <div class=\"marCenter smallMarTop smallMarBot\"><div class=\"cont\">            
+    <div class=\"headFoot border clear\">
+      <h3 class=\"left floatLeft tinyMarTop\">{$Thread->getName()}</h3>
+    </div></div>
+  </div>
+") : ("")) . "
+  
+<table cellspacing=\"0\" cellpadding=\"0\" class=\"noMarTop postbit bord2\">
 
   <tr>
-    <td class=\"alt1 pbProfile vertTop bord noBordTop noBordBot\">
+    <td class=\"alt1 pbProfile vertTop noBordTop topBarInfo\">
       <p class=\"noMar\">
-        <strong>
+        " . (($post->getStarterId()) ? ("{$status}") : ("")) . "
+
+          <strong>
           " . (($post->getStarterId()) ? ("
             {$postUser->getHTMLName()}
           ") : ("
@@ -10175,43 +10217,88 @@ display: block;
           ")) . "
         </strong>
       </p>
-
-      <p class=\"noMar small\">{$postUser->getTitle()}</p>
-
-      " . ((!empty($postUser->info['avatar'])) ? ("
-        <div class=\"center smallMarTop\">Avatar 1 
-          <img src=\"{$postUser->info[avatar]}\" alt=\"{$postUser->info[username]}\'s {$lang[global_avatar]}\" />
-        </div>
-      ") : ("")) . "
-
-      " . (($ranks) ? ("
-        <div class=\"center smallMarTop\">{$ranks}</div>
-      ") : ("")) . "
-
-      " . (($post->getStarterId()) ? ("
-        <p class=\"small smallMarTop noMarBot\">Posts: {$postUser->info[posts]}</p>
-        <p class=\"small noMarTop\">Joined: {$joined->getDate()}</p>
-		<p class=\"small noMarTop\">Reputation: <a href=\"" . n2link("file=profile&amp;do=reputation&amp;u={$postUser->info[userid]}&amp;p={$post->getPostId()}{$SESSURL}") . "\">{$postUser->info[reputation]}</a> [<a href=\"" . n2link("file=profile&amp;do=reputation&amp;u={$postUser->info[userid]}&amp;p={$post->getPostId()}{$SESSURL}#updownvote") . "\"><img src=\"{$VISUALS[images]}/{$IMAGES[postbit_updownvote]}\" /></a>]</p>        
-      ") : ("")) . "
     </td>
-
-    <td class=\"alt2 pbMessage vertTop bordRight\">
+          
+    <td class=\"alt2 pbMessage vertTop bordRight topBarAction\">
       <div class=\"clear goUp\">
         <div class=\"floatLeft\">
             " . (($post->getPostIcon()) ? ("
                 <img src=\"{$post->getPostIcon()}\" alt=\"{$post->getTitle()}\" class=\"aligned\" />
             ") : ("")) . "
-
+            <a href=\"" . n2link("file=post&amp;p={$post->getPostId()}{$SESSURL}") . "\" name=\"{$post->getPostId()}\">{$post->getTitle()}</a>
             <span class=\"time\">{$timeline->getDate()}</span>
         </div>
-      </div>
+        " . (($_GET['do'] == 'split') ? ("
+        <div class=\"floatRight\">
+            <label for=\"split{$post->getPostId()}\">
+      <input type=\"checkbox\" name=\"delete[{$post->getPostId()}]\" id=\"split{$post->getPostId()}\" value=\"1\" checked=\"checked\"" . (($post->isDeleted()) ? (" disabled=\"disabled\"") : ("")) . " /> {$lang[user_thread_splitThread_split]}
+            </label>
+        </div>
+        ") : ("")) . "
+      </div>              
+    </td>
+  </tr>
+  
+  
+  <tr>
+    <td class=\"alt1 pbProfile vertTop bord noBordTop noBordBot\">
+      " . ((!empty($postUser->info['avatar'])) ? ("
+        <div class=\"smallMarTop\">
+          <img src=\"{$postUser->info[avatar]}\" alt=\"{$postUser->info[username]}\'s {$lang[global_avatar]}\" />
+        </div>
+      ") : ("")) . "
 
-      <hr class=\"postSep\" />
+      <p class=\"noMar small\">{$postUser->getTitle()}</p>
 
+      " . (($ranks) ? ("
+        <div class=\"smallMarTop\">{$ranks}</div>
+      ") : ("")) . "
+
+      " . (($post->getStarterId()) ? ("
+        <p class=\"small smallMarTop noMarBot\">Posts: {$postUser->info[posts]}</p>
+        <p class=\"small noMarTop noMarBot\">Joined: {$joined->getDate()}</p>
+    <p class=\"small noMarTop\">Reputation: <a href=\"" . n2link("file=profile&amp;do=reputation&amp;u={$postUser->info[userid]}&amp;p={$post->getPostId()}{$SESSURL}") . "\">{$postUser->info[reputation]}</a> [<a href=\"" . n2link("file=profile&amp;do=reputation&amp;u={$postUser->info[userid]}&amp;p={$post->getPostId()}{$SESSURL}#updownvote") . "\"><img src=\"{$VISUALS[images]}/{$IMAGES[postbit_updownvote]}\" /></a>]</p>        
+      ") : ("")) . "
+    </td>
+
+    <td class=\"alt2 pbMessage vertTop bordRight\">
       <div class=\"expand\">
-          {$message}
+        <div id=\"regtext_{$post->getPostId()}\">
+          <span id=\"postmessage_{$post->getPostId()}\">{$message}</span>
 
-          " . ((($post->isEdited() OR $post->isDeleted()) AND $post->showEdited($postUser)) ? ("
+          " . ((!empty($thumbBits)) ? ("
+            <div class=\"marTop quote marCenter\">
+              <p><strong>{$lang[user_thread_thumbnails]}</strong></p>
+              <div class=\"quoted alt1\">
+                {$thumbBits}
+              </div>
+            </div>
+          ") : ("")) . "
+
+          " . ((!empty($attachBits)) ? ("
+            <div class=\"attachments marTop quote marCenter\">
+              <p><strong>{$lang[user_thread_attachments]}</strong></p>
+              <div class=\"quoted alt1\">
+                <ul>
+                  {$attachBits}
+                </ul>
+              </div>
+            </div>
+          ") : ("")) . "
+
+          " . ((!empty($signature)) ? ("
+            <div class=\"marTop\">
+              ______________________________
+              <div>{$signature}</div>
+            </div>
+          ") : ("")) . "
+        </div>
+
+        <div id=\"quickedit_{$post->getPostId()}\" style=\"display: none;\">
+          <textarea id=\"qearea_{$post->getPostId()}\" class=\"quickReply\"></textarea>
+        </div>
+
+        " . ((($post->isEdited() OR $post->isDeleted()) AND $post->showEdited($postUser)) ? ("
               <p class=\"marTop small emphasize noMarBot\">
                 {$lang[user_thread_editedBy]} {$post->actionBy()}
 
@@ -10223,15 +10310,19 @@ display: block;
                   {$actionReason}
                 ") : ("")) . "
               </p>
-          ") : ("")) . "
+        ") : ("")) . "
+      </div>
+
+      <div style=\"display: none;\">
+          <span id=\"username_{$post->getPostId()}\">{$post->getStarterName()}</span>
       </div>
     </td>
   </tr>
 
   <tr>
-    <td class=\"alt1 pbProfile vertTop center bord noBordTop\">
-        " . (($post->getStarterId()) ? ("
-<a href=\"" . n2link("file=profile&amp;u={$postUser->info[userid]}{$SESSURL}") . "\"><img src=\"{$VISUALS[images]}/{$IMAGES[profileIcon]}\" alt=\"{$postUser->info[username]}\" class=\"aligned\" /></a>
+    <td class=\"alt1 pbProfile vertTop bottomBarInfo\">
+      " . (($post->getStarterId()) ? ("
+        <a href=\"" . n2link("file=profile&amp;u={$postUser->info[userid]}{$SESSURL}") . "\"><img src=\"{$VISUALS[images]}/{$IMAGES[profileIcon]}\" alt=\"{$postUser->info[username]}\" class=\"aligned\" /></a>
 
         " . ((!empty($postUser->info['homepage']) AND $postUser->info['homepage'] != 'http://') ? ("
           <a href=\"{$postUser->info[homepage]}\"><img src=\"{$VISUALS[images]}/{$IMAGES[homeIcon]}\" alt=\"{$lang[user_thread_goToHome]}\" class=\"aligned\" /></a>
@@ -10246,8 +10337,8 @@ display: block;
       ") : ("")) . "
     </td>
 
-    <td class=\"alt2 pbMessage vertTop right bordBot bordRight\">
-      <div class=\"floatLeft\">
+    <td class=\"alt2 pbMessage vertTop right bordBot bordRight bottomBarAction\">
+       <div class=\"floatLeft\">
         <a href=\"#\"><img src=\"{$VISUALS[images]}/{$IMAGES[upIcon]}\" alt=\"{$lang[user_topPage]}\" class=\"aligned\" /></a>
 
         <a href=\"" . n2link("file=personal&amp;do=send&amp;u={$post->getStarterName()}{$SESSURL}") . "\"><img src=\"{$VISUALS[images]}/{$IMAGES[postbit_pm]}\" alt=\"{$lang[user_thread_sendPm]}\" class=\"aligned\" /></a>
@@ -10256,7 +10347,8 @@ display: block;
       </div>
     </td>
   </tr>
-</table>]]></templatephp>
+</table>
+]]></templatephp>
 </fragment>
 
 <fragment fragmentid="217" styleid="0" groupid="212" fragmentName="threaddisplay_split" fragmentVarName="threaddisplay_split" fragmentType="template" defaultid="0" disOrder="0">
@@ -10328,6 +10420,12 @@ display: block;
   </label>
 </p>
 
+<div class="marCenter smallMarTop smallMarBot"><div class="cont">            
+  <div class="headFoot border clear">
+    <h3 class="left floatLeft tinyMarTop">{$Thread->getName()}</h3>
+  </div></div>
+</div>
+              
 <div id="threadDisplay" name="{$Thread->getThreadId()}">
   $postBits
 </div>
@@ -10408,6 +10506,12 @@ display: block;
   </label>
 </p>
 
+<div class=\"marCenter smallMarTop smallMarBot\"><div class=\"cont\">            
+  <div class=\"headFoot border clear\">
+    <h3 class=\"left floatLeft tinyMarTop\">{$Thread->getName()}</h3>
+  </div></div>
+</div>
+              
 <div id=\"threadDisplay\" name=\"{$Thread->getThreadId()}\">
   $postBits
 </div>
