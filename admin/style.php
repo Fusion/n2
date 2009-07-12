@@ -615,13 +615,15 @@ else if($_GET['do'] == 'addTemplate' OR isset($_GET['editTemplate'])) {
 									'select' => Array('fields' => $groupSelect, 'select' => $editinfo['groupid'])
 								), true);
 
-	new AdminHTML('tableRow', Array(
-									'title' => 'Is Default:',
-									'desc' => 'Sets whether this style uses the default template or if, instead, a custom template must be created for this style. <strong>IMPORTANT: </strong>If you select \'Yes\' and have already created a custom template for this style, your custom template will be deleted.',
-									'type' => 'checkbox',
-									'name' => 'isDefault',
-									'value' => ($which == 'edit' ? false : true)
-								), true);
+	if(!$editinfo['defaultid']) {
+		new AdminHTML('tableRow', Array(
+										'title' => 'Is Default:',
+										'desc' => 'Sets whether this style uses the default template or if, instead, a custom template must be created for this style.',
+										'type' => 'checkbox',
+										'name' => 'isDefault',
+										'value' => ($which == 'edit' ? false : true)
+									), true);
+	}
 
 	new AdminHTML('tableRow', Array(
 									'title' => 'Fragment Type:',
@@ -789,6 +791,7 @@ else if($_GET['do'] == 'search') {
 }
 
 // replacement variables
+// Note: no support for inherited variables at this point!
 else if(isset($_GET['repVars'])) {
 	// create style obj...
 	$styleObj = new Style($_GET['repVars']);
@@ -798,7 +801,7 @@ else if(isset($_GET['repVars'])) {
 	$vars = $styleObj->buildFragments('variable');
 
 	// update settings
-	if($_POST['formSet']) {
+	if($_POST['formSet']) {	
 		foreach($vars as $groupid => $more) {
 			foreach($more as $fragid => $varObj) {
 				// revert?
@@ -816,6 +819,10 @@ else if(isset($_GET['repVars'])) {
 				if($styleObj->getStyleId() == $varObj->getStyleId()) {
 					$varObj->update(Array('fragmentVarName' => $_POST['find'][$fragid], 'fragment' => $_POST['replace'][$fragid]));
 				}
+
+#				elseif($_POST['isDefault']) {
+#					$varObj->update(Array('fragmentVarName' => $_POST['find'][$fragid], 'fragment' => $_POST['replace'][$fragid]));
+#				}
 
 				// insert a new template...
 				else {
@@ -838,6 +845,7 @@ else if(isset($_GET['repVars'])) {
 		if(!empty($_POST['add']['find'])) {
 			$insert = Array(
 						'styleid' => $styleObj->getStyleId(),
+#						'styleid' => ($_POST['isDefault'] ? 0 : $styleObj->getStyleId()),
 						'groupid' => 0,
 						'fragmentName' => $_POST['add']['find'],
 						'fragmentVarName' => $_POST['add']['find'],
@@ -891,6 +899,17 @@ else if(isset($_GET['repVars'])) {
 		if($styleObj->getStyleId() == $style->getStyleId()) {
 			$contents = ''; $fieldBits = '';
 
+			// Default style or custom style?
+#			$isDefaultBeginObj = new AdminHTML('tableBegin', false, false, Array('form' => false, 'colspan' => 2, 'return' => true));
+#			$isDefaultBodyObj = new AdminHTML('tableRow', Array(
+#					'title' => 'Is Default:',
+#					'desc' => 'Sets whether this style uses the default template or if, instead, a custom template must be created for your variables.',
+#					'type' => 'checkbox',
+#					'name' => 'isDefault',
+#					'value' => false
+#				), false, Array('return' => true));
+#			$isDefaultEndObj = new AdminHTML('tableEnd', '', false, Array('form' => false, 'colspan' => 2, 'return' => true));
+					
 			$thCells = Array(
 							$lang['admin_style_repVars_find'] => Array('th' => true),
 							$lang['admin_style_repVars_replace'] => Array('th' => true)
@@ -912,6 +931,7 @@ else if(isset($_GET['repVars'])) {
 			$contents .= '<p>' . $lang['admin_style_repVars_effect'] . '</p>';
 
 			$contents .= '<div class="moreMarTop">' . $tabBegin->dump() . $thObj->dump() . $addObj->dump() . $tabEnd->dump();
+#			$contents .= '<div class="moreMarTop">' . $isDefaultBeginObj->dump() . $isDefaultBodyObj->dump() . $isDefaultEndObj->dump() . "\n\n" . $tabBegin->dump() . $thObj->dump() . $addObj->dump() . $tabEnd->dump();
 
 			if(count($vars)) {
 				$thCells[$lang['admin_delete']] = Array('th' => true);
@@ -976,15 +996,20 @@ else if(isset($_GET['visual'])) {
 					continue;
 				}
 
-				// not set or unchanged... forget about it
+				// not set forget about it
 				if(!isset($_POST['setting'][$fragid]) OR $_POST['setting'][$fragid] == $settingObj->getFragment()) {
 					continue;
 				}
 
 				// just update... but what to do, insert or update?
-				if((!$settingObj->getDefaultId() AND DEV) OR ($settingObj->getDefaultId() AND $styleObj->getStyleId() == $settingObj->getStyleId())) {
+				if($settingObj->getDefaultId() AND $styleObj->getStyleId() == $settingObj->getStyleId()) {
+#				if((!$settingObj->getDefaultId() AND DEV) OR ($settingObj->getDefaultId() AND $styleObj->getStyleId() == $settingObj->getStyleId())) {
 					$settingObj->update(Array('fragment' => $_POST['setting'][$fragid]));
 
+				}
+
+				elseif($_POST['isDefault']) {
+					$settingObj->update(Array('fragment' => $_POST['setting'][$fragid]));
 				}
 
 				// insert a new template...
@@ -1044,6 +1069,17 @@ else if(isset($_GET['visual'])) {
 		if($styleObj->getStyleId() == $style->getStyleId()) {
 			$contents = ''; $fieldBits = '';
 
+			// Default style or custom style?
+			$isDefaultBeginObj = new AdminHTML('tableBegin', false, false, Array('form' => false, 'colspan' => 2, 'return' => true));
+			$isDefaultBodyObj = new AdminHTML('tableRow', Array(
+					'title' => 'Is Default:',
+					'desc' => 'Sets whether this style uses the default template or if, instead, a custom template must be created for modified values.',
+					'type' => 'checkbox',
+					'name' => 'isDefault',
+					'value' => false
+				), false, Array('return' => true));
+			$isDefaultEndObj = new AdminHTML('tableEnd', '', false, Array('form' => false, 'colspan' => 2, 'return' => true));
+					
 			$tabBegin = new AdminHTML('tableBegin', $lang['admin_style_visual'], false, Array('form' => false, 'colspan' => 2, 'return' => true));
 
 			foreach($settings as $groupid => $more) {
@@ -1075,7 +1111,7 @@ else if(isset($_GET['visual'])) {
 
 			$tabEnd = new AdminHTML('tableEnd', '', false, Array('form' => -1, 'colspan' => 2, 'return' => true));
 
-			$contents .= '<div class="moreMarTop">' . $tabBegin->dump() . $fieldBits . $tabEnd->dump() . '</div>';
+			$contents .= '<div class="moreMarTop">' . $isDefaultBeginObj->dump() . $isDefaultBodyObj->dump() . $isDefaultEndObj->dump() . "\n\n" . $tabBegin->dump() . $fieldBits . $tabEnd->dump() . '</div>';
 
 			new AdminHTML('tableCells', '', true, Array('cells' => Array($contents => Array('colspan' => 2, 'class' => 'noAlt'))));
 		}
@@ -1111,9 +1147,15 @@ else if(isset($_GET['images'])) {
 				}
 
 				// just update... but what to do, insert or update?
-				if((!$imagesObj->getDefaultId() AND DEV) OR ($imagesObj->getDefaultId() AND $styleObj->getStyleId() == $imagesObj->getStyleId())) {
+				
+				if($imagesObj->getDefaultId() AND $styleObj->getStyleId() == $imagesObj->getStyleId()) {
+#				if((!$imagesObj->getDefaultId() AND DEV) OR ($imagesObj->getDefaultId() AND $styleObj->getStyleId() == $imagesObj->getStyleId())) {
 					$imagesObj->update(Array('fragment' => $_POST['images'][$fragid]));
 
+				}
+
+				elseif($_POST['isDefault']) {
+					$imagesObj->update(Array('fragment' => $_POST['images'][$fragid]));
 				}
 
 				// insert a new template...
@@ -1173,6 +1215,17 @@ else if(isset($_GET['images'])) {
 		if($styleObj->getStyleId() == $style->getStyleId()) {
 			$contents = ''; $fieldBits = '';
 
+			// Default style or custom style?
+			$isDefaultBeginObj = new AdminHTML('tableBegin', false, false, Array('form' => false, 'colspan' => 2, 'return' => true));
+			$isDefaultBodyObj = new AdminHTML('tableRow', Array(
+					'title' => 'Is Default:',
+					'desc' => 'Sets whether this style uses the default template or if, instead, a custom template must be created for modified image names.',
+					'type' => 'checkbox',
+					'name' => 'isDefault',
+					'value' => false
+				), false, Array('return' => true));
+			$isDefaultEndObj = new AdminHTML('tableEnd', '', false, Array('form' => false, 'colspan' => 2, 'return' => true));
+					
 			$tabBegin = new AdminHTML('tableBegin', $lang['admin_style_images'], false, Array('form' => false, 'colspan' => 2, 'return' => true));
 
 			foreach($imageNames as $groupid => $more) {
@@ -1206,7 +1259,7 @@ else if(isset($_GET['images'])) {
 
 			$contents .= '<p>' . $lang['admin_style_images_desc'] . '</p>';
 
-			$contents .= '<div class="moreMarTop">' . $tabBegin->dump() . $fieldBits . $tabEnd->dump() . '</div>';
+			$contents .= '<div class="moreMarTop">' . $isDefaultBeginObj->dump() . $isDefaultBodyObj->dump() . $isDefaultEndObj->dump() . "\n\n" . $tabBegin->dump() . $fieldBits . $tabEnd->dump() . '</div>';
 
 			new AdminHTML('tableCells', '', true, Array('cells' => Array($contents => Array('colspan' => 2, 'class' => 'noAlt'))));
 		}
@@ -1288,7 +1341,25 @@ else if(isset($_GET['colors'])) {
 		}
 
 		// just serialize... but what to do, insert or update?
-		if((!$colorObj->getDefaultId() AND DEV) OR ($colorObj->getDefaultId() AND $styleObj->getStyleId() == $colorObj->getStyleId())) {
+		// ------------------------------------------------------------------------------------------------------------------------------------------
+		// Good to know:
+		// $styleObj is the current style
+		// $colorObj is the current fragment
+		// If $colorObj->getDefaultId() then it is a custom fragment and its default id == the default fragment id
+		// THEREFORE:
+		// If $colorObj->getDefaultId() AND $styleObj->getStyleId() == $colorObj->getStyleId()
+		// then a custom fragment exists and we are editing it...
+		// ElseIf $_POST['isDefault']
+		// then we are editing the default fragment
+		// ElseIf !$_POST['isDefault']
+		// then we are editing a custom fragment
+		// ------------------------------------------------------------------------------------------------------------------------------------------
+#		if((!$colorObj->getDefaultId() AND DEV) OR ($colorObj->getDefaultId() AND $styleObj->getStyleId() == $colorObj->getStyleId())) {
+		if(($colorObj->getDefaultId() AND $styleObj->getStyleId() == $colorObj->getStyleId())) {
+			$colorObj->update(Array('fragment' => serialize($_POST['css'])));
+			$tid = $colorObj->getFragmentId();
+		}
+		elseif($_POST['isDefault']) {
 			$colorObj->update(Array('fragment' => serialize($_POST['css'])));
 			$tid = $colorObj->getFragmentId();
 		}
@@ -1383,6 +1454,7 @@ else if(isset($_GET['colors'])) {
 		new AdminHTML('tableCells', '', true, Array('cells' => $cells));
 
 		if($styleObj->getStyleId() == $style->getStyleId()) {
+
 			$contents = '';
 
 			// revert?
@@ -1400,6 +1472,20 @@ else if(isset($_GET['colors'])) {
 
 			$contents .= '<div class="spacer marBot"></div>' . "\n\n";
 
+			// Default style or custom style?
+			if(!$colorObj->getDefaultId()) {
+				$isDefaultBeginObj = new AdminHTML('tableBegin', false, false, Array('form' => false, 'colspan' => 2, 'return' => true));
+				$isDefaultBodyObj = new AdminHTML('tableRow', Array(
+						'title' => 'Is Default:',
+						'desc' => 'Sets whether this style uses the default template or if, instead, a custom template must be created for this style.',
+						'type' => 'checkbox',
+						'name' => 'isDefault',
+						'value' => false
+					), false, Array('return' => true));
+				$isDefaultEndObj = new AdminHTML('tableEnd', '', false, Array('form' => false, 'colspan' => 2, 'return' => true));
+				$contents .= $isDefaultBeginObj->dump() . $isDefaultBodyObj->dump() . $isDefaultEndObj->dump() . "\n\n";
+			}
+		
 			$contents .= '<ul class="tabs' . ((isset($noLinks[$colorObj->getVarName()])) ? ' fewer' : '') . '">' . "\n";
 
 			foreach($sections as $name => $langName) {
@@ -1450,7 +1536,7 @@ else if(isset($_GET['colors'])) {
 
 					$fieldBits = $fieldObj->dump();
 				}
-
+				
 				$tabEnd = new AdminHTML('tableEnd', '', false, Array('form' => -1, 'colspan' => 2, 'return' => true));
 
 				$contents .= '<div>' . $tabBegin->dump() . $fieldBits . $tabEnd->dump() . '</div>';
@@ -1459,7 +1545,7 @@ else if(isset($_GET['colors'])) {
 			new AdminHTML('tableCells', '', true, Array('cells' => Array($contents => Array('colspan' => 2, 'class' => 'noAlt'))));
 		}
 	}
-
+	
 	new AdminHTML('tableEnd', '', true, Array('form' => false, 'colspan' => 2));
 
 	new AdminHTML('footer', '', true, Array('form' => true));
