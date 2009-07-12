@@ -388,7 +388,7 @@ else if(isset($_GET['windowEdit'])) {
 	if(isset($_POST['formSet'])) {
 		// meh
 		$_POST['isDefault'] = 0;
-		if(DEV) $_POST['isDefault'] = 1;
+#CFR: Always new fragment matching current style		if(DEV) $_POST['isDefault'] = 1;
 
 		// fill in some info...
 		if(!$_POST['isDefault']) {
@@ -617,10 +617,10 @@ else if($_GET['do'] == 'addTemplate' OR isset($_GET['editTemplate'])) {
 
 	new AdminHTML('tableRow', Array(
 									'title' => 'Is Default:',
-									'desc' => 'Sets whether template is default or not.',
+									'desc' => 'Sets whether this style uses the default template or if, instead, a custom template must be created for this style. <strong>IMPORTANT: </strong>If you select \'Yes\' and have already created a custom template for this style, your custom template will be deleted.',
 									'type' => 'checkbox',
 									'name' => 'isDefault',
-									'value' => ($editinfo['styleid'] != 16 ? ($which == 'edit' ? ($editinfo['defaultid'] ? false : true) : true) : false)
+									'value' => ($which == 'edit' ? false : true)
 								), true);
 
 	new AdminHTML('tableRow', Array(
