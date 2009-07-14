@@ -27,7 +27,8 @@ body {
 	background: #fff;
 	color: #000;
 	font-size: 12px;
-	margin: 10px 20px;	border-style: inset !important;
+	margin: 10px 20px;
+	border-style: inset !important;
 }
 
 	.page a {
@@ -88,7 +89,8 @@ th, .headFoot {
 	color: #fff;
 	font-size: 12px;
 	font-weight: bold;
-	padding: 4px !important;	text-align: center;
+	padding: 4px !important;
+	text-align: center;
 }
 
 	th a, .headFoot a {
@@ -739,7 +741,7 @@ border-style: inset !important;";}]]></template>
 </fragment>
 
 <fragment fragmentid="65" styleid="0" groupid="184" fragmentName="docType" fragmentVarName="docType" fragmentType="option" defaultid="0" disOrder="0">
-<template><![CDATA[<!DOCTYPE html PUBLIC \\\\\\\\\\\\\\\"-//W3C//DTD XHTML 1.0 Strict//EN\\\\\\\\\\\\\\\" \\\\\\\\\\\\\\\"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd\\\\\\\\\\\\\\\">]]></template>
+<template><![CDATA[<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">]]></template>
 <templatephp><![CDATA[]]></templatephp>
 </fragment>
 
@@ -1034,9 +1036,9 @@ border-style: inset !important;";}]]></template>
         var HOME = "<home>"; 
         </if>
     </script>
-    <script type="text/javascript" src="./scripts/wtcBBLib.js"></script>
-    <script type="text/javascript" src="./scripts/expandCollapse.js"></script>
-    <if(!$LOGIN)><script type="text/javascript" src="./scripts/LoginBox.js"></script></if>
+    <script type="text/javascript" src="<home>/scripts/wtcBBLib.js"></script>
+    <script type="text/javascript" src="<home>/scripts/expandCollapse.js"></script>
+    <if(!$LOGIN)><script type="text/javascript" src="<home>/scripts/LoginBox.js"></script></if>
 
     <if(PMS_ALERT)>
       <script type="text/javascript">
@@ -1052,6 +1054,7 @@ border-style: inset !important;";}]]></template>
       </script>
     </if>
 
+    <link rel="shortcut icon" href="<home>/favicon.ico">
     <style type="text/css">@import url(<home>css/{$STYLE->getStyleId()}.css);</style>
     <style type="text/css">@import url({$stylesheet->getCssFilePath()});</style>
     $meta
@@ -1163,9 +1166,9 @@ border-style: inset !important;";}]]></template>
         var HOME = \"/labs/wtcbb/test/\"; 
         ")) . "
     </script>
-    <script type=\"text/javascript\" src=\"./scripts/wtcBBLib.js\"></script>
-    <script type=\"text/javascript\" src=\"./scripts/expandCollapse.js\"></script>
-    " . ((!$LOGIN) ? ("<script type=\"text/javascript\" src=\"./scripts/LoginBox.js\"></script>") : ("")) . "
+    <script type=\"text/javascript\" src=\"/labs/wtcbb/test//scripts/wtcBBLib.js\"></script>
+    <script type=\"text/javascript\" src=\"/labs/wtcbb/test//scripts/expandCollapse.js\"></script>
+    " . ((!$LOGIN) ? ("<script type=\"text/javascript\" src=\"/labs/wtcbb/test//scripts/LoginBox.js\"></script>") : ("")) . "
 
     " . ((PMS_ALERT) ? ("
       <script type=\"text/javascript\">
@@ -1181,6 +1184,7 @@ border-style: inset !important;";}]]></template>
       </script>
     ") : ("")) . "
 
+    <link rel=\"shortcut icon\" href=\"/labs/wtcbb/test//favicon.ico\">
     <style type=\"text/css\">@import url(/labs/wtcbb/test/css/{$STYLE->getStyleId()}.css);</style>
     <style type=\"text/css\">@import url({$stylesheet->getCssFilePath()});</style>
     $meta
@@ -1278,7 +1282,7 @@ border-style: inset !important;";}]]></template>
 ]]></templatephp>
 </fragment>
 
-<fragment fragmentid="229" styleid="0" groupid="156" fragmentName="" fragmentVarName="header_smallWindow" fragmentType="template" defaultid="0" disOrder="0">
+<fragment fragmentid="229" styleid="0" groupid="156" fragmentName="header_smallWindow" fragmentVarName="header_smallWindow" fragmentType="template" defaultid="0" disOrder="0">
 <template><![CDATA[{$VISUALS[docType]}
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-US" lang="en-US">
 <head>
@@ -1290,9 +1294,10 @@ border-style: inset !important;";}]]></template>
         var wtcBBPath = "{$bboptions[cookPath]}";
         <if(!empty($SESSURL))>var SESSURL = "{$SESSURL}";</if>
     </script>
-    <script type="text/javascript" src="./scripts/wtcBBLib.js"></script>
-    <script type="text/javascript" src="./scripts/expandCollapse.js"></script>
-    <if(!$LOGIN)><script type="text/javascript" src="./scripts/LoginBox.js"></script></if>
+    <script type="text/javascript" src="<home>/scripts/wtcBBLib.js"></script>
+    <script type="text/javascript" src="<home>/scripts/expandCollapse.js"></script>
+    <if(!$LOGIN)><script type="text/javascript" src="<home>/scripts/LoginBox.js"></script></if>
+    <link rel="shortcut icon" href="<home>/favicon.ico">
     <style type="text/css">@import url(<home>css/{$STYLE->getStyleId()}.css);</style>
     <style type="text/css">@import url({$stylesheet->getCssFilePath()});</style>
     $meta
@@ -1313,9 +1318,10 @@ border-style: inset !important;";}]]></template>
         var wtcBBPath = \"{$bboptions[cookPath]}\";
         " . ((!empty($SESSURL)) ? ("var SESSURL = \"{$SESSURL}\";") : ("")) . "
     </script>
-    <script type=\"text/javascript\" src=\"./scripts/wtcBBLib.js\"></script>
-    <script type=\"text/javascript\" src=\"./scripts/expandCollapse.js\"></script>
-    " . ((!$LOGIN) ? ("<script type=\"text/javascript\" src=\"./scripts/LoginBox.js\"></script>") : ("")) . "
+    <script type=\"text/javascript\" src=\"/labs/wtcbb/test//scripts/wtcBBLib.js\"></script>
+    <script type=\"text/javascript\" src=\"/labs/wtcbb/test//scripts/expandCollapse.js\"></script>
+    " . ((!$LOGIN) ? ("<script type=\"text/javascript\" src=\"/labs/wtcbb/test//scripts/LoginBox.js\"></script>") : ("")) . "
+    <link rel=\"shortcut icon\" href=\"/labs/wtcbb/test//favicon.ico\">
     <style type=\"text/css\">@import url(/labs/wtcbb/test/css/{$STYLE->getStyleId()}.css);</style>
     <style type=\"text/css\">@import url({$stylesheet->getCssFilePath()});</style>
     $meta

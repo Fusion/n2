@@ -55,6 +55,7 @@ if($_GET['step'] > 1) {
 	define('AMONTH', ADAY * 31);
 	define('AYEAR', ADAY * 365);
 	define('FAQ_LANG_CAT', 119);
+	define('HOME', str_replace('install.php', '', $_SERVER['PHP_SELF']));	
 	define('DEV', false);
 
 	getDBAClass();
@@ -407,6 +408,8 @@ else if($_GET['step'] == 3) {
 			);
 		}
 
+		fixPHP();
+		
 		// build the cache
 		$dir = new DirectoryIterator('./lib/Cache');
 
@@ -460,6 +463,27 @@ else if($_GET['step'] == 4) {
 	else
 		$xtra = ' Please remove the <strong>install.php</strong> file from your root install for security precautions.';
 	new WtcBBThanks('<em>n2</em> has successfully been installed!' . $xtra . '<span style="display: block; text-align: center; margin-top: 15px;"><a href="./admin.php">Administrator Control Panel</a> - <a href="./index.php">Forum Homepage</a></span>', false, false);
+}
+
+function fixPHP()
+{
+global $lang, $query, $wtcDB;
+
+	$search = new Query($query['styles_fragments']['get_all_ids'], array(1 => 'template'));
+	
+	// nuttin!
+	if(!$wtcDB->numRows($search)) {
+		new WtcBBException($lang['admin_error_noResults']);
+	}
+
+	// alrighty... loop through and put results into array
+	while($result = $wtcDB->fetchArray($search)) {
+		$fragmentObj = new StyleFragment($result['fragmentid']);
+		$updateData = array('template_php' => StyleFragment::parseTemplate($fragmentObj->getFragment()));
+		$fragmentObj->update($updateData);
+	}
+	
+	return true;
 }
 
 ?>
