@@ -261,15 +261,17 @@ if(!($modules = Cache::load('modules'))) {
 
 // Library & WordPress plugins must be loaded immediately
 $disable_autoload = true;
-foreach($modules['L'] as $module)
-{
-	/** @see #SCRIPT_HOME */
-	require SCRIPT_HOME . $module['path'];
+if($modules['L']) {
+	foreach($modules['L'] as $module) {
+		/** @see #SCRIPT_HOME */
+		require SCRIPT_HOME . $module['path'];
+	}
 }
-foreach($modules['W'] as $module)
-{
-	/** @see #SCRIPT_HOME */
-	require SCRIPT_HOME . $module['path'];
+if($modules['L']) {
+	foreach($modules['W'] as $module) {
+		/** @see #SCRIPT_HOME */
+		require SCRIPT_HOME . $module['path'];
+	}
 }
 unset($disable_autoload);
 

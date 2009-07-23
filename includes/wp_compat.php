@@ -54,8 +54,8 @@ function apply_filters($action, $data = null, $priority = ALL_FILTERS)
 {
 	global $mod_filters;
 
-	$data = func_get_args();
-	array_shift($data);
+	// $data = func_get_args();
+	// array_shift($data);
 
 	// $simple = (func_num_args() < 3);
 	
