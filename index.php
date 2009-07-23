@@ -41,6 +41,17 @@ if(!isset($_GET['file']) OR !file_exists(USER_DIR . '/' . $_GET['file'] . '.php'
 	$_GET['file'] = 'boardIndex';
 }
 
+// Prepare header and footer code defined in plugins
+ob_start();
+do_action('wp_head');
+$extraheaders =
+	str_replace('/wp-content/plugins/', 'modules/', ob_get_clean()) .
+	apply_scripts();
+ob_start();
+do_action('wp_footer');
+$extrafooters = str_replace('/wp-content/plugins/', 'modules/', ob_get_clean());
+
+
 // require the user file
 require_once(USER_DIR . '/' . $_GET['file'] . '.php');
 

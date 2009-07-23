@@ -248,13 +248,19 @@ function n2src($text) {
  */
 function textarea($content, $id, $class = null)
 {
-	global $User;
+	global $User, $modules;
 	
 	$editorid = $User->info['editor'];
+// New rule: now that modules are getting implemented, there is always a module whose key name is 'default'
+// That's based on the 'default' field in the modules table
 	if($editorid == 'default')
-		$editorid = 'nicEdit';
-		
-	require SCRIPT_HOME . "modules/{$editorid}/{$editorid}.mod.php";
+		$editorid = $modules['E']['default']['name'];
+	if(!$modules['E'][$editorid]) {
+		// This would happen if we disable this user's favourite editor
+		$editorid = $modules['E']['default']['name'];
+	}
+
+	require SCRIPT_HOME . $modules['E'][$editorid]['path'];
 	
 	$getter = "getModule_{$editorid}";
 	$editor = $getter();
@@ -267,10 +273,8 @@ function textarea($content, $id, $class = null)
  */
 function getTextEditors()
 {
-	return array(
-		array('name' => 'nicEdit',		'longname' => 'WYSIWYG'),
-		array('name' => 'plainEdit',	'longname' => 'Plain')
-	);
+	global $modules;
+	return $modules{'E'};
 }
  
 /**

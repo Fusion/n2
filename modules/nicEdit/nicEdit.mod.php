@@ -1,4 +1,15 @@
 <?php
+/*
+Plugin Name: nicEdit
+Plugin URI: http://n2.nextbbs.com
+Description: This is a WYSIWYG, Javascript-based editor for your text areas. It saves to BBCode.
+Author: Chris F Ravenscroft
+Version: 1.0
+Author URI: http://nexus.zteo.com
+Long Name: WYSIWYG
+N2Type: E
+*/
+
 function getModule_nicEdit()
 {
 	return new NicEdit();

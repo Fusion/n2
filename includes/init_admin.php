@@ -58,6 +58,7 @@ error_reporting(E_ALL ^ E_NOTICE);
 require_once('./includes/config.php');
 require_once('./includes/classPath.lib.php');
 require_once('./includes/functions.php');
+require_once('./includes/wp_compat.php');
 
 // CONSTANTS \\
 define('WTC_TP', $tablePrefix);

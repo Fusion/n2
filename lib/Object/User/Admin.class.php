@@ -144,11 +144,11 @@ class Admin extends User {
 			foreach($sAdmins as $userid => $info) {
 				if(!isset($admins[$userid])) {
 					if($userid == 1) {
-						$insert = Array(1 => $userid, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1);
+						$insert = Array(1 => $userid, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1);
 					}
 
 					else {
-						$insert = Array(1 => $userid, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+						$insert = Array(1 => $userid, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
 					}
 
 					new Query($query['admin']['insert_admin'], $insert);

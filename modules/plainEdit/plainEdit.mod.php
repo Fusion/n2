@@ -1,4 +1,15 @@
 <?php
+/*
+Plugin Name: plainEdit
+Plugin URI: http://n2.nextbbs.com
+Description: This is the default plain-text editor.
+Author: Chris F Ravenscroft
+Version: 1.0
+Author URI: http://nexus.zteo.com
+Long Name: Plain
+N2Type: E
+*/
+
 function getModule_plainEdit()
 {
 	return new plainEdit();

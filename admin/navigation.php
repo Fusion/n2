@@ -247,6 +247,13 @@ if($User->canAdmin('faq')) {
 							), true);
 }
 
+if($User->canAdmin('modules')) {
+	new AdminHTML('navBox', Array(
+								'main' => 'Modules',
+								'Modules Manager' => 'admin.php?file=modules'
+							), true);
+}
+
 if($User->canAdmin('maintenance')) {
 	new AdminHTML('navBox', Array(
 								'main' => $lang['admin_nav_main_title'],

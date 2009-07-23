@@ -180,6 +180,11 @@ class Message {
 		// just set it
 		$this->txt = $txt;
 
+		// We will go through the filters, if any -- low-priority filters
+		global $multipage, $numpages, $pages, $page;
+		$multipage = false; $numpages = $pages = $page = 1;
+		$this->txt = apply_filters('the_content', $this->txt, LOW_FILTERS);
+		
 		// parse URLs
 		//$this->txt = preg_replace('/(?<!(?:\[(?:img|url)\]))(?<!url=)\b((?:https?|ftp):\/\/[-\w]+(?:\.\w[-\w]*)+(?:\d+)?(\/[^"\'<>()\[\]{}\s\x7F-\xFF]+)*)\b/', '[url=$1]$1[/url]', $this->txt); // thank you Jeffrey E. F. Friedl!
 		$this->txt = preg_replace('/(^|\s|=|\])www\./isU', '$1http://www.', $this->txt);
@@ -213,8 +218,12 @@ class Message {
 		$this->txt = str_replace('{poster}', $poster, $this->txt);
 
 		// censoring...
-		$this->txt = $this->txt;
+// CFR @todo Obviously		$this->txt = $this->txt;
 
+		// We will go through the filters, if any ... and shortcodes -- HIGH-priority filters
+		$this->txt = apply_filters('the_content', $this->txt, HIGH_FILTERS);
+		$this->txt = do_shortcode($this->txt);
+		
 		return $this->txt;
 	}
 

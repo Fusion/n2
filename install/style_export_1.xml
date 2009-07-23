@@ -27,8 +27,7 @@ body {
 	background: #fff;
 	color: #000;
 	font-size: 12px;
-	margin: 10px 20px;
-	border-style: inset !important;
+	margin: 10px 20px;	border-style: inset !important;
 }
 
 	.page a {
@@ -89,8 +88,7 @@ th, .headFoot {
 	color: #fff;
 	font-size: 12px;
 	font-weight: bold;
-	padding: 4px !important;
-	text-align: center;
+	padding: 4px !important;	text-align: center;
 }
 
 	th a, .headFoot a {
@@ -482,147 +480,161 @@ border-style: inset !important;";}]]></template>
 
 <fragment fragmentid="240" styleid="0" groupid="239" fragmentName="announcedisplay_bit" fragmentVarName="announcedisplay_bit" fragmentType="template" defaultid="0" disOrder="0">
 <template><![CDATA[<table cellspacing="0" cellpadding="0" class="noMarTop postbit bord2">
-  <tr>
-    <td class="cat pbHeader bord" colspan="2">
-      <p class="pad noMar"><a href="#{$post->getAnnounceId()}" name="{$post->getAnnounceId()}">{$post->getTitle()}</a></p>
-    </td>
-  </tr>
-
-  <tr>
-    <td class="alt1 pbProfile vertTop bord noBordTop noBordBot">
-      <p class="noMar">
-        <strong>{$postUser->getHTMLName()}</strong>
-
-        {$status}
-      </p>
-      <p class="noMar small">{$postUser->getTitle()}</p>
-
-      <if(!empty($postUser->info['avatar']))>
-        <div class="center smallMarTop">
-          <img src="{$postUser->info[avatar]}" alt="{$postUser->info[username]}'s {$lang[global_avatar]}" />
-        </div>
-      </if>
-
-      <if($post->getStarterId())>
-        <p class="small smallMarTop">Posts: {$postUser->info[posts]}</p>
-        <p class="small">Joined: {$joined->getDate()}</p>
-        <p class="small">Reputation: <a href="<n2link(file=profile&amp;do=reputation&amp;u={$postUser->info[userid]}&amp;p={$post->getAnnounceId()()}{$SESSURL})>">{$postUser->info[reputation]}</a> [<a href="<n2link(file=profile&amp;do=reputation&amp;u={$postUser->info[userid]}&amp;p={$post->getAnnounceId()}{$SESSURL}#updownvote)>"><img src="{$VISUALS[images]}/{$IMAGES[postbit_updownvote]}" /></a>]</p>
-      </if>
-    </td>
-
-    <td class="alt2 pbMessage vertTop bordRight">
-      <div class="clear goUp">
-        <div class="floatLeft">
-            <span class="time">{$timeline->getDate()}</span>
-        </div>
-      </div>
-
-      <hr class="postSep" />
-
-      <div class="expand">
-          {$message}
-      </div>
-    </td>
-  </tr>
-
-  <tr>
-    <td class="alt1 pbProfile vertTop center bord noBordTop">
-      <a href="<n2link(file=profile&amp;u={$postUser->info[userid]}{$SESSURL})>"><img src="{$VISUALS[images]}/{$IMAGES[profileIcon]}" alt="{$postUser->info[username]}" class="aligned" /></a>
-
-        <if(!empty($postUser->info['homepage']) AND $postUser->info['homepage'] != 'http://')>
-          <a href="{$postUser->info[homepage]}"><img src="{$VISUALS[images]}/{$IMAGES[homeIcon]}" alt="{$lang[user_thread_goToHome]}" class="aligned" /></a>
-        </if>
-
-<!--
-        <img src="{$VISUALS[images]}/{$IMAGES[icqIcon]}" alt="{$lang[admin_style_i_icqIcon]}" class="aligned" />
-        <img src="{$VISUALS[images]}/{$IMAGES[aimIcon]}" alt="{$lang[admin_style_i_aimIcon]}" class="aligned" />
-        <img src="{$VISUALS[images]}/{$IMAGES[msnIcon]}" alt="{$lang[admin_style_i_msnIcon]}" class="aligned" />
-        <img src="{$VISUALS[images]}/{$IMAGES[yahooIcon]}" alt="{$lang[admin_style_i_yahooIcon]}" class="aligned" />
--->
-    </td>
-
-    <td class="alt2 pbMessage vertTop right bordBot bordRight">
-      <div class="floatLeft">
-        <a href="#"><img src="{$VISUALS[images]}/{$IMAGES[upIcon]}" alt="{$lang[user_topPage]}" class="aligned" /></a>
-
-        <a href="<n2link(file=personal&amp;do=send&amp;u={$postUser->info[username]}{$SESSURL})>"><img src="{$VISUALS[images]}/{$IMAGES[postbit_pm]}" alt="{$lang[user_thread_sendPm]}" class="aligned" /></a>
-
-        <a href="<n2link(file=sendemail&amp;u={$post->getStarterId()}{$SESSURL})>"><img src="{$VISUALS[images]}/{$IMAGES[postbit_email]}" alt="{$lang[admin_style_i_postbit_email]}" class="aligned" /></a>
-      </div>
-    </td>
-  </tr>
-</table>]]></template>
+   <tr>
+     <td class="cat pbHeader bord" colspan="2">
+       <p class="pad noMar"><a href="#{$post->getAnnounceId()}" name="{$post->getAnnounceId()}">{$post->getTitle()}</a></p>
+     </td>
+   </tr>
+ 
+   <tr>
+     <td class="alt1 pbProfile vertTop noBordTop topBarInfo">
+       <p class="noMar">
+         {$status}
+         <strong>{$postUser->getHTMLName()}</strong>
+       </p>
+     </td>
+ 
+     <td class="alt2 pbMessage vertTop bordRight topBarAction">
+       <div class="clear goUp">
+         <div class="floatLeft">
+             <span class="time">{$timeline->getDate()}</span>
+         </div>
+       </div>
+     </td>
+   </tr>
+ 
+   <tr>
+     <td class="alt1 pbProfile vertTop bord noBordTop noBordBot">
+       <p class="noMar small">{$postUser->getTitle()}</p>
+ 
+       <if(!empty($postUser->info['avatar']))>
+         <div class="center smallMarTop">
+           <img src="{$postUser->info[avatar]}" alt="{$postUser->info[username]}'s {$lang[global_avatar]}" />
+         </div>
+       </if>
+ 
+       <if($post->getStarterId())>
+         <p class="small smallMarTop">Posts: {$postUser->info[posts]}</p>
+         <p class="small">Joined: {$joined->getDate()}</p>
+         
+     <p class="small noMarTop">Reputation: <a href="<n2link(file=profile&amp;do=reputation&amp;u={$postUser->info[userid]}&amp;p={$post->getAnnounceId()}{$SESSURL})>">{$postUser->info[reputation]}</a> [<a href="<n2link(file=profile&amp;do=reputation&amp;u={$postUser->info[userid]}&amp;p={$post->getAnnounceId()}{$SESSURL}#updownvote)>"><img src="{$VISUALS[images]}/{$IMAGES[postbit_updownvote]}" /></a>]</p>
+       </if>
+     </td>
+ 
+     <td class="alt2 pbMessage vertTop bordRight">
+ 
+       <div class="expand">
+           {$message}
+       </div>
+     </td>
+   </tr>
+ 
+   <tr>
+     <td class="alt1 pbProfile vertTop bottomBarInfo">
+       <a href="<n2link(file=profile&amp;u={$postUser->info[userid]}{$SESSURL})>"><img src="{$VISUALS[images]}/{$IMAGES[profileIcon]}" alt="{$postUser->info[username]}" class="aligned" /></a>
+ 
+         <if(!empty($postUser->info['homepage']) AND $postUser->info['homepage'] != 'http://')>
+           <a href="{$postUser->info[homepage]}"><img src="{$VISUALS[images]}/{$IMAGES[homeIcon]}" alt="{$lang[user_thread_goToHome]}" class="aligned" /></a>
+         </if>
+ 
+ <!--
+         <img src="{$VISUALS[images]}/{$IMAGES[icqIcon]}" alt="{$lang[admin_style_i_icqIcon]}" class="aligned" />
+         <img src="{$VISUALS[images]}/{$IMAGES[aimIcon]}" alt="{$lang[admin_style_i_aimIcon]}" class="aligned" />
+         <img src="{$VISUALS[images]}/{$IMAGES[msnIcon]}" alt="{$lang[admin_style_i_msnIcon]}" class="aligned" />
+         <img src="{$VISUALS[images]}/{$IMAGES[yahooIcon]}" alt="{$lang[admin_style_i_yahooIcon]}" class="aligned" />
+ -->
+     </td>
+ 
+     <td class="alt2 pbMessage vertTop right bordBot bordRight bottomBarAction">
+       <div class="floatLeft">
+         <a href="#"><img src="{$VISUALS[images]}/{$IMAGES[upIcon]}" alt="{$lang[user_topPage]}" class="aligned" /></a>
+ 
+         <a href="<n2link(file=personal&amp;do=send&amp;u={$postUser->info[username]}{$SESSURL})>"><img src="{$VISUALS[images]}/{$IMAGES[postbit_pm]}" alt="{$lang[user_thread_sendPm]}" class="aligned" /></a>
+ 
+         <a href="<n2link(file=sendemail&amp;u={$post->getStarterId()}{$SESSURL})>"><img src="{$VISUALS[images]}/{$IMAGES[postbit_email]}" alt="{$lang[admin_style_i_postbit_email]}" class="aligned" /></a>
+       </div>
+     </td>
+   </tr>
+ </table>
+]]></template>
 <templatephp><![CDATA[<table cellspacing=\"0\" cellpadding=\"0\" class=\"noMarTop postbit bord2\">
-  <tr>
-    <td class=\"cat pbHeader bord\" colspan=\"2\">
-      <p class=\"pad noMar\"><a href=\"#{$post->getAnnounceId()}\" name=\"{$post->getAnnounceId()}\">{$post->getTitle()}</a></p>
-    </td>
-  </tr>
-
-  <tr>
-    <td class=\"alt1 pbProfile vertTop bord noBordTop noBordBot\">
-      <p class=\"noMar\">
-        <strong>{$postUser->getHTMLName()}</strong>
-
-        {$status}
-      </p>
-      <p class=\"noMar small\">{$postUser->getTitle()}</p>
-
-      " . ((!empty($postUser->info['avatar'])) ? ("
-        <div class=\"center smallMarTop\">
-          <img src=\"{$postUser->info[avatar]}\" alt=\"{$postUser->info[username]}\'s {$lang[global_avatar]}\" />
-        </div>
-      ") : ("")) . "
-
-      " . (($post->getStarterId()) ? ("
-        <p class=\"small smallMarTop\">Posts: {$postUser->info[posts]}</p>
-        <p class=\"small\">Joined: {$joined->getDate()}</p>
-        <p class=\"small\">Reputation: <a href=\"" . n2link("file=profile&amp;do=reputation&amp;u={$postUser->info[userid]}&amp;p={$post->getAnnounceId()()}{$SESSURL}") . "\">{$postUser->info[reputation]}</a> [<a href=\"" . n2link("file=profile&amp;do=reputation&amp;u={$postUser->info[userid]}&amp;p={$post->getAnnounceId()}{$SESSURL}#updownvote") . "\"><img src=\"{$VISUALS[images]}/{$IMAGES[postbit_updownvote]}\" /></a>]</p>
-      ") : ("")) . "
-    </td>
-
-    <td class=\"alt2 pbMessage vertTop bordRight\">
-      <div class=\"clear goUp\">
-        <div class=\"floatLeft\">
-            <span class=\"time\">{$timeline->getDate()}</span>
-        </div>
-      </div>
-
-      <hr class=\"postSep\" />
-
-      <div class=\"expand\">
-          {$message}
-      </div>
-    </td>
-  </tr>
-
-  <tr>
-    <td class=\"alt1 pbProfile vertTop center bord noBordTop\">
-      <a href=\"" . n2link("file=profile&amp;u={$postUser->info[userid]}{$SESSURL}") . "\"><img src=\"{$VISUALS[images]}/{$IMAGES[profileIcon]}\" alt=\"{$postUser->info[username]}\" class=\"aligned\" /></a>
-
-        " . ((!empty($postUser->info['homepage']) AND $postUser->info['homepage'] != 'http://') ? ("
-          <a href=\"{$postUser->info[homepage]}\"><img src=\"{$VISUALS[images]}/{$IMAGES[homeIcon]}\" alt=\"{$lang[user_thread_goToHome]}\" class=\"aligned\" /></a>
-        ") : ("")) . "
-
-<!--
-        <img src=\"{$VISUALS[images]}/{$IMAGES[icqIcon]}\" alt=\"{$lang[admin_style_i_icqIcon]}\" class=\"aligned\" />
-        <img src=\"{$VISUALS[images]}/{$IMAGES[aimIcon]}\" alt=\"{$lang[admin_style_i_aimIcon]}\" class=\"aligned\" />
-        <img src=\"{$VISUALS[images]}/{$IMAGES[msnIcon]}\" alt=\"{$lang[admin_style_i_msnIcon]}\" class=\"aligned\" />
-        <img src=\"{$VISUALS[images]}/{$IMAGES[yahooIcon]}\" alt=\"{$lang[admin_style_i_yahooIcon]}\" class=\"aligned\" />
--->
-    </td>
-
-    <td class=\"alt2 pbMessage vertTop right bordBot bordRight\">
-      <div class=\"floatLeft\">
-        <a href=\"#\"><img src=\"{$VISUALS[images]}/{$IMAGES[upIcon]}\" alt=\"{$lang[user_topPage]}\" class=\"aligned\" /></a>
-
-        <a href=\"" . n2link("file=personal&amp;do=send&amp;u={$postUser->info[username]}{$SESSURL}") . "\"><img src=\"{$VISUALS[images]}/{$IMAGES[postbit_pm]}\" alt=\"{$lang[user_thread_sendPm]}\" class=\"aligned\" /></a>
-
-        <a href=\"" . n2link("file=sendemail&amp;u={$post->getStarterId()}{$SESSURL}") . "\"><img src=\"{$VISUALS[images]}/{$IMAGES[postbit_email]}\" alt=\"{$lang[admin_style_i_postbit_email]}\" class=\"aligned\" /></a>
-      </div>
-    </td>
-  </tr>
-</table>]]></templatephp>
+   <tr>
+     <td class=\"cat pbHeader bord\" colspan=\"2\">
+       <p class=\"pad noMar\"><a href=\"#{$post->getAnnounceId()}\" name=\"{$post->getAnnounceId()}\">{$post->getTitle()}</a></p>
+     </td>
+   </tr>
+ 
+   <tr>
+     <td class=\"alt1 pbProfile vertTop noBordTop topBarInfo\">
+       <p class=\"noMar\">
+         {$status}
+         <strong>{$postUser->getHTMLName()}</strong>
+       </p>
+     </td>
+ 
+     <td class=\"alt2 pbMessage vertTop bordRight topBarAction\">
+       <div class=\"clear goUp\">
+         <div class=\"floatLeft\">
+             <span class=\"time\">{$timeline->getDate()}</span>
+         </div>
+       </div>
+     </td>
+   </tr>
+ 
+   <tr>
+     <td class=\"alt1 pbProfile vertTop bord noBordTop noBordBot\">
+       <p class=\"noMar small\">{$postUser->getTitle()}</p>
+ 
+       " . ((!empty($postUser->info['avatar'])) ? ("
+         <div class=\"center smallMarTop\">
+           <img src=\"{$postUser->info[avatar]}\" alt=\"{$postUser->info[username]}\'s {$lang[global_avatar]}\" />
+         </div>
+       ") : ("")) . "
+ 
+       " . (($post->getStarterId()) ? ("
+         <p class=\"small smallMarTop\">Posts: {$postUser->info[posts]}</p>
+         <p class=\"small\">Joined: {$joined->getDate()}</p>
+         
+     <p class=\"small noMarTop\">Reputation: <a href=\"" . n2link("file=profile&amp;do=reputation&amp;u={$postUser->info[userid]}&amp;p={$post->getAnnounceId()}{$SESSURL}") . "\">{$postUser->info[reputation]}</a> [<a href=\"" . n2link("file=profile&amp;do=reputation&amp;u={$postUser->info[userid]}&amp;p={$post->getAnnounceId()}{$SESSURL}#updownvote") . "\"><img src=\"{$VISUALS[images]}/{$IMAGES[postbit_updownvote]}\" /></a>]</p>
+       ") : ("")) . "
+     </td>
+ 
+     <td class=\"alt2 pbMessage vertTop bordRight\">
+ 
+       <div class=\"expand\">
+           {$message}
+       </div>
+     </td>
+   </tr>
+ 
+   <tr>
+     <td class=\"alt1 pbProfile vertTop bottomBarInfo\">
+       <a href=\"" . n2link("file=profile&amp;u={$postUser->info[userid]}{$SESSURL}") . "\"><img src=\"{$VISUALS[images]}/{$IMAGES[profileIcon]}\" alt=\"{$postUser->info[username]}\" class=\"aligned\" /></a>
+ 
+         " . ((!empty($postUser->info['homepage']) AND $postUser->info['homepage'] != 'http://') ? ("
+           <a href=\"{$postUser->info[homepage]}\"><img src=\"{$VISUALS[images]}/{$IMAGES[homeIcon]}\" alt=\"{$lang[user_thread_goToHome]}\" class=\"aligned\" /></a>
+         ") : ("")) . "
+ 
+ <!--
+         <img src=\"{$VISUALS[images]}/{$IMAGES[icqIcon]}\" alt=\"{$lang[admin_style_i_icqIcon]}\" class=\"aligned\" />
+         <img src=\"{$VISUALS[images]}/{$IMAGES[aimIcon]}\" alt=\"{$lang[admin_style_i_aimIcon]}\" class=\"aligned\" />
+         <img src=\"{$VISUALS[images]}/{$IMAGES[msnIcon]}\" alt=\"{$lang[admin_style_i_msnIcon]}\" class=\"aligned\" />
+         <img src=\"{$VISUALS[images]}/{$IMAGES[yahooIcon]}\" alt=\"{$lang[admin_style_i_yahooIcon]}\" class=\"aligned\" />
+ -->
+     </td>
+ 
+     <td class=\"alt2 pbMessage vertTop right bordBot bordRight bottomBarAction\">
+       <div class=\"floatLeft\">
+         <a href=\"#\"><img src=\"{$VISUALS[images]}/{$IMAGES[upIcon]}\" alt=\"{$lang[user_topPage]}\" class=\"aligned\" /></a>
+ 
+         <a href=\"" . n2link("file=personal&amp;do=send&amp;u={$postUser->info[username]}{$SESSURL}") . "\"><img src=\"{$VISUALS[images]}/{$IMAGES[postbit_pm]}\" alt=\"{$lang[user_thread_sendPm]}\" class=\"aligned\" /></a>
+ 
+         <a href=\"" . n2link("file=sendemail&amp;u={$post->getStarterId()}{$SESSURL}") . "\"><img src=\"{$VISUALS[images]}/{$IMAGES[postbit_email]}\" alt=\"{$lang[admin_style_i_postbit_email]}\" class=\"aligned\" /></a>
+       </div>
+     </td>
+   </tr>
+ </table>
+]]></templatephp>
 </fragment>
 
 <fragment fragmentid="128" styleid="0" groupid="222" fragmentName="" fragmentVarName="bbcode" fragmentType="template" defaultid="0" disOrder="0">
@@ -926,7 +938,7 @@ border-style: inset !important;";}]]></template>
 ]]></templatephp>
 </fragment>
 
-<fragment fragmentid="90" styleid="0" groupid="156" fragmentName="" fragmentVarName="footer" fragmentType="template" defaultid="0" disOrder="0">
+<fragment fragmentid="90" styleid="0" groupid="156" fragmentName="footer" fragmentVarName="footer" fragmentType="template" defaultid="0" disOrder="0">
 <template><![CDATA[  <if(!empty($forumJumpBits))>
     <div class="marCenter right smallMarTop">
       <form method="get" action="<n2link(./index.php)>">
@@ -941,6 +953,7 @@ border-style: inset !important;";}]]></template>
       </form>
     </div>
   </if>
+{$extrafooters}
 </div>
 
 <div class="page clear">
@@ -977,6 +990,7 @@ border-style: inset !important;";}]]></template>
       </form>
     </div>
   ") : ("")) . "
+{$extrafooters}
 </div>
 
 <div class=\"page clear\">
@@ -1058,12 +1072,13 @@ border-style: inset !important;";}]]></template>
     <style type="text/css">@import url(<home>css/{$STYLE->getStyleId()}.css);</style>
     <style type="text/css">@import url({$stylesheet->getCssFilePath()});</style>
     $meta
+    $extraheaders
 </head>
 <body>
 
 <div class="page">
     <div class="marCenter smallMarBot"><div class="cont clear noBord">
-        <h2 class="floatLeft"><a href="<n2link({$SESSURL})>"><img src="{$VISUALS[images]}/{$VISUALS[titleImage]}" alt="n2" /></a></h2>
+        <h2 class="floatLeft"><a href="<php(apply_filters('login_headerurl', <n2link(*{$SESSURL})>))>"><img src="{$VISUALS[images]}/{$VISUALS[titleImage]}" alt="n2" /></a></h2>
     </div></div>
 
     <div class="marCenter smallMarTop"><div class="cont noBordBot">
@@ -1188,12 +1203,13 @@ border-style: inset !important;";}]]></template>
     <style type=\"text/css\">@import url(/labs/wtcbb/test/css/{$STYLE->getStyleId()}.css);</style>
     <style type=\"text/css\">@import url({$stylesheet->getCssFilePath()});</style>
     $meta
+    $extraheaders
 </head>
 <body>
 
 <div class=\"page\">
     <div class=\"marCenter smallMarBot\"><div class=\"cont clear noBord\">
-        <h2 class=\"floatLeft\"><a href=\"" . n2link("{$SESSURL}") . "\"><img src=\"{$VISUALS[images]}/{$VISUALS[titleImage]}\" alt=\"n2\" /></a></h2>
+        <h2 class=\"floatLeft\"><a href=\"" . apply_filters('login_headerurl', n2link("{$SESSURL}")) . "\"><img src=\"{$VISUALS[images]}/{$VISUALS[titleImage]}\" alt=\"n2\" /></a></h2>
     </div></div>
 
     <div class=\"marCenter smallMarTop\"><div class=\"cont noBordBot\">

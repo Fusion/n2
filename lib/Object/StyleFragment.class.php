@@ -167,7 +167,13 @@ class StyleFragment extends Object {
 	
 	private function getN2Code($matches)
 	{
-		return '" . n2link("' . $matches[1] . '") . "';
+		$arg = $matches[1];
+		if($arg{0} == '*') {
+			return 'n2link("' . substr($arg, 1) . '")';
+		}
+		else {
+			return '" . n2link("' . $arg . '") . "';
+		}
 	}
 
 	/**

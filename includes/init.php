@@ -58,6 +58,7 @@ register_shutdown_function('handleShutdown');
 require_once('./includes/config.php');
 require_once('./includes/classPath.lib.php');
 require_once('./includes/functions.php');
+require_once('./includes/wp_compat.php');
 
 // CONSTANTS \\
 define('WTC_TP', $tablePrefix);
@@ -73,7 +74,12 @@ define('AMONTH', ADAY * 31);
 define('AYEAR', ADAY * 365);
 define('FAQ_LANG_CAT', 119);
 define('HOME', str_replace('index.php', '', $_SERVER['PHP_SELF']));
-define('SCRIPT_HOME', str_replace('index.php', '', $_SERVER['PATH_TRANSLATED']));
+// The absolute weirdest thing happens here, at least with my current version of PHP:
+// If I use $_SERVER['PATH_TRANSLATED'] I do not need to invoke str_replace
+// But then it, later, screws up the modules include()
+// Not, it really does: if I replace SCRIPT_HOME with its quoted value it works again! Weird PHP bug I guess.
+define('SCRIPT_HOME', str_replace('includes/init.php', '', __FILE__));
+define('URL', (isset($_SERVER['HTTPS']) ? 'https://' : 'http://') . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI']);
 define('SEO', $seo);
 define('DEV', false);
 
@@ -106,6 +112,7 @@ if(!empty($_REQUEST['rewrite']))
 if(empty($_SERVER['SCRIPT_URI'])) {
 	$_SERVER['SCRIPT_URI'] = (isset($_SERVER['HTTPS']) ? 'https://' : 'http://') . $_SERVER['SERVER_NAME'] . ($_SERVER['SERVER_PORT'] != 80 ? $_SERVER['SERVER_PORT'] : '') . HOME;
 }
+
 
 /**
  * From php.net: get rid of the evil assumptions of magic_quotes_gpc()
@@ -225,5 +232,51 @@ if(!($crons = Cache::load('crons'))) {
 		$crons[$cron['cronid']] = new Cron('', $cron);
 	}
 }
+
+
+/**
+ * Initialize Modules
+ */
+if(!($modules = Cache::load('modules'))) {
+	$modulesQ = new Query($query['modules']['get_all_enabled']);
+
+	$foundDefault = false;
+
+	// Note: 'default' is handled by making each module 'default' in turn
+	// until we find the real 'default' one:
+	// We will not crash if no default module is defined.	
+	while($module = $wtcDB->fetchArray($modulesQ)) {
+		if(!isset($modules[$module['type']])) {
+			$modules[$module['type']] = array();
+		}
+		$modules[$module['type']][$module['name']] = $module;
+		if(!$foundDefault) {
+			$modules[$module['type']]['default']   = $module;
+			if($module['default']) {
+				$foundDefault = true;
+			}
+		}
+	}
+}
+
+// Library & WordPress plugins must be loaded immediately
+$disable_autoload = true;
+foreach($modules['L'] as $module)
+{
+	/** @see #SCRIPT_HOME */
+	require SCRIPT_HOME . $module['path'];
+}
+foreach($modules['W'] as $module)
+{
+	/** @see #SCRIPT_HOME */
+	require SCRIPT_HOME . $module['path'];
+}
+unset($disable_autoload);
+
+// Some WordPress plugins want to make sure that they are only initialized
+// after _all_ plugins were loaded
+$disable_autoload = true;
+do_action('plugins_loaded');
+unset($disable_autoload);
 
 ?>

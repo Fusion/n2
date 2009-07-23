@@ -268,7 +268,16 @@ if($_POST) {
 			// cache forums
 			new Cache('Forums');
 
-			new WtcBBThanks($lang['thanks_postReply'], './index.php?file=thread&amp;t=' . $Thread->getThreadId() . '&amp;p=' . $postid . $SESSURL);
+			// For WP Filters
+			$wp_comment->comment_post_ID = $postid;
+			$wp_comment->comment_approved = 1;
+			$wp_comment->user_id = $User->info['userid'];			
+			$wp_comment->comment_author = $User->info['username'];
+			$wp_comment->comment_author_email = $User->info['email'];
+			$wp_comment->comment_author_url = '';			
+			$wp_comment->comment_content = $_POST['message'];
+			//
+			new WtcBBThanks($lang['thanks_postReply'], apply_filters('comment_post_redirect', './index.php?file=thread&amp;t=' . $Thread->getThreadId() . '&amp;p=' . $postid . $SESSURL, $wp_comment));
 		}
 	}
 }
@@ -294,14 +303,16 @@ $toolBar = Message::buildToolBar();
 
 $editorBits = '';
 $editors = getTextEditors();
-foreach($editors as $editor) {
+foreach($editors as $name => $editor) {
+	if($name == 'default')
+		continue;
 	$select = '';
 
 	if($User->info['editor'] == $editor['name']) {
 		$select = ' selected="selected"';
 	}
 
-	$editorBits .= "<option value='{$editor['name']}'{$select}>{$editor['longname']}</option>\n";
+	$editorBits .= "<option value='{$editor['name']}'{$select}>{$editor['long_name']}</option>\n";
 }
 
 // create navigation

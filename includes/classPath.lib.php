@@ -21,8 +21,13 @@
  */
 
 function __autoload($className)
-{ 
-	ClassLoader::instance()->loadClass($className);
+{
+	global $disable_autoload;
+	
+	if(!$disable_autoload)
+	{ 
+		ClassLoader::instance()->loadClass($className);
+	}
 } 
 
 function import($path)

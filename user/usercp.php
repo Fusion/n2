@@ -628,7 +628,10 @@ else if($_GET['do'] == 'preferences') {
 	$temp = new StyleFragment('usercp_preferences_optBit');
 	$editorBits .= $temp->dump();
 
-	foreach($editors as $editor) {
+	foreach($editors as $name => $editor) {
+		if($name == 'default')
+			continue;
+			
 		$select = '';
 
 		if($_POST['pref']['editor'] == $editor['name']) {
@@ -636,7 +639,7 @@ else if($_GET['do'] == 'preferences') {
 		}
 
 		$val  = $editor['name'];
-		$text = $editor['longname'];
+		$text = $editor['long_name'];
 
 		$temp = new StyleFragment('usercp_preferences_optBit');
 		$editorBits .= $temp->dump();

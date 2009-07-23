@@ -24,6 +24,7 @@ CREATE TABLE `admins` (
   `posticons` tinyint(1) default NULL,
   `avatars` tinyint(1) default NULL,
   `maintenance` tinyint(1) default NULL,
+  `modules` tinyint(1) default NULL,
   `styles` tinyint(1) default NULL,
   `bbcode` tinyint(1) default NULL,
   `threads_posts` tinyint(1) default NULL,
@@ -3066,6 +3067,31 @@ CREATE TABLE `moderators` (
 -- Dumping data for table `moderators`
 -- 
 
+
+-- --------------------------------------------------------
+
+
+--
+-- Table structure for table `modules`
+--
+
+CREATE TABLE `modules` (
+  `moduleid` int(11) NOT NULL auto_increment,
+  `type` char(1) default NULL,
+  `name` varchar(64) default NULL,
+  `path` text,
+  `default` tinyint(1) default NULL,
+  `long_name` varchar(128) default NULL,
+  `enabled` tinyint(1) default 0,
+  PRIMARY KEY  (`moduleid`)
+);
+
+--
+-- Dumping data for table `modules`
+--
+
+INSERT INTO `modules` (`moduleid`,`type`,`name`,`path`,`default`,`long_name`,`enabled`) VALUES (1,'E','nicEdit','modules/nicEdit/nicEdit.mod.php',1,'WYSIWYG',1);
+INSERT INTO `modules` (`moduleid`,`type`,`name`,`path`,`default`,`long_name`,`enabled`) VALUES (2,'E','plainEdit','modules/plainEdit/plainEdit.mod.php',0,'Plain',1);
 
 -- --------------------------------------------------------
 

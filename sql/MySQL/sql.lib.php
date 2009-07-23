@@ -1285,6 +1285,24 @@ $query['cron']['check_unique'] = 'SELECT COUNT(*) AS checking FROM ' . WTC_TP . 
 
 $query['cron']['check_unique_edit'] = 'SELECT COUNT(*) AS checking FROM ' . WTC_TP . 'cron WHERE title = \'?\' AND cronid != \'?\'';
 
+// ##### MODULES QUERIES ##### \\
+$query['modules']['insert'] = 'INSERT INTO ' . WTC_TP . 'modules (?) VALUES (?)';
+
+$query['modules']['update'] = 'UPDATE ' . WTC_TP . 'modules SET ? WHERE moduleid = \'?\'';
+
+$query['modules']['update_all'] = 'UPDATE ' . WTC_TP . 'modules SET ? WHERE ? = \'?\'';
+
+$query['modules']['get'] = 'SELECT * FROM ' . WTC_TP . 'modules WHERE moduleid = \'?\'';
+
+$query['modules']['get_by_type_name'] = 'SELECT * FROM ' . WTC_TP . 'modules WHERE type = \'?\' AND name=\'?\'';
+
+$query['modules']['get_all'] = 'SELECT * FROM ' . WTC_TP . 'modules';
+
+$query['modules']['get_all_enabled'] = 'SELECT * FROM ' . WTC_TP . 'modules WHERE enabled=1';
+
+$query['modules']['check_unique'] = 'SELECT COUNT(*) AS checking FROM ' . WTC_TP . 'modules WHERE name = \'?\'';
+
+$query['modules']['check_unique_edit'] = 'SELECT COUNT(*) AS checking FROM ' . WTC_TP . 'modules WHERE name = \'?\' AND moduleid != \'?\'';
 
 // ##### ADMIN QUERIES ##### \\
 $query['admin']['get_automations'] = 'SELECT * FROM ' . WTC_TP . 'usergroups_auto';
@@ -1307,7 +1325,7 @@ $query['admin']['get_admin'] = 'SELECT * FROM ' . WTC_TP . 'admins WHERE userid 
 
 $query['admin']['get_admins_users'] = 'SELECT * FROM ' . WTC_TP . 'admins LEFT JOIN ' . WTC_TP . 'userinfo ON ' . WTC_TP . 'admins.userid = ' . WTC_TP . 'userinfo.userid';
 
-$query['admin']['insert_admin'] = 'INSERT INTO ' . WTC_TP . 'admins (userid, options, language, users, usergroups, cron, forums, announcements, logAdmin, logMod, logCron, pruneLogs, ranks, attachments, faq, ranks_images, smilies, posticons, avatars, maintenance, styles, bbcode, threads_posts, cus_pro) VALUES (\'?\', \'?\', \'?\', \'?\', \'?\', \'?\', \'?\', \'?\', \'?\', \'?\', \'?\', \'?\', \'?\', \'?\', \'?\', \'?\', \'?\', \'?\', \'?\', \'?\', \'?\', \'?\', \'?\', \'?\')';
+$query['admin']['insert_admin'] = 'INSERT INTO ' . WTC_TP . 'admins (userid, options, language, users, usergroups, cron, forums, announcements, logAdmin, logMod, logCron, pruneLogs, ranks, attachments, faq, ranks_images, smilies, posticons, avatars, maintenance, modules, styles, bbcode, threads_posts, cus_pro) VALUES (\'?\', \'?\', \'?\', \'?\', \'?\', \'?\', \'?\', \'?\', \'?\', \'?\', \'?\', \'?\', \'?\', \'?\', \'?\', \'?\', \'?\', \'?\', \'?\', \'?\', \'?\', \'?\', \'?\', \'?\', \'?\')';
 
 $query['admin']['update_admin'] = 'UPDATE ' . WTC_TP . 'admins SET ? WHERE userid = \'?\'';
 
@@ -1359,5 +1377,12 @@ $query['admin']['insert_lang'] = 'INSERT INTO ' . WTC_TP . 'lang (name) VALUES (
 
 $query['admin']['update_lang'] = 'UPDATE ' . WTC_TP . 'lang SET name = \'?\' WHERE langid = \'?\'';
 
+// ##### DYNAMIC OPTIONS QUERIES ##### \\
+$query ['options']['get'] = 'SELECT * FROM ' . WTC_TP . 'wtcbboptions WHERE settingName=\'?\'';
 
+$query ['options']['insert'] = 'INSERT INTO ' . WTC_TP . 'wtcbboptions (settingType, name, displayOrder, hidden, settingGroup, settingName, value) VALUES(\'dynamic\', \'dynamic\', 0, 1, \'dynamic\', \'?\', \'?\')';
+
+$query ['options']['update'] = 'UPDATE ' . WTC_TP . 'wtcbboptions SET value = \'?\' WHERE settingName=\'?\'';
+
+$query ['options']['delete'] = 'DELETE FROM ' . WTC_TP . 'wtcbboptions WHERE settingName=\'?\'';
 ?>

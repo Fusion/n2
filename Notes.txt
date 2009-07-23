@@ -1,0 +1,82 @@
+TODO: before checking in, retrieve fragments from test/
+TODO: check that multilines works
+
+Doesn't work? Remove quotes (")
+
+TinyCode
+http://wordpress.org/extend/plugins/tinycode/
+v1.2.0
+ 
+WP Quote Tweets
+http://wordpress.org/extend/plugins/wp-quote-tweets/
+v2.2.2
+
+Hackadelic SEO Table Of Contents
+http://wordpress.org/extend/plugins/hackadelic-table-of-content-boxes/
+v1.6.0
+
+Rss Shortcode
+http://wordpress.org/extend/plugins/rss-shortcode/
+v0.1
+
+
+Super Cool QRCode
+http://wordpress.org/extend/plugins/super-cool-qrcode/
+v0.0.6
+
+QuickTables
+http://wordpress.org/extend/plugins/quicktables/
+v1.0
+Note: in tc_table, need to replace echo $content; with return $content;
+
+Vimeo Short Code
+http://wordpress.org/extend/plugins/lux-vimeo-shortcode/
+v1.0
+
+TCUsers
+http://wordpress.org/extend/plugins/tcusers/
+v1.0.1
+
+GitHub Gist Shortcode Plugin
+http://wordpress.org/extend/plugins/github-gist-shortcode/
+v0.2
+
+Postcasa Shortcode
+http://wordpress.org/extend/plugins/postcasa/
+v1.0
+
+Gravatar Shortcode
+http://wordpress.org/extend/plugins/gravatar-shortcode/
+v1.0
+
+Xavin's Review Ratings
+http://wordpress.org/extend/plugins/xavins-review-ratings/
+v1.3.1
+
+Paypal Shortcodes
+http://wordpress.org/extend/plugins/paypal-shortcodes/
+v0.1
+
+MORE:
+
+Add to Any: Share/Bookmark/Email Button
+http://wordpress.org/extend/plugins/add-to-any/
+v9.9.3.2
+
+Smart YouTube
+http://wordpress.org/extend/plugins/smart-youtube/
+v3.2
+
+Lightbox 2
+http://wordpress.org/extend/plugins/lightbox-2/
+v2.8.2
+Note: this plugin requires the special Library Module: WP_JS
+
+WP-Syntax
+http://wordpress.org/extend/plugins/wp-syntax/
+v0.9.8
+-    return "\n\n<p>" . $wp_syntax_token . sprintf("%03d", $i) . "</p>\n\n";
++    return "\n\n[lang]" . $wp_syntax_token . sprintf("%03d", $i) . "[/lang]\n\n";
+-         "/<p>\s*".$wp_syntax_token."(\d{3})\s*<\/p>/si",
++         "/\[lang\]\s*".$wp_syntax_token."(\d{3})\s*\[\/lang\]/si",
+
