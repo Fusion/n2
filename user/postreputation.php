@@ -35,6 +35,11 @@ require_once('./includes/sessions.php');
 //$Reputation = new Reputation($_GET['r']);
 $reputed_id = $_GET['u'];
 
+// Dude! It's you!
+if($reputed_id == $User->info['userid']) {
+	new WtcBBException("That's good cheating right there, buster.");
+}
+
 // make sure user exists
 if(!User::exists($reputed_id)) {
 	new WtcBBException($lang['error_userDoesNotExist']);

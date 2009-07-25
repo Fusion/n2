@@ -517,7 +517,7 @@ border-style: inset !important;";}]]></template>
          <p class="small smallMarTop">Posts: {$postUser->info[posts]}</p>
          <p class="small">Joined: {$joined->getDate()}</p>
          
-     <p class="small noMarTop">Reputation: <a href="<n2link(file=profile&amp;do=reputation&amp;u={$postUser->info[userid]}&amp;p={$post->getAnnounceId()}{$SESSURL})>">{$postUser->info[reputation]}</a> [<a href="<n2link(file=profile&amp;do=reputation&amp;u={$postUser->info[userid]}&amp;p={$post->getAnnounceId()}{$SESSURL}#updownvote)>"><img src="{$VISUALS[images]}/{$IMAGES[postbit_updownvote]}" /></a>]</p>
+     <p class="small noMarTop">Reputation: <a href="<n2link(file=profile&amp;do=reputation&amp;u={$postUser->info[userid]}&amp;p={$post->getAnnounceId()}{$SESSURL})>">{$postUser->info[reputation]}</a><if($postUser->info[userid]!=$User->info[userid])> [<a href="<n2link(file=profile&amp;do=reputation&amp;u={$postUser->info[userid]}&amp;p={$post->getAnnounceId()}{$SESSURL}#updownvote)>"><img src="{$VISUALS[images]}/{$IMAGES[postbit_updownvote]}" /></a>]</if></p>
        </if>
      </td>
  
@@ -595,7 +595,7 @@ border-style: inset !important;";}]]></template>
          <p class=\"small smallMarTop\">Posts: {$postUser->info[posts]}</p>
          <p class=\"small\">Joined: {$joined->getDate()}</p>
          
-     <p class=\"small noMarTop\">Reputation: <a href=\"" . n2link("file=profile&amp;do=reputation&amp;u={$postUser->info[userid]}&amp;p={$post->getAnnounceId()}{$SESSURL}") . "\">{$postUser->info[reputation]}</a> [<a href=\"" . n2link("file=profile&amp;do=reputation&amp;u={$postUser->info[userid]}&amp;p={$post->getAnnounceId()}{$SESSURL}#updownvote") . "\"><img src=\"{$VISUALS[images]}/{$IMAGES[postbit_updownvote]}\" /></a>]</p>
+     <p class=\"small noMarTop\">Reputation: <a href=\"" . n2link("file=profile&amp;do=reputation&amp;u={$postUser->info[userid]}&amp;p={$post->getAnnounceId()}{$SESSURL}") . "\">{$postUser->info[reputation]}</a>" . (($postUser->info[userid]!=$User->info[userid]) ? (" [<a href=\"" . n2link("file=profile&amp;do=reputation&amp;u={$postUser->info[userid]}&amp;p={$post->getAnnounceId()}{$SESSURL}#updownvote") . "\"><img src=\"{$VISUALS[images]}/{$IMAGES[postbit_updownvote]}\" /></a>]") : ("")) . "</p>
        ") : ("")) . "
      </td>
  
@@ -6019,7 +6019,7 @@ Avatar 3
   </div>
 </div>
 
-<if(!$User->isGuest())>
+<if(!$User->isGuest() && $User->info[userid] != $Member->info['userid'])>
   <a name="updownvote"></a>
   <form method="post" action="<n2link(file=postreputation&amp;u={$Member->info[userid]})>" onsubmit="Message.closeAll();">
     {$SESSION_INPUT}
@@ -6084,7 +6084,7 @@ Avatar 3
   </div>
 </div>
 
-" . ((!$User->isGuest()) ? ("
+" . ((!$User->isGuest() && $User->info[userid] != $Member->info['userid']) ? ("
   <a name=\"updownvote\"></a>
   <form method=\"post\" action=\"" . n2link("file=postreputation&amp;u={$Member->info[userid]}") . "\" onsubmit=\"Message.closeAll();\">
     {$SESSION_INPUT}
@@ -6162,7 +6162,7 @@ Avatar 3
       <if($rep->getReputationGiverId())>
         <p class="small smallMarTop noMarBot">Posts: {$repUser->info[posts]}</p>
         <p class="small noMarTop noMarBot">Joined: {$joined->getDate()}</p>
-                <p class="small noMarTop">Reputation: <a href="<n2link(file=profile&amp;do=reputation&amp;u={$repUser->info[userid]}{$SESSURL})>">{$repUser->info[reputation]}</a> [<a href="<n2link(file=profile&amp;do=reputation&amp;u={$postUser->info[userid]}{$SESSURL}#updownvote)>"><img src="{$VISUALS[images]}/{$IMAGES[postbit_updownvote]}" /></a>]</p>        
+                <p class="small noMarTop">Reputation: <a href="<n2link(file=profile&amp;do=reputation&amp;u={$repUser->info[userid]}{$SESSURL})>">{$repUser->info[reputation]}</a><if($repUser->info[userid]!=$User->info[userid])> [<a href="<n2link(file=profile&amp;do=reputation&amp;u={$repUser->info[userid]}{$SESSURL}#updownvote)>"><img src="{$VISUALS[images]}/{$IMAGES[postbit_updownvote]}" /></a>]</if></p>        
       </if>
     </td>
 
@@ -6287,7 +6287,7 @@ Avatar 3
       " . (($rep->getReputationGiverId()) ? ("
         <p class=\"small smallMarTop noMarBot\">Posts: {$repUser->info[posts]}</p>
         <p class=\"small noMarTop noMarBot\">Joined: {$joined->getDate()}</p>
-                <p class=\"small noMarTop\">Reputation: <a href=\"" . n2link("file=profile&amp;do=reputation&amp;u={$repUser->info[userid]}{$SESSURL}") . "\">{$repUser->info[reputation]}</a> [<a href=\"" . n2link("file=profile&amp;do=reputation&amp;u={$postUser->info[userid]}{$SESSURL}#updownvote") . "\"><img src=\"{$VISUALS[images]}/{$IMAGES[postbit_updownvote]}\" /></a>]</p>        
+                <p class=\"small noMarTop\">Reputation: <a href=\"" . n2link("file=profile&amp;do=reputation&amp;u={$repUser->info[userid]}{$SESSURL}") . "\">{$repUser->info[reputation]}</a>" . (($repUser->info[userid]!=$User->info[userid]) ? (" [<a href=\"" . n2link("file=profile&amp;do=reputation&amp;u={$repUser->info[userid]}{$SESSURL}#updownvote") . "\"><img src=\"{$VISUALS[images]}/{$IMAGES[postbit_updownvote]}\" /></a>]") : ("")) . "</p>        
       ") : ("")) . "
     </td>
 
@@ -7097,7 +7097,7 @@ $bits
       <if($post->getStarterId())>
         <p class="small smallMarTop noMarBot">Posts: {$postUser->info[posts]}</p>
         <p class="small noMarTop">Joined: {$joined->getDate()}</p>
-    <p class="small noMarTop">Reputation: <a href="<n2link(file=profile&amp;do=reputation&amp;u={$postUser->info[userid]}&amp;p={$post->getPostId()}{$SESSURL})>">{$postUser->info[reputation]}</a> [<a href="<n2link(file=profile&amp;do=reputation&amp;u={$postUser->info[userid]}&amp;p={$post->getPostId()}{$SESSURL}#updownvote)>"><img src="{$VISUALS[images]}/{$IMAGES[postbit_updownvote]}" /></a>]</p>
+    <p class="small noMarTop">Reputation: <a href="<n2link(file=profile&amp;do=reputation&amp;u={$postUser->info[userid]}&amp;p={$post->getPostId()}{$SESSURL})>">{$postUser->info[reputation]}</a><if($postUser->info[userid]!=$User->info[userid])> [<a href="<n2link(file=profile&amp;do=reputation&amp;u={$postUser->info[userid]}&amp;p={$post->getPostId()}{$SESSURL}#updownvote)>"><img src="{$VISUALS[images]}/{$IMAGES[postbit_updownvote]}" /></a>]</if></p>
       </if>
     </td>
 
@@ -7210,7 +7210,7 @@ $bits
       " . (($post->getStarterId()) ? ("
         <p class=\"small smallMarTop noMarBot\">Posts: {$postUser->info[posts]}</p>
         <p class=\"small noMarTop\">Joined: {$joined->getDate()}</p>
-    <p class=\"small noMarTop\">Reputation: <a href=\"" . n2link("file=profile&amp;do=reputation&amp;u={$postUser->info[userid]}&amp;p={$post->getPostId()}{$SESSURL}") . "\">{$postUser->info[reputation]}</a> [<a href=\"" . n2link("file=profile&amp;do=reputation&amp;u={$postUser->info[userid]}&amp;p={$post->getPostId()}{$SESSURL}#updownvote") . "\"><img src=\"{$VISUALS[images]}/{$IMAGES[postbit_updownvote]}\" /></a>]</p>
+    <p class=\"small noMarTop\">Reputation: <a href=\"" . n2link("file=profile&amp;do=reputation&amp;u={$postUser->info[userid]}&amp;p={$post->getPostId()}{$SESSURL}") . "\">{$postUser->info[reputation]}</a>" . (($postUser->info[userid]!=$User->info[userid]) ? (" [<a href=\"" . n2link("file=profile&amp;do=reputation&amp;u={$postUser->info[userid]}&amp;p={$post->getPostId()}{$SESSURL}#updownvote") . "\"><img src=\"{$VISUALS[images]}/{$IMAGES[postbit_updownvote]}\" /></a>]") : ("")) . "</p>
       ") : ("")) . "
     </td>
 
@@ -9389,7 +9389,7 @@ display: block;
       <if($post->getStarterId())>
         <p class="small smallMarTop noMarBot">Posts: {$postUser->info[posts]}</p>
         <p class="small noMarTop noMarBot">Joined: {$joined->getDate()}</p>
-    <p class="small noMarTop">Reputation: <a href="<n2link(file=profile&amp;do=reputation&amp;u={$postUser->info[userid]}&amp;p={$post->getPostId()}{$SESSURL})>">{$postUser->info[reputation]}</a> [<a href="<n2link(file=profile&amp;do=reputation&amp;u={$postUser->info[userid]}&amp;p={$post->getPostId()}{$SESSURL}#updownvote)>"><img src="{$VISUALS[images]}/{$IMAGES[postbit_updownvote]}" /></a>]</p>        
+    <p class="small noMarTop">Reputation: <a href="<n2link(file=profile&amp;do=reputation&amp;u={$postUser->info[userid]}&amp;p={$post->getPostId()}{$SESSURL})>">{$postUser->info[reputation]}</a><if($postUser->info[userid]!=$User->info[userid])> [<a href="<n2link(file=profile&amp;do=reputation&amp;u={$postUser->info[userid]}&amp;p={$post->getPostId()}{$SESSURL}#updownvote)>"><img src="{$VISUALS[images]}/{$IMAGES[postbit_updownvote]}" /></a>]</if></p>        
       </if>
     </td>
 
@@ -9559,7 +9559,7 @@ display: block;
       " . (($post->getStarterId()) ? ("
         <p class=\"small smallMarTop noMarBot\">Posts: {$postUser->info[posts]}</p>
         <p class=\"small noMarTop noMarBot\">Joined: {$joined->getDate()}</p>
-    <p class=\"small noMarTop\">Reputation: <a href=\"" . n2link("file=profile&amp;do=reputation&amp;u={$postUser->info[userid]}&amp;p={$post->getPostId()}{$SESSURL}") . "\">{$postUser->info[reputation]}</a> [<a href=\"" . n2link("file=profile&amp;do=reputation&amp;u={$postUser->info[userid]}&amp;p={$post->getPostId()}{$SESSURL}#updownvote") . "\"><img src=\"{$VISUALS[images]}/{$IMAGES[postbit_updownvote]}\" /></a>]</p>        
+    <p class=\"small noMarTop\">Reputation: <a href=\"" . n2link("file=profile&amp;do=reputation&amp;u={$postUser->info[userid]}&amp;p={$post->getPostId()}{$SESSURL}") . "\">{$postUser->info[reputation]}</a>" . (($postUser->info[userid]!=$User->info[userid]) ? (" [<a href=\"" . n2link("file=profile&amp;do=reputation&amp;u={$postUser->info[userid]}&amp;p={$post->getPostId()}{$SESSURL}#updownvote") . "\"><img src=\"{$VISUALS[images]}/{$IMAGES[postbit_updownvote]}\" /></a>]") : ("")) . "</p>        
       ") : ("")) . "
     </td>
 
@@ -10124,7 +10124,7 @@ display: block;
       <if($post->getStarterId())>
         <p class="small smallMarTop noMarBot">Posts: {$postUser->info[posts]}</p>
         <p class="small noMarTop noMarBot">Joined: {$joined->getDate()}</p>
-    <p class="small noMarTop">Reputation: <a href="<n2link(file=profile&amp;do=reputation&amp;u={$postUser->info[userid]}&amp;p={$post->getPostId()}{$SESSURL})>">{$postUser->info[reputation]}</a> [<a href="<n2link(file=profile&amp;do=reputation&amp;u={$postUser->info[userid]}&amp;p={$post->getPostId()}{$SESSURL}#updownvote)>"><img src="{$VISUALS[images]}/{$IMAGES[postbit_updownvote]}" /></a>]</p>        
+    <p class="small noMarTop">Reputation: <a href="<n2link(file=profile&amp;do=reputation&amp;u={$postUser->info[userid]}&amp;p={$post->getPostId()}{$SESSURL})>">{$postUser->info[reputation]}</a><if($postUser->info[userid]!=$User->info[userid])> [<a href="<n2link(file=profile&amp;do=reputation&amp;u={$postUser->info[userid]}&amp;p={$post->getPostId()}{$SESSURL}#updownvote)>"><img src="{$VISUALS[images]}/{$IMAGES[postbit_updownvote]}" /></a>]</if></p>        
       </if>
     </td>
 
@@ -10279,7 +10279,7 @@ display: block;
       " . (($post->getStarterId()) ? ("
         <p class=\"small smallMarTop noMarBot\">Posts: {$postUser->info[posts]}</p>
         <p class=\"small noMarTop noMarBot\">Joined: {$joined->getDate()}</p>
-    <p class=\"small noMarTop\">Reputation: <a href=\"" . n2link("file=profile&amp;do=reputation&amp;u={$postUser->info[userid]}&amp;p={$post->getPostId()}{$SESSURL}") . "\">{$postUser->info[reputation]}</a> [<a href=\"" . n2link("file=profile&amp;do=reputation&amp;u={$postUser->info[userid]}&amp;p={$post->getPostId()}{$SESSURL}#updownvote") . "\"><img src=\"{$VISUALS[images]}/{$IMAGES[postbit_updownvote]}\" /></a>]</p>        
+    <p class=\"small noMarTop\">Reputation: <a href=\"" . n2link("file=profile&amp;do=reputation&amp;u={$postUser->info[userid]}&amp;p={$post->getPostId()}{$SESSURL}") . "\">{$postUser->info[reputation]}</a>" . (($postUser->info[userid]!=$User->info[userid]) ? (" [<a href=\"" . n2link("file=profile&amp;do=reputation&amp;u={$postUser->info[userid]}&amp;p={$post->getPostId()}{$SESSURL}#updownvote") . "\"><img src=\"{$VISUALS[images]}/{$IMAGES[postbit_updownvote]}\" /></a>]") : ("")) . "</p>        
       ") : ("")) . "
     </td>
 
