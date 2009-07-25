@@ -11748,7 +11748,7 @@ display: block;
 </table>]]></templatephp>
 </fragment>
 
-<fragment fragmentid="106" styleid="0" groupid="198" fragmentName="" fragmentVarName="whosOnline_whoBit" fragmentType="template" defaultid="0" disOrder="0">
+<fragment fragmentid="106" styleid="0" groupid="198" fragmentName="whosOnline_whoBit" fragmentVarName="whosOnline_whoBit" fragmentType="template" defaultid="0" disOrder="0">
 <template><![CDATA[<tr>
     <td class="alt1">
         <if($userObj->info['userid'])>
@@ -11758,7 +11758,7 @@ display: block;
         </if>
         <p class="time noMar">{$time->getDate()}</p>
     </td>
-    <td class="alt2"><a href=".{$userObj->info[loc]}{$SESSURL}">{$userObj->info[details]}</a></td>
+    <td class="alt2"><a href="<n2link({$userObj->info[loc]}{$SESSURL})>">{$userObj->info[details]}</a></td>
     <if($User->check('canViewOnlineIp'))>
         <td class="alt1">
             <if(!empty($hostName) AND $User->check('canViewOnlineIp'))>
@@ -11782,7 +11782,7 @@ display: block;
         ")) . "
         <p class=\"time noMar\">{$time->getDate()}</p>
     </td>
-    <td class=\"alt2\"><a href=\".{$userObj->info[loc]}{$SESSURL}\">{$userObj->info[details]}</a></td>
+    <td class=\"alt2\"><a href=\"" . n2link("{$userObj->info[loc]}{$SESSURL}") . "\">{$userObj->info[details]}</a></td>
     " . (($User->check('canViewOnlineIp')) ? ("
         <td class=\"alt1\">
             " . ((!empty($hostName) AND $User->check('canViewOnlineIp')) ? ("
