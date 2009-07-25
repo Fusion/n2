@@ -263,7 +263,7 @@ else {
 		$replyDate = new WtcDate('dateTime', $obj->getLastReplyDate());
 
 		// get page numbers (and force an URL)
-		$pages = new PageNumbers(1, ($obj->getRealReplies() + 1), $bboptions['postsPerPage'], './index.php?file=thread&amp;t=' . $obj->getThreadId() . $SESSURL);
+		$pages = new PageNumbers(1, ($obj->getRealReplies() + 1), $bboptions['postsPerPage'], 'file=thread&amp;t=' . $obj->getThreadId() . $SESSURL);
 		$pages = $pages->getPageNumbers(true);
 
 		// thread marker

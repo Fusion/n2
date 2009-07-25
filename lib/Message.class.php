@@ -182,7 +182,13 @@ class Message {
 
 		// We will go through the filters, if any -- low-priority filters
 		global $multipage, $numpages, $pages, $page;
-		$multipage = false; $numpages = $pages = $page = 1;
+		$multipage = false; $numpages = 1;
+		if(!$pages) {
+			$pages = 1;
+		}
+		if(!$page) {
+			$page = 1;
+		}
 		$this->txt = apply_filters('the_content', $this->txt, LOW_FILTERS);
 		
 		// parse URLs
