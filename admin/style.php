@@ -82,12 +82,16 @@ if($_GET['do'] == 'export') {
 		foreach($more as $fragid => $obj) {
 			$info = $obj->getInfo();
 
+/*
+ * CFR: If we only export default ids then we are not, in effect, exporting our customized skin
+ * I wonder why this test was here in the first place?
 			if($obj->getDefaultId() == 0) {
+ */			
 				print('<fragment fragmentid="' . $obj->getFragmentId() . '" styleid="' . $obj->getStyleId() . '" groupid="' . $obj->getGroupId() . '" fragmentName="' . $obj->getName() . '" fragmentVarName="' . $obj->getVarName() . '" fragmentType="' . $obj->getFragmentType() . '" defaultid="' . $obj->getDefaultId() . '" disOrder="' . $obj->getDisOrder() . '">' . "\n");
 					print('<template><![CDATA[' . $obj->getFragment() . ']]></template>' . "\n");
 					print('<templatephp><![CDATA[' . $obj->getFragmentPHP() . ']]></templatephp>' . "\n");
 				print('</fragment>' . "\n\n");
-			}
+//			}
 		}
 	}
 
