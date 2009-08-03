@@ -1905,7 +1905,7 @@ global $lang, $query, $wtcDB;
 		new WtcBBException($lang['admin_error_notEnoughInfo']);
 	$templateid = $_GET['fixphp'];
 	
-	$search = new Query($query['styles_fragments']['get_all_ids'], array(1 => 'template'));
+	$search = new Query($query['styles_fragments']['get_all_style_ids'], array(1 => $templateid, 2 => 'template'));
 	
 	// nuttin!
 	if(!$wtcDB->numRows($search)) {

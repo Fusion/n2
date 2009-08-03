@@ -76,6 +76,10 @@ class ImportStyle {
 				break;
 			}
 
+			if(empty($this->styleName)) {
+				$this->styleName = $style->getAttribute('name');
+			}
+			
 			Style::beginPartialInsert(Array(
 				'parentid' => $this->parentId,
 				'name' => $this->styleName,
@@ -123,7 +127,7 @@ class ImportStyle {
 		Style::completePartialInsert();
 		
 		// Fix PHP
-		$search = new Query($query['styles_fragments']['get_all_ids'], array(1 => 'template'));
+		$search = new Query($query['styles_fragments']['get_all_style_ids'], array(1 => $styleId, 2 => 'template'));
 		
 		// nuttin!
 		if(!$wtcDB->numRows($search)) {

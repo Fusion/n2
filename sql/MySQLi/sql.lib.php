@@ -241,6 +241,8 @@ $query['styles_fragments']['search'] = 'SELECT fragmentid, styleid, groupid, fra
 
 $query['styles_fragments']['get_all_ids'] = 'SELECT fragmentid FROM ' . WTC_TP . 'styles_fragments WHERE fragmentType LIKE \'?\'';
 
+$query['styles_fragments']['get_all_style_ids'] = 'SELECT fragmentid FROM ' . WTC_TP . 'styles_fragments WHERE styleid=\'?\' AND fragmentType LIKE \'?\'';
+
 // ##### SESSION QUERIES ##### \\
 $query['sessions']['replace'] = 'REPLACE INTO ' . WTC_TP . 'sessions (sessionid, username, userid, lastactive, loc, details, ip, userAgent, lastaction) VALUES (\'?\', \'?\', \'?\', \'?\', \'?\', \'?\', \'?\', \'?\', \'?\')';
 
