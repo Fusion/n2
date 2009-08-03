@@ -808,6 +808,9 @@ border-style: inset !important;";}]]></template>
 
            <if($LOGIN)>
             <td><a href="<n2link(file=login&amp;do=logout{$SESSURL})>">{$lang[user_index_logout]}</a></td>
+             <if($User->isAdmin())>
+               <td><a href="<home>admin.php" target="_blank">Admin</a></td>
+             </if>
            </if>
           </tr>
         </table>
