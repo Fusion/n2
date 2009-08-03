@@ -48,13 +48,17 @@ $styleLocations = Array(
 						'admin.php?file=style&amp;repVars=!@#$%' => $lang['admin_style_man_repVars'],
 						'admin.php?file=style&amp;do=addTemplate&amp;s=!@#$%' => $lang['admin_style_addTemplate'],
 						'admin.php?file=style&amp;do=add&amp;s=!@#$%' => $lang['admin_style_addChild'],
-						'admin.php?file=style&amp;do=export&amp;s=!@#$%' => $lang['admin_style_man_export'],
+						'?!@#$%1' => ' ',
+						'admin.php?file=style&amp;do=exportdelta&amp;s=!@#$%' => $lang['admin_style_man_export_delta'],
+						'admin.php?file=style&amp;do=exportfull&amp;s=!@#$%' => $lang['admin_style_man_export_full'],
+						'?!@#$%2' => ' ',						
 						'admin.php?file=style&amp;fixphp=!@#$%' => $lang['admin_style_man_fixPHP'],						
-						'admin.php?file=style&amp;delete=!@#$%' => $lang['admin_delete']
+						'admin.php?file=style&amp;delete=!@#$%' => $lang['admin_delete'],
 				);
 
 // exporting a style
-if($_GET['do'] == 'export') {
+if($_GET['do'] == 'exportfull' || $_GET['do'] == 'exportdelta') {
+	$exportFull = ($_GET['do'] == 'exportfull');
 	// load our style object first
 	$Style = new Style($_GET['s']);
 
@@ -87,11 +91,12 @@ if($_GET['do'] == 'export') {
  * I wonder why this test was here in the first place?
 			if($obj->getDefaultId() == 0) {
  */			
+ 			if($exportFull || $obj->getDefaultId() > 0) {
 				print('<fragment fragmentid="' . $obj->getFragmentId() . '" styleid="' . $obj->getStyleId() . '" groupid="' . $obj->getGroupId() . '" fragmentName="' . $obj->getName() . '" fragmentVarName="' . $obj->getVarName() . '" fragmentType="' . $obj->getFragmentType() . '" defaultid="' . $obj->getDefaultId() . '" disOrder="' . $obj->getDisOrder() . '">' . "\n");
 					print('<template><![CDATA[' . $obj->getFragment() . ']]></template>' . "\n");
-					print('<templatephp><![CDATA[' . $obj->getFragmentPHP() . ']]></templatephp>' . "\n");
+# CFR: No we will rebuild PHP when importing!					print('<templatephp><![CDATA[' . $obj->getFragmentPHP() . ']]></templatephp>' . "\n");
 				print('</fragment>' . "\n\n");
-//			}
+			}
 		}
 	}
 
@@ -99,9 +104,87 @@ if($_GET['do'] == 'export') {
 	print('</root>');
 }
 
+// importing customized style...
+else if($_GET['do'] == 'import') {
+	// Importing?
+	if($_POST) {
+		// Import
+		if(isset($_POST['path']) OR is_array($_FILES['fupload'])) {
+			if(!is_array($_FILES['fupload'])) {
+				$xml = file_get_contents($_POST['path']);
+			}
+
+			else {
+				$upload = new Upload(Array('xml'), Array('text/xml'), $_FILES['fupload']);
+				$xml = $upload->getFileContents();
+			}
+
+			$import = new ImportStyle($xml, $_POST['parentid'], $_POST['styleName']);
+		}
+
+		// Error!
+		else {
+			new WtcBBException($lang['admin_error_notEnoughInfo']);
+		}
+
+		new WtcBBThanks($lang['admin_thanks_msg']);
+	}
+
+	// Display upload dialog
+	new AdminHTML('header', $lang['admin_import_imEx_title'], true);
+
+	// Import
+	new AdminHTML('tableBegin', $lang['admin_import_imEx_import'], true, Array('upload' => true));
+
+	new AdminHTML('tableRow', Array(
+									'title' => $lang['admin_import_imEx_filePath'],
+									'desc' => $lang['admin_import_imEx_filePath_desc'],
+									'type' => 'text',
+									'name' => 'path',
+									'value' => './exports/'
+								), true);
+
+	new AdminHTML('tableRow', Array(
+									'title' => $lang['admin_import_imEx_upload'],
+									'desc' => $lang['admin_import_imEx_upload_desc'],
+									'type' => 'file',
+									'name' => 'fupload'
+								), true);
+
+	new AdminHTML('tableRow', Array(
+									'title' => $lang['admin_import_imEx_styleTitle'],
+									'desc' => $lang['admin_import_imEx_styleTitle_desc'],
+									'type' => 'text',
+									'name' => 'styleName'
+								), true);
+
+	// get styles
+	$styleSelect = Array();
+	$styleSelect[$lang['admin_style_noParent']] = -1;
+
+	// init forum iter
+	$styleIter = new RecursiveIteratorIterator(new RecursiveStyleIterator(), true);
+
+	foreach($styleIter as $style) {
+		$styleSelect[str_repeat('-', $styleIter->getDepth()) . ' ' . $style->getName()] = $style->getStyleId();
+	}
+
+	new AdminHTML('tableRow', Array(
+								'title' => $lang['admin_style_ae_parent'],
+								'desc' => $lang['admin_style_ae_parent_desc'],
+								'type' => 'select',
+								'name' => 'parentid',
+								'select' => Array('fields' => $styleSelect, 'select' => (isset($_GET['s']) AND $which == 'add') ? $_GET['s'] : $editinfo['parentid'])
+							), true);
+
+	new AdminHTML('tableEnd', '', true, Array('submitText' => $lang['admin_import']));
+
+	new AdminHTML('footer', '', true);
+}
+
 // importing default style...
 else if($_GET['do'] == 'devimport') {
-	$xml = file_get_contents('./admin/style_export_1.xml');
+	$xml = file_get_contents('./exports/style_export_1.xml');
 
 	$DOM = new DomDocument();
 	$DOM->loadXML($xml);
@@ -787,7 +870,7 @@ else if($_GET['do'] == 'search') {
 								'title' => $lang['admin_style_search_query'],
 								'desc' => $lang['admin_style_search_query_desc'],
 								'type' => 'textarea',
-								'name' => 'query',
+								'name' => 'querystr',
 							), true);
 
 	new AdminHTML('tableEnd', '', true, Array('submitText' => $lang['admin_search_submit']));
@@ -888,7 +971,8 @@ else if(isset($_GET['repVars'])) {
 																	'locs' => array_str_replace('!@#$%', $style->getStyleId(), $styleLocations),
 																	'return' => true,
 																	'name' => $style->getStyleId(),
-																	'noForm' => true
+																	'noForm' => true,
+																	'disable' => '?'
 																));
 
 		$options = $optionsObj->dump();
@@ -1058,7 +1142,8 @@ else if(isset($_GET['visual'])) {
 																	'locs' => array_str_replace('!@#$%', $style->getStyleId(), $styleLocations),
 																	'return' => true,
 																	'name' => $style->getStyleId(),
-																	'noForm' => true
+																	'noForm' => true,
+																	'disable' => '?'
 																));
 
 		$options = $optionsObj->dump();
@@ -1204,7 +1289,8 @@ else if(isset($_GET['images'])) {
 																	'locs' => array_str_replace('!@#$%', $style->getStyleId(), $styleLocations),
 																	'return' => true,
 																	'name' => $style->getStyleId(),
-																	'noForm' => true
+																	'noForm' => true,
+																	'disable' => '?'
 																));
 
 		$options = $optionsObj->dump();
@@ -1445,7 +1531,8 @@ else if(isset($_GET['colors'])) {
 																	'locs' => array_str_replace('!@#$%', $style->getStyleId(), $styleLocations),
 																	'return' => true,
 																	'name' => $style->getStyleId(),
-																	'noForm' => true
+																	'noForm' => true,
+																	'disable' => '?'
 																));
 
 		$options = $optionsObj->dump();
@@ -1587,7 +1674,7 @@ else if(isset($_GET['templates'])) {
 			$myFragIds = 0;
 		}
 
-		$search = new Query($query['styles_fragments']['search'], Array(1 => $myFragIds, '%', $_GET['query'], $_GET['query']));
+		$search = new Query($query['styles_fragments']['search'], Array(1 => $myFragIds, '%', $_GET['querystr'], $_GET['querystr']));
 
 		// nuttin!
 		if(!$wtcDB->numRows($search)) {
@@ -1620,7 +1707,8 @@ else if(isset($_GET['templates'])) {
 																	'locs' => array_str_replace('!@#$%', $style->getStyleId(), $styleLocations),
 																	'return' => true,
 																	'name' => $style->getStyleId(),
-																	'noForm' => true
+																	'noForm' => true,
+																	'disable' => '?'
 																));
 
 		$options = $optionsObj->dump();
@@ -1786,7 +1874,8 @@ else {
 																	'locs' => array_str_replace('!@#$%', $style->getStyleId(), $styleLocations),
 																	'return' => true,
 																	'name' => $style->getStyleId(),
-																	'noForm' => true
+																	'noForm' => true,
+																	'disable' => '?'
 																));
 
 		$options = $optionsObj->dump();

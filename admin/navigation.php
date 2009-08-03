@@ -63,6 +63,11 @@ if($User->canAdmin('options')) {
 							), true);
 }
 
+/*
+ * CFR: insert the line below to the end of your navBox if you are a developer who needs
+ * to reload the default style arbitrarily
+ *								'Dev Import' => 'admin.php?file=style&amp;do=devimport',
+ */
 if($User->canAdmin('styles')) {
 	new AdminHTML('navBox', Array(
 								'main' => $lang['admin_nav_style_title'],
@@ -71,7 +76,7 @@ if($User->canAdmin('styles')) {
 								$lang['admin_nav_style_addTemplate'] => 'admin.php?file=style&amp;do=addTemplate',
 								$lang['admin_nav_style_addTemplateGroup'] => 'admin.php?file=style&amp;do=addGroup',
 								$lang['admin_nav_style_searchTemplates'] => 'admin.php?file=style&amp;do=search',
-								'Dev Import' => 'admin.php?file=style&amp;do=devimport',
+								$lang['admin_nav_style_importStyle'] => 'admin.php?file=style&amp;do=import',
 							), true);
 }
 

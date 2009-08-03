@@ -50,10 +50,12 @@ class Upload {
 		$this->ext = Upload::extensionFromFileName($this->name);
 		$this->extraErr = '<p class="smallMarTop">File Name: <strong>' . wtcspecialchars($this->name) . '</strong></p>';
 
+/* CFR: Why???
 		// fix destination...
 		if(strpos(substr($this->destination, 1), '.') === false) {
 			$this->destination .= $this->name;
 		}
+ */		
 	}
 
 	// this is so we can return an error string
@@ -89,7 +91,7 @@ class Upload {
 	// Public methods
 	public function getFileContents() {
 		if(!empty($this->destination)) {
-			return file_get_contents($this->detination . $this->name);
+			return file_get_contents($this->destination . $this->name);
 		}
 
 		else {

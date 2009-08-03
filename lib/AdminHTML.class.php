@@ -488,7 +488,12 @@ class AdminHTML {
 					$selected = ' selected="selected"';
 				}
 
-				print("\t\t\t\t\t\t\t" . '<option value="' . $loc . '"' . $selected . '>' . $dis . '</option>' . "\n");
+				if($this->tableOpts['disable'] && $this->tableOpts['disable'] == $loc{0}) {
+					print("\t\t\t\t\t\t\t" . '<option disabled="disabled" value="' . $loc . '"' . $selected . '>' . $dis . '</option>' . "\n");
+				}
+				else {
+					print("\t\t\t\t\t\t\t" . '<option value="' . $loc . '"' . $selected . '>' . $dis . '</option>' . "\n");
+				}
 			}
 			print("\t\t\t\t\t\t" . '</select>' . "\n");
 			print("\t\t\t\t\t\t" . '<input type="button" value="' . $lang['admin_go'] . '" class="button" onclick="wtcBB.selectLoc(form.opt' . AdminHTML::$opt . ');" />' . "\n");

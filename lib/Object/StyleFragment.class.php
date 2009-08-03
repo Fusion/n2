@@ -134,7 +134,7 @@ class StyleFragment extends Object {
 	}
 
 	// Parses the template conditionals
-	public function parseTemplate($template) {
+	static public function parseTemplate($template) {
 		$template = addslashes($template);
 
 		// look for template cond matches...
@@ -165,7 +165,7 @@ class StyleFragment extends Object {
 		return $template;
 	}
 	
-	private function getN2Code($matches)
+	static private function getN2Code($matches)
 	{
 		$arg = $matches[1];
 		if($arg{0} == '*') {
@@ -180,7 +180,7 @@ class StyleFragment extends Object {
 	 * @todo Prior to calling this guy I invoked addslashes() in parseTemplate()
 	 * so you might argue that this is a waste or resources
 	 */
-	private function getPHPCode($matches)
+	static private function getPHPCode($matches)
 	{
 		return '" . ' . stripslashes($matches[1]) . ' . "';
 	}

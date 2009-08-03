@@ -356,17 +356,17 @@ else if($_GET['step'] == 3) {
 
 		foreach($fragments as $frag) {
 			$template = $frag->getElementsByTagName('template');
-			$templatePHP = $frag->getElementsByTagName('templatephp');
+# CFR: No. Compile later.			$templatePHP = $frag->getElementsByTagName('templatephp');
 
 			foreach($template as $t) {
 				$myFrag = $t->nodeValue;
 				break;
 			}
 
-			foreach($templatePHP as $tp) {
-				$myFragPHP = $tp->nodeValue;
-				break;
-			}
+# CFR: No. Compile later.			foreach($templatePHP as $tp) {
+# CFR: No. Compile later.				$myFragPHP = $tp->nodeValue;
+# CFR: No. Compile later.				break;
+# CFR: No. Compile later.			}
 
 			$myFrag = str_replace("\n", "\r\n", $myFrag);
 
@@ -380,7 +380,7 @@ else if($_GET['step'] == 3) {
 				'defaultid' => $frag->getAttribute('defaultid'),
 				'disOrder' => $frag->getAttribute('disOrder'),
 				'fragment' => $myFrag,
-				'template_php' => $myFragPHP
+# CFR: No. Compile later.				'template_php' => $myFragPHP
 				), true
 			);
 		}

@@ -278,6 +278,27 @@ class Style extends Object {
 		new Cache('OrderedStyles');
 	}
 
+	// This method inserts a new style but doesn't recompute anything
+	// What's the point? To insert a new style, retrieve its id, then keep working
+	// @see completePartialInsert()
+	public static function beginPartialInsert($arr) {
+		global $wtcDB, $query;
+
+		$db = $wtcDB->massInsert($arr);
+
+		new Query($query['styles']['insert'], Array(1 => $db['fields'], 2 => $db['values']), 'query', false);
+	}
+
+	// This method recomputes everything after a partial insert
+	// @see beginPartialInsert($arr)
+	public static function completePartialInsert() {
+		// update styles now...
+		Style::buildStyles();
+
+		new Cache('Styles');
+		new Cache('OrderedStyles');
+	}
+	
 	// builds all the fragments
 	// organized: styleid -> fragmentid
 	public static function buildAllFragments() {
