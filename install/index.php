@@ -68,7 +68,7 @@ if($_GET['step'] > 1) {
 // we need to check if
 // the appropriate directories are readable/writable
 $checkperms = Array(
-	'./attach/', './cache/', './css/', './exports/', './language/', './images/', './includes/config.php',
+	'./attach/', './cache/', './css/', './exports/', './language/', './images/',
 	'./images/avatars/', './images/icons/', './images/ranks/', './images/smilies/'
 );
 $bad = '';
