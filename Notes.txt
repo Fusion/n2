@@ -1,4 +1,15 @@
-TODO: before checking in, retrieve fragments from test/
+########################################
+# Manual upgrade                       #
+########################################
+
+1. Compare db schemas and replicate
+2. unzip n2.zip
+3. unzip installn2.data
+
+########################################
+# WordPress Plugins                    #
+########################################
+
 TODO: check that multilines works
 
 Doesn't work? Remove quotes (")

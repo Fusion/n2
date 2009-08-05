@@ -5656,7 +5656,7 @@ display: block;
 <script type="text/javascript" src="./scripts/Attachments.js"></script>
 
 <if($GET->numRows() < $maxAttach)>
- <form method="post" action="<n2link(file=attach&amp;do=upload&amp;link={$myLink}<if($forumid)>&amp;f={$FORUM->info[forumid]}</if><if($Convo instanceof Conversation)>&amp;c={$Convo->getConvoId()}</if><if($Thread instanceof Thread)>&amp;t={$Thread->getThreadId()}</if>&amp;title={$Thread->getUrlizedName()}{$SESSURL})>" enctype="multipart/form-data">
+ <form method="post" action="<n2link(file=attach&amp;do=upload&amp;link={$myLink}<if($forumid)>&amp;f={$FORUM->info[forumid]}</if><if($Convo instanceof Conversation)>&amp;c={$Convo->getConvoId()}</if><if($Thread instanceof Thread)>&amp;t={$Thread->getThreadId()}&amp;title={$Thread->getUrlizedName()}</if>{$SESSURL})>" enctype="multipart/form-data">
 
   <table cellspacing="{$VISUALS[inBorderWidth]}" cellpadding="0">
     <tr>

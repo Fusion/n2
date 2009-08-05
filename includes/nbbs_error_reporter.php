@@ -52,18 +52,23 @@ function displayErrorScreen($type, $message, $file, $line, $context = false)
 		E_STRICT => 'Strict Notice',
 		E_RECOVERABLE_ERROR => 'Recoverable Error');
 
-	$splitSourceCode = preg_split('#<br />#i', highlight_string(file_get_contents($file, true), true));
-	$formattedSourceCode = '';
-	$lb = $line - 10; if ($lb < 0) $lb = 0; // < 10 lines before?
-	for($i = $lb; $i < ($line + 10); $i ++)
-	{
-		if(!isset($splitSourceCode[$i])) // < 10 lines after?
-			break;
-		$curLine = rtrim($splitSourceCode[$i]);
-		$formattedSourceCode .=
-			($line == ($i + 1)
-				? '<div style="background-color:red;">' : '<div>') .
-				'<strong>' . sprintf('%03s', ($i+1)) . '</strong>' . $curLine . '</div>';
+	if(false !== strpos($file, 'eval()')) {
+		$formattedSourceCode = "<div>Sorry, this was an eval'd variable: no source code available.</div>\n";
+	}
+	else {
+		$splitSourceCode = preg_split('#<br />#i', highlight_string(file_get_contents($file, true), true));
+		$formattedSourceCode = '';
+		$lb = $line - 10; if ($lb < 0) $lb = 0; // < 10 lines before?
+		for($i = $lb; $i < ($line + 10); $i ++)
+		{
+			if(!isset($splitSourceCode[$i])) // < 10 lines after?
+				break;
+			$curLine = rtrim($splitSourceCode[$i]);
+			$formattedSourceCode .=
+				($line == ($i + 1)
+					? '<div style="background-color:red;">' : '<div>') .
+					'<strong>' . sprintf('%03s', ($i+1)) . '</strong>' . $curLine . '</div>';
+		}
 	}
 
 	$stackTrace = '';
