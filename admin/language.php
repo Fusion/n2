@@ -118,7 +118,7 @@ if($_GET['do'] == 'addWords' OR $_GET['do'] == 'editWords') {
 									'desc' => 'DEVELOPMENT PURPOSES ONLY',
 									'type' => 'checkbox',
 									'name' => 'default',
-									'value' => 1
+									'value' => 0
 								), true, Array('checkboxType' => $lang['admin_yes']));
 
 	new AdminHTML('tableRow', Array(
@@ -214,6 +214,8 @@ else if($_GET['do'] == 'addCat' OR $_GET['do'] == 'editCat') {
 		}
 
 		else {
+			$_POST['groups']['deletable'] = 1;
+			$_POST['groups']['groupuuid'] = uuid();
 			Group::insert($_POST['groups']);
 			$id = $wtcDB->lastInsertId();
 		}
@@ -391,6 +393,7 @@ else if($_GET['do'] == 'search') {
 																		));
 
 	// get all languages
+	unset($langs);
 	$getLangs = new Query($query['admin']['get_langs']);
 	$selection = 1;
 
@@ -429,7 +432,7 @@ else if($_GET['do'] == 'search') {
 								'title' => $lang['admin_language_search_query'],
 								'desc' => $lang['admin_language_search_query_desc'],
 								'type' => 'textarea',
-								'name' => 'query',
+								'name' => 'querystr',
 							), true);
 
 	new AdminHTML('tableEnd', '', true, Array('submitText' => $lang['admin_search_submit']));
@@ -442,17 +445,30 @@ else if($_GET['do'] == 'ex') {
 	// as the place they end up may or may not have their parents
 	// even if they do, the IDs will probably be messed up! O_O
 	// also use for exporting
-	$getLevel1s = new Query($query['admin']['get_level1_langCats']);
 	$langCats['Whole Language'] = -1;
 
-	while($langCat = $wtcDB->fetchArray($getLevel1s)) {
-		$langCats[$langCat['catName']] = $langCat['catid'];
-		$catsinfo[$langCat['catid']] = $langCat;
+	$groupIter = new RecursiveIteratorIterator(new RecursiveGroupIterator('lang_words'), true);
+	$toPrint = Array();
+	$prevDepth = -1;
+
+	foreach($groupIter as $obj) {
+		$name = '';
+		if($groupIter->getDepth()) {
+			$name .= str_repeat('--', $groupIter->getDepth() + 1);
+		}
+		$name .= $obj->getGroupName();
+		$id    = $obj->getGroupId();
+		$langCats[$name] = $id;
+		$catsinfo[$id] = array($obj, $groupIter->getDepth());
 	}
 
 	if($_POST) {
 		// Export
 		if(is_array($_POST['catids'])) {
+			// let's get some stuff...
+			// get language info, words, and sub cats
+			$getLang = new Query($query['admin']['get_lang'], Array(1 => $_POST['langid']));
+			$getWords = new Query($query['admin']['get_words_ordered'], Array(1 => $_POST['langid']));
 			// whole language...
 			if($_POST['catids'][0] == -1) {
 				$exportCats = $catsinfo;
@@ -469,8 +485,7 @@ else if($_GET['do'] == 'ex') {
 			// get language info, words, and sub cats
 			$getLang = new Query($query['admin']['get_lang'], Array(1 => $_POST['langid']));
 			$getWords = new Query($query['admin']['get_words_ordered'], Array(1 => $_POST['langid']));
-			$getSubCats = new Query($query['admin']['get_level2_langCats']);
-
+			//
 			// get lang info...
 			$langinfo = $wtcDB->fetchArray($getLang);
 
@@ -502,72 +517,35 @@ else if($_GET['do'] == 'ex') {
 				ksort($words["$catid"]);
 			}
 
-			// now form sub cat array...
-			while($subcat = $wtcDB->fetchArray($getSubCats)) {
-				$subcats[$subcat['parentid']][$subcat['catid']] = $subcat;
-			}
-
 			// start exportation process
 			$xml = '';
 
 			$xml = '<?xml version="1.0" encoding="iso-8859-1" ?>' . "\n\n";
-				$xml .= '<Language langid="' . $langinfo['langid'] . '" name="' . wtcspecialchars($langinfo['name']) . '">' . "\n";
+			$xml .= '<Language langid="' . $langinfo['langid'] . '" name="' . wtcspecialchars($langinfo['name']) . '">' . "\n";
 
-				// now loop through cats, and put in words!
-				foreach($exportCats as $catid => $info) {
-					if(!is_array($words[$catid]) AND !is_array($subcats[$catid])) {
-						continue;
+			// now loop through cats, and put in words!
+			foreach($exportCats as $catid => $infoWrapper) {
+				$info = $infoWrapper[0];
+				$depth = $infoWrapper[1];
+				$padding = str_repeat("\t", $depth + 1);
+				if($info->getParentId() != -1) {
+					$puuid = $catsinfo[$info->getParentId()][0]->getGroupUUID();
+				}
+				else {
+					$puuid = '';
+				}
+				$xml .= $padding . '<Category catuuid="' . $info->getGroupUUID() . '" catid="' . $info->getGroupId() . '" catName="' . wtcspecialchars($info->getGroupName()) . '" deletable="' . ($info->isDeletable() ? 1 : 0) . '" parentuuid="' . $puuid . '" parentid="' . $info->getParentId() . '">' . "\n";
+				if(is_array($words[$catid])) {
+					foreach($words[$catid] as $wordid => $wordinfo) {
+						$xml .= $padding . "\t" . '<Word wordsid="' . $wordid . '" name="' . wtcspecialchars($wordinfo['name']) . '" catid="' . $wordinfo['catid'] . '" displayName="' . wtcspecialchars($wordinfo['displayName']) . '" defaultid="' . $wordinfo['defaultid'] . '"><![CDATA[' . $wordinfo['words'] . ']]></Word>' . "\n";
 					}
-
-					// check sub cats to make sure we have some words... or something...
-					$hasSubCatWords = false;
-
-					if(is_array($subcats[$catid])) {
-						foreach($subcats[$catid] as $subcatid => $subinfo) {
-							if(is_array($words[$subcatid])) {
-								$hasSubCatWords = true;
-								break;
-							}
-						}
-					}
-
-					if((!is_array($words[$catid]) AND !is_array($subcats[$catid])) OR (is_array($subcats[$catid]) AND !$hasSubCatWords AND !is_array($words[$catid]))) {
-						continue;
-					}
-
-					$xml .= "\t" . '<Category catid="' . $catid . '" catName="' . wtcspecialchars($info['catName']) . '" depth="' . $info['depth'] . '" parentid="' . $info['parentid'] . '">' . "\n";
-
-					// any subcats?
-					if(is_array($subcats[$catid])) {
-						foreach($subcats[$catid] as $subcatid => $subinfo) {
-							if(!is_array($words[$subcatid])) {
-								continue;
-							}
-
-							$xml .= "\t\t" . '<SubCategory catid="' . $subcatid . '" catName="' . wtcspecialchars($subinfo['catName']) . '" depth="' . $subinfo['depth'] . '" parentid="' . $catid . '">' . "\n";
-
-							// words?
-							if(is_array($words[$subcatid])) {
-								foreach($words[$subcatid] as $wordid => $wordinfo) {
-									$xml .= "\t\t\t" . '<Word wordsid="' . $wordid . '" name="' . wtcspecialchars($wordinfo['name']) . '" catid="' . $wordinfo['catid'] . '" displayName="' . wtcspecialchars($wordinfo['displayName']) . '" defaultid="' . $wordinfo['defaultid'] . '"><![CDATA[' . $wordinfo['words'] . ']]></Word>' . "\n\n";
-								}
-							}
-
-							$xml .= "\t\t" . '</SubCategory>' . "\n\n";
-						}
-					}
-
-					// words... for level 1
-					if(is_array($words[$catid])) {
-						foreach($words[$catid] as $wordid => $wordinfo) {
-							$xml .= "\t\t" . '<Word wordsid="' . $wordid . '" name="' . wtcspecialchars($wordinfo['name']) . '" catid="' . $wordinfo['catid'] . '" displayName="' . wtcspecialchars($wordinfo['displayName']) . '" defaultid="' . $wordinfo['defaultid'] . '"><![CDATA[' . $wordinfo['words'] . ']]></Word>' . "\n\n";
-						}
-					}
-
-					$xml .= "\t" . '</Category>' . "\n\n";
 				}
 
-				$xml .= '</Language>' . "\n";
+				$xml .= $padding . '</Category>' . "\n";
+			}
+
+			$xml .= '</Language>' . "\n";
+
 
 			// form lang file name...
 			$langFilename = preg_replace('/\s/isU', '-', $langinfo['name']);
@@ -575,7 +553,7 @@ else if($_GET['do'] == 'ex') {
 			// now what... download, or write to file?
 			if($_POST['download']) {
 				header('Content-type: text/xml');
-				header('Content-Disposition: attachment; filename="wtcBB_lang_' . $langFilename . '.xml"');
+				header('Content-Disposition: attachment; filename="n2_lang_' . $langFilename . '.xml"');
 
 				print($xml);
 
@@ -584,7 +562,7 @@ else if($_GET['do'] == 'ex') {
 
 			// create file and write XML contents
 			else {
-				if(!($handle = fopen('./exports/wtcBB_lang_' . $langFilename . '.xml', 'wb'))) {
+				if(!($handle = fopen('./exports/n2_lang_' . $langFilename . '.xml', 'wb'))) {
 					new WtcBBException($lang['admin_error_fileOpen']);
 				}
 
@@ -605,6 +583,7 @@ else if($_GET['do'] == 'ex') {
 	new AdminHTML('tableBegin', $lang['admin_language_imEx_export'], true);
 
 	// get all languages
+	unset($langs);
 	$getLangs = new Query($query['admin']['get_langs']);
 	$selection = 1;
 
@@ -649,7 +628,7 @@ else if($_GET['do'] == 'im') {
 	if($_POST) {
 		// Import
 		if(isset($_POST['path']) OR is_array($_FILES['fupload'])) {
-			if(!is_array($_FILES['fupload'])) {
+			if(!is_array($_FILES['fupload']) || $_FILES['fupload']['error']) {
 				$xml = file_get_contents($_POST['path']);
 			}
 
@@ -813,7 +792,7 @@ else {
 
 		// searching? we need to get matchids!
 		if($_GET['go'] == 'search') {
-			$search = new Query($query['admin']['search_language'], Array(1 => $_GET['searchIn'], 2 => $_GET['query'], 3 => $_GET['langid']));
+			$search = new Query($query['admin']['search_language'], Array(1 => $_GET['searchIn'], 2 => $_GET['querystr'], 3 => $_GET['langid']));
 
 			// nuttin!
 			if(!$wtcDB->numRows($search)) {
@@ -884,10 +863,14 @@ else {
 					$extraLink = '&amp;catid=' . $obj->getParentId() . '#' . $obj->getParentId();
 				}
 
+				$actionStr = '<a href="admin.php?file=language&amp;langid=' . $_GET['langid'] . '&amp;do=addWords&amp;catid=' . $obj->getGroupId() . '">' . $lang['admin_add'] . '</a>';
+				if($obj->isDeletable()) {
+					$actionStr .= ' - <a href="admin.php?file=language&amp;langid=' . $_GET['langid'] . '&amp;do=editCat&amp;catid=' . $obj->getGroupId() . '">' . $lang['admin_edit'] . '</a>';
+				}
 				$opts = Array(
 					'cells' => Array(
 									str_repeat('-- ', $groupIter->getDepth()) . '<a href="admin.php?file=language&amp;langid=' . $_GET['langid'] . $extraLink . '" name="' . $obj->getGroupId() . '">' . $obj->getGroupName() . '</a>' => Array('class' => 'header'),
-									'<a href="admin.php?file=language&amp;langid=' . $_GET['langid'] . '&amp;do=addWords&amp;catid=' . $obj->getGroupId() . '">' . $lang['admin_add'] . '</a> - <a href="admin.php?file=language&amp;langid=' . $_GET['langid'] . '&amp;do=editCat&amp;catid=' . $obj->getGroupId() . '">' . $lang['admin_edit'] . '</a>' => Array('small' => true, 'class' => 'header')
+									$actionStr => Array('small' => true, 'class' => 'header')
 							)
 						);
 

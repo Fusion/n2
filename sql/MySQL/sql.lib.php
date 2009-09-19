@@ -1363,7 +1363,8 @@ $query['admin']['update_words'] = 'UPDATE ' . WTC_TP . 'lang_words SET name = \'
 
 $query['admin']['get_words_noDefault'] = 'SELECT * FROM ' . WTC_TP . 'lang_words WHERE langid = \'?\'';
 
-$query['admin']['get_words_ordered'] = 'SELECT * FROM ' . WTC_TP . 'lang_words WHERE langid = \'?\' OR defaultid = 0 ORDER BY displayName ASC';
+# No. Why would I want this? Was there originally some copy/paste from styles? $query['admin']['get_words_ordered'] = 'SELECT * FROM ' . WTC_TP . 'lang_words WHERE langid = \'?\' OR defaultid = 0 ORDER BY displayName ASC';
+$query['admin']['get_words_ordered'] = 'SELECT * FROM ' . WTC_TP . 'lang_words WHERE langid = \'?\' ORDER BY displayName ASC';
 
 $query['admin']['get_word_info'] = 'SELECT * FROM ' . WTC_TP . 'lang_words WHERE wordsid = \'?\'';
 

@@ -208,6 +208,15 @@ class Group extends Object {
 		return $this->groupid;
 	}
 
+	// Overwrite groupid...does not commit back to db.
+	public function forceGroupId($groupid) {
+		$this->groupid = $groupid;
+	}
+
+	public function getGroupUUID() {
+		return $this->info['groupuuid'];
+	}
+
 	public function getGroupType() {
 		return $this->info['groupType'];
 	}

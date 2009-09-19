@@ -40,13 +40,12 @@ class Language extends Object {
 			$this->langid = $this->info['langid'];
 		}
 
-		else if(!empty($id)) {
+		else {
+			if(empty($id)) {
+				$id = 0;
+			}
 			$this->langid = $id;
 			$this->queryInfoById();
-		}
-
-		else {
-			new WtcBBException($lang['error_noInfo']);
 		}
 
 		// unserialize groupids to make'em ready for use

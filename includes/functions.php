@@ -332,50 +332,56 @@ function pageLoadTime() {
 	return number_format($total, 2);
 }
 
+function uuid() {
+	$radix = uniqid('n2', true);
+	$radix{6} = chr( ( ord( $b[6] ) & 0X0F ) | 0X40 );
+	$radix{8} = chr( ( ord( $b[8] ) & 0X3F ) | 0X80 );
+	return implode( '-', unpack( 'H8a/H4b/H4c/H4d/H12e', $radix ) );
+}
+
 /**
  * Gets cpu load
  */
-	function getServerLoad()
+function getServerLoad() {
+	$loadavg = false;
+	
+	// Original algorithm is taken from
+	// Adodb perf source code, taken from
+	// http://msdn.microsoft.com/library/default.asp?url=/library/en-us/wmisdk/wmi/example__obtaining_raw_performance_data.asp
+	if (strncmp(PHP_OS,'WIN',3)==0)
 	{
-		$loadavg = false;
+		if (PHP_VERSION == '5.0.0') return false;
+		if (PHP_VERSION == '5.0.1') return false;
+		if (PHP_VERSION == '5.0.2') return false;
+		if (PHP_VERSION == '5.0.3') return false;
+		if (PHP_VERSION == '5.0.11') return false; # see http://bugs.php.net/bug.php?id=31737
+		if (PHP_VERSION == '5.0.12') return false; # see http://bugs.php.net/bug.php?id=31737
+		if (PHP_VERSION == '4.3.10') return false; # see http://bugs.php.net/bug.php?id=31737
 		
-		// Original algorithm is taken from
-		// Adodb perf source code, taken from
-		// http://msdn.microsoft.com/library/default.asp?url=/library/en-us/wmisdk/wmi/example__obtaining_raw_performance_data.asp
-		if (strncmp(PHP_OS,'WIN',3)==0)
-		{
-			if (PHP_VERSION == '5.0.0') return false;
-			if (PHP_VERSION == '5.0.1') return false;
-			if (PHP_VERSION == '5.0.2') return false;
-			if (PHP_VERSION == '5.0.3') return false;
-			if (PHP_VERSION == '5.0.11') return false; # see http://bugs.php.net/bug.php?id=31737
-			if (PHP_VERSION == '5.0.12') return false; # see http://bugs.php.net/bug.php?id=31737
-			if (PHP_VERSION == '4.3.10') return false; # see http://bugs.php.net/bug.php?id=31737
-			
-			@$c = new COM("WinMgmts:{impersonationLevel=impersonate}!Win32_PerfRawData_PerfOS_Processor.Name='_Total'");
-			if (!$c) return false;
-			
-			$info[0] = $c->PercentProcessorTime;
-			$info[1] = 0;
-			$info[2] = 0;
-			$info[3] = $c->TimeStamp_Sys100NS;
-			return $info;
-		}
+		@$c = new COM("WinMgmts:{impersonationLevel=impersonate}!Win32_PerfRawData_PerfOS_Processor.Name='_Total'");
+		if (!$c) return false;
 		
-		if ( @file_exists('/proc/loadavg') )
-		{
-			$f = @fopen("/proc/loadavg", "r");
-			if($f)
-			{
-				$line = fgets($f);
-				if($line)
-				{
-					$tokens = explode( ' ', $line );
-					$loadavg = trim($tokens[0]);
-				}
-				fclose($f);
-			}
-		}
-		return $loadavg;
+		$info[0] = $c->PercentProcessorTime;
+		$info[1] = 0;
+		$info[2] = 0;
+		$info[3] = $c->TimeStamp_Sys100NS;
+		return $info;
 	}
+	
+	if ( @file_exists('/proc/loadavg') )
+	{
+		$f = @fopen("/proc/loadavg", "r");
+		if($f)
+		{
+			$line = fgets($f);
+			if($line)
+			{
+				$tokens = explode( ' ', $line );
+				$loadavg = trim($tokens[0]);
+			}
+			fclose($f);
+		}
+	}
+	return $loadavg;
+}
 ?>

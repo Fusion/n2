@@ -145,7 +145,7 @@ if($_GET['step'] == 1) {
 		set_time_limit((60 * 15));
 
 		// start loading in the SQL...
-		$SQL = file_get_contents('./install/wtcbb2.sql');
+		$SQL = file_get_contents('./install/default_data.sql');
 
 		preg_match_all('/(CREATE TABLE `.+?` \(.+?\);)/is', $SQL, $tables, PREG_PATTERN_ORDER);
 		preg_match_all('/(INSERT INTO .+?\);)/i', $SQL, $inserts, PREG_PATTERN_ORDER);
@@ -159,6 +159,11 @@ if($_GET['step'] == 1) {
             $query = preg_replace('/INSERT INTO `(.+?)`/is', 'INSERT INTO `'.$conf['tblprefix'].'\\1`', $query);		
 			$wtcDB->query($query);
 		}
+
+		// Warning: this may be a terrible idea. I basically reset the default language's
+		// id to zero because MySQL -- and others -- insist on starting with a 1-based index
+		$query = 'UPDATE `'.$conf['tblprefix'].'lang` SET langid=0';
+		$wtcDB->query($query);
 
 		new Redirect('./install.php?step=2');
 	}
@@ -346,81 +351,6 @@ else if($_GET['step'] == 3) {
 													), 'unbuffered');
 		}
 
-		// start finishing up... import style info...
-		$xml = file_get_contents('./install/style_export_1.xml');
-
-		$DOM = new DomDocument();
-		$DOM->loadXML($xml);
-
-		$fragments = $DOM->getElementsByTagName('fragment');
-
-		foreach($fragments as $frag) {
-			$template = $frag->getElementsByTagName('template');
-# CFR: No. Compile later.			$templatePHP = $frag->getElementsByTagName('templatephp');
-
-			foreach($template as $t) {
-				$myFrag = $t->nodeValue;
-				break;
-			}
-
-# CFR: No. Compile later.			foreach($templatePHP as $tp) {
-# CFR: No. Compile later.				$myFragPHP = $tp->nodeValue;
-# CFR: No. Compile later.				break;
-# CFR: No. Compile later.			}
-
-			$myFrag = str_replace("\n", "\r\n", $myFrag);
-
-			StyleFragment::insert(Array(
-				'fragmentid' => $frag->getAttribute('fragmentid'),
-				'styleid' => $frag->getAttribute('styleid'),
-				'groupid' => $frag->getAttribute('groupid'),
-				'fragmentName' => $frag->getAttribute('fragmentName'),
-				'fragmentVarName' => $frag->getAttribute('fragmentVarName'),
-				'fragmentType' => $frag->getAttribute('fragmentType'),
-				'defaultid' => $frag->getAttribute('defaultid'),
-				'disOrder' => $frag->getAttribute('disOrder'),
-				'fragment' => $myFrag,
-# CFR: No. Compile later.				'template_php' => $myFragPHP
-				), true
-			);
-		}
-
-		$styles = $DOM->getElementsByTagName('style');
-
-		foreach($styles as $style) {
-			$css = $style->getElementsByTagName('css');
-
-			foreach($css as $sheet) {
-				$cssContent = $sheet->nodeValue;
-				break;
-			}
-
-			Style::insert(Array(
-				'styleid' => $style->getAttribute('styleid'),
-				'parentid' => $style->getAttribute('parentid'),
-				'name' => $style->getAttribute('name'),
-				'disOrder' => $style->getAttribute('disOrder'),
-				'selectable' => $style->getAttribute('selectable'),
-				'enabled' => $style->getAttribute('enabled'),
-				'fragmentids' => $style->getAttribute('fragmentids'),
-				'css' => $cssContent
-				), true
-			);
-		}
-
-		fixPHP();
-		
-		// build the cache
-		$dir = new DirectoryIterator('./lib/Cache');
-
-		foreach($dir as $file) {
-			if(!is_file($file->getPathname()) OR strpos($file->getPathname(), '.php') === false) {
-				continue;
-			}
-
-			new Cache(substr($file->getFilename(), 0, strpos($file->getFilename(), '.')));
-		}
-
 		new Redirect('./install.php?step=4');
 	}
 
@@ -458,6 +388,119 @@ else if($_GET['step'] == 3) {
 }
 
 else if($_GET['step'] == 4) {
+	$header = new AdminHTML('header', $lang['install_step3']);
+	$header->setExtra('<meta http-equiv="refresh" content="3; url=./install.php?step=5" />');
+	$header->dump();
+
+	new AdminHTML('tableBegin', $lang['install_step3'], true);
+
+	echo "<tr><td class='header'>&nbsp;<br /><center><strong>Installing default style...please be patient</strong><br /><br />This page will refresh automatically!<br /><a href='./install.php?step=4'>only click this link if instructed to do so by support</a></center><br /></td></tr>\n";
+
+	new AdminHTML('tableEnd', '', true, array('form' => false));
+
+	new AdminHTML('footer', '', true);
+}
+
+else if($_GET['step'] == 5) {
+	$xml = file_get_contents('./install/default_style.xml');
+
+	$DOM = new DomDocument();
+	$DOM->loadXML($xml);
+
+	$fragments = $DOM->getElementsByTagName('fragment');
+
+	foreach($fragments as $frag) {
+		$template = $frag->getElementsByTagName('template');
+# CFR: No. Compile later.			$templatePHP = $frag->getElementsByTagName('templatephp');
+
+		foreach($template as $t) {
+			$myFrag = $t->nodeValue;
+			break;
+		}
+
+# CFR: No. Compile later.			foreach($templatePHP as $tp) {
+# CFR: No. Compile later.				$myFragPHP = $tp->nodeValue;
+# CFR: No. Compile later.				break;
+# CFR: No. Compile later.			}
+
+		$myFrag = str_replace("\n", "\r\n", $myFrag);
+
+		StyleFragment::insert(Array(
+			'fragmentid' => $frag->getAttribute('fragmentid'),
+			'styleid' => $frag->getAttribute('styleid'),
+			'groupid' => $frag->getAttribute('groupid'),
+			'fragmentName' => $frag->getAttribute('fragmentName'),
+			'fragmentVarName' => $frag->getAttribute('fragmentVarName'),
+			'fragmentType' => $frag->getAttribute('fragmentType'),
+			'defaultid' => $frag->getAttribute('defaultid'),
+			'disOrder' => $frag->getAttribute('disOrder'),
+			'fragment' => $myFrag,
+# CFR: No. Compile later.				'template_php' => $myFragPHP
+			), true
+		);
+	}
+
+	$styles = $DOM->getElementsByTagName('style');
+
+	foreach($styles as $style) {
+		$css = $style->getElementsByTagName('css');
+
+		foreach($css as $sheet) {
+			$cssContent = $sheet->nodeValue;
+			break;
+		}
+
+		Style::insert(Array(
+			'styleid' => $style->getAttribute('styleid'),
+			'parentid' => $style->getAttribute('parentid'),
+			'name' => $style->getAttribute('name'),
+			'disOrder' => $style->getAttribute('disOrder'),
+			'selectable' => $style->getAttribute('selectable'),
+			'enabled' => $style->getAttribute('enabled'),
+			'fragmentids' => $style->getAttribute('fragmentids'),
+			'css' => $cssContent
+			), true
+		);
+	}
+
+	fixPHP();
+
+	new Redirect('./install.php?step=6');
+}
+
+else if($_GET['step'] == 6) {
+	$header = new AdminHTML('header', $lang['install_step3']);
+	$header->setExtra('<meta http-equiv="refresh" content="3; url=./install.php?step=7" />');
+	$header->dump();
+
+	new AdminHTML('tableBegin', $lang['install_step3'], true);
+
+	echo "<tr><td class='header'>&nbsp;<br /><center><strong>Installing default language...please be patient</strong><br /><br />This page will refresh automatically!<br /><a href='./install.php?step=4'>only click this link if instructed to do so by support</a></center><br /></td></tr>\n";
+
+	new AdminHTML('tableEnd', '', true, array('form' => false));
+
+	new AdminHTML('footer', '', true);
+}
+
+else if($_GET['step'] == 7) {
+		$xml = file_get_contents('./install/default_lang.xml');
+		$import = new ImportLanguage($xml, 0, 'English');
+
+		// build the cache
+		$dir = new DirectoryIterator('./lib/Cache');
+
+		foreach($dir as $file) {
+			if(!is_file($file->getPathname()) OR strpos($file->getPathname(), '.php') === false) {
+				continue;
+			}
+
+			new Cache(substr($file->getFilename(), 0, strpos($file->getFilename(), '.')));
+		}
+
+		new Redirect('./install.php?step=8');
+}
+
+else if($_GET['step'] == 8) {
 	if(@unlink('install.php'))
 		$xtra = '';
 	else

@@ -58,7 +58,6 @@ class ImportLanguage {
 		
 		// form arrays
 		$this->formImportCats();
-		$this->formImportSubCats();
 		$this->formImportWords();
 		
 		// if we're overwriting... make array of words
@@ -71,12 +70,9 @@ class ImportLanguage {
 			}
 		}
 		
-		/*print('<pre>');
-		print_r($this->importCats); print_r($this->importSubCats); print_r($this->importWords);
-		print('</pre>');*/
-		
 		// Go!
 		$this->import();
+		Language::cache();
 	}
 	
 	// Private Methods
@@ -92,52 +88,62 @@ class ImportLanguage {
 			new Query($query['admin']['insert_lang'], Array(1 => $this->langName));
 			$this->insertLangId = $wtcDB->lastInsertId();
 		}			
-		
-		foreach($this->importCats as $catid => $info) {
-			if($this->langid == -1) {
-				new Query($query['admin']['insert_langCat'], Array(
-																1 => unhtmlspecialchars($info['catName']),
-																2 => $info['depth'],
-																3 => $info['parentid']
-															));
-															
-				$this->trackCats[$info['catid']] = $wtcDB->lastInsertId();
-			}
-			
-			else {
-				new Query($query['admin']['import_replaceIntoCat'], Array(
-																		1 => $catid,
-																		2 => unhtmlspecialchars($info['catName']), 
-																		3 => $info['depth'], 
-																		4 => $info['parentid']
-																	));
-			}
+
+		// For starters, load existing categories definitions
+        $groupIter = new RecursiveIteratorIterator(new RecursiveGroupIterator('lang_words'), true);
+		$parentsArr = array();
+		foreach($groupIter as $obj) {
+			$parentsArr[$obj->getGroupUUID()]  = $obj;
 		}
 
-		// now sub-categories...
-		foreach($this->importSubCats as $catid => $info) {
-			if($this->langid == -1) {
-				new Query($query['admin']['insert_langCat'], Array(
-																1 => unhtmlspecialchars($info['catName']),
-																2 => $info['depth'],
-																3 => $this->trackCats[$info['parentid']]
-															));
-															
-				$this->trackCats[$info['catid']] = $wtcDB->lastInsertId();
+		// Import all categories
+		$parentIdToRealId = array();
+		foreach($this->importCats as $catid => $info) {
+			if(!isset($parentsArr[$info['catuuid']])) {
+				// This is a brand-new category! Create it...
+				if(!empty($info['parentuuid']) && !isset($parentsArr[$info['parentuuid']])) {
+					die("I am sorry, but category '".$info['catName']."' references a non-existent parent.");
+				}
+				$parent = $parentsArr[$info['parentuuid']];
+				Group::insert(
+						array(
+							'groupType' => 'lang_words',
+							'groupuuid' => $info['catuuid'],
+							'groupName' => unhtmlspecialchars($info['catName']),
+							'deletable' => $info['deletable'],
+							'parentuuid' => $info['parentuuid'],
+							'parentid' => $parent->getGroupId(),
+							)
+						);
+				// Of course this group now becomes a potential parent
+				$parentsArr[$info['catuuid']] = new Group(
+						false,
+						array(
+							'groupType' => 'lang_words',
+							'groupuuid' => $info['catuuid'],
+							'groupName' => $info['catName'],
+							'deletable' => $info['deletable'],
+							'parentuuid' => $info['parentuuid'],
+							'parentid' => $parent->getGroupId(),
+							)
+					);
+				$parentsArr[$info['catuuid']]->forceGroupId($wtcDB->lastInsertId());
 			}
-			
-			else {
-				new Query($query['admin']['import_replaceIntoCat'], Array(
-																		1 => $catid, 
-																		2 => unhtmlspecialchars($info['catName']), 
-																		3 => $info['depth'], 
-																		4 => $info['parentid']
-																	));
-			}
+
+			// Update current id mapping
+			// Note: new info[catid] is bogus! It's likely not the category's real id
+			// but it's how it is referenced in our xml file
+			$parentIdToRealId[$catid] = $parentsArr[$info['catuuid']]->getGroupId();
 		}
 		
 		// now words...
 		foreach($this->importWords as $wordsid => $info) {
+			// As we know, ids are quite volatile. Let's match real ids...
+			if(!isset($parentIdToRealId[$info['catid']])) {
+				// Should never happen unless xml file was edited by hand
+				die("I am sorry, but word '".$info['name']."' references a non-existent category.");
+			}
+			$realCatId = $parentIdToRealId[$info['catid']];
 			if($this->langid == -1) {
 				$wordLangId = $this->insertLangId;
 				
@@ -150,7 +156,7 @@ class ImportLanguage {
 																1 => unhtmlspecialchars($info['name']), 
 																2 => $info['words'], 
 																3 => $this->insertLangId, 
-																4 => $this->trackCats[$info['catid']], 
+																4 => $realCatId,
 																5 => unhtmlspecialchars($info['displayName']), 
 																6 => $info['defaultid']
 															));
@@ -175,12 +181,12 @@ class ImportLanguage {
 																		2 => unhtmlspecialchars($info['name']), 
 																		3 => $info['words'], 
 																		4 => $wordLangId, 
-																		5 => $info['catid'], 
+																		5 => $realCatId,
 																		6 => unhtmlspecialchars($info['displayName']), 
 																		7 => $info['defaultid']
 																	));
 			}
-		}			
+		}
 	}
 	
 	private function formImportCats() {
@@ -189,22 +195,11 @@ class ImportLanguage {
 		foreach($allCats as $node) {
 			$this->importCats[$node->getAttribute('catid')] = Array(
 																	'catid' => $node->getAttribute('catid'),
+																	'catuuid' => $node->getAttribute('catuuid'),
 																	'catName' => $node->getAttribute('catName'),
-																	'depth' => $node->getAttribute('depth'),
-																	'parentid' => $node->getAttribute('parentid')
-																);
-		}
-	}
-	
-	private function formImportSubCats() {
-		$allSubCats = $this->dom->getElementsByTagName('SubCategory');
-		
-		foreach($allSubCats as $node) {
-			$this->importSubCats[$node->getAttribute('catid')] = Array(
-																	'catid' => $node->getAttribute('catid'),
-																	'catName' => $node->getAttribute('catName'),
-																	'depth' => $node->getAttribute('depth'),
-																	'parentid' => $node->getAttribute('parentid')
+																	'deletable' => $node->getAttribute('deletable'),
+																	'parentid' => $node->getAttribute('parentid'),
+																	'parentuuid' => $node->getAttribute('parentuuid'),
 																);
 		}
 	}
