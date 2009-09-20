@@ -48,7 +48,7 @@ class Bogus {
 
 		$err = '';
 
-		if('err' == $bogus)) {
+		if('err' == $bogus) {
 			$err = new WtcBBException($lang['bogus_text'] . $this->bogus, false);
 		}
 
