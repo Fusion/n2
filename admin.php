@@ -53,9 +53,9 @@ else {
 		<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
 	</head>
 
-	<frameset cols="220px,*" border="1" frameborder="1" framespacing="0">
-		<frame src="admin.php?file=navigation" name="nav" style="border-right: 1px solid #000; cursor: w-resize;" frameborder="0" />
-		<frame src="admin.php?file=main" name="content" frameborder="0" />
+	<frameset cols="220px,*">
+		<frame src="admin.php?file=navigation" name="nav" frameborder="no" scrolling="no" noresize marginwidth="0" marginheight="0" />
+		<frame src="admin.php?file=main" name="content" frameborder="no" scrolling="no" noresize marginwidth="0" marginheight="0" />
 	</frameset>
 
 	<body>

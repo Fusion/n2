@@ -348,6 +348,8 @@
 			<Word wordsid="15" name="admin_redirection" catid="5" displayName="Click If Not Redirected" defaultid="0"><![CDATA[Click Here If You Are Not Redirected]]></Word>
 			<Word wordsid="44" name="admin_edit" catid="5" displayName="Edit" defaultid="0"><![CDATA[Edit]]></Word>
 			<Word wordsid="45" name="admin_delete" catid="5" displayName="Delete" defaultid="0"><![CDATA[Delete]]></Word>
+			<Word wordsid="46" name="admin_action" catid="5" displayName="Action" defaultid="0"><![CDATA[Action]]></Word>
+			<Word wordsid="47" name="admin_action_areYouSure" catid="5" displayName="Are You Sure Action" defaultid="0"><![CDATA[Are you sure you want to perform this action?]]></Word>
 			<Word wordsid="49" name="admin_delete_areYouSure" catid="5" displayName="Are You Sure Delete" defaultid="0"><![CDATA[Are you sure you want to delete?]]></Word>
 			<Word wordsid="50" name="admin_yes" catid="5" displayName="Yes" defaultid="0"><![CDATA[Yes]]></Word>
 			<Word wordsid="51" name="admin_no" catid="5" displayName="No" defaultid="0"><![CDATA[No]]></Word>
@@ -437,6 +439,15 @@
 				<Word wordsid="136" name="admin_language_imEx_newLang_desc" catid="23" displayName="New Language Description" defaultid="0"><![CDATA[You may select to create a new language set with the given XML file. You can also overwrite an existing language set (only words and categories in the XML file that match up with words and categories in the selected language set will be overwritten). If you chose to overwrite, I highly suggest you take a current backup (if you've made any changes) to the language set you're overwriting, so you can restore it if things go awry.]]></Word>
 				<Word wordsid="137" name="admin_language_imEx_langTitle" catid="23" displayName="Language Title" defaultid="0"><![CDATA[New Language Title:]]></Word>
 				<Word wordsid="138" name="admin_language_imEx_langTitle_desc" catid="23" displayName="Language Title Description" defaultid="0"><![CDATA[If you have chosen "Create New Language" in the above option, you may enter the name of the new language set here.]]></Word>
+				<Word wordsid="139" name="admin_import_imEx_filePath" catid="23" displayName="File Path" defaultid="0"><![CDATA[File Path to XML File: OR...]]></Word>
+				<Word wordsid="140" name="admin_import_imEx_filePath_desc" catid="23" displayName="File Path Description" defaultid="0"><![CDATA[You may enter the file path of the style XML file you would like to import. Please note that this is not a URL, it is a file path. You may also upload an XML below.]]></Word>
+				<Word wordsid="141" name="admin_import_imEx_import" catid="23" displayName="Import" defaultid="0"><![CDATA[Import]]></Word>
+				<Word wordsid="142" name="admin_import_imEx_style " catid="23" displayName="Style" defaultid="0"><![CDATA[Style:]]></Word>
+				<Word wordsid="143" name="admin_import_imEx_styleTitle" catid="23" displayName="Style Title" defaultid="0"><![CDATA[New Style Title:]]></Word>
+				<Word wordsid="144" name="dmin_import_imEx_styleTitle_desc" catid="23" displayName="Style Title Description" defaultid="0"><![CDATA[ If you enter text here, it will replace the style name already contained in the XML file.]]></Word>
+				<Word wordsid="145" name="admin_import_imEx_title" catid="23" displayName="Title" defaultid="0"><![CDATA[Import Style]]></Word>
+				<Word wordsid="146" name="admin_import_imEx_upload" catid="23" displayName="Upload" defaultid="0"><![CDATA[Upload XML File:]]></Word>
+				<Word wordsid="147" name="admin_import_imEx_upload_desc" catid="23" displayName="Upload Description" defaultid="0"><![CDATA[You may upload any XML file on your computer with this field]]></Word>
 			</Category>
 			<Category catuuid="6e323461-6234-4064-8039-32613566" catid="11" catName="Language Manager" deletable="1" parentuuid="6e323461-6234-4064-8039-32613433" parentid="7">
 				<Word wordsid="43" name="admin_language_manager_title" catid="11" displayName="Manager Title" defaultid="0"><![CDATA[Language Manager]]></Word>
@@ -645,6 +656,7 @@
 				<Word wordsid="1386" name="admin_nav_style_addRepVar" catid="142" displayName="Add Replacement Variable" defaultid="0"><![CDATA[Add Replacement Variable]]></Word>
 				<Word wordsid="1390" name="admin_nav_style_add" catid="142" displayName="Add Style" defaultid="0"><![CDATA[Add Style]]></Word>
 				<Word wordsid="1504" name="admin_nav_style_searchTemplates" catid="142" displayName="Search Templates" defaultid="0"><![CDATA[Search Templates]]></Word>
+				<Word wordsid="1511" name="admin_nav_style_importStyle" catid="142" displayName="Import Style" defaultid="0"><![CDATA[Import Style]]></Word>
 			</Category>
 			<Category catuuid="6e323461-6234-4064-8039-33306264" catid="288" catName="Threads/Posts" deletable="1" parentuuid="6e323461-6234-4064-8039-32613866" parentid="18">
 				<Word wordsid="2316" name="admin_nav_threadsPosts_title" catid="288" displayName="Threads/Posts" defaultid="0"><![CDATA[Threads & Posts]]></Word>
@@ -876,9 +888,12 @@
 				<Word wordsid="1474" name="admin_style_c_regLink" catid="179" displayName="Regular Link" defaultid="0"><![CDATA[Regular Link]]></Word>
 				<Word wordsid="1475" name="admin_style_c_visitLink" catid="179" displayName="Visited Link" defaultid="0"><![CDATA[Visited Link]]></Word>
 				<Word wordsid="1476" name="admin_style_c_hoverLink" catid="179" displayName="Hover Link" defaultid="0"><![CDATA[Hover Link]]></Word>
+				<Word wordsid="2901" name="admin_style_c_advanced_extra" catid="179" displayName="Advanced Extra" defaultid="0"><![CDATA[Extra (key: values):]]></Word>
 				<Word wordsid="1477" name="admin_style_colors_note" catid="179" displayName="Browse Between Tabs" defaultid="0"><![CDATA[<strong>Note:</strong> You may browse between tabs without losing previously entered data.]]></Word>
 				<Word wordsid="1478" name="admin_style_colors_extraNote" catid="179" displayName="Extra Properties Note" defaultid="0"><![CDATA[<em>Note:</em> These CSS declarations are placed inside the main selector group for this portion of the style. This means that if you incorporate curly braces ("{" and "}") into the code below, you may receive unexpected results. <span class="important">This is for advanced users only.</span>]]></Word>
+				<Word wordsid="2900" name="admin_style_colors_advancedNote" catid="179" displayName="Advanced Note" defaultid="0"><![CDATA[<em>Note:</em> This field is for all advanced CSS declarations you wish to manually add to your stylesheet. They will look like "<em>.myextraclass { color: white; }</em>"<br /><span class="important">Only use this field if you know CSS well.</span>]]></Word>
 				<Word wordsid="1483" name="admin_style_colors_cssCat" catid="179" displayName="CSS Category" defaultid="0"><![CDATA[CSS Category:]]></Word>
+				<Word wordsid="1471" name="admin_info_advanced" catid="179" displayName="Advanced Users" defaultid="0"><![CDATA[<span class="important">Advanced users only.</span>]]></Word>
 			</Category>
 				<Category catuuid="6e323461-6234-4064-8039-32653462" catid="180" catName="Categories" deletable="1" parentuuid="6e323461-6234-4064-8039-32653432" parentid="179">
 					<Word wordsid="1459" name="admin_style_g_body" catid="180" displayName="Body" defaultid="0"><![CDATA[Body]]></Word>
@@ -893,6 +908,7 @@
 					<Word wordsid="1468" name="admin_style_g_selectMenu" catid="180" displayName="Select Menu" defaultid="0"><![CDATA[Select Menu]]></Word>
 					<Word wordsid="1469" name="admin_style_g_smallFont" catid="180" displayName="Small Font" defaultid="0"><![CDATA[Small Font]]></Word>
 					<Word wordsid="1470" name="admin_style_g_timeFont" catid="180" displayName="Time Font" defaultid="0"><![CDATA[Time Font]]></Word>
+					<Word wordsid="2902" name="admin_style_g_advanced" catid="180" displayName="Advanced" defaultid="0"><![CDATA[Advanced]]></Word>
 				</Category>
 			<Category catuuid="6e323461-6234-4064-8039-32663633" catid="227" catName="Image Names" deletable="1" parentuuid="6e323461-6234-4064-8039-32646637" parentid="143">
 				<Word wordsid="1717" name="admin_style_images" catid="227" displayName="Image Names" defaultid="0"><![CDATA[Image Names]]></Word>
@@ -943,6 +959,11 @@
 				<Word wordsid="2154" name="admin_style_i_closeAll" catid="227" displayName="Close All Icon" defaultid="0"><![CDATA[Close All Icon:]]></Word>
 				<Word wordsid="2272" name="admin_style_i_threadPre_attach" catid="227" displayName="Thread Prefix (Attachment Icon)" defaultid="0"><![CDATA[Thread Prefix (Attachment Icon):]]></Word>
 				<Word wordsid="2314" name="admin_style_i_postbit_report" catid="227" displayName="Postbit Report" defaultid="0"><![CDATA[Postbit Report:]]></Word>
+				<Word wordsid="2903" name="admin_style_i_postbit_upvote" catid="227" displayName="Postbit Upvote" defaultid="0"><![CDATA[Postbit Upvote:]]></Word>
+				<Word wordsid="2904" name="admin_style_i_postbit_downvote" catid="227" displayName="Postbit Downvote" defaultid="0"><![CDATA[Postbit Downvote:]]></Word>
+				<Word wordsid="2905" name="admin_style_i_postbit_upvote_action" catid="227" displayName="Postbit Upvote Action" defaultid="0"><![CDATA[Postbit Upvote Action:]]></Word>
+				<Word wordsid="2906" name="admin_style_i_postbit_downvote_action" catid="227" displayName="Postbit Downvote Action" defaultid="0"><![CDATA[Postbit Downvote Action:]]></Word>
+				<Word wordsid="2907" name="admin_style_i_postbit_updownvote" catid="227" displayName="Postbit UpDownVote" defaultid="0"><![CDATA[Postbit Up/DownVote:]]></Word>
 			</Category>
 			<Category catuuid="6e323461-6234-4064-8039-32653534" catid="181" catName="Key" deletable="1" parentuuid="6e323461-6234-4064-8039-32646637" parentid="143">
 				<Word wordsid="1479" name="admin_style_key" catid="181" displayName="Key" defaultid="0"><![CDATA[Color Coding Key]]></Word>
@@ -970,6 +991,9 @@
 				<Word wordsid="1484" name="admin_style_man_visual" catid="145" displayName="Visual Settings" defaultid="0"><![CDATA[Visual Settings]]></Word>
 				<Word wordsid="1716" name="admin_style_man_images" catid="145" displayName="Image Names" defaultid="0"><![CDATA[Image Names]]></Word>
 				<Word wordsid="2355" name="admin_style_man_export" catid="145" displayName="Export Style" defaultid="0"><![CDATA[Export Style]]></Word>
+				<Word wordsid="2909" name="admin_style_man_export_delta" catid="145" displayName="Export Style Delta" defaultid="0"><![CDATA[Export Style Delta]]></Word>
+				<Word wordsid="2910" name="admin_style_man_export_full" catid="145" displayName="Export Full Style" defaultid="0"><![CDATA[Export Full Style]]></Word>
+				<Word wordsid="2911" name="admin_style_man_fixPHP" catid="145" displayName="Fix PHP" defaultid="0"><![CDATA[Fix PHP]]></Word>
 			</Category>
 			<Category catuuid="6e323461-6234-4064-8039-32653731" catid="185" catName="Style Search" deletable="1" parentuuid="6e323461-6234-4064-8039-32646637" parentid="143">
 				<Word wordsid="1505" name="admin_search_templates" catid="185" displayName="Style Templates" defaultid="0"><![CDATA[Search Style Templates]]></Word>

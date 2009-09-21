@@ -35,7 +35,56 @@ require_once('./includes/global_admin.php');
 
 $header = new AdminHTML('header', $lang['admin_nav_title'], false, Array('showTitle' => false));
 $header->setStylesheet('./css/adminNav.css');
-$header->setExtra('<script type="text/javascript"> var adminNav = true; </script>');
+// jQuery scrollbar
+$extra = <<<EOB
+<script type="text/javascript"> var adminNav = true; </script>
+	<script type="text/javascript" src="scripts/jquery.js"></script>
+	<script type="text/javascript" src="scripts/jquery.mousewheel.js"></script>
+	<script type="text/javascript" src="scripts/jScrollPane.js"></script>
+	<link rel="stylesheet" type="text/css" media="all" href="scripts/jScrollPane.css" />
+	<script type="text/javascript">
+	jQuery(function()
+	{
+		var busy = false;
+		var jsc = function()
+		{
+			if (!busy) {
+				busy = true;
+//				var w = jQuery(window);
+				var c = jQuery('#container');
+//				var p = (parseInt(c.css('paddingLeft')) || 0) + (parseInt(c.css('paddingRight')) || 0);
+//				jQuery('body>.jScrollPaneContainer').css({'height': w.height() + 'px', 'width': w.width() + 'px'});
+//				c.css({'height': (w.height()-p) + 'px', 'width': (w.width() - p) + 'px', 'overflow':'auto'});
+				c.jScrollPane();
+				busy = false;	
+			}
+		}
+//		jQuery(window).bind('resize', jsc);
+//		jsc();
+//		jsc();
+	});
+	jQuery(document).ready(function () {
+		var w = jQuery(window);
+		var c = jQuery('#container');
+		if (typeof window.innerWidth != 'undefined') {
+			var vh= window.innerHeight
+		}
+		else if (typeof document.documentElement != 'undefined'
+			&& typeof document.documentElement.clientHeight != 'undefined') {
+			var vh = document.documentElement.clientHeight
+		}
+		else {
+			var vh = 0;
+		}
+		if(vh) {
+			c.css({'height': vh + 'px', 'width': '220px', 'overflow':'auto'});
+		}
+		c.jScrollPane();
+	});
+	</script>
+
+EOB;
+$header->setExtra($extra);
 $header->dump(); /* Prints HTML */
 
 print("\t" . '<div id="links" class="small">' . "\n");
