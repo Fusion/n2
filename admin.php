@@ -55,7 +55,7 @@ else {
 
 	<frameset cols="220px,*">
 		<frame src="admin.php?file=navigation" name="nav" frameborder="no" scrolling="no" noresize marginwidth="0" marginheight="0" />
-		<frame src="admin.php?file=main" name="content" frameborder="no" scrolling="no" noresize marginwidth="0" marginheight="0" />
+		<frame src="admin.php?file=main" name="content" frameborder="no" scrolling="yes" noresize marginwidth="0" marginheight="0" />
 	</frameset>
 
 	<body>

@@ -360,7 +360,7 @@ class AdminHTML {
 		// strip spaces...
 		$noSpaces = preg_replace('/\s+/', '', $this->title['main']);
 
-		print("\t" . '<h2 class="exCol_dblclick_' . $noSpaces . '"><img src="./images/admin/collapse.gif" alt="Expand" id="' . $noSpaces . '_img" class="exCol_click_' . $noSpaces . '" /> ' . $this->title['main'] . '</h2>' . "\n");
+		print("\t" . '<h2 class="exCol_dblclick_' . $noSpaces . '"><img src="./images/admin/collapse.png" alt="Expand" id="' . $noSpaces . '_img" class="exCol_click_' . $noSpaces . '" /> ' . $this->title['main'] . '</h2>' . "\n");
 		print("\t" . '<div class="navBox exCo" id="' . $noSpaces . '">' . "\n");
 			print("\t\t" . '<ul>' . "\n");
 				foreach($this->title as $linkTitle => $linkHref) {
@@ -410,7 +410,7 @@ class AdminHTML {
 			print("\n");
 		}
 
-			$tableClass = '';
+			$tableClass = ' class="admintable"';
 
 			if(!empty($this->tableOpts['tableClass'])) {
 				$tableClass = ' class="' . $this->tableOpts['tableClass'] . '"';

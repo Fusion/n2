@@ -1,3 +1,21 @@
+html, body, div, span, applet, object, iframe,
+	h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+	a, abbr, acronym, address, big, cite, code,
+	del, dfn, em, font, img, ins, kbd, q, s, samp,
+	small, strike, strong, sub, sup, tt, var,
+	b, u, i, center,
+	dl, dt, dd, ol, ul, li,
+	fieldset, form, label, legend,
+	table, caption, tbody, tfoot, thead, tr, th, td {
+		margin: 0;
+		padding: 0;
+		border: 0;
+		outline: 0;
+	/*	font-size: 100%;
+	 *		vertical-align: baseline; */
+		background: transparent;
+	}
+
 html, body {
 margin: 0;
 padding: 0;
@@ -7,9 +25,67 @@ font-size: 13px;
 }
 
 body {
-background:#2d6e98 url(../images/admin/main-bg.jpg) repeat-x 0 0;
+background:#f9f9f9;
 background-attachment: fixed;
+line-height: 1;
 }
+
+html,
+	body {
+		height: 100%;
+	}
+
+body,
+	td,
+	textarea,
+	input,
+	select {
+		font-family: "Lucida Grande", Verdana, Arial, "Bitstream Vera Sans", sans-serif;
+		font-size: 13px;
+	}
+
+body,
+	textarea {
+		line-height: 1.4em;
+	}
+
+input,
+	select {
+		line-height: 1em;
+	}
+
+p {
+	margin: 1em 0;
+}
+
+blockquote {
+	margin: 1em;
+}
+
+label {
+	cursor: pointer;
+}
+
+li,
+	dd {
+		margin-bottom: 6px;
+	}
+
+p,
+	li,
+	dl,
+	dd,
+	dt {
+		line-height: 140%;
+	}
+
+textarea,
+	input,
+	select {
+		margin: 1px;
+		padding: 3px;
+	border-color: #DFDFDF;
+	}
 
 h1 {
 margin: 10px 0 20px 0;
@@ -106,36 +182,51 @@ margin: 0 auto;
 			}
 
 	div#container table {
-	border-right: 1px solid #000;
-	border-bottom: 1px solid #000;
+	border-width: 1px;
+	border-style: solid;
+	border-spacing: 0;
 	width: 100%;
+	clear: both;
+	margin: 0;
 	margin-bottom: 20px;
+	-moz-border-radius: 4px;
+	-khtml-border-radius: 4px;
+	-webkit-border-radius: 4px;
+	border-radius: 4px;
+	border-color: #dfdfdf;
+	background-color: #fff;
 	}
 
 		div#container table td, div#container table th {
-		border-top: 1px solid #000;
-		border-left: 1px solid #000;
-		padding: 4px;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+	font-size: 11px;
+	vertical-align: text-top;
+		border-color: #dfdfdf;
 		}
 
 		div#container table th {
-		background: #3f7174;
-		color: #fff;
-		height: 35px;
-		font-size: 16px;
+	padding: 7px 7px 8px;
+	text-align: left;
+	line-height: 1.3em;
+	text-shadow: rgba(255,255,255,0.8) 0 1px 0;
+	color: #333;
+		   	background: #dfdfdf url(../images/admin/gray-grad.png) repeat-x scroll left top;
+
 		}
 
 		div#container table th.footer {
 		height: 24px;
 		font-size: 13px;
+		background: #f9f9f9;
 		}
 		
 		div#container table td.header {
-		background: #e5ebeb;
+		background: #ffffff;
 		}
 
 		div#container table td.noAlt {
-		background: #f5f7f7;
+		background: #f9f9f9;
 		}
 
 			div#container table th.noAlt {
@@ -153,11 +244,13 @@ margin: 0 auto;
 			}
 
 		div#container table td.alt1 {
-		background: #f5f7f7;
+	padding: 7px 7px 8px;
+		background: #f9f9f9;
 		}
 
 		div#container table td.alt2 {
-		background: #e5ebeb;
+	padding: 7px 7px 8px;
+		background: #ffffff;
 		}
 
 		div#container table td.top {
@@ -175,16 +268,14 @@ margin: 0 auto;
 	}
 
 		div#container div.divit h3 {
-		background: #c0c4d0 url(./../images/admin/navbg.jpg) repeat-x;
-		color: #fff;
+		background: #dfdfdf url(../images/admin/gray-grad.png) repeat-x scroll left top;
 		font-size: 100%;
 		padding: 4px;
 		margin: 0;
 		}
 
 		div#container div.divit div.likeH3 {
-		background: #c0c4d0 url(./../images/admin/navbg.jpg) repeat-x;
-		color: #fff;
+		background: #dfdfdf url(../images/admin/gray-grad.png) repeat-x scroll left top;
 		font-size: 100%;
 		padding: 4px;
 		margin: 0;
@@ -310,59 +401,35 @@ margin: 10px 0 0 0;
 	border: 1px inset #2e5971;
 	}
 
-input.button {
-background: #fff url(./../images/admin/buttonbg.jpg) repeat-x;
-color: #000;
-border: 1px outset #000;
-border-top-color: #fff;
-border-left-color: #fff;
-font-weight: normal;
-padding: 1px;
-font-weight: bold;
-}
+textarea,
+	input,
+	select {
+		border-width: 1px;
+		border-style: solid;
+		-moz-border-radius: 4px;
+		-khtml-border-radius: 4px;
+		-webkit-border-radius: 4px;
+		border-radius: 4px;
+	}
 
-/* make buttons look better in IE */
-* html input.button {
-border: 1px solid #000;
-}
+input[type="checkbox"],
+	input[type="radio"],
+	input[type="image"] {
+		border: 0 none;
+	}
 
-/* who says we can't use firefox to its advantages? */
-input.button:hover, input.button:focus {
-background: url(./../images/admin/buttonbg_flip.jpg) repeat-x;
-}
+p,
+	ul,
+	ol,
+	blockquote,
+	input,
+	select {
+		font-size: 12px;
+	}
 
-input.button:active {
-border-style: inset;
+select option {
+	padding: 2px;
 }
-
-/**
- * emulate IE's 'disabled="disabled"' look for
- * buttons in firefox
- */
-input[disabled="disabled"] {
-color: #7f7f7f;
-}
-
-input[disabled="disabled"]:hover, input[disabled="disabled"]:focus {
-background: url(./../images/admin/buttonbg.jpg) repeat-x;
-}
-
-input[disabled="disabled"]:active {
-border-style: outset;
-}
-
-select.multiple {
-height: 150px;
-}
-
-select {
-font-weight: normal;
-}
-
-label:hover, label:focus {
-color: #aa0000;
-}
-
 
 /* Miscellaneous */
 .important {
