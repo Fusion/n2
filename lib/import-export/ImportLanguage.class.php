@@ -104,15 +104,24 @@ class ImportLanguage {
 				if(!empty($info['parentuuid']) && !isset($parentsArr[$info['parentuuid']])) {
 					die("I am sorry, but category '".$info['catName']."' references a non-existent parent.");
 				}
-				$parent = $parentsArr[$info['parentuuid']];
+				if(empty($info['parentuuid'])) {
+					// Root node
+					$parentuuid = '';
+					$parentid   = -1;
+				}
+				else {
+					$parentuuid = $info['parentuuid'];
+					$parent     = $parentsArr[$parentuuid];
+					$parentid   = $parent->getGroupId();
+				}
 				Group::insert(
 						array(
 							'groupType' => 'lang_words',
 							'groupuuid' => $info['catuuid'],
 							'groupName' => unhtmlspecialchars($info['catName']),
 							'deletable' => $info['deletable'],
-							'parentuuid' => $info['parentuuid'],
-							'parentid' => $parent->getGroupId(),
+							'parentuuid' => $parentuuid,
+							'parentid' => $parentid,
 							)
 						);
 				// Of course this group now becomes a potential parent
@@ -123,8 +132,8 @@ class ImportLanguage {
 							'groupuuid' => $info['catuuid'],
 							'groupName' => $info['catName'],
 							'deletable' => $info['deletable'],
-							'parentuuid' => $info['parentuuid'],
-							'parentid' => $parent->getGroupId(),
+							'parentuuid' => $parentuuid,
+							'parentid' => $parentid,
 							)
 					);
 				$parentsArr[$info['catuuid']]->forceGroupId($wtcDB->lastInsertId());

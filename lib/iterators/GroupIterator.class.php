@@ -77,7 +77,9 @@ class GroupIterator implements Iterator {
 	}
 	
 	public function rewind() {
-		reset($this->oGroups);
+		if($this->oGroups) {
+			reset($this->oGroups);
+		}
 	}
 	
 	public function current() {
