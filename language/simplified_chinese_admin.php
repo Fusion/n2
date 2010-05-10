@@ -2172,5 +2172,4 @@ $lang['user_whosOnline_perpage'] = '每页:';
 $lang['user_whosOnline_resolve'] = '解析IP:';
 $lang['user_whosOnline_robots'] = '机器人';
 $lang['user_whosOnline_user'] = '用户';
-
-?>
+$lang['admin_nav_users_banIP'] = 'Ban IP';

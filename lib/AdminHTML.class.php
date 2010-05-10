@@ -263,6 +263,7 @@ class AdminHTML {
 				print("\t" . $this->extra . "\n");
 			}
 
+                        print("\t" . '<script type="text/javascript" src="./scripts/jquery.js"></script>' . "\n");
 			print("\t" . '<script type="text/javascript" src="./scripts/wtcBBLib.js"></script>' . "\n");
 			print("\t" . '<script type="text/javascript" src="./scripts/expandCollapse.js"></script>' . "\n");
 

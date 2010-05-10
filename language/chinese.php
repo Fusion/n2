@@ -716,4 +716,3 @@ $lang['user_whosOnline_resolve'] = '½âÎöIP:';
 $lang['user_whosOnline_robots'] = '»úÆ÷ÈË';
 $lang['user_whosOnline_user'] = 'ÓÃ»§';
 
-?>

@@ -1,0 +1,41 @@
+8
+
+dir
+53
+svn://nextbbs.com/nbbs/trunk/helpers/chat/config
+svn://nextbbs.com/nbbs
+
+
+
+2007-07-05T07:53:06.858381Z
+12
+Chris
+
+
+svn:special svn:externals svn:needs-lock
+
+
+
+
+
+
+
+
+
+
+
+75e21b9a-0a32-0410-a242-b263f50971d3
+
+path-config.xml
+file
+
+
+
+
+2007-07-05T07:56:30.000000Z
+71c89abd3e5dbcf2c1525a6a48f726d8
+2007-07-05T07:53:06.858381Z
+12
+Chris
+has-props
+

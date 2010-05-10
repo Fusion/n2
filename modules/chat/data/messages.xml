@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<smiletag_message>
+    <row>
+        <name><![CDATA[Chris]]></name>
+        <url><![CDATA[]]></url>
+        <message><![CDATA[This is the chat area.]]></message>
+        <datetime>1259459801</datetime>
+        <ipaddress>1.2.3.4</ipaddress>
+        <avatar />
+    </row>
+</smiletag_message>

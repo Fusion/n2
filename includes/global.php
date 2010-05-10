@@ -294,4 +294,8 @@ $selected = ' selected="selected"';
 $checked = ' checked="checked"';
 $attachBits = '';
 
+// Anyone wants to run out of band?
+if(!empty($_GET['oob'])) {
+	do_action('n2_oob');
+}
 ?>

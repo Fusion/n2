@@ -1,0 +1,13 @@
+tool:
+- add text to lang files
+- add new sql query to mysql and mysqli
+- add new acp
+- add new fragment (styles)
+- chat: only aappend sessionid if no cookies
+
+VULNERABILITY:
+admin.php
+        require_once(ADMIN_DIR . '/' . $_GET['file'] . '.php');
+
+TIP:
+changing bboption for domain is not enough: need to clear caches!

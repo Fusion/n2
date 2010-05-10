@@ -314,7 +314,8 @@ if($User->canAdmin('maintenance')) {
 								$lang['admin_nav_main_cache'] => 'admin.php?file=maintenance&amp;do=cache',
 								$lang['admin_nav_main_phpInfo'] => 'admin.php?file=maintenance&amp;do=phpinfo',
 								$lang['admin_nav_main_query'] => 'admin.php?file=maintenance&amp;do=query',
-								$lang['admin_nav_main_counters'] => 'admin.php?file=maintenance&amp;do=update'
+								$lang['admin_nav_main_counters'] => 'admin.php?file=maintenance&amp;do=update',
+								'Import data' => 'admin.php?file=importdata'
 							), true);
 }
 

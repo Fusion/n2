@@ -1,0 +1,253 @@
+/* If you want to write your own style, I'll list the classes here to make it easier for you.
+
+	Container: #yshout
+
+	Form: <form id="ys-post-form"><fieldset>
+					<input id="ys-input-nickname" value="' + this.prefs.defaultNickname + '" type="text" class="ys-before-focus" />
+					<input id="ys-input-message" value="' + this.prefs.defaultMessage + '" type="text" class="ys-before-focus" />
+					<input id="ys-input-submit" value="' + this.prefs.defaultSubmit + '" type="button" />
+					<a title="Launch Admin CP" id="ys-cp-launch" href="#">Admin CP</a>
+				</fieldset></form
+				
+	After the first focus, the class on the inputs changes to ys-after-focus.
+
+	<div class="ys-post (depending on the post also ys-admin-post and ys-banned-post)">
+		<span class="ys-post-timestamp">00:00</span>
+		<span class="ys-post-nickname">Nickname:</span>
+		<span class=" ys-post-message">Message</span> ' +
+		<span class="ys-post-info (ys-info-overlay or ys-info-inline)"><em>IP:</em> 127.0.0.1 <em>Posted:</em> August 30th, 2006</span>
+		<span class="ys-admin-actions"><a title="Show post information" class="ys-info-link" href="#">Info</a> | <a title="Ban" class="ys-ban-link" href="#">Ban</a></span>
+	</div>
+
+*/
+
+
+/* Basic
+------------------------------------- */
+
+#yshout {
+	position: relative;
+        font-family: Lucida Grande, Veranda, sans-serif;
+	font-size: 10px;
+	padding: 0;
+	margin: 0;
+	width: 100%;
+	color: #505050;
+	line-height: 0.8;
+	background: #FFF;
+	overflow: auto;
+	height: 100px;
+	border:none;
+}
+
+#yshout * {
+	margin: 0;
+	padding: 0;
+}
+
+#yshout fieldset {
+	border: none;
+}
+
+#yshout em {
+	font-style: normal;
+	font-weight: bold;
+}
+
+#yshout a {
+	color: #DB536F;
+	text-decoration: none;
+	border-bottom: 1px dotted #CCC;
+}
+
+#yshout a:hover {
+	border-bottom-style: solid;
+	color: #86041E;
+}
+
+
+/* Form
+------------------------------------- */
+
+#yshout #ys-post-form {
+	margin-top: 2px;
+	padding: 2px;
+	background: #FAFAFA;
+}
+
+#yshout #ys-input-nickname {
+	width: 115px;
+	margin-right: 5px;
+}
+
+#yshout #ys-input-message {
+	width: 480px;
+	margin-right: 5px;
+}
+
+#yshout #ys-input-submit {
+	width: 55px;
+	margin-right: 10px;
+}
+
+#yshout .ys-before-focus {
+	color: #808080;
+}
+
+#yshout .ys-after-focus {
+	color: #000;
+}
+
+#yshout .ys-input-invalid {
+	background: #FFFEE9;
+}
+
+/* Posts
+------------------------------------- */
+
+#yshout .ys-post {
+	position: relative;
+	padding: 3px 5px;
+	border-bottom: 1px solid #FAFAFA;
+	margin-bottom: 1px;
+}
+
+#yshout .ys-post:hover {
+	background-color: #FAFAFA;
+}
+
+#yshout .ys-post.ys-banned-post .ys-post-message, 
+#yshout .ys-post.ys-banned-post .ys-post-message a, 
+#yshout .ys-post.ys-banned-post .ys-post-nickname {
+	color: #BEBEBE;
+	text-decoration: line-through;
+}
+
+#yshout .ys-post-timestamp {
+	color: #979797;
+	font-size: 11px;
+}
+
+#yshout .ys-post-nickname {
+	font-weight: bold;
+}
+
+#yshout .ys-post-message {
+
+}
+
+#yshout .ys-admin-actions {
+	position: absolute;
+	top: 0;
+	right: 0;
+	padding-top: 5px;
+	padding-left: 5px;
+	background: #fff;
+	color: #979797;
+	font-size: 11px;
+	z-index: 50;
+	display: none;
+	filter: alpha(opacity=95);
+	-moz-opacity: 0.95;
+	opacity: 0.95;
+}
+
+#yshout .ys-post:hover .ys-admin-actions {
+	display: block;
+}
+
+#yshout .ys-info-overlay {
+	display: none;
+	position: absolute;
+	z-index: 49;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+	background: #FFF;
+	filter: alpha(opacity=90);
+	-moz-opacity: 0.90;
+	opacity: 0.90;
+	padding: 3px 5px;
+	color: #333333;
+}
+
+#yshout .ys-info-inline {
+	display: none;
+}
+
+#yshout .ys-admin-post .ys-post-nickname {
+	background: url(../images/star.gif) 0 2px no-repeat;
+	padding-left: 13px;
+}
+
+
+#yshout #ys-stf {
+	padding: 4px 4px 4px 4px;
+}
+
+#yshout #ys-stf span {
+	font-size: 12px;
+	font-weight: bold;
+}
+
+/* Control Panel
+------------------------------------- */
+
+#ys-cp-overlay {
+	position: absolute;
+	z-index: 100;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+	background-color: #000;
+	filter: alpha(opacity=60);
+	-moz-opacity: 0.6;
+	opacity: 0.6;
+}
+
+* html body {
+	height: 100%;
+	width: 100%;
+}
+
+
+#ys-cp object {
+	border: none;
+	z-index: 102;
+	overflow: auto;
+	height: 550px;
+	width: 700px;
+}
+
+#ys-cp {
+	z-index: 102;
+	position: absolute;
+	margin-top: -275px;
+	margin-left: -350px;
+	top: 50%;
+	left: 50%;
+	height: 550px;
+	width: 700px;
+}
+
+#ys-cp-close {
+	position: absolute;
+	z-index: 102;
+	top: 50%;
+	left: 50%;
+	height: 15px;
+	margin-top: -290px;
+	width: 50px;
+	margin-left: 300px;
+
+	line-height: 15px;
+	color: #fff;
+	text-align: center;
+	text-decoration: none;
+	font-weight: bold;
+	
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 11px;
+}

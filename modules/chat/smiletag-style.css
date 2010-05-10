@@ -1,0 +1,64 @@
+body {
+	overflow-x: hidden;
+}
+.st-content {
+	font: 11px/1.5em "Lucida Grande","Lucida Sans Unicode",verdana,geneva,sans-serif;
+	float: left;
+	width: 100%;
+	margin: 0;
+	padding-top: 0;
+	padding-right: 0px;
+	padding-bottom: 2px;
+	padding-left: 1px;
+}
+.st-message {
+}
+.st-message p{
+	padding: 5px 10px 5px 10px;
+	margin: 0;
+	word-wrap: break-word;
+}
+.st-author-info{
+	margin: 0;
+	padding-top: 0;
+	padding-right: 0;
+	padding-bottom: 0px;
+	padding-left: 5px;
+	font-weight: bold; 
+	color: #6699ff; 
+	font-size: 8pt; 
+}
+.st-avatar{
+	float: left;
+	padding: 0px 0px 0px 5px;
+	margin: 0;
+}
+
+.st-date{
+	float: left;
+}
+.st-date-time{
+	font-size:8px;
+}
+.st-author-name{
+	font-weight: bold;
+}
+.st-comment-cell{
+	padding-top: 2px;
+}
+.gray{
+	color:#5B5B5B; 
+	text-decoration:none;
+}
+.st-footer{
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:10px;
+	text-align:center;
+}
+a {
+	text-decoration:none;
+	color: #6699ff; 
+}
+a:hover {
+	text-decoration:underline;
+}

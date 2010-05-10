@@ -3,7 +3,7 @@
 -- 
 
 CREATE TABLE `admins` (
-  `adminid` smallint(5) unsigned NOT NULL auto_increment,
+  `adminid` int(11) unsigned NOT NULL auto_increment,
   `userid` varchar(255) default NULL,
   `options` tinyint(1) default NULL,
   `language` tinyint(1) default NULL,
@@ -45,9 +45,9 @@ CREATE TABLE `admins` (
 -- 
 
 CREATE TABLE `announcements` (
-  `announceid` smallint(5) unsigned NOT NULL auto_increment,
-  `userid` mediumint(9) default NULL,
-  `forumid` smallint(6) default NULL,
+  `announceid` int(11) unsigned NOT NULL auto_increment,
+  `userid` int(11) default NULL,
+  `forumid` int(11) default NULL,
   `title` varchar(255) default NULL,
   `dateUpdated` int(11) default NULL,
   `dateStart` int(11) default NULL,
@@ -56,7 +56,7 @@ CREATE TABLE `announcements` (
   `parseBBCode` tinyint(1) default NULL,
   `parseSmilies` tinyint(1) default NULL,
   `parseHtml` tinyint(1) default NULL,
-  `views` mediumint(9) default NULL,
+  `views` int(11) default NULL,
   `inherit` tinyint(1) default NULL,
   PRIMARY KEY  (`announceid`),
   KEY `userid` (`userid`),
@@ -76,7 +76,7 @@ CREATE TABLE `announcements` (
 -- 
 
 CREATE TABLE `attach_store` (
-  `storeid` smallint(5) unsigned NOT NULL auto_increment,
+  `storeid` int(11) unsigned NOT NULL auto_increment,
   `ext` varchar(255) default NULL,
   `mime` varchar(255) default NULL,
   `maxSize` int(11) default NULL,
@@ -120,21 +120,21 @@ INSERT INTO `attach_store` (`storeid`, `ext`, `mime`, `maxSize`, `maxWidth`, `ma
 -- 
 
 CREATE TABLE `attachments` (
-  `attachid` smallint(5) unsigned NOT NULL auto_increment,
+  `attachid` int(11) unsigned NOT NULL auto_increment,
   `pathName` varchar(255) default NULL,
   `fileName` varchar(255) default NULL,
   `hash` varchar(32) default NULL,
   `mime` varchar(255) default NULL,
   `fileSize` int(11) default NULL,
   `image` tinyint(1) default NULL,
-  `userid` mediumint(8) unsigned NOT NULL default '0',
-  `forumid` smallint(5) unsigned NOT NULL default '0',
-  `threadid` smallint(5) unsigned NOT NULL default '0',
-  `postid` smallint(5) unsigned NOT NULL default '0',
+  `userid` int(11) unsigned NOT NULL default '0',
+  `forumid` int(11) unsigned NOT NULL default '0',
+  `threadid` int(11) unsigned NOT NULL default '0',
+  `postid` int(11) unsigned NOT NULL default '0',
   `thumbFileName` varchar(255) default NULL,
-  `downloads` mediumint(9) default '0',
-  `convoid` mediumint(8) unsigned NOT NULL default '0',
-  `messageid` mediumint(8) unsigned NOT NULL default '0',
+  `downloads` int(11) default '0',
+  `convoid` int(11) unsigned NOT NULL default '0',
+  `messageid` int(11) unsigned NOT NULL default '0',
   PRIMARY KEY  (`attachid`),
   KEY `userid` (`userid`),
   KEY `postid` (`postid`)
@@ -152,11 +152,11 @@ CREATE TABLE `attachments` (
 -- 
 
 CREATE TABLE `avatar` (
-  `avatarid` smallint(5) unsigned NOT NULL auto_increment,
-  `groupid` smallint(6) default NULL,
+  `avatarid` int(11) unsigned NOT NULL auto_increment,
+  `groupid` int(11) default NULL,
   `title` varchar(255) default NULL,
   `imgPath` varchar(255) default NULL,
-  `disOrder` smallint(6) default NULL,
+  `disOrder` int(11) default NULL,
   PRIMARY KEY  (`avatarid`),
   KEY `groupid` (`groupid`)
 );
@@ -188,14 +188,14 @@ INSERT INTO `avatar` (`avatarid`, `groupid`, `title`, `imgPath`, `disOrder`) VAL
 -- 
 
 CREATE TABLE `bbcode` (
-  `bbcodeid` smallint(5) unsigned NOT NULL auto_increment,
+  `bbcodeid` int(11) unsigned NOT NULL auto_increment,
   `name` varchar(255) default NULL,
   `tag` varchar(255) default NULL,
   `replacement` text,
   `example` text,
   `description` text,
   `display` tinyint(1) default NULL,
-  `disOrder` smallint(6) NOT NULL default '99',
+  `disOrder` int(11) NOT NULL default '99',
   PRIMARY KEY  (`bbcodeid`)
 );
 
@@ -240,12 +240,12 @@ INSERT INTO `bbcode` (`bbcodeid`, `name`, `tag`, `replacement`, `example`, `desc
 -- 
 
 CREATE TABLE `cron` (
-  `cronid` mediumint(8) unsigned NOT NULL auto_increment,
+  `cronid` int(11) unsigned NOT NULL auto_increment,
   `title` varchar(255) default NULL,
   `path` mediumtext,
   `log` tinyint(1) default NULL,
-  `dayOfWeek` tinyint(6) default NULL,
-  `dayOfMonth` tinyint(31) default NULL,
+  `dayOfWeek` int(11) default NULL,
+  `dayOfMonth` int(11) default NULL,
   `hour` tinyint(23) default NULL,
   `minute` tinyint(59) default NULL,
   `nextRun` int(11) default NULL,
@@ -272,14 +272,14 @@ INSERT INTO `cron` (`cronid`, `title`, `path`, `log`, `dayOfWeek`, `dayOfMonth`,
 -- 
 
 CREATE TABLE `custom_pro` (
-  `proid` smallint(5) unsigned NOT NULL auto_increment,
+  `proid` int(11) unsigned NOT NULL auto_increment,
   `fieldName` varchar(255) default NULL,
   `fieldDesc` text,
   `fieldType` enum('text','select','multi-select','radio','checkbox','textarea') default NULL,
   `defValue` varchar(255) default NULL,
   `optionText` text,
-  `groupid` smallint(6) default NULL,
-  `disOrder` smallint(6) default '0',
+  `groupid` int(11) default NULL,
+  `disOrder` int(11) default '0',
   `colName` varchar(255) default NULL,
   PRIMARY KEY  (`proid`)
 );
@@ -301,10 +301,10 @@ INSERT INTO `custom_pro` (`proid`, `fieldName`, `fieldDesc`, `fieldType`, `defVa
 -- 
 
 CREATE TABLE `faq` (
-  `faqid` smallint(5) unsigned NOT NULL auto_increment,
+  `faqid` int(11) unsigned NOT NULL auto_increment,
   `parent` varchar(255) default NULL,
   `varname` varchar(255) default NULL,
-  `disOrder` smallint(6) default NULL,
+  `disOrder` int(11) default NULL,
   PRIMARY KEY  (`faqid`),
   KEY `parent` (`parent`)
 );
@@ -321,9 +321,9 @@ CREATE TABLE `faq` (
 -- 
 
 CREATE TABLE `forumperms` (
-  `permid` smallint(5) unsigned NOT NULL auto_increment,
-  `forumid` smallint(6) default NULL,
-  `usergroupid` mediumint(9) default NULL,
+  `permid` int(11) unsigned NOT NULL auto_increment,
+  `forumid` int(11) default NULL,
+  `usergroupid` int(11) default NULL,
   `canEditedNotice` tinyint(1) default NULL,
   `canDownAttach` tinyint(1) default NULL,
   `canUpAttach` tinyint(1) default NULL,
@@ -368,27 +368,27 @@ CREATE TABLE `forumperms` (
 -- 
 
 CREATE TABLE `forums` (
-  `forumid` smallint(5) unsigned NOT NULL auto_increment,
+  `forumid` int(11) unsigned NOT NULL auto_increment,
   `depth` tinyint(255) default NULL,
   `name` varchar(255) default NULL,
-  `parent` smallint(6) default NULL,
+  `parent` int(11) default NULL,
   `directSubs` mediumtext,
-  `disOrder` smallint(6) default NULL,
+  `disOrder` int(11) default NULL,
   `link` varchar(255) default NULL,
   `linkCount` int(11) default NULL,
   `forumPass` varchar(255) default NULL,
   `isCat` tinyint(1) default NULL,
   `isAct` tinyint(1) default NULL,
   `countPosts` tinyint(1) default NULL,
-  `viewAge` mediumint(9) default NULL,
+  `viewAge` int(11) default NULL,
   `dateMade` int(11) default NULL,
   `last_reply_username` varchar(255) default NULL,
   `last_reply_userid` varchar(255) default NULL,
   `last_reply_date` int(11) default NULL,
-  `last_reply_threadid` smallint(6) default NULL,
+  `last_reply_threadid` int(11) default NULL,
   `last_reply_threadtitle` varchar(255) default NULL,
-  `posts` mediumint(9) default NULL,
-  `threads` smallint(6) default NULL,
+  `posts` int(11) default NULL,
+  `threads` int(11) default NULL,
   `description` mediumtext,
   PRIMARY KEY  (`forumid`),
   KEY `last_reply_userid` (`last_reply_userid`),
@@ -411,15 +411,15 @@ INSERT INTO `forums` (`forumid`, `depth`, `name`, `parent`, `directSubs`, `disOr
 -- 
 
 CREATE TABLE `groups` (
-  `groupid` mediumint(8) unsigned NOT NULL auto_increment,
+  `groupid` int(11) unsigned NOT NULL auto_increment,
   `groupuuid` varchar(32) default '',
   `groupName` varchar(255) default NULL,
   `groupType` varchar(255) default NULL,
   `usergroupids` mediumtext,
-  `parentid` mediumint(9) NOT NULL default '-1',
+  `parentid` int(11) NOT NULL default '-1',
   `parentuuid` varchar(32) default '',
   `deletable` tinyint(1) NOT NULL default '1',
-  `groupOrder` smallint(6) default '0',
+  `groupOrder` int(11) default '0',
   PRIMARY KEY  (`groupid`)
 );
 
@@ -470,7 +470,7 @@ INSERT INTO `groups` (`groupid`, `groupName`, `groupType`, `usergroupids`, `pare
 -- 
 
 CREATE TABLE `lang` (
-  `langid` smallint(5) unsigned NOT NULL auto_increment,
+  `langid` int(11) unsigned NOT NULL auto_increment,
   `name` varchar(255) default NULL,
   PRIMARY KEY  (`langid`)
 );
@@ -487,10 +487,10 @@ INSERT INTO `lang` (`langid`, `name`) VALUES (0, 'English');
 -- 
 
 CREATE TABLE `lang_categories` (
-  `catid` mediumint(8) unsigned NOT NULL auto_increment,
+  `catid` int(11) unsigned NOT NULL auto_increment,
   `catName` varchar(255) default NULL,
   `depth` tinyint(255) default NULL,
-  `parentid` mediumint(9) default NULL,
+  `parentid` int(11) default NULL,
   PRIMARY KEY  (`catid`),
   KEY `parentid` (`parentid`)
 );
@@ -616,13 +616,13 @@ INSERT INTO `lang_categories` (`catid`, `catName`, `depth`, `parentid`) VALUES (
 -- 
 
 CREATE TABLE `lang_words` (
-  `wordsid` mediumint(8) unsigned NOT NULL auto_increment,
+  `wordsid` int(11) unsigned NOT NULL auto_increment,
   `name` text,
   `words` text,
-  `langid` smallint(5) NOT NULL default '0',
-  `catid` mediumint(8) unsigned NOT NULL default '0',
+  `langid` int(11) NOT NULL default '0',
+  `catid` int(11) unsigned NOT NULL default '0',
   `displayName` varchar(255) default NULL,
-  `defaultid` mediumint(8) NOT NULL default '0',
+  `defaultid` int(11) NOT NULL default '0',
   PRIMARY KEY  (`wordsid`),
   KEY `langid` (`langid`),
   KEY `catid` (`catid`),
@@ -640,8 +640,8 @@ CREATE TABLE `lang_words` (
 -- 
 
 CREATE TABLE `logger_admin` (
-  `log_adminid` int(10) unsigned NOT NULL auto_increment,
-  `log_userid` mediumint(9) default NULL,
+  `log_adminid` int(11) unsigned NOT NULL auto_increment,
+  `log_userid` int(11) default NULL,
   `log_date` int(11) default NULL,
   `log_ip` varchar(255) default NULL,
   `log_filePath` varchar(255) default NULL,
@@ -663,7 +663,7 @@ CREATE TABLE `logger_admin` (
 -- 
 
 CREATE TABLE `logger_cron` (
-  `log_cronid` int(10) unsigned NOT NULL auto_increment,
+  `log_cronid` int(11) unsigned NOT NULL auto_increment,
   `log_crontitle` varchar(255) default NULL,
   `log_nextRun` int(11) default NULL,
   `log_date` int(11) default NULL,
@@ -684,9 +684,9 @@ CREATE TABLE `logger_cron` (
 -- 
 
 CREATE TABLE `logger_ips` (
-  `log_ipid` int(10) unsigned NOT NULL auto_increment,
+  `log_ipid` int(11) unsigned NOT NULL auto_increment,
   `ip_address` varchar(255) default NULL,
-  `userid` mediumint(8) unsigned NOT NULL default '0',
+  `userid` int(11) unsigned NOT NULL default '0',
   PRIMARY KEY  (`log_ipid`),
   KEY `userid` (`userid`),
   KEY `ip_address` (`ip_address`)
@@ -704,8 +704,8 @@ CREATE TABLE `logger_ips` (
 -- 
 
 CREATE TABLE `logger_mods` (
-  `log_modid` int(10) unsigned NOT NULL auto_increment,
-  `log_userid` mediumint(9) default NULL,
+  `log_modid` int(11) unsigned NOT NULL auto_increment,
+  `log_userid` int(11) default NULL,
   `log_date` int(11) default NULL,
   `log_ip` varchar(255) default NULL,
   `log_modAction` varchar(255) default NULL,
@@ -727,9 +727,9 @@ CREATE TABLE `logger_mods` (
 -- 
 
 CREATE TABLE `moderators` (
-  `modid` mediumint(8) unsigned NOT NULL auto_increment,
-  `userid` mediumint(8) unsigned NOT NULL default '0',
-  `forumid` mediumint(8) unsigned NOT NULL default '0',
+  `modid` int(11) unsigned NOT NULL auto_increment,
+  `userid` int(11) unsigned NOT NULL default '0',
+  `forumid` int(11) unsigned NOT NULL default '0',
   `modSubs` tinyint(1) default NULL,
   `canEditPosts` tinyint(1) default NULL,
   `canEditThreads` tinyint(1) default NULL,
@@ -798,14 +798,14 @@ INSERT INTO `modules` (`moduleid`,`type`,`name`,`path`,`default`,`long_name`,`en
 -- 
 
 CREATE TABLE `personal_convo` (
-  `convoid` mediumint(8) unsigned NOT NULL auto_increment,
+  `convoid` int(11) unsigned NOT NULL auto_increment,
   `title` varchar(255) default NULL,
   `convoTimeline` int(11) default NULL,
   `last_reply_date` int(11) default NULL,
   `last_reply_username` varchar(255) default NULL,
-  `last_reply_userid` smallint(6) default NULL,
-  `last_reply_messageid` mediumint(9) default NULL,
-  `messages` smallint(6) default NULL,
+  `last_reply_userid` int(11) default NULL,
+  `last_reply_messageid` int(11) default NULL,
+  `messages` int(11) default NULL,
   PRIMARY KEY  (`convoid`),
   KEY `last_reply_date` (`last_reply_date`),
   KEY `convoTimeline` (`convoTimeline`)
@@ -823,10 +823,10 @@ CREATE TABLE `personal_convo` (
 -- 
 
 CREATE TABLE `personal_convodata` (
-  `convodataid` mediumint(8) unsigned NOT NULL auto_increment,
-  `convoid` mediumint(8) unsigned NOT NULL default '0',
-  `userid` mediumint(8) unsigned NOT NULL default '0',
-  `folderid` mediumint(8) unsigned NOT NULL default '0',
+  `convodataid` int(11) unsigned NOT NULL auto_increment,
+  `convoid` int(11) unsigned NOT NULL default '0',
+  `userid` int(11) unsigned NOT NULL default '0',
+  `folderid` int(11) unsigned NOT NULL default '0',
   `lastRead` int(10) unsigned NOT NULL default '0',
   `hasAlert` tinyint(1) default '1',
   `username` varchar(255) default NULL,
@@ -847,9 +847,9 @@ CREATE TABLE `personal_convodata` (
 -- 
 
 CREATE TABLE `personal_folders` (
-  `folderid` mediumint(8) unsigned NOT NULL auto_increment,
+  `folderid` int(11) unsigned NOT NULL auto_increment,
   `name` varchar(255) default NULL,
-  `userid` smallint(5) unsigned NOT NULL default '0',
+  `userid` int(11) unsigned NOT NULL default '0',
   PRIMARY KEY  (`folderid`),
   KEY `userid` (`userid`)
 );
@@ -867,10 +867,10 @@ INSERT INTO `personal_folders` (`folderid`, `name`, `userid`) VALUES (1, 'Inbox'
 -- 
 
 CREATE TABLE `personal_msg` (
-  `messageid` mediumint(8) unsigned NOT NULL auto_increment,
-  `convoid` mediumint(8) unsigned NOT NULL default '0',
+  `messageid` int(11) unsigned NOT NULL auto_increment,
+  `convoid` int(11) unsigned NOT NULL default '0',
   `title` varchar(255) default NULL,
-  `userid` smallint(5) unsigned NOT NULL default '0',
+  `userid` int(11) unsigned NOT NULL default '0',
   `message` mediumtext,
   `ip_address` varchar(255) default NULL,
   `msg_timeline` int(11) default NULL,
@@ -896,17 +896,17 @@ CREATE TABLE `personal_msg` (
 -- 
 
 CREATE TABLE `polls` (
-  `pollid` mediumint(8) unsigned NOT NULL auto_increment,
-  `threadid` mediumint(8) unsigned NOT NULL default '0',
+  `pollid` int(11) unsigned NOT NULL auto_increment,
+  `threadid` int(11) unsigned NOT NULL default '0',
   `title` varchar(255) default NULL,
   `poll_timeline` int(11) default NULL,
-  `options` smallint(6) default NULL,
+  `options` int(11) default NULL,
   `multiple` tinyint(1) default NULL,
   `public` tinyint(1) default NULL,
-  `votes` smallint(6) default NULL,
+  `votes` int(11) default NULL,
   `timeout` int(11) default NULL,
   `polloptions` mediumtext,
-  `forumid` smallint(6) default NULL,
+  `forumid` int(11) default NULL,
   `disabled` tinyint(1) default NULL,
   PRIMARY KEY  (`pollid`),
   KEY `threadid` (`threadid`)
@@ -924,10 +924,10 @@ CREATE TABLE `polls` (
 -- 
 
 CREATE TABLE `posticons` (
-  `iconid` mediumint(8) unsigned NOT NULL auto_increment,
+  `iconid` int(11) unsigned NOT NULL auto_increment,
   `title` varchar(255) default NULL,
   `imgPath` mediumtext,
-  `disOrder` smallint(6) default NULL,
+  `disOrder` int(11) default NULL,
   PRIMARY KEY  (`iconid`)
 );
 
@@ -953,10 +953,10 @@ INSERT INTO `posticons` (`iconid`, `title`, `imgPath`, `disOrder`) VALUES (70, '
 -- 
 
 CREATE TABLE `posts` (
-  `postid` mediumint(8) unsigned NOT NULL auto_increment,
-  `threadid` mediumint(8) unsigned NOT NULL default '0',
-  `forumid` smallint(5) unsigned NOT NULL default '0',
-  `postby` mediumint(8) unsigned NOT NULL default '0',
+  `postid` int(11) unsigned NOT NULL auto_increment,
+  `threadid` int(11) unsigned NOT NULL default '0',
+  `forumid` int(11) unsigned NOT NULL default '0',
+  `postby` int(11) unsigned NOT NULL default '0',
   `postUsername` varchar(255) default NULL,
   `message` mediumtext,
   `title` varchar(255) default NULL,
@@ -992,9 +992,9 @@ INSERT INTO `posts` (`postid`, `threadid`, `forumid`, `postby`, `postUsername`, 
 -- 
 
 CREATE TABLE `reputations` (
-  `repid` mediumint(8) unsigned NOT NULL auto_increment,
-  `userid` mediumint(8) unsigned NOT NULL default '0',
-  `repby` mediumint(8) unsigned NOT NULL default '0',
+  `repid` int(11) unsigned NOT NULL auto_increment,
+  `userid` int(11) unsigned NOT NULL default '0',
+  `repby` int(11) unsigned NOT NULL default '0',
   `repUsername` varchar(255) default NULL,
   `message` mediumtext,
   `up` tinyint(1) default 1,
@@ -1020,9 +1020,9 @@ CREATE TABLE `reputations` (
 -- 
 
 CREATE TABLE `ranks` (
-  `rankid` smallint(5) unsigned NOT NULL auto_increment,
+  `rankid` int(11) unsigned NOT NULL auto_increment,
   `title` mediumtext,
-  `minPosts` mediumint(9) default NULL,
+  `minPosts` int(11) default NULL,
   PRIMARY KEY  (`rankid`)
 );
 
@@ -1042,9 +1042,9 @@ INSERT INTO `ranks` (`rankid`, `title`, `minPosts`) VALUES (4, 'Senior Member', 
 -- 
 
 CREATE TABLE `ranks_images` (
-  `rankiid` smallint(5) unsigned NOT NULL auto_increment,
-  `rankRepeat` smallint(6) default NULL,
-  `minPosts` mediumint(9) default NULL,
+  `rankiid` int(11) unsigned NOT NULL auto_increment,
+  `rankRepeat` int(11) default NULL,
+  `minPosts` int(11) default NULL,
   `imgPath` varchar(255) default NULL,
   PRIMARY KEY  (`rankiid`)
 );
@@ -1067,8 +1067,8 @@ INSERT INTO `ranks_images` (`rankiid`, `rankRepeat`, `minPosts`, `imgPath`) VALU
 -- 
 
 CREATE TABLE `read_forums` (
-  `readUserId` mediumint(8) unsigned NOT NULL default '0',
-  `readForumId` smallint(5) unsigned NOT NULL default '0',
+  `readUserId` int(11) unsigned NOT NULL default '0',
+  `readForumId` int(11) unsigned NOT NULL default '0',
   `dateRead` int(11) default NULL,
   PRIMARY KEY  (`readForumId`,`readUserId`)
 );
@@ -1085,8 +1085,8 @@ CREATE TABLE `read_forums` (
 -- 
 
 CREATE TABLE `read_threads` (
-  `readUserId` mediumint(8) unsigned NOT NULL default '0',
-  `readThreadId` smallint(5) unsigned NOT NULL default '0',
+  `readUserId` int(11) unsigned NOT NULL default '0',
+  `readThreadId` int(11) unsigned NOT NULL default '0',
   `dateRead` int(11) default NULL,
   PRIMARY KEY  (`readThreadId`,`readUserId`)
 );
@@ -1105,7 +1105,7 @@ CREATE TABLE `read_threads` (
 CREATE TABLE `sessions` (
   `sessionid` varchar(32) NOT NULL default '',
   `username` varchar(255) default NULL,
-  `userid` mediumint(8) unsigned NOT NULL default '0',
+  `userid` int(11) unsigned NOT NULL default '0',
   `lastactive` int(11) default NULL,
   `loc` varchar(255) default NULL,
   `details` varchar(255) default NULL,
@@ -1130,12 +1130,12 @@ INSERT INTO `sessions` (`sessionid`, `username`, `userid`, `lastactive`, `loc`, 
 -- 
 
 CREATE TABLE `smilies` (
-  `smileyid` mediumint(8) unsigned NOT NULL auto_increment,
-  `groupid` smallint(6) default NULL,
+  `smileyid` int(11) unsigned NOT NULL auto_increment,
+  `groupid` int(11) default NULL,
   `title` varchar(255) default NULL,
   `replacement` varchar(255) default NULL,
   `imgPath` varchar(255) default NULL,
-  `disOrder` smallint(6) default NULL,
+  `disOrder` int(11) default NULL,
   PRIMARY KEY  (`smileyid`),
   KEY `groupid` (`groupid`)
 );
@@ -1168,10 +1168,10 @@ INSERT INTO `smilies` (`smileyid`, `groupid`, `title`, `replacement`, `imgPath`,
 -- 
 
 CREATE TABLE `styles` (
-  `styleid` mediumint(8) unsigned NOT NULL auto_increment,
-  `parentid` mediumint(8) NOT NULL default '0',
+  `styleid` int(11) unsigned NOT NULL auto_increment,
+  `parentid` int(11) NOT NULL default '0',
   `name` varchar(255) default NULL,
-  `disOrder` smallint(6) default NULL,
+  `disOrder` int(11) default NULL,
   `selectable` tinyint(1) default NULL,
   `enabled` tinyint(1) default NULL,
   `fragmentids` mediumtext,
@@ -1194,16 +1194,16 @@ CREATE TABLE `styles` (
 -- 
 
 CREATE TABLE `styles_fragments` (
-  `fragmentid` mediumint(8) unsigned NOT NULL auto_increment,
-  `styleid` mediumint(8) unsigned default NULL,
-  `groupid` smallint(6) default NULL,
+  `fragmentid` int(11) unsigned NOT NULL auto_increment,
+  `styleid` int(11) unsigned default NULL,
+  `groupid` int(11) default NULL,
   `fragmentName` varchar(255) default NULL,
   `fragmentVarName` varchar(255) default NULL,
   `fragmentType` varchar(255) default NULL,
   `fragment` mediumtext,
   `template_php` mediumtext,
-  `defaultid` mediumint(9) NOT NULL default '0',
-  `disOrder` tinyint(4) NOT NULL default '0',
+  `defaultid` int(11) NOT NULL default '0',
+  `disOrder` int(11) NOT NULL default '0',
   PRIMARY KEY  (`fragmentid`),
   KEY `styleid` (`styleid`),
   KEY `groupid` (`groupid`)
@@ -1221,10 +1221,10 @@ CREATE TABLE `styles_fragments` (
 -- 
 
 CREATE TABLE `subscribe` (
-  `subid` mediumint(8) unsigned NOT NULL auto_increment,
-  `userid` mediumint(8) unsigned NOT NULL default '0',
-  `forumid` smallint(5) unsigned NOT NULL default '0',
-  `threadid` mediumint(8) unsigned default NULL,
+  `subid` int(11) unsigned NOT NULL auto_increment,
+  `userid` int(11) unsigned NOT NULL default '0',
+  `forumid` int(11) unsigned NOT NULL default '0',
+  `threadid` int(11) unsigned default NULL,
   `subType` varchar(255) default NULL,
   `lastEmail` int(11) default NULL,
   `lastView` int(11) default NULL,
@@ -1245,30 +1245,30 @@ CREATE TABLE `subscribe` (
 -- 
 
 CREATE TABLE `threads` (
-  `threadid` mediumint(8) unsigned NOT NULL auto_increment,
-  `forumid` smallint(5) unsigned NOT NULL default '0',
+  `threadid` int(11) unsigned NOT NULL auto_increment,
+  `forumid` int(11) unsigned NOT NULL default '0',
   `name` varchar(255) default NULL,
-  `madeby` mediumint(8) unsigned NOT NULL default '0',
+  `madeby` int(11) unsigned NOT NULL default '0',
   `threadUsername` varchar(255) default NULL,
-  `views` mediumint(9) default NULL,
-  `replies` smallint(6) default NULL,
+  `views` int(11) default NULL,
+  `replies` int(11) default NULL,
   `last_reply_username` varchar(255) default NULL,
   `last_reply_userid` varchar(255) default NULL,
   `last_reply_date` int(11) default NULL,
-  `last_reply_postid` mediumint(9) default NULL,
+  `last_reply_postid` int(11) default NULL,
   `posticon` varchar(255) default NULL,
   `deleted` tinyint(1) default NULL,
   `deleted_by` varchar(255) default NULL,
   `deleted_reason` text,
   `deleted_timeline` int(11) default NULL,
-  `moved` mediumint(9) default NULL,
+  `moved` int(11) default NULL,
   `sticky` tinyint(1) default NULL,
   `closed` tinyint(1) default NULL,
   `poll` tinyint(1) default NULL,
   `thread_timeline` int(11) default NULL,
   `descript` varchar(255) default NULL,
-  `first_postid` mediumint(8) unsigned NOT NULL default '0',
-  `deleted_replies` smallint(6) default NULL,
+  `first_postid` int(11) unsigned NOT NULL default '0',
+  `deleted_replies` int(11) default NULL,
   PRIMARY KEY  (`threadid`),
   KEY `forumid` (`forumid`),
   KEY `madeby` (`madeby`),
@@ -1294,7 +1294,7 @@ INSERT INTO `threads` (`threadid`, `forumid`, `name`, `madeby`, `threadUsername`
 -- 
 
 CREATE TABLE `usergroups` (
-  `usergroupid` mediumint(8) unsigned NOT NULL auto_increment,
+  `usergroupid` int(11) unsigned NOT NULL auto_increment,
   `title` varchar(255) default NULL,
   `description` mediumtext,
   `usertitle` mediumtext,
@@ -1349,13 +1349,13 @@ CREATE TABLE `usergroups` (
   `overridePostMinChars` tinyint(1) default NULL,
   `overridePostMaxChars` tinyint(1) default NULL,
   `overridePostMaxImages` tinyint(1) default NULL,
-  `attachFilesize` mediumint(9) default NULL,
-  `avatarFilesize` mediumint(9) default NULL,
-  `avatarWidth` mediumint(9) default NULL,
-  `avatarHeight` mediumint(9) default NULL,
-  `personalMaxMessages` mediumint(9) default NULL,
-  `personalSendUsers` smallint(6) default NULL,
-  `personalRules` smallint(6) default NULL,
+  `attachFilesize` int(11) default NULL,
+  `avatarFilesize` int(11) default NULL,
+  `avatarWidth` int(11) default NULL,
+  `avatarHeight` int(11) default NULL,
+  `personalMaxMessages` int(11) default NULL,
+  `personalSendUsers` int(11) default NULL,
+  `personalRules` int(11) default NULL,
   `canCreatePolls` tinyint(1) default NULL,
   `canVotePolls` tinyint(1) default NULL,
   `canViewOwnThreads` tinyint(1) default NULL,
@@ -1369,7 +1369,7 @@ CREATE TABLE `usergroups` (
   `canImg` tinyint(1) default NULL,
   `canSmilies` tinyint(1) default NULL,
   `canIcons` tinyint(1) default NULL,
-  `maxAttach` mediumint(9) default NULL,
+  `maxAttach` int(11) default NULL,
   `overrideMaxSig` tinyint(1) default NULL,
   `showRanks` tinyint(1) default NULL,
   PRIMARY KEY  (`usergroupid`),
@@ -1399,12 +1399,12 @@ INSERT INTO `usergroups` (`usergroupid`, `title`, `description`, `usertitle`, `h
 -- 
 
 CREATE TABLE `usergroups_auto` (
-  `autoid` mediumint(8) unsigned NOT NULL auto_increment,
+  `autoid` int(11) unsigned NOT NULL auto_increment,
   `affectedId` mediumtext,
-  `moveTo` mediumint(9) default NULL,
-  `daysReg` smallint(6) default NULL,
+  `moveTo` int(11) default NULL,
+  `daysReg` int(11) default NULL,
   `daysRegComp` tinyint(1) default NULL,
-  `postsa` smallint(6) default NULL,
+  `postsa` int(11) default NULL,
   `postsComp` tinyint(1) default NULL,
   `type` tinyint(1) default NULL,
   `secondary` tinyint(1) default NULL,
@@ -1424,20 +1424,20 @@ CREATE TABLE `usergroups_auto` (
 -- 
 
 CREATE TABLE `userinfo` (
-  `userid` mediumint(8) unsigned NOT NULL auto_increment,
+  `userid` int(11) unsigned NOT NULL auto_increment,
   `username` varchar(255) default NULL,
-  `usergroupid` mediumint(8) unsigned NOT NULL default '0',
+  `usergroupid` int(11) unsigned NOT NULL default '0',
   `secgroupids` mediumtext,
   `joined` int(11) default NULL,
   `ip` varchar(255) default NULL,
-  `posts` mediumint(8) unsigned NOT NULL default '0',
-  `threads` mediumint(8) unsigned NOT NULL default '0',
+  `posts` int(11) unsigned NOT NULL default '0',
+  `threads` int(11) unsigned NOT NULL default '0',
   `lastvisit` int(11) default NULL,
   `lastactivity` int(11) default NULL,
   `lastpost` int(11) default NULL,
-  `lastpostid` mediumint(8) unsigned NOT NULL default '0',
+  `lastpostid` int(11) unsigned NOT NULL default '0',
   `birthday` int(11) default NULL,
-  `warn` smallint(5) unsigned NOT NULL default '0',
+  `warn` int(11) unsigned NOT NULL default '0',
   `aim` varchar(255) default NULL,
   `msn` varchar(255) default NULL,
   `yahoo` varchar(255) default NULL,
@@ -1448,7 +1448,7 @@ CREATE TABLE `userinfo` (
   `occupation` mediumtext,
   `biography` mediumtext,
   `usertitle` mediumtext,
-  `usertitle_opt` tinyint(3) default NULL,
+  `usertitle_opt` int(11) default NULL,
   `htmlBegin` mediumtext,
   `htmlEnd` mediumtext,
   `email` varchar(255) default NULL,
@@ -1457,14 +1457,14 @@ CREATE TABLE `userinfo` (
   `dst` tinyint(1) default NULL,
   `timezone` tinyint(12) default NULL,
   `referrer` varchar(255) default NULL,
-  `referrals` smallint(6) default NULL,
+  `referrals` int(11) default NULL,
   `sig` mediumtext,
   `defFont` varchar(255) default NULL,
   `defColor` varchar(255) default NULL,
   `defSize` varchar(255) default NULL,
   `passTime` int(11) default NULL,
   `salt` varchar(255) default NULL,
-  `styleid` smallint(6) default NULL,
+  `styleid` int(11) default NULL,
   `toolbar` tinyint(1) default NULL,
   `allowHtml` tinyint(1) default NULL,
   `banSig` tinyint(1) default NULL,
@@ -1480,7 +1480,7 @@ CREATE TABLE `userinfo` (
   `receivePmEmail` tinyint(1) default NULL,
   `receivePmAlert` tinyint(1) default NULL,
   `displayOrder` varchar(255) NOT NULL default 'ASC',
-  `postsPerPage` smallint(6) default NULL,
+  `postsPerPage` int(11) default NULL,
   `threadViewAge` int(11) default NULL,
   `password` varchar(255) default NULL,
   `defAuto` tinyint(1) default NULL,
@@ -1515,12 +1515,12 @@ CREATE TABLE `userinfo` (
 -- 
 
 CREATE TABLE `userinfo_ban` (
-  `banid` smallint(5) unsigned NOT NULL auto_increment,
-  `userid` mediumint(9) default NULL,
-  `usergroupid` smallint(6) default NULL,
+  `banid` int(11) unsigned NOT NULL auto_increment,
+  `userid` int(11) default NULL,
+  `usergroupid` int(11) default NULL,
   `banLength` int(11) default NULL,
   `banStart` int(11) default NULL,
-  `previousGroupId` smallint(6) default NULL,
+  `previousGroupId` int(11) default NULL,
   PRIMARY KEY  (`banid`),
   KEY `userid` (`userid`),
   KEY `usergroupid` (`usergroupid`)
@@ -1538,7 +1538,7 @@ CREATE TABLE `userinfo_ban` (
 -- 
 
 CREATE TABLE `userinfo_pro` (
-  `user_id` mediumint(8) unsigned NOT NULL default '0',
+  `user_id` int(11) unsigned NOT NULL default '0',
   `profile2` text,
   `profile3` text,
   `profile4` text,
@@ -1560,9 +1560,9 @@ CREATE TABLE `userinfo_pro` (
 -- 
 
 CREATE TABLE `usertitles` (
-  `titleid` smallint(5) unsigned NOT NULL auto_increment,
+  `titleid` int(11) unsigned NOT NULL auto_increment,
   `title` varchar(255) default NULL,
-  `minposts` mediumint(9) default NULL,
+  `minposts` int(11) default NULL,
   PRIMARY KEY  (`titleid`)
 );
 
@@ -1581,11 +1581,11 @@ INSERT INTO `usertitles` (`titleid`, `title`, `minposts`) VALUES (3, 'Senior Mem
 -- 
 
 CREATE TABLE `warn` (
-  `warnid` smallint(5) unsigned NOT NULL auto_increment,
-  `userid` mediumint(8) unsigned NOT NULL default '0',
-  `typeid` smallint(5) unsigned NOT NULL default '0',
-  `whoWarned` mediumint(8) unsigned NOT NULL default '0',
-  `postid` mediumint(8) unsigned NOT NULL default '0',
+  `warnid` int(11) unsigned NOT NULL auto_increment,
+  `userid` int(11) unsigned NOT NULL default '0',
+  `typeid` int(11) unsigned NOT NULL default '0',
+  `whoWarned` int(11) unsigned NOT NULL default '0',
+  `postid` int(11) unsigned NOT NULL default '0',
   `note` mediumtext,
   `warn_timeline` int(11) default NULL,
   PRIMARY KEY  (`warnid`),
@@ -1607,9 +1607,9 @@ CREATE TABLE `warn` (
 -- 
 
 CREATE TABLE `warn_type` (
-  `typeid` smallint(5) unsigned NOT NULL auto_increment,
+  `typeid` int(11) unsigned NOT NULL auto_increment,
   `title` varchar(255) default NULL,
-  `points` smallint(5) unsigned NOT NULL default '0',
+  `points` int(11) unsigned NOT NULL default '0',
   PRIMARY KEY  (`typeid`)
 );
 
@@ -1625,13 +1625,13 @@ CREATE TABLE `warn_type` (
 -- 
 
 CREATE TABLE `wtcbboptions` (
-  `settingid` mediumint(8) unsigned NOT NULL auto_increment,
+  `settingid` int(11) unsigned NOT NULL auto_increment,
   `settingType` varchar(255) default NULL,
   `value` mediumtext NOT NULL,
   `settingName` varchar(255) default NULL,
   `settingGroup` varchar(255) default NULL,
   `name` varchar(255) default NULL,
-  `displayOrder` smallint(6) default NULL,
+  `displayOrder` int(11) default NULL,
   `hidden` tinyint(1) default NULL,
   PRIMARY KEY  (`settingid`),
   KEY `settingType` (`settingType`)

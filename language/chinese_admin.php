@@ -2191,5 +2191,4 @@ $lang['user_whosOnline_perpage'] = 'Ã¿Ò³:';
 $lang['user_whosOnline_resolve'] = '½âÎöIP:';
 $lang['user_whosOnline_robots'] = '»úÆ÷ÈË';
 $lang['user_whosOnline_user'] = 'ÓÃ»§';
-
-?>
+$lang['admin_nav_users_banIP'] = 'Ban IP';

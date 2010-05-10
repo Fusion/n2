@@ -44,6 +44,10 @@ class Admin extends User {
 			return true;
 		}
 
+		if($this->isSuperAdmin()) {
+			return true;
+		}
+
 		return $this->admin[$section];
 	}
 

@@ -726,4 +726,3 @@ $lang['user_whosOnline_resolve'] = 'Uraikan IP:';
 $lang['user_whosOnline_robots'] = 'Robot2';
 $lang['user_whosOnline_user'] = 'Pengguna';
 
-?>

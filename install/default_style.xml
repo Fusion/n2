@@ -866,6 +866,19 @@ border-style: inset !important;";}]]></template>
         </div>
       </div>
     </div></div>
+
+    <if(!empty($n2chat))>
+      <div class="marCenter smallMarTop"><div class="cont noBordBot">
+        <div class="headFoot border clear">
+          Chat
+        </div>
+      </div></div>
+      <div class="marCenter smallMarBot"><div class="cont">
+        <div class="alt2 border emphasis noBordTop clear">
+          {$n2chat}
+        </div>
+      </div></div>
+    </if>
 ]]></template>
 </fragment>
 

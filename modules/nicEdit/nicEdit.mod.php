@@ -125,6 +125,8 @@ var nicN2Code = bkClass.extend({
 		rp(/<a.*?href="(.*?)".*?>(.*?)<\\/a>/gi,"[url=$1]$2[/url]");
 		rp(/<div style="text-align:(.*?);">(.*?)<\\/div>/gi, "[align=$1]$2[/align]");
 		rp(/<div style="margin-left:(.*?)px;">(.*?)<\\/div>/gi, "[indent=$1]$2[/indent]");
+		rp(/<div><br.*?><\\/div>/g, "\\n");
+		rp(/<div>(.*?)<\\/div>/gi,"\\n$1");
 		rp(/<sub>(.*?)<\\/sub>/gi,"[sub]$1[/sub]");
 		rp(/<sup>(.*?)<\\/sup>/gi,"[sup]$1[/sup]");
 		rp(/<br.*?>/gi,"\\n");

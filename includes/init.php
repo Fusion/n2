@@ -267,7 +267,7 @@ if($modules['L']) {
 		require SCRIPT_HOME . $module['path'];
 	}
 }
-if($modules['L']) {
+if($modules['W']) {
 	foreach($modules['W'] as $module) {
 		/** @see #SCRIPT_HOME */
 		require SCRIPT_HOME . $module['path'];

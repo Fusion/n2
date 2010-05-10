@@ -26,6 +26,9 @@ function displayErrorScreen($type, $message, $file, $line, $context = false)
 	if(0 == (error_reporting() & $type))
 		return;
 
+	global $disable_autoload;
+	$disable_autoload = true;
+
 	@ob_end_clean(); // get rid of any half-parsed page
 
 	// Fix for exceptions
@@ -91,12 +94,19 @@ function displayErrorScreen($type, $message, $file, $line, $context = false)
 		$s3 = ''; $comma = '';
 		for($j=0; $j<count($backTrace[$i]['args']); $j++)
 		{
-			if(0==strlen($backTrace[$i]['args'][$j]))
-				$s3 .= '""';
-			else if(is_numeric($backTrace[$i]['args'][$j]))
-				$s3 .= $comma.$backTrace[$i]['args'][$j];
+			if(method_exists($backTrace[$i]['args'][$j], '__toString'))
+			{
+				if(0==strlen($backTrace[$i]['args'][$j]))
+					$s3 .= '""';
+				else if(is_numeric($backTrace[$i]['args'][$j]))
+					$s3 .= $comma.$backTrace[$i]['args'][$j];
+				else
+					$s3 .= $comma.'"'.$backTrace[$i]['args'][$j].'"';
+			}
 			else
-				$s3 .= $comma.'"'.$backTrace[$i]['args'][$j].'"';
+			{
+				$s3 .= $comma.'['.get_class($backTrace[$i]['args'][$j]).']';
+			}
 			$comma = ', ';
 		}
 		if(empty($backTrace[$i]['file']))

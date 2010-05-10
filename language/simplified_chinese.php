@@ -697,4 +697,3 @@ $lang['user_whosOnline_resolve'] = '解析IP:';
 $lang['user_whosOnline_robots'] = '机器人';
 $lang['user_whosOnline_user'] = '用户';
 
-?>

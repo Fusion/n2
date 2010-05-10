@@ -1380,6 +1380,46 @@ $query['admin']['insert_lang'] = 'INSERT INTO ' . WTC_TP . 'lang (name) VALUES (
 
 $query['admin']['update_lang'] = 'UPDATE ' . WTC_TP . 'lang SET name = \'?\' WHERE langid = \'?\'';
 
+$query['admin_import']['get_groups_maxid'] = 'SELECT MAX(usergroupid) as m FROM ' . WTC_TP . 'usergroups';
+
+$query['admin_import']['import_group'] = 'INSERT INTO ' . WTC_TP . 'usergroups (usergroupid, title, admin, global) VALUES(\'?\', \'?\', \'?\', \'?\')';
+
+$query['admin_import']['read_default_group'] = 'SELECT * FROM ' . WTC_TP . 'usergroups WHERE usergroupid=4';
+
+$query['admin_import']['get_users_maxid'] = 'SELECT MAX(userid) as m FROM ' . WTC_TP . 'userinfo';
+
+$query['admin_import']['import_user'] = 'INSERT INTO ' . WTC_TP . 'userinfo (oldPass, userid, username, usergroupid, password, joined, birthday, email, avatar, lastactivity, lastvisit, posts, aim, msn, yahoo, icq, location, homepage, interests, sig) VALUES(1, \'?\', \'?\', \'?\', \'?\', \'?\', \'?\', \'?\', \'?\', \'?\', \'?\', \'?\', \'?\', \'?\', \'?\', \'?\', \'?\', \'?\', \'?\', \'?\', \'?\')';
+
+$query['admin_import']['import_user_w_groups'] = 'INSERT INTO ' . WTC_TP . 'userinfo (userid, username, usergroupid, password, joined, birthday, email, avatar, lastactivity, lastvisit, posts, aim, msn, yahoo, icq, location, homepage, interests, sig, secgroupids) VALUES(\'?\', \'?\', \'?\', \'?\', \'?\', \'?\', \'?\', \'?\', \'?\', \'?\', \'?\', \'?\', \'?\', \'?\', \'?\', \'?\', \'?\', \'?\', \'?\', \'?\', \'?\')';
+
+$query['admin_import']['get_categories_maxid'] = 'SELECT MAX(forumid) as m FROM ' . WTC_TP . 'forums WHERE parent=-1';
+
+$query['admin_import']['import_category'] = 'INSERT INTO ' . WTC_TP . 'forums (isAct, isCat, parent, depth, forumid, name, description, disOrder, threads, posts, last_reply_threadid, last_reply_threadtitle, last_reply_date, last_reply_userid, last_reply_username) VALUES(1, 1, \'?\', \'?\', \'?\', \'?\', \'?\', \'?\', \'?\', \'?\', \'?\', \'?\', \'?\', \'?\', \'?\')';
+
+$query['admin_import']['get_forums_maxid'] = 'SELECT MAX(forumid) as m FROM ' . WTC_TP . 'forums WHERE parent!=-1';
+
+$query['admin_import']['import_forum'] = 'INSERT INTO ' . WTC_TP . 'forums (isAct, isCat, parent, depth, forumid, name, description, disOrder, threads, posts, last_reply_threadid, last_reply_threadtitle, last_reply_date, last_reply_userid, last_reply_username) VALUES(1, 0, \'?\', \'?\', \'?\', \'?\', \'?\', \'?\', \'?\', \'?\', \'?\', \'?\', \'?\', \'?\', \'?\')';
+
+$query['admin_import']['reread_categories_and_forums'] = 'SELECT * FROM ' . WTC_TP . 'forums';
+
+$query['admin_import']['rewrite_category_subs'] = 'UPDATE ' . WTC_TP . 'forums SET directSubs = \'?\' WHERE forumid = \'?\'';
+
+$query['admin_import']['get_topics_maxid'] = 'SELECT MAX(threadid) as m FROM ' . WTC_TP . 'threads';
+
+$query['admin_import']['import_topic'] = 'INSERT INTO ' . WTC_TP . 'threads (threadid, forumid, name, descript, madeby, last_reply_userid, thread_timeline, last_reply_date, replies, views, threadUsername, last_reply_username, sticky, poll) VALUES(\'?\', \'?\', \'?\', \'?\', \'?\', \'?\', \'?\', \'?\', \'?\', \'?\', \'?\', \'?\', \'?\', \'?\')';
+
+$query['admin_import']['get_posts_maxid'] = 'SELECT MAX(postid) as m FROM ' . WTC_TP . 'posts';
+
+$query['admin_import']['import_post'] = 'INSERT INTO ' . WTC_TP . 'posts (deleted, sig, smilies, bbcode, defBBCode, postid, threadid, forumid, title, message, posts_timeline, postby, postUserName, edited_by, posticon, ip_address) VALUES(0, 1, 1, 1, 0, \'?\', \'?\', \'?\', \'?\', \'?\', \'?\', \'?\', \'?\', \'?\', \'?\', \'?\')';
+
+$query['admin_import']['get_pm_convo_maxid'] = 'SELECT MAX(convoid) as m FROM ' . WTC_TP . 'personal_convo';
+$query['admin_import']['get_pm_msg_maxid'] = 'SELECT MAX(messageid) as m FROM ' . WTC_TP . 'personal_msg';
+$query['admin_import']['get_pm_data_maxid'] = 'SELECT MAX(convodataid) as m FROM ' . WTC_TP . 'personal_convodata';
+
+$query['admin_import']['import_pm_convo'] = 'INSERT INTO ' . WTC_TP . 'personal_convo (convoid, title, convoTimeLine, last_reply_date, last_reply_username, last_reply_userid, last_reply_messageid, messages) VALUES(\'?\', \'?\', \'?\', \'?\', \'?\', \'?\', \'?\', \'?\')';
+$query['admin_import']['import_pm_msg'] = 'INSERT INTO ' . WTC_TP . 'personal_msg(messageid, convoid, title, userid, message, ip_address, msg_timeline, readby, pmHash, sig, smilies, bbcode) VALUES(\'?\', \'?\', \'?\', \'?\', \'?\', \'?\', \'?\', \'?\', \'?\', \'?\', \'?\', \'?\')';
+$query['admin_import']['import_pm_data'] = 'INSERT INTO ' . WTC_TP . 'personal_convodata(convoid, userid, folderid, lastRead, hasAlert, username) VALUES(\'?\', \'?\', \'?\', \'?\', \'?\', \'?\')';
+
 // ##### DYNAMIC OPTIONS QUERIES ##### \\
 $query ['options']['get'] = 'SELECT * FROM ' . WTC_TP . 'wtcbboptions WHERE settingName=\'?\'';
 

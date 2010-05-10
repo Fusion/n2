@@ -2215,5 +2215,4 @@ $lang['user_whosOnline_perpage'] = 'Per Halaman:';
 $lang['user_whosOnline_resolve'] = 'Uraikan IP:';
 $lang['user_whosOnline_robots'] = 'Robots';
 $lang['user_whosOnline_user'] = 'User';
-
-?>
+$lang['admin_nav_users_banIP'] = 'Ban IP';
