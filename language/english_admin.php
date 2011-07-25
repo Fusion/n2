@@ -2196,4 +2196,9 @@ $lang['user_whosOnline_perpage'] = 'Per Page:';
 $lang['user_whosOnline_resolve'] = 'Resolve IP:';
 $lang['user_whosOnline_robots'] = 'Robots';
 $lang['user_whosOnline_user'] = 'User';
-$lang['admin_nav_users_banIP'] = 'Ban IP';
+$lang['admin_nav_users_banIP'] = 'Ban IP Addresses';
+
+$lang['admin_users_banip'] = 'Ban IP Addresses';
+$lang['admin_users_editBanip'] = 'Banned IP addresses';
+$lang['admin_users_banip_username'] = 'Enter IP Addresses';
+$lang['admin_users_banip_username_desc'] = 'One address per line; or paste a list of addresses';

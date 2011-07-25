@@ -1,22 +1,18 @@
 /**
- * CSS For Style: wtcBB Default
+ * CSS For Style: n2
  * Style ID: 1
  */
 
 body {
-	background: #577899;
+	background: #284571;
 	color: #fff;
 	font-family: verdana, sans-serif;
-	font-size: 80%;
+	font-size: 12px;
 }
 
 	body a {
-		color: #dfdcdf;
-		font-weight: bold;
-		text-decoration: underline;
-	}
-
-	body a:visited {
+		color: #A9D2EA;
+		text-decoration: none;
 	}
 
 	body a:hover {
@@ -25,15 +21,14 @@ body {
 
 .page {
 	background: #fff;
-	color: #282828;
+	color: #000;
+	font-size: 12px;
 	margin: 10px 20px;	border-style: inset !important;
 }
 
 	.page a {
-		color: #59798c;
-	}
-
-	.page a:visited {
+		color: #A9D2EA;
+		text-decoration: none;
 	}
 
 	.page a:hover {
@@ -48,18 +43,10 @@ body {
 	font-weight: bold;
 }
 
-	.button a {
-	}
-
-	.button a:visited {
-	}
-
-	.button a:hover {
-	}
-
 .cat {
-	background: #fbe286 url(./../images/wtcBB-Default/headBg.jpg) repeat-x;
+	background: #28436E url(./../images/wtcBB-Default/cat_bgnd.gif) repeat-x;
 	color: #fff;
+	font-size: 12px;
 	font-weight: bold;
 	padding: 6px;
 }
@@ -68,42 +55,34 @@ body {
 		color: #fff;
 	}
 
-	.cat a:visited {
-	}
-
 	.cat a:hover {
 		color: #fbe286;
 	}
 
 .alt1 {
-	background: #f8f5f8;
+	background: #EBF0F7;
+	color: #000;
+	font-size: 12px;
 }
 
 	.alt1 a {
-	}
-
-	.alt1 a:visited {
-	}
-
-	.alt1 a:hover {
+		color: #4C7799;
 	}
 
 .alt2 {
-	background: #fff;
+	background: #F5F6F6;
+	color: #000;
+	font-size: 12px;
 }
 
 	.alt2 a {
-	}
-
-	.alt2 a:visited {
-	}
-
-	.alt2 a:hover {
+		color: #4C7799;
 	}
 
 th, .headFoot {
-	background: #537495 url(./../images/wtcBB-Default/navbg.jpg) repeat-x;
+	background: #28436E url(./../images/wtcBB-Default/cat_bgnd.gif) repeat-x;
 	color: #fff;
+	font-size: 12px;
 	font-weight: bold;
 	padding: 4px !important;	text-align: center;
 }
@@ -112,23 +91,8 @@ th, .headFoot {
 		color: #fff;
 	}
 
-	th a:visited, .headFoot a:visited {
-	}
-
 	th a:hover, .headFoot a:hover {
 		color: #fbe286;
-	}
-
-.noText {
-}
-
-	.noText a {
-	}
-
-	.noText a:visited {
-	}
-
-	.noText a:hover {
 	}
 
 select {
@@ -137,27 +101,9 @@ select {
 	font-weight: normal;
 }
 
-	select a {
-	}
-
-	select a:visited {
-	}
-
-	select a:hover {
-	}
-
 .small {
-	font-size: 85%;
+	font-size: 10px;
 }
-
-	.small a {
-	}
-
-	.small a:visited {
-	}
-
-	.small a:hover {
-	}
 
 input.text, textarea {
 	color: #000;
@@ -166,25 +112,19 @@ input.text, textarea {
 	padding: 2px;
 }
 
-	input.text a, textarea a {
-	}
-
-	input.text a:visited, textarea a:visited {
-	}
-
-	input.text a:hover, textarea a:hover {
-	}
-
 .time {
 	color: #577899;
-	font-size: 85%;
+	font-size: 10px;
 }
 
-	.time a {
-	}
+.topBarAction, .topBarInfo {
+  background: #F1F2F2;
+  border-bottom: 2px solid #E5E6E6;
+  border-right: 1px solid #E5E6E6;
+}
 
-	.time a:visited {
-	}
-
-	.time a:hover {
-	}
+.bottomBarAction, .bottomBarInfo {
+  background: #F1F2F2;
+  border-top: 2px solid #E5E6E6;
+  border-right: 1px solid #E5E6E6;
+}

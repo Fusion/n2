@@ -73,7 +73,7 @@ def addstr():
 		else:
 			display_usage("Admin parameter should be absent or 'admin'")
 			sys.exit(-2)
-	new_str = "$lang['%s'] = '%s';" % (str_key, str_val)
+	new_str = "\n$lang['%s'] = '%s';" % (str_key, str_val)
 	print "Creating new dictionary entry:\n%s\n" % new_str
 	for x in ['chinese', 'english', 'indonesian', 'simplified_chinese']:
 		curfile = __PATH__ + 'language/' + x + suffix + '.php'

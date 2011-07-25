@@ -171,6 +171,7 @@ if($User->canAdmin('users')) {
 								$lang['admin_nav_users_pruneMove'] => 'admin.php?file=user&amp;do=pruneMove',
 								$lang['admin_nav_users_mergeUsers'] => 'admin.php?file=user&amp;do=merge',
 								$lang['admin_nav_users_banUser'] => 'admin.php?file=user&amp;do=ban',
+								$lang['admin_nav_users_banIP'] => 'admin.php?file=user&amp;do=banip',
 								$lang['admin_nav_users_viewBannedUsers'] => 'admin.php?file=user&amp;do=viewBanned',
 								$lang['admin_nav_users_massEmail'] => 'admin.php?file=user&amp;do=search&amp;go=email'
 							), true);

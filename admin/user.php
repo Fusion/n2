@@ -659,6 +659,64 @@ else if($_GET['do'] == 'ban' OR isset($_GET['banEdit'])) {
 	new AdminHTML('footer', '', true);
 }
 
+else if($_GET['do'] == 'banip' OR isset($_GET['banipEdit'])) {
+	if($_POST['formSet']) {
+		// Validate ips
+		$bips = explode("\n", $_POST['bannedips']);
+		$fips = '';
+		foreach($bips as $bip) {
+			$bip = trim($bip, " \r\n\t");
+			if(!empty($bip)) {
+				if($bip{0} != '#') {
+					$tip = '#Invalid: ' . $bip; // If bad, then commented out
+				}
+				else {
+					$tip = $bip;
+				}
+				list($ip, $mask) = explode('/', $bip);
+				if(long2ip(ip2long($ip)) == $ip) {
+					if(!empty($mask)) {
+						$m = intval($mask);
+						if($m>=1 && $m<=32) {
+							$tip = $bip;
+						}
+					}
+					else {
+						$tip = $bip;
+					}
+				}
+				if($fips != '') {
+					$fips .= "\n";
+				}
+				$fips .= $tip;
+			}
+		}
+
+		new Query($query['admin']['options_update_withName'], Array(
+				1 => $fips,
+				2 => 'bannedips'
+			), 'unbuffered');
+
+		new Cache('BBOptions');
+
+		new WtcBBThanks($lang['admin_thanks_msg'], 'admin.php?file=user&amp;do=banip');
+	}
+	$editinfo = Array(
+				'bannedips' => $bboptions['bannedips']
+			);
+	new AdminHTML('header', $lang['admin_users_banip'], true);
+	new AdminHTML('tableBegin', $lang['admin_users_editBanip'], true, Array('form' => true));
+	new AdminHTML('tableRow', Array(
+								'title' => $lang['admin_users_banip_username'],
+								'desc' => $lang['admin_users_banip_username_desc'],
+								'type' => 'textarea',
+								'name' => 'bannedips',
+								'value' => $editinfo['bannedips']
+								), true);
+	new AdminHTML('tableEnd', '', true, Array('form' => true));
+	new AdminHTML('footer', '', true);
+}
+
 // just a quick redirect
 else if(isset($_GET['block'])) {
 	new Redirect('admin.php?file=forum&do=block&u=' . $_GET['block']);

@@ -58,6 +58,10 @@ margin-bottom: 5px;
     width: 150px;
     }
 
+    .postbit .pbPrefixInfo {
+    width: 50px;
+    }
+
         .postbit .pbMessage .goUp {
         margin: -4px 0 0 0;
         }
@@ -82,7 +86,7 @@ margin-bottom: 5px;
           }
 
             .postbit .pbMessage .attachments ul li {
-            background: url(./../images/wtcBB-Default/attachIcon.gif) no-repeat 0 60%;
+            background: url(././labs/wtcbb/test/images/wtcBB-Default/attachIcon.gif) no-repeat 0 60%;
             padding-left: 15px;
             margin-bottom: 7px;
             }
@@ -174,7 +178,7 @@ margin-bottom: 7px;
 }
 
 .page {
-border: 1px solid #59798c;
+border: 1px solid #00417f;
 padding: 6px;
 width: 95%;
 margin: 10px auto 0 auto;
@@ -204,10 +208,10 @@ background: transparent;
     }
 
 table {
-border: 1px solid #59798c;
+border: 1px solid #00417f;
 width: 95%;
 margin: 2.5px auto;
-background: #ccc;
+background: #e2e2e2;
 }
 
     * html table {
@@ -243,7 +247,7 @@ padding: 0;
     }
 
 .text, textarea {
-border: 1px solid #59798c;
+border: 1px solid #00417f;
 }
 
     textarea {
@@ -265,7 +269,7 @@ border: 1px solid #59798c;
     }
 
 .button {
-border: 1px solid #59798c;
+border: 1px solid #00417f;
 }
 
 td.footer .button, .cat .button, th .button {
@@ -278,7 +282,7 @@ margin: -2px 0 -1px 0;
   }
 
 div.cat {
-border: 1px solid #59798c;
+border: 1px solid #00417f;
 }
 
 /* Login Box */
@@ -344,7 +348,7 @@ div.quote {
   }
 
   div.quote div.quoted {
-  border: 1px solid #59798c;
+  border: 1px solid #00417f;
   margin: 2px 0 0 0;
   padding: 6px;
   }
@@ -361,7 +365,7 @@ margin: 0 auto;
 }
 
     .marCenter .cont {
-    border: 1px solid #59798c;
+    border: 1px solid #00417f;
     }
 
     html > body .marCenter .cont {
@@ -374,7 +378,7 @@ margin: 0 auto;
 
         .marCenter .cont .border {
         padding: 6px;
-        border: 1px solid #ccc;
+        border: 1px solid #e2e2e2;
         }
 
 .noPad {
@@ -398,27 +402,27 @@ margin: 8px 0;
 }
 
 .bord2 {
-border: 1px solid #59798c;
+border: 1px solid #00417f;
 }
 
 .bord {
-border: 1px solid #ccc;
+border: 1px solid #e2e2e2;
 }
 
   .bordLeft {
-  border-left: 1px solid #ccc;
+  border-left: 1px solid #e2e2e2;
   }
 
   .bordRight {
-  border-right: 1px solid #ccc;
+  border-right: 1px solid #e2e2e2;
   }
 
   .bordBot {
-  border-bottom: 1px solid #ccc;
+  border-bottom: 1px solid #e2e2e2;
   }
 
   .bordTop {
-  border-top: 1px solid #ccc;
+  border-top: 1px solid #e2e2e2;
   }
 
 .noBordTop {
